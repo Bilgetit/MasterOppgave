@@ -1,0 +1,70 @@
+\chapter{Background}
+\label{background}
+
+\section{Notation}
+\subsection{Mathematical typography}
+Presenting mathematics in a text is quite technical and requires lots of \LaTeX\; code. The first thing you must be aware of is that all mathematics must be placed in math mode to get the correct font. There is a huge difference between $n$ (mathematical symbol) and n (letter). Letters in math mode will always be in math font, so you must specify text: $x=2 and x=3$ is a typical error, but either split it in two math modes $x=2$ and $x=3$ or add text inside $x=2 \text{ and } x=3$. 
+
+Please note that mathematics should be included as part of a sentence. It could be inline, like $x=2$, but then you must avoid line breaks inside the expression. If a mathematical expression is too tall or long for a single line, or it should stand out, it should be displayed centered on a separate line. For instance we have, using the equation environment, that
+\begin{equation*}
+    \iint_D \dd x \diff y
+    =
+    \int_0^{2\pi} \int_0^t \rho \diff \rho \diff t
+    =
+    \frac{4}{3} \pi^3,
+    \label{eq:integration}
+\end{equation*}
+which could also be written in display style as 
+\[\iint_D \dd x \diff y
+    =
+    \int_0^{2\pi} \int_0^t \rho \diff \rho \diff t
+    =
+    \frac{4}{3} \pi^3.\]
+Notice the differential in \cref{eq:integration} typed with the command \texttt{\textbackslash diff}. You can cleverly refer to your equation with \texttt{\textbackslash cref}: \cref{{eq:integration}} or \texttt{\textbackslash vref}: \vref{{eq:integration}} to get the page number if it is on a different page.
+
+\subsection{Using symbols}
+ There are two golden rules that applies to the use of symbols in text.
+\begin{enumerate}
+    \item Don’t introduce unnecessary symbols
+    \item Define all symbols in the text before they are used
+\end{enumerate}
+
+There are three typical mistakes that are made all the time - even experienced researchers do this, and it could quickly escalate into a nightmare if you don't notice it early in the process.
+  \begin{itemize}
+      \item One thing is referred to by two different symbols
+        \item One symbol means two things
+    \item Breaking the golden rules
+  \end{itemize}
+
+When you choose notation, please follow standards in your field.
+
+
+
+
+
+
+
+
+
+\section{Data management plan}
+Do you have research data? The answer is always \enquote{yes}, even if you don't have the typical spread sheet with numbers. Everything you produce, from notes, lab journal, \LaTeX, code, figures, images etc. are examples of data. Before you start your project, you should make a plan for all this. Which kinds of data do you expect, how do you plan to store them during and after your project, can they be reused by your research group after you finish etc.?  
+
+\section{Theory}
+We now state a theorem from {\cite{AM69}} that has a name and will be used later on. In the code, notice the braces around the precise citation inside the theorem environment.
+\begin{theorem}[Dedekind's theorem {\cite[95]{AM69}}]
+    \label{thm:dedekind}
+    Let \( A \) be a Noetherian domain of dimension one. Then the following are equivalent:
+    \begin{enumerate}[leftmargin=30pt] %%Bug: something is wrong with enumerate inside theorem-environment.
+        \item \( A \) is integrally closed;
+        \item Every primary ideal in \( A \) is a prime power;
+        \item Every local ring \( A_\mathfrak{p} \) \( (\mathfrak{p} \neq 0) \) is a discrete valuation ring.
+    \end{enumerate}
+\end{theorem}
+\noindent Notice that the text is in italics in the theorem environment. Sometimes it is convenient to use the command \texttt{\textbackslash noindent} to remove the paragraph indentation immediately after an environment.
+\begin{proof}
+This is what a proof environment looks like. Notice the square $\square$ that marks the end of the proof. You may change this symbol, but stick to standards, e.g., \enquote{QED} or $\blacksquare$.
+\end{proof}
+
+We could have talked about \emph{Fermat's last theorem} and cited \cite[Theorem~1.1]{Wil93}. Then we want to cite \cite{Vie08}, which shows that different values of \texttt{sorting} in numeric styles in \texttt{biblatex} gives citations numbers in order of appearance or alphabetic.
+
+

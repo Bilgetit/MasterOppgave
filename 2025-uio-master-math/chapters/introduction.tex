@@ -1,0 +1,94 @@
+\chapter{Introduction}
+\label{intro}
+
+\section{Start with a bang}
+The introduction is very important in your text because this is where you introduce your research question, put it into context, set the tone of the thesis and usually where a substantial amount of notation and theoretical background is discussed. There will be more of the latter in the background chapter.
+
+Expect to write the introduction several times; early on to get an overview and the last thing you do to ensure that the story in your thesis is coherent.
+
+It is a good idea to start your work by writing the introduction to get more familiar with your topic, the existing research on the topic, and manage citations. Use the sources that you get from your supervisor as a starting point, try to find more literature by reference hunting backwards and forwards in time with a scientific database like \hyperlink{https://mathscinet.ams.org/}{MathSciNet} or \hyperlink{https://zbmath.org/}{zbMATH}, or even \hyperlink{https://scholar.google.com/}{Google Scholar}. Once you have a decent overview of the relevant research, check if tools like \hyperlink{https://www.connectedpapers.com/}{Connected Papers} \footnote{Please note that tools like Connected Papers must be used with caution and a critical eye, but sometimes they can be of help.} can help you find even more.
+
+Most introductions are written according to the \enquote{and-but-therefore}-principle. Following this recipe - at least for some paragraphs - is an easy way to produce a paragraph/text that is easy to read, engaging and direct to the point.
+
+Once you have finished writing the other chapters, you have to go back and rewrite the introduction to ensure that the introduction actually fits the thesis' structure and introduces the necessary background, notation and correct research question - it tends to change over time.
+
+\section{Research question}
+Make sure that you spend time on formulating the research question as precisely as possible. Make it stand out, but avoid descriptive adjectives that are not followed by an argument! Never write \enquote{important, beautiful, interesting, cool, nice etc.} without more information. The sentence \enquote{Here is my very important research question.} is just pointless if you don't explain why.
+\begin{question}
+    My main research question is (...). 
+\end{question}
+
+\subsection{Citations and reference management}
+The introduction should point to research leading up to your research question. This means that there will be citations here. Citations and reference management are set up with Biber and the package BibLaTeX, a modern version of BibTeX. There are several options that can be tweaked for this package to make the citations and reference list appear as required in your subfield.
+
+The most used reference styles in mathematical subjects are \emph{alphabetic}, \emph{authoryear} and \emph{numeric}. Alphabetic has the advantage that it produces a unique and permanent identifier for the citation that can be produced with \texttt{\textbackslash cite}. For authoryear, please use \texttt{\textbackslash parencite} or parenthesis around the citation. For numeric, the numbering may be sorted alphabetically or in order of appearance.
+
+The metadata that can indentify an article or book that you cite are coded in a so-called \enquote{bibitem}, that you can download directly from most databases, preferably standardized (\hyperlink{https://mathscinet.ams.org/}{MathSciNet} or \hyperlink{https://zbmath.org/}{zbMATH}). The bibitems are then collected in the .bib-file. If you're a pro and use the reference manager \hyperlink{https://www.zotero.org/}{Zotero}, you can export a .bib-file directly from your library. Please note that the meta-data are not better than the file they are from, so if you use Zotero (or any non-standard database) you must manually quality check and update your bibitems.
+
+To be able to refer back to it, every bibitem must have a cite key, preferably one that you rememeber. Because of the package \texttt{Showkeys}, you may freely choose the cite key. However, it is a good idea to save time and working memory - at least during the draft phase of your work - to use the style alphabetic and use the output as cite key.
+
+As in all other fields of science, proper citation and reference management is expected. If a candidate fails to follow the rules, he or she may be accused of plagiarism, cheating or similar, which has huge consequences.
+
+The following is a non-complete list of citation guidelines that apply to mathematics and statistics. This list is based on Kowalski's excellent online note \hyperlink{https://web.williams.edu/Mathematics/sjmiller/public_html/mathematical_citation_guidelines.pdf}{Citation Guidelines in Mathematics} and Krantz' book \parencite{Kra17}.
+\begin{itemize}
+    \item Give credit to the person behind the idea!
+    \item All your claims must be verified either by a mathematical argument or a citation. 
+    \item Citations appear at the beginning of paragraphs, end of sentences, before or in parenthesis next to a result.
+       \item All items in your reference list must have a corresponding citation in the text! There is a surjective function there.
+    \item Due to the need to merge notation or change the level of a result that is cited, a citation is very rarely a direct quotation with quotation marks in mathematics.
+    \item Use primary sources as much as you can.
+    \item It is custom to cite textbooks, and not necessarily primary sources, for well known results.
+    \item Some results are so well known that they do not need a citation at all, but are refered to by name, f.ex. Pythagoras' theorem. 
+    \item If you cite a specific result by someone, add environment and number to the citation: \texttt{\textbackslash cite[Theorem 1.1]\{citekey\}}. Or add page number(s): \texttt{\textbackslash cite[10]\{citekey\}} or \texttt{\textbackslash cite[10--20]\{citekey\}}; this will automatically produce the correct \enquote{p.} or \enquote{pp.} in the citation: \cite[Theorem~1.1]{Kra17}, \cite[10]{Kra17} and \cite[10--20]{Kra17}.
+    \item Conversely, if you don't add a citation to a specific result, it is expected that you provide a proof and that it is your own.
+    \item If you build your research on someone's work and only tweak some assumptions, then specify this in the text with a citation and explicitly state the changes that you make. 
+     \item It is OK to cite or refer to an entire article as background material, but if you use specific results you must cite these as above. Never ever copy the structure of someone else's text.
+    \item Do not cite friends, supervisors or famous researchers unless you actually use their research; a citation must serve a purpose.
+\end{itemize}
+
+
+
+
+\section{Outline}
+
+The rest of the text is organised as follows. This is an example of a description list; see more lists in \cref{discussion} and \vref{tab14}.
+
+\cref{intro} consists of an interesting introduction. Zooming in on your research question, taking history into account and clarify what your problem is. You could consider calling this a part if you have multiple result parts in your thesis. It ends with an outline and this is also a good place to place a declaration of AI, but the latter might be placed elsewhere in the thesis.
+
+\cref{background} is all about the theoretical background, methods and notation. Don't forget a description of data. 
+
+\cref{results} is all about your results. It could be theorems and proofs, it could be applications, it could be examples.
+
+\cref{discussion} is more about your results; in subjects that follow the IMRaD-structure, it is known as \enquote{discussion}. Put your results in context. Expand, explain and compare. Weaknesses and strengths of your results. Synergy effects from your results?  Perhaps this chapter is not not relevant for you.
+
+\cref{conc} is your fabulous conclusion. Summing up what you have done. Focus on your contribution and repeat how your results make the world a better place. Point to future reseach.
+
+After the chapters, please print your reference list. This list must include references to all citations in the text, but no more. 
+
+New from 2024 is that if you have used AI in any way, this should be decleared in a separate environment, and precise information about the tools used should appear in the reference list.
+
+ At the end of the thesis, you include short appendices with code, pseudocode, large tables, more examples or figures. See \cref{sec:first-app} and \cref{sec:second-app}. If the length of your appendices is disproportional to the length of your text, consider making it available online with a permanent DOI (Digital Object Identifier), e.g., online repositories like GitHub, Zenodo etc. This will help your future readers and your research group build on your work.
+
+\section{Statement for the use of AI tools}
+The use of AI tools should be declared in a statement. There are different suggestions to how this can be done. 
+
+The first suggestion below is based on a declaration from the publishing house Elsevier, modified by GPTUiO (\cite{uiogpt}). 
+
+\subsection*{Declaration of AI-tools I}
+In the development of this master's thesis, I have utilized the generative artificial intelligence (AI) tools outlined below. I acknowledge full responsibility for all content within this thesis, including sections where AI tools were employed, and for ensuring compliance with the current regulations set by the University of Oslo.
+
+\subsubsection{GPTUiO}
+\begin{description}
+    \item[Name and version] GPTUiO, GPT-4 Omni, see \cite{uiogpt}.
+    \item[Purpose and extent of use] The tool is used to rewrite paragraphs to clarify content in the introduction of this thesis.
+    \item[Prompt or conversation] If you have used AI extensively to generate ideas or text behind your work, which you generally should aviod, please make sure that you add the prompt or conversation in an appendix, see \cref{sec:second-app}, or at GitHub (or equivalent). 
+\end{description}
+
+Another suggesion is the following, also based on a declaration from the publishing house Elsevier, and as of \today\, posted on the UiO web page \url{https://www.mn.uio.no/kurt/english/artificial-intelligence/templates-for-declaration-of-AI-in-assignments.html}.
+
+\subsection*{Declaration of AI-tools II}
+In this scientific work, generative artificial intelligence (AI) has been used. All data and personal information have been processed in accordance with the University of Oslo's regulations, and I, as the author of the document, take full responsibility for its content, claims, and references. An overview of the use of generative AI is provided below.
+
+\subsection*{No AI tools used}
+If you have not used AI tools, please declare the following:\\
+In the development of this master's thesis, I have not used any AI tools. I acknowledge full responsibility for all content within this thesis and for ensuring compliance with the current regulations set by the University of Oslo.

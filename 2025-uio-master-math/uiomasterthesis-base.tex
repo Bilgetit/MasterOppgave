@@ -1,0 +1,67 @@
+%% Expanded template by Karoline Moe (Version from 15.01.2025), based on Martin Helsøs expanded template and Dag Langmyhrs minimal working example.
+
+\documentclass[UKenglish]{uiomasterthesis}  %% ... or norsk or nynorsk or USenglish
+% add option final when you are done
+
+\usepackage[utf8]{inputenc}                 %% ... or latin1
+\usepackage[T1]{url}\urlstyle{sf}
+\usepackage{babel, csquotes, graphicx, textcomp, uiomasterfp, varioref, uiotools, kantlipsum, booktabs}
+\usepackage[backend=biber,
+style=alphabetic, 
+ %sorting=none, % Use only if you use style=numeric and do NOT want the references to be sorted in alphabetic order.
+url=true,
+doi=false,
+maxcitenames=3,
+maxbibnames=3,
+giveninits=true]
+{biblatex} %change style according to traditions in your research group
+\DeclareNameAlias{default}{family-given}  % Reorder authorname to Family, G. from G. Family
+\usepackage[hidelinks, hypertexnames=false]{hyperref}
+
+
+
+
+\title{The title of my thesis}        %% ... or whatever
+\subtitle{Any short subtitle}         %% ... if any
+\author{My Name}                      %% ... or whoever 
+
+\addbibresource{mybib.bib}            %% ... or whatever
+
+\begin{document}
+\uiomasterfp[dept={Department of Mathematics},  %% ... or your department
+  program={Mathematics},                        %% ... or your study program
+  supervisor={The Name},                    %% ... or blank
+  % or supervisors={A Name\and B Name},     %% if more than one
+  long]                                     %% ... or short
+
+\frontmatter{}
+\include{chapters/abstract}
+
+\tableofcontents{}                          %%
+\listoffigures{}                            %% (omit if none)
+\listoftables{}                             %% (omit if none)
+  \include{chapters/preface}
+  % \cleardoublepage %% May need this if longer than one page
+  \include{chapters/acknowledgements}
+  % \cleardoublepage %% May need this if longer than one page
+
+\mainmatter{}
+
+\include{chapters/introduction}
+
+\include{chapters/background}
+\include{chapters/results}
+\include{chapters/discussion}
+
+\include{chapters/conclusion}
+\include{chapters/AIdeclaration}
+ \printbibliography[heading=bibintoc,title={References}]
+
+\backmatter{}
+ \appendix % "Chapter" is renamed "Appendix"
+    \include{chapters/appendixA}
+    \include{chapters/appendixB}
+
+
+
+\end{document}
