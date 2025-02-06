@@ -1,8 +1,7 @@
 %% Identification part:
 
 \NeedsTeXFormat{LaTeX2e}[1994/12/01]
-
-\ProvidesClass{uiomasterfp}[2022/07/27 v1.4 UiO master's thesis front page class]
+\ProvidesPackage{uiomasterfp}[2024/05/02 v1.10 UiO official front page package]
 
 %% Languages:
 
@@ -33,6 +32,10 @@
 \newcommand{\uiomfp@spname@bm}{studiepoeng}
 \newcommand{\uiomfp@spname@nn}{studiepoeng}
 
+\newcommand{\uiomfp@words@eng}{words}
+\newcommand{\uiomfp@words@bm}{ord}
+\newcommand{\uiomfp@words@nn}{ord}
+
 \newcommand{\uiomfp@supervisor@eng}{Supervisor}
 \newcommand{\uiomfp@supervisors@eng}{Supervisors}
 \newcommand{\uiomfp@supervisor@bm}{Veileder}
@@ -47,18 +50,20 @@
 \ExecuteOptions{norsk}
 \ProcessOptions \relax
 
-\RequirePackage{xcolor, eso-pic, graphicx, xifthen, keyval}
+\RequirePackage{color, eso-pic, graphicx, xifthen, keyval}
 \IfFileExists{type1cm.sty}{\RequirePackage{type1cm}}{}
 \IfFileExists{type1ec.sty}{\RequirePackage{type1ec}}{}
 
 %% Colours:
 
-\definecolor{uiomfp@blue}{rgb}{0.525, 0.643, 0.969}
-\definecolor{uiomfp@light@blue}{rgb}{0.957, 0.965, 1.000}
+\definecolor{uiomfp@blue}{rgb}{0.525, 0.642, 0.969}
+\definecolor{uiomfp@light@blue}{rgb}{0.902, 0.925, 1.000}
+\definecolor{uiomfp@orange}{rgb}{0.992, 0.796, 0.529}
+\definecolor{uiomfp@light@orange}{rgb}{1.000, 0.910, 0.831}
 \definecolor{uiomfp@pink}{rgb}{0.984, 0.400, 0.400}
-\definecolor{uiomfp@light@pink}{rgb}{1.000, 0.922, 0.851}
-\definecolor{uiomfp@green}{rgb}{0.180, 0.769, 0.514}
-\definecolor{uiomfp@light@green}{rgb}{0.937, 1.00, 0.965}
+\definecolor{uiomfp@light@pink}{rgb}{0.996, 0.878, 0.878}
+\definecolor{uiomfp@green}{rgb}{0.484, 0.882, 0.671}
+\definecolor{uiomfp@light@green}{rgb}{0.808, 1.00, 0.875}
 \definecolor{uiomfp@gray}{gray}{0.700}
 \definecolor{uiomfp@grey}{gray}{0.700}
 \definecolor{uiomfp@light@gray}{gray}{0.912}
@@ -73,6 +78,7 @@
   \setboolean{uiomfp@compact}{true}%
   \def \uiomfp@kind {\csname uiomfp@bachelor@\uiomfp@lang \endcsname}}
 \define@key{uiomfp@keys}{binding}[24]{\def \uiomfp@bind {#1}}
+\define@key{uiomfp@keys}{colophon}{\def \uiomfp@colophon {#1}}
 \define@key{uiomfp@keys}{color}{\def \uiomfp@color {#1}}
 \define@key{uiomfp@keys}{colour}{\def \uiomfp@color {#1}}
 \define@key{uiomfp@keys}{compact}[true]{\setboolean{uiomfp@compact}{#1}}
@@ -80,6 +86,7 @@
 \define@key{uiomfp@keys}{dept}{\def \uiomfp@dept {#1}}
 \define@key{uiomfp@keys}{fac}{\def \uiomfp@fac {#1}}
 \define@key{uiomfp@keys}{font}{\def \uiomfp@font {#1}}
+\define@key{uiomfp@keys}{image}{\def \uiomfp@image {#1}}
 \define@key{uiomfp@keys}{info}{\def \uiomfp@info {#1}}
 \define@key{uiomfp@keys}{kind}{\def \uiomfp@kind {#1}}
 \define@key{uiomfp@keys}{long}[60]{\def \uiomfp@sp {#1}}
@@ -91,15 +98,19 @@
 \define@key{uiomfp@keys}{supervisor}{\def \uiomfp@supervisor {#1}}
 \define@key{uiomfp@keys}{supervisors}{\def \uiomfp@supervisors {#1}}
 \define@key{uiomfp@keys}{title}{\def \uiomfp@title {#1}}
+\define@key{uiomfp@keys}{words}{\def \uiomfp@words {#1}}
 
+% Default values:
 \def \uiomfp@author {\@author}
 \def \uiomfp@bind {0}
+\def \uiomfp@colophon {}
 \def \uiomfp@color {blue}
 \providecommand{\uiomfp@date}{\uiomfp@term~\uiomfp@year}
 \setboolean{uiomfp@compact}{false}
 \def \uiomfp@dept {\csname uiomfp@dept@\uiomfp@lang \endcsname}
 \def \uiomfp@fac {\csname uiomfp@fac@\uiomfp@lang \endcsname}
 \def \uiomfp@font {helvetica}
+\def \uiomfp@image {}
 \def \uiomfp@info {}
 \def \uiomfp@kind {\csname uiomfp@thesis@\uiomfp@lang \endcsname}
 \providecommand{\uiomfp@program}{}
@@ -107,12 +118,13 @@
 \def \uiomfp@supervisor {}
 \def \uiomfp@supervisors {}
 \def \uiomfp@title {\@title}
+\def \uiomfp@words {}
 
 \AtEndOfPackage{\ifthenelse{\equal{\uiomfp@font}{helvetica}}
   {\RequirePackage[scaled]{helvet}}
   {}}
 
-%% Determine the term (as in "Spring 2022"):
+%% Determine the term (as in "Spring 2024"):
 
 \newcounter{uiomfp@cur@year}   \setcounter{uiomfp@cur@year}{\the\year}
 \newcounter{uiomfp@cur@month}  \setcounter{uiomfp@cur@month}{\the\month}
@@ -145,23 +157,25 @@
   \if@twoside \uiomfp@blankpage \fi
   \ifthenelse{\boolean{uiomfp@compact}}
     {}
-    {\uiomfp@page@iii
-     \if@twoside \uiomfp@blankpage \fi
-    }
+    {\uiomfp@page@iii \uiomfp@colophon@page}
   \setcounter{page}{1}
   \@ifundefined{hypersetup}{}{\hypersetup{pageanchor=true}}
 }}
  
 \newcommand{\uiomfp@page@i}{%
   \begin{titlepage}
-    {\tiny .}  %% An invisible dot so the page is not empty.
+    \phantom{}  %% A zero size box so the page is not empty.
+      %% Thanks to Emil Christopher Gj\o st\o l Str\o msv\aa g
+      %% <ecstroms@ifi.uio.no> for the idea.
     \setlength{\unitlength}{1bp}
-    % Background colours:
+    % Background colours (or image):
     \AddToShipoutPictureBG*{%
       \put(0,0){\color{uiomfp@light@\uiomfp@color}%
         \rule{21cm}{29.7cm}}
-      \put(0,581){\color{uiomfp@\uiomfp@color}%
-        \rule{21cm}{9.27cm}}}
+      \ifthenelse{\equal{\uiomfp@image}{}}{%
+        \put(0,581){\color{uiomfp@\uiomfp@color}%
+          \rule{21cm}{9.27cm}}}{% else
+        \put(0,581){\includegraphics[width=21cm,height=9.27cm]{\uiomfp@image}}}}
     % Add logo:
     \AddToShipoutPictureFG*{%
       \put(\value{uiomfp@bind@w},784){\includegraphics[height=12.8mm]%
@@ -219,22 +233,38 @@
     {\fontsize{\uiomfp@big@size}{25pt}\selectfont \uiomfp@title\par}%
     \vspace{1cm}
     \mbox{}\uiomfp@subtitle\par
-    \vspace{0cm plus 3fill}%
+    \ifthenelse{\equal{\uiomfp@words}{}}
+      {\vspace{0cm plus 3fill}}
+      {\vspace{0cm plus 2fill}
+        \uiomfp@words~\csname uiomfp@words@\uiomfp@lang\endcsname\par
+        \vspace{0cm plus 2fill}}
     \ifthenelse{\equal{\uiomfp@supervisor}{}}{}{%
-      \csname uiomfp@supervisor@\uiomfp@lang\endcsname:\\ \uiomfp@supervisor\par
+      \csname uiomfp@supervisor@\uiomfp@lang\endcsname:\\
+      \mbox{}\uiomfp@supervisor\par
       \vspace{1ex}}
     \ifthenelse{\equal{\uiomfp@supervisors}{}}{}{%
-      \csname uiomfp@supervisors@\uiomfp@lang\endcsname:\\ \uiomfp@supervisors\par
-      \vspace{1ex}}
+      \csname uiomfp@supervisors@\uiomfp@lang\endcsname:\\
+      \mbox{}\uiomfp@supervisors\par
+      \vspace{2ex}}
     \mbox{}\uiomfp@info\par
     \vfill
   \end{titlepage}
 }}
 
+%% The colophon page
+
+\newcommand{\uiomfp@colophon@page}{%
+  \ifthenelse{\equal{\uiomfp@colophon}{}}
+    {\if@twoside \uiomfp@blankpage \fi}
+    {\begin{titlepage}
+        \mbox{}\vfill
+        \raggedright \uiomfp@colophon
+     \end{titlepage}}}
+
 %% Additional commands:
 
-\newcommand{\subtitle}[1]{\def \uiomfp@subtitle{#1}}
-\subtitle{}
+\providecommand{\subtitle}[1]{\def \uiomfp@subtitle{#1}}
+\providecommand{\uiomfp@subtitle}{}
 
 %% Other utilities:
 
