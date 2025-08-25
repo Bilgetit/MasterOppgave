@@ -2,61 +2,69 @@
 -- R = QQ[a..d]
 -- (a+b+c+d)^4
 
-needsPackage "FastMinors";
+noPoints = 4;
+d = 5;
 
--- Step 1: Define the field and projective space
-noPoints = 2;
-d = 8;
-
--- Step 2: Definitions
-
--- define the finite field
 -- kk = ZZ/101; 
 kk = ZZ/32749;
 
--- Define projective 3-space (for example, P^3) over k
--- P3 = Proj(kk[x_0..x_2]);
--- R = ring P3;
-RingP3 = kk[x_0..x_2];
+RingP3 = kk[x_0..x_3];
 
--- Step 3: Pick random points, and construct lines through the points
+-- Pick noPoints random points in P^3
+-- myPoints = {{1,0,0,0}, {0,1,0,0}};
+myPoints = apply(noPoints, i -> (
+    v := for j in 0..3 list random(kk);
+    -- Ensure the point is not the zero vector
+    while all(v, x -> x == 0) do (
+        v = for j in 0..3 list random(kk)
+    );
+    v
+));
 
--- Pick 4 random points in P^3
-points = apply(noPoints, i ->  random(RingP3^1, RingP3^{-1}));
+-- idealOfPoint = myPoint -> ideal (for i in 0..((length myPoint)-1) list x_i - myPoint#i);
+-- myPoints = for i in 0..((length myPoints)-1) list idealOfPoint myPoints#i;
+-- pointsIdeal = intersect myPoints;
 
--- Generate all unordered pairs of points
+-- M = matrix {{x_0 .. x_3}, myPoints#0, myPoints#1};
+pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
+
+subsequentPairs = for i from 0 to (#myPoints - 2) list {myPoints#i, myPoints#(i+1)};
+
+pointPairs = apply(subsequentPairs, pointsMatrix);
+
+LineFromPoints = pointsMatrix -> minors(3, pointsMatrix);
+
+allLines = apply(pointPairs, LineFromPoints);
+
+-- idealLine = minors(3,M);
+-- mingens idealLine
+
+
+-- Generate all ordered pairs of points
 -- TODO: This gives lines between all points, we only want "edges"
-pointPairs = subsets(points, 2);
-
-
--- -- Alt: Try Eckhardt point construction
-
--- -- Pick a fixed point in P^3
--- P0 = random(R^1, R^{-1});
-
--- -- Pick the other points
--- otherPoints = apply(noPoints-1, i -> random(R^1, R^{-1}));
-
--- -- Make all pairs (P0, Pi)
--- pointPairs = apply(otherPoints, Pi -> {P0, Pi});
-
--- For each pair, compute the ideal of the line through them
-allLines = apply(pointPairs, p -> intersect(ideal p#0, ideal p#1));
-
-
--- Step 4: Form the union of all lines
+-- pointPairs = subsets(myPoints, 2);
 
 -- The union of all lines (as a subscheme)
 Iz = intersect allLines;
+-- Iz = idealLine;
 
-Z = variety Iz;
+-- Z = variety Iz;
 
--- Step 5: Pick a random hypersurface containing all lines
+-- Iz == saturate Iz
+
+-- dim Z
+
+-- Iztop = top Iz;
+
+-- (gens Iztop)%(gens Iz) == 0
+
+codim singularLocus Iz
 
 -- Pick a random degree d element in Iz
 f = random(d, Iz);
 
-singularLocus Proj(RingP3/f)
+V = variety ideal f
+codim singularLocus ideal f
 
 -- Step 6: Check smoothness outside the base locus
 
