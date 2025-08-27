@@ -2,12 +2,11 @@
 -- R = QQ[a..d]
 -- (a+b+c+d)^4
 
-noPoints = 4;
-d = 5;
+d = 4;
+noPoints = 9;
 
 -- kk = ZZ/101; 
 kk = ZZ/32749;
-
 RingP3 = kk[x_0..x_3];
 
 -- Pick noPoints random points in P^3
@@ -21,10 +20,6 @@ myPoints = apply(noPoints, i -> (
     v
 ));
 
--- idealOfPoint = myPoint -> ideal (for i in 0..((length myPoint)-1) list x_i - myPoint#i);
--- myPoints = for i in 0..((length myPoints)-1) list idealOfPoint myPoints#i;
--- pointsIdeal = intersect myPoints;
-
 -- M = matrix {{x_0 .. x_3}, myPoints#0, myPoints#1};
 pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
 
@@ -32,22 +27,17 @@ subsequentPairs = for i from 0 to (#myPoints - 2) list {myPoints#i, myPoints#(i+
 
 pointPairs = apply(subsequentPairs, pointsMatrix);
 
-LineFromPoints = pointsMatrix -> minors(3, pointsMatrix);
+lineFromPoints = pointsMatrix -> minors(3, pointsMatrix);
 
-allLines = apply(pointPairs, LineFromPoints);
+allLines = apply(pointPairs, lineFromPoints);
+
+noLines = #allLines;
 
 -- idealLine = minors(3,M);
 -- mingens idealLine
 
-
--- Generate all ordered pairs of points
--- TODO: This gives lines between all points, we only want "edges"
--- pointPairs = subsets(myPoints, 2);
-
--- The union of all lines (as a subscheme)
+-- The union of all lines 
 Iz = intersect allLines;
--- Iz = idealLine;
-
 -- Z = variety Iz;
 
 -- Iz == saturate Iz
@@ -58,41 +48,18 @@ Iz = intersect allLines;
 
 -- (gens Iztop)%(gens Iz) == 0
 
-codim singularLocus Iz
+-- codim singularLocus Iz
 
 -- Pick a random degree d element in Iz
 f = random(d, Iz);
+Vf = variety ideal f;
 
-V = variety ideal f
-codim singularLocus ideal f
+codimension = codim singularLocus ideal f;
 
--- Step 6: Check smoothness outside the base locus
+codimension
 
--- Compute the partial derivatives
-df = for v in {x_0, x_1, x_2} list diff(v, f);
+isZero = (f == 0)
 
--- Form the Jacobian ideal (f and its partials)
-J = ideal(f) + ideal df;
+isSingular = (codimension < 4)
 
--- singularLocus(J)
-
-isSmoothOutsideBase = (saturate(J, Iz) == ideal(1_RingP3));
-
-
--- Compute the base locus as a subscheme
-baseLocus = Proj(RingP3/Iz);
-
--- Compute the singular locus (the subscheme where all partials vanish)
-singLocus = Proj(RingP3/J);
-
--- Check if the singular locus is empty
-isSingularContained = isSubset(radical Iz, radical J);
-
-isSingularContained
-
-isSmoothOutsideBase
-
-
-singLocus = singularLocus(RingP3/f);
-baseLocus = singularLocus(Iz);
-isSingularContained = isSubset(singLocus, Iz)
+isSmooth(Vf) and not isZero
