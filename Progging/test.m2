@@ -2,8 +2,12 @@
 -- R = QQ[a..d]
 -- (a+b+c+d)^4
 
-d = 4;
-noPoints = 9;
+
+d = 9;
+noPoints = 24;
+
+(d+3)*(d+2)*(d+1)/(6*d);
+
 
 -- kk = ZZ/101; 
 kk = ZZ/32749;
@@ -24,6 +28,9 @@ myPoints = apply(noPoints, i -> (
 pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
 
 subsequentPairs = for i from 0 to (#myPoints - 2) list {myPoints#i, myPoints#(i+1)};
+
+-- Add final pair
+subsequentPairs = append(subsequentPairs, {myPoints#0, myPoints#(#myPoints-1)});
 
 pointPairs = apply(subsequentPairs, pointsMatrix);
 
