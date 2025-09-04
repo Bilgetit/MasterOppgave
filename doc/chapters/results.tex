@@ -13,10 +13,10 @@ In this section we will study the problem of finding a smooth hypersurface $X_d 
 We begin with the following lemma of non-existence:
 
 \begin{lemma}
-    Given distinct lines $l_1, l_2, \dots, l_k$ in $\mathbb{P}^3$ intersecting at a common point $p$ and lying in a common plane $H$, there does not exist any smooth hypersurface of degree $2 \geq d \geq k-1$ such that the lines are contained in the hypersurface.
+    Given $k$ distinct lines $l_1, l_2, \dots, l_k$ in $\mathbb{P}^3$ intersecting at a common point $p$ and lying in a common plane $H$, there does not exist any smooth hypersurface of degree $2 \leq d \leq k-1$ such that the lines are contained in the hypersurface.
 \end{lemma}
 \begin{proof}
-    Assume for contradiction that there exists a smooth hypersurface of degree $2 \geq d \geq k-1$ such that the lines are contained in the hypersurface. 
+    Assume for contradiction that there exists a smooth hypersurface of degree $2 \leq d \leq k-1$ such that the lines are contained in the hypersurface. 
     Then we can fix a line $l_{k+1}$ in $H$, which does not intersect $p$, and which does not lie in the hypersurface $X_d$.
     $l_{k+1}$ will intersect each of the lines at a point $p_i$, all being distinct since the lines only intersects in $p$, and thus no other point. 
     $l_{k+1}$ will also intersect the hypersurface at the points $p_i$, thus intersecting the hypersurface at $k$ points.
@@ -26,29 +26,29 @@ We begin with the following lemma of non-existence:
 We now move on to the case of existence, with the following proposition:
 
 \begin{proposition}
-    For $k$ lines in $\mathbb{P}^3$ intersecting at a common point $p$ and lying in a common plane, we can find a smooth hypersurface of degree $d$ such that the lines are contained in the hypersurface.
+    For $k$ lines in $\mathbb{P}^3$ intersecting at a common point $p$ and lying in a common plane, we can find a smooth hypersurface of degree $k$ such that the lines are contained in the hypersurface.
 \end{proposition}
 \begin{proof}
-    Let $\mathfrak{L}$ be the linear system of hypersurfaces of degree $d$ in $\mathbb{P}^3$ containing the lines $l_0, l_1, \dots, l_k$. 
+    Let $\mathfrak{L}$ be the linear system of hypersurfaces of degree $k$ in $\mathbb{P}^3$ containing the lines $l_0, l_1, \dots, l_k$. 
     Bertini's theorem states that the general member of $\mathfrak{L}$ is smooth outside the base locus of $\mathfrak{L}$.
     The base locus of $\mathfrak{L}$ is the union of the lines $l_0, l_1, \dots, l_k$.
-    Thus we must find a function $f \in \mathbb{C}[x_0, x_1, x_2, x_3]_d$ such that $V(f)$ is smooth on the lines $l_0, l_1, \dots, l_k$.
+    Thus we must find a function $f \in \mathbb{C}[x_0, x_1, x_2, x_3]_k$ such that $V(f)$ is smooth on the lines $l_0, l_1, \dots, l_k$.
     Bertini's theorem then gives us that we can find a hypersurface which is also smooth outside the base locus of $\mathfrak{L}$.
 
     We study the function $f = g(x_1, x_2) + h(x_0, x_3)$, where $h = x_0^{k-1}x_3$ and $g = \prod l_i = x_1x_2 \prod_{i=3}^k (x_1 - \lambda_i x_2)$, giving the following polynomial:
     \[
         f(x_0, x_1, x_2, x_3) = x_1x_2 \prod_{i=3}^k (x_1 - \lambda_i x_2) + x_0^{k-1}x_3
     \]
-    We can see that $f$ is a polynomial of degree $d$, and that $f$ includes the lines $l_0, l_1, \dots, l_k$, since $f(\alpha: \beta: 0: 0) = f(\alpha: 0: \gamma: 0) = f(\alpha: \delta: \lambda_i \delta: 0) = 0$.
+    We can see that $f$ is a polynomial of degree $k$, and that $f$ includes the lines $l_0, l_1, \dots, l_k$, since $f(\alpha: \beta: 0: 0) = f(\alpha: 0: \gamma: 0) = f(\alpha: \delta: \lambda_i \delta: 0) = 0$.
     We must then check that $f$ is smooth on the base locus of $\mathfrak{L}$, which is to check that $\bigcap_{i=0}^3 (\partial_i f = 0) = \emptyset$.
     
     We get the following derivatives:
 
     \begin{align*}
-        \partial_0 f &= \partial_0 g + \partial_0 h = 0 + (d-1)x_0^{d-2}x_3 = (d-1)x_0^{d-2}x_3 \\
+        \partial_0 f &= \partial_0 g + \partial_0 h = 0 + (k-1)x_0^{k-2}x_3 = (k-1)x_0^{k-2}x_3 \\
         \partial_1 f &= \partial_1 g + \partial_1 h = x_2 \prod_{i=3}^k (x_1 - \lambda_i x_2) + x_1x_2 \sum_{i=3}^k \prod_{\substack{j=3 \\ j \neq i}}^k (x_1 - \lambda_j x_2)\\
         \partial_2 f &= \partial_2 g + \partial_2 h = x_1 \prod_{i=3}^k (x_1 - \lambda_i x_2) +  x_1x_2 \sum_{i=3}^k (-\lambda_i) \cdot \prod_{\substack{j=3 \\ j \neq i}}^k (x_1 - \lambda_j x_2)\\
-        \partial_3 f &= \partial_3 g + \partial_3 h = 0 + x_0^{d-1} = x_0^{d-1}
+        \partial_3 f &= \partial_3 g + \partial_3 h = 0 + x_0^{k-1} = x_0^{k-1}
     \end{align*}
 
     We then find that 
@@ -59,7 +59,7 @@ We now move on to the case of existence, with the following proposition:
         \item $\partial_3 f = 0$ if and only if $x_0 = 0$, which is the case for the following points: $(0 : \beta : 0 : 0), (0 : 0 : \gamma : 0), (0 : \delta : \lambda_i \delta : 0)$ for $3 \leq i \leq k$.  
     \end{itemize}
     We can see that the intersection of all these zero locuses is empty, showing that the function $f$ is smooth on the base locus of $\mathfrak{L}$.
-    Thus we can find a smooth hypersurface of degree $d$ such that the lines are contained in the hypersurface.
+    Thus we can find a smooth hypersurface of degree $k$ such that the lines are contained in the hypersurface.
     
 \end{proof}
 
@@ -68,7 +68,42 @@ By the results above, we get the following corollary:
 Given $k$ lines in $\mathbb{P}^3$ intersecting at a common point $p$ and lying in a common plane, we can find a smooth hypersurface of degree $d$ such that the lines are contained in the hypersurface if and only if $d \geq k$ or $d=1$.
 \end{corollary}
 \begin{proof}
-    If we have k lines, we can find a smooth hypersurface of degree $d \geq k+1$ by including arbitrary lines $l_{k+1}, l_{k+2}, \dots, l_d$. For the case $d=1$, we can take the plane $H$ containing the lines.
+    If we have k lines, we can find a smooth hypersurface of degree $d \geq k+1$ by including arbitrary lines $l_{k+1}, l_{k+2}, \dots, l_d$ lying in the plane. For the case $d=1$, we can take the plane $H$ containing the lines.
 \end{proof}
 
 
+\section{Surfaces including n-gons}
+
+In this section, we will consider $n$-gons in $\mathbb{P}^3$ and their relationship with smooth hypersurfaces. An $n$-gon is defined as a union of $n$ lines $l_1, l_2, \dots, l_n$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < n$, and $l_n$ intersects $l_1$. We will denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < n$, and $p_n = l_n \cap l_1$.
+
+% Show the cohomology groups, and their dimensions, to get an indication of wether the n-gon should be contained in a hypersurface.
+
+
+We have the sequence
+
+\begin{align*}
+    &0 \to \mathcal{I}_Z \to \mathcal{O}_{\mathbb{P}^3}\to \mathcal{O}_{Z} \to 0 \\
+    &0 \to \mathcal{I}_Z(d) \to \mathcal{O}_{\mathbb{P}^3}(d) \to \mathcal{O}_{Z}(d) \to 0 \\
+    &0 \to H^0(\mathbb{P}^3, \mathcal{I}_Z) \to H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3})\to H^0(Z, \mathcal{O}_{Z}) \to H^1(\mathbb{P}^3, \mathcal{I}_Z). \\
+\end{align*}
+
+Meaning
+
+\[
+h^0(\mathbb{P}^3, \mathcal{I}_Z) = h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) + h^1(\mathbb{P}^3, \mathcal{I}_Z) - h^0(Z, \mathcal{O}_{Z}). 
+\]
+
+It is well known that $h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) = \binom{d+3}{3}$. $h^0(Z, \mathcal{O}_{Z}(d))$ can be computed as follows: 
+
+We have the sequence
+\[
+0 \to \mathcal{O}_Z(d) \to \bigoplus_{i=1}^k \mathcal{O}_{l_i}(d) \to \bigoplus_{i=1}^n \mathcal{O}_{p_i}(d) \to 0.
+\]
+
+This gives us $h^0(Z, \mathcal{O}_{Z}) = k \cdot \binom{d+1}{1} = kd$.
+
+\[
+h^0(\mathbb{P}^3, \mathcal{I}_Z) \geq \binom{d+3}{3} - k \cdot \binom{d+1}{1} = \binom{d+3}{3} - kd.
+\]
+
+Meaning we can guarantee a degree $d$ surface when $\binom{d+3}{3} - kd \geq 0$, or equivalently when $k < \frac{(d+3)(d+2)(d+1)}{6d}$.
