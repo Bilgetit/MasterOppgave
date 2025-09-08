@@ -168,4 +168,25 @@
 \providecommand{\mainmatter}{\cleardoublepage \pagenumbering{arabic}}
 \providecommand{\backmatter}{\cleardoublepage}
 
+%% Code listings
+\RequirePackage{listings}
+\RequirePackage{xcolor}
+\lstset{
+  language=Macaulay2, % closest to Macaulay2, or use [basicstyle=\ttfamily]
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color{white},
+  showspaces=false,
+  showstringspaces=false,
+  frame=single,
+  breaklines=true,
+  tabsize=2
+}
+
 \endinput
