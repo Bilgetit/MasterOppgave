@@ -12,5 +12,8 @@
 (14, 48, false, false), (14, 49, true, false), 
 (15, 54, false, false), (15, 55, true, false)}
 {(16, 60, false, false), (16, 61, true, false)}
-{(17, 67, false, false), (17, 68, true, false), (18, 73, false, false), (18, 74, true, false)}
+{(17, 67, false, false), (17, 68, true, false), 
+(18, 73, false, false), (18, 74, true, false)}
 {(19, 81, false, false, 139268), (19, 82, true, false, 152475)}
+{(20, 88, false, false, 3370), (20, 89, true, false, 3825), 
+(21, 96, false, false, 9021), (21, 97, true, false, 9976)}
