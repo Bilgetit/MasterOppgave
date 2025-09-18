@@ -1,26 +1,28 @@
-d = 7;
-nrPoints = 11;
+-- Define the ring and parameters
 kk = ZZ/32749;
 RingP3 = kk[x_0..x_3];
+d = 2;  -- Degree of the hypersurface
+nrPoints = 4;
 
-
--- Pick nrPoints random points in P^3
-myPoints = apply(nrPoints, i -> (
+--Function for generating a random point in P^3
+randomPoint = i -> (
     v := for j in 0..3 list random(kk);
-    -- Ensure the point is not the zero vector
+    -- Ensure the point is not zero
     while all(v, x -> x == 0) do (
         v = for j in 0..3 list random(kk)
     );
     v
-));
-
--- Function to convert two points to a matrix with first row {x_0 .. x_3}
-pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
+)
+-- Pick nrPoints random points in P^3
+myPoints = apply(nrPoints, randomPoint);
 
 -- Create pairs of subsequent points, and also the pair consisting of the last and first point
 subsequentPairs = for i from 0 to (#myPoints - 2) list {myPoints#i, myPoints#(i+1)};
 -- Add final pair
 subsequentPairs = append(subsequentPairs, {myPoints#0, myPoints#(#myPoints-1)});
+
+-- Function to convert two points to a matrix with first row {x_0 .. x_3}
+pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
 
 -- Convert each pair of points to a matrix
 pointPairs = apply(subsequentPairs, pointsMatrix);

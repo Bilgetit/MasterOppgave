@@ -172,7 +172,7 @@
 \RequirePackage{listings}
 \RequirePackage{xcolor}
 \lstset{
-  language=Macaulay2, % closest to Macaulay2, or use [basicstyle=\ttfamily]
+  language=Macaulay2,
   basicstyle=\ttfamily\small,
   keywordstyle=\color{blue},
   commentstyle=\color{gray},
@@ -188,5 +188,8 @@
   breaklines=true,
   tabsize=2
 }
+
+\RequirePackage{tikz-cd}
+
 
 \endinput
