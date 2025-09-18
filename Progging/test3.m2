@@ -8,8 +8,8 @@ pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
 lineFromPoints = pointsMatrix -> minors(3, pointsMatrix);
 
 time0 = currentTime();
-d = 2;
-while currentTime() - time0 < 2*60 do(  -- wait for 60 minutes
+d = 20;
+while currentTime() - time0 < 4 do(  -- wait for 4 seconds
     maxNoPoints = ceiling((d+3)*(d+2)*(d+1)/(6*d));
     for noPoints from maxNoPoints - 1 to maxNoPoints do (
         myPoints = apply(noPoints, i -> (
@@ -36,6 +36,7 @@ while currentTime() - time0 < 2*60 do(  -- wait for 60 minutes
         if isSingular then (
             listOfSurprises = append(listOfSurprises, (d, noPoints, isZero, isSingular, currentTime() - time0))
         );
+        print("d = " | toString d | ", noPoints = " | toString noPoints | ", isZero = " | toString isZero | ", isSingular = " | toString isSingular | ", time = " | toString (currentTime() - time0) );
     );
     d = d + 1;
 )
