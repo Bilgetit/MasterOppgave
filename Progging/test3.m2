@@ -8,8 +8,8 @@ pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
 lineFromPoints = pointsMatrix -> minors(3, pointsMatrix);
 
 time0 = currentTime();
-d = 20;
-while currentTime() - time0 < 4 do(  -- wait for 4 seconds
+d = 19;
+while currentTime() - time0 < 12*3600 do(  -- wait for 12 hours
     maxNoPoints = ceiling((d+3)*(d+2)*(d+1)/(6*d));
     for noPoints from maxNoPoints - 1 to maxNoPoints do (
         myPoints = apply(noPoints, i -> (
@@ -27,7 +27,7 @@ while currentTime() - time0 < 4 do(  -- wait for 4 seconds
 
         Iz = intersect allLines;
         f = random(d, Iz);
-        Vf = variety ideal f;
+        -- Vf = variety ideal f;
 
         codimension = codim singularLocus ideal f;
         isZero = (f == 0);
@@ -36,7 +36,7 @@ while currentTime() - time0 < 4 do(  -- wait for 4 seconds
         if isSingular then (
             listOfSurprises = append(listOfSurprises, (d, noPoints, isZero, isSingular, currentTime() - time0))
         );
-        print("d = " | toString d | ", noPoints = " | toString noPoints | ", isZero = " | toString isZero | ", isSingular = " | toString isSingular | ", time = " | toString (currentTime() - time0) );
+        print("d = " | toString d | ", noPoints = " | toString noPoints | ", isSingular = " | toString isSingular | ", isZero = " | toString isZero | ", time = " | toString (currentTime() - time0) );
     );
     d = d + 1;
 )

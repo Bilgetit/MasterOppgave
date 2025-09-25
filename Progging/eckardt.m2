@@ -1,5 +1,5 @@
-d = 8;
-noPoints = 4;
+d = 4;
+noPoints = 14;
 
 kk = ZZ/32749;
 RingP3 = kk[x_0..x_3];
@@ -42,3 +42,7 @@ isZero = (f == 0)
 isSingular = (codimension < 4)
 
 isSmooth(Vf) and not isZero
+
+F = sheaf(Iz);
+H0 = HH^0(F(d))
+H1 = HH^1(F(d))

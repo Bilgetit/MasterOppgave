@@ -1,17 +1,17 @@
 -- Specify degree and number of points
 d = 4;
-noPoints = 9; -- Is also the number of lines
+nrPoints = 9; -- Is also the number of lines
 
 -- Gives maximum number of lines on a degree d surface in P^3
-floor((d+3)*(d+2)*(d+1)/(6*d))
+-- floor((d+3)*(d+2)*(d+1)/(6*d))
 
 
 -- kk = ZZ/101; 
 kk = ZZ/32749;
-RingP3 = kk[x_0..x_3];
+RingP3 = kk[x,y,z,w];
 
--- Pick noPoints random points in P^3
-myPoints = apply(noPoints, i -> (
+-- Pick nrPoints random points in P^3
+myPoints = apply(nrPoints, i -> (
     v := for j in 0..3 list random(kk);
     -- Ensure the point is not the zero vector
     while all(v, x -> x == 0) do (
@@ -20,11 +20,11 @@ myPoints = apply(noPoints, i -> (
     v
 ));
 
--- myPoints = {{1,0,0,0}, {0,1,0,0}};
+-- myPoints = {{1,0,0,0}, {0,1,0,0}, {0,0,1,0}, {0,0,0,1}};
 -- M = matrix {{x_0 .. x_3}, myPoints#0, myPoints#1};
 
 -- Function to convert two points to a matrix with first row {x_0 .. x_3}
-pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
+pointsMatrix = points -> matrix {{x,y,z,w}, points#0, points#1};
 
 -- Create pairs of subsequent points, and also the pair consisting of the last and first point
 subsequentPairs = for i from 0 to (#myPoints - 2) list {myPoints#i, myPoints#(i+1)};
@@ -45,6 +45,7 @@ allLines = apply(pointPairs, lineFromPoints);
 
 -- Intersect the ideals of the lines to get ideal of the union of all lines
 Iz = intersect allLines;
+-- mingens Iz
 -- Z = variety Iz;
 
 -- Iz == saturate Iz
@@ -64,10 +65,11 @@ Vf = variety ideal f;
 
 -- Check if the surface is smooth and not the zero polynomial
 codimension = codim singularLocus ideal f;
-codimension
 isZero = (f == 0)
 isSingular = (codimension < 4)
 isSmooth(Vf) and not isZero
 
 -- F = sheaf(Iz);
 -- H0 = HH^0(F(d))
+
+
