@@ -1,4 +1,3 @@
-
 \section{k-chains}
 
 \begin{definition}
@@ -24,25 +23,64 @@ Notice that a k-chain is a k-gon without the line $l_k$ intersecting $l_1$. One 
 
 Now we will look at the the case of 7-chains in cubic surfaces. 
 
+\begin{lemma}
+    Let $Q_m \subseteq \mathbb{G}(1,3)^m$ be the subset of m-tuples of lines $(l_1, \dots, l_m)$ such that they form an $m$-chain. Then $Q_m$ is an irreducible variety \todo{verify} of dimension $3m + 1$.
+\end{lemma}
+\label{lem:dimQm}
+
+\begin{proof}
+    We will prove this by induction on $m$. For $m=1$, we have that $Q_1 = \mathbb{G}(1,3)$, which is irreducible of dimension 4. Now, assume that the statement holds for $m-1$. Consider the projection map $\pi: Q_m \to Q_{m-1}$ given by $\pi(l_1, \dots, l_m) = (l_1, \dots, l_{m-1})$. The fiber over a point $(l_1, \dots, l_{m-1}) \in Q_{m-1}$ is given by the set of lines $l_m$ such that $l_m$ intersects $l_{m-1}$. The set of lines intersecting a given line in $\mathbb{P}^3$ is a 2-dimensional variety (it can be identified with the projective plane of lines through a point in the plane orthogonal to the given line). Thus, the fiber has dimension 2. By the induction hypothesis, we have that $\dim Q_{m-1} = 3(m-1) + 1 = 3m - 2$. Therefore, by the fiber dimension theorem, we have that
+    \[
+    \dim Q_m = \dim Q_{m-1} + \dim \pi^{-1}(l_1, \dots, l_{m-1}) = (3m - 2) + 2 = 3m.
+    \]
+    To show irreducibility, note that $Q_m$ can be constructed as a sequence of projective bundles over $Q_{m-1}$, each time adding a line that intersects the previous one. Since projective bundles over irreducible varieties are irreducible, it follows by induction that $Q_m$ is irreducible. Thus, the lemma holds for all $m$.
+\end{proof}
+
 \begin{proposition}
     For a general 7-chain in $\mathbb{P}^3$, we cannot find a smooth cubic surface $ S_3 \subset \mathbb{P}^3$ such that it includes the 7-chain.
 \end{proposition}
 
-\begin{proof}
-    First, the dimension of the space of cubic surfaces in $\mathbb{P}^3$ is given by the number of monomials of degree 3 in 4 variables, which is $\binom{3+4-1}{4-1} - 1 = \binom{6}{3} - 1 = 19$. Thus, the space of cubic surfaces in $\mathbb{P}^3$ has dimension 19. 
+% \begin{proof}
+%     First, the dimension of the space of cubic surfaces in $\mathbb{P}^3$ is given by the number of monomials of degree 3 in 4 variables, which is $\binom{3+4-1}{4-1} - 1 = \binom{6}{3} - 1 = 19$. Thus, the space of cubic surfaces in $\mathbb{P}^3$ has dimension 19. 
 
-    Now, the linear system of 7-chains in $\mathbb{P}^3$ has dimension decided by the number of conditions imposed by the 7 lines. Recall that the set of lines in $\mathbb{P}^3$ is parametrized by the Grassmannian variety $\mathrm{Gr}(2,4)$, which is a 4-dimensional variety. Therefore the first line imposes 4 conditions, the second line imposes 3 conditions (since it must intersect the first line), the third line imposes 3 conditions (since it must intersect the second line), and so on. Thus, the total number of conditions imposed by the 7 lines is $4 + 3 + 3 + 3 + 3 + 3 + 3 = 22$. This being of a higher dimension than the space of cubic surfaces, we do not expect to find a cubic surface including our 7-chain.
+%     Now, the linear system of 7-chains in $\mathbb{P}^3$ has dimension decided by the number of conditions imposed by the 7 lines. Recall that the set of lines in $\mathbb{P}^3$ is parametrized by the Grassmannian variety $\mathrm{Gr}(2,4)$, which is a 4-dimensional variety. Therefore the first line imposes 4 conditions, the second line imposes 3 conditions (since it must intersect the first line), the third line imposes 3 conditions (since it must intersect the second line), and so on. Thus, the total number of conditions imposed by the 7 lines is $4 + 3 + 3 + 3 + 3 + 3 + 3 = 22$. This being of a higher dimension than the space of cubic surfaces, we do not expect to find a cubic surface including our 7-chain.
+% \end{proof}
+
+\begin{proof}
+    Let $\mathcal{M}$ be the space of smooth cubic surfaces in $\mathbb{P}^3$. This is an open subset of $\mathbb{P}(\mathbb{C}[x_0,\dots, x_3]_3) \cong \mathbb{P}^{19}$. \todo{Why open?} Since $\mathcal{M}$ is an open subset, it shares the dimension, i.e $\dim \mathcal{M} = 19$. Let $ \mathcal{N} = \{(S_d, l_1, \dots, l_7) \in \mathcal{M} \times \mathbb{G}(1,3)^7 \mid \mathcal{L} \subset S_d, \mathcal{L} \text{ is a $k$-chain}\}$ be the incidence variety of smooth cubic surfaces including a 7-chain. We have the following diagram:
+
+    \begin{equation}
+    \begin{tikzcd}
+    & \mathcal{N} \subseteq \mathcal{M} \times \mathbb{G}(1,3)^7 \arrow[dl, "\pi_1"'] \arrow[dr, "\pi_2"] & \\
+    \mathcal{M}  & & \mathbb{G}(1,3)^7
+    \end{tikzcd}
+    \end{equation}
+    
+    The projection map $\pi_1: \mathcal{N} \to \mathcal{M}$ is given by $\pi_1(S_d, l_1, \dots, l_7) = S_d$. Then the fiber over a point $S_d \in \mathcal{M}$ is given by the set of 7-chains included in $S_d$. Since a smooth cubic surface includes exactly 27 lines,\todo{Refer to result} we can find a 7-chain by choosing 7 lines from these 27. We know from (!?) \todo{Result in this section} that it is possible to find a 7-chain, and so this fiber is not empty. Furthermore, there are only a finite amount 7-chains when there are a finite amount of lines. Then the dimension of the fiber $\dim pi_1^{-1}(S_d)$ is 0, being a finite set of 7-chains. Thus, from (!?), we have that $\dim \mathcal{N} = \dim \mathcal{M} + \dim \pi_1^{-1}(S_d) = 19 + 0 = 19$. \todo{Refer to theorem about dimension of fiber.}
+
+    Now we are interested in the fiber of the set of 7-chains in $\mathbb{P}^3$, $Q_7 \subseteq \mathbb{G}(1,3)^7$. By lemma ~\ref{lem:dimQm} (!?), we have that $\dim Q_7 = 22$, and so the projection map $\pi_2: \mathcal{N} \to \mathbb{G}(1,3)^7$ given by $\pi_2(S_d, l_1, \dots, l_7) = (l_1, \dots, l_7)$ cannot be surjective on $Q_7$. This means that taking a general 7-chain $C_7 \in Q_7$, and considering the fiber $\pi_2^{-1}(C_7)$, we do not expect this to be non-empty, meaning we will not have a surface including it. Thus, for a general 7-chain in $\mathbb{P}^3$, we cannot find a smooth cubic surface $S_3 \subset \mathbb{P}^3$ such that it includes the 7-chain.
 \end{proof}
 
+\todo[inline]{Proof should include: projection is surjective (every smooth cubic surface has at least a 7-chain, shown in this section), implies dim N $\geq$ dim M. Then fiber is finite, so dim N $\leq$ dim M. Prop 10.26?}
+
+Again, as in the case for 4-chains in quadrics, computations show that we can find a singular cubic surface including a 7-chain.
+
+\begin{proposition}
+    For a general 7-chain in $\mathbb{P}^3$, we can find a singular cubic surface $ S_3 \subset \mathbb{P}^3$ such that it includes the 7-chain. (!?)
+\end{proposition}
+\begin{proof}
+    Find a nice example of a singular cubic surface including a 7-chain.
+\end{proof}
 
 Note that if we instead asked whether a smooth cubic surface in $\mathbb{P}^3$ can include a 7-chain, the situation is different. In this case, we can indeed find a 7-chain such that it is included in the surface. In fact, we know we could find a 12-chain in this case, and a 13-gon. We gather show this in the following proposition. 
 
+\todo[inline]{Move this proposition earlier, to use in proof. Maybe lemma? Also interesting in itself, so maybe not.}
 \begin{proposition}
     For a smooth cubic surface in $\mathbb{P}^3$, we can find a 13-gon such that it is included in the surface.
 \end{proposition}
 
 \begin{proof}
-    A smooth cubic surface in $\mathbb{P}^3$ is isomorphic to the blow-up of $\mathbb{P}^2$ in 6 points. The surface then includes 27 lines, which are precisely the exceptional divisors of the blow-up, the strict transforms of the 15 lines through pairs of points, and the strict transforms of the 6 conics through 5 of the points. We can then find a 13-gon by considering the following lines: Let $E_1, E_2, E_3, E_4, E_5, E_6$ be the exceptional divisors, let $L_{ij}$ be the strict transform of the line through points $p_i$ and $p_j$, and let $C_i$ be the strict transform of the conic through all points except $p_i$. Then we can consider the 13-gon given by the lines $E_1, L_{12}, E_2, L_{23}, E_3, L_{34}, E_4, L_{45}, E_5, L_{56}, E_6, C_1, L_{16}$. This is indeed a 13-gon since each line intersects exactly two other lines in the set.
+    A smooth cubic surface in $\mathbb{P}^3$ is isomorphic to the blow-up of $\mathbb{P}^2$ in 6 points (!?). The surface then includes 27 lines, which are precisely the exceptional divisors of the blow-up, the strict transforms of the 15 lines through pairs of points, and the strict transforms of the 6 conics through 5 of the points. We can then find a 13-gon by considering the following lines: Let $E_1, E_2, E_3, E_4, E_5, E_6$ be the exceptional divisors, let $L_{ij}$ be the strict transform of the line through points $p_i$ and $p_j$, and let $C_i$ be the strict transform of the conic through all points except $p_i$. Then we can consider the 13-gon given by the lines $E_1, L_{12}, E_2, L_{23}, E_3, L_{34}, E_4, L_{45}, E_5, L_{56}, E_6, C_1, L_{16}$. This is indeed a 13-gon since each line intersects exactly two other lines in the set.
 \end{proof}
 
 By removing one of the lines from the 13-gon, we immediately get the following:
@@ -50,3 +88,13 @@ By removing one of the lines from the 13-gon, we immediately get the following:
     For a smooth cubic surface in $\mathbb{P}^3$, we can find a 12-chain such that it is included in the surface.
 \end{corollary}
 
+
+This implies that the $k$-chains longer than 7 included in the smooth cubic surfaces are somehow special. \todo{Fill out later.}
+
+
+
+\begin{remark}
+    (!?) Just as we can find for which $n$ and $d$ we expect a general hypersurface $X \subseteq \mathbb{P}^n$ of degree $d$ to contain lines by looking at the universal Fano scheme, we can do the same for $k$-chains. $N = \binom{n+d}{d}-1$. $\mathcal{L} = \bigcup_{i=1}^k l_i$. Instead of looking at $\Phi = \{(X, L) \in \mathbb{P}^N \times \mathbb{G}(1,3) \mid L \subset X\}$, we instead observe $ \mathcal{N} = \{(S_d, l_1, \dots, l_7) \in \mathbb{P}^N \times \mathbb{G}(1,3)^7 \mid \mathcal{L} \subset S_d, \mathcal{L} \text{ is a $k$-chain}\}$. Let $\mathcal{M} = \{S_d \subseteq \mathbb{P}^n \mid S_d \text{ smooth}\}$.
+\end{remark}
+
+\todo[inline]{Fix G(k,n). k is overloaded.}
