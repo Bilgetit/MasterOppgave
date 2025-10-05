@@ -21,12 +21,18 @@ Notice that a k-chain is a k-gon without the line $l_k$ intersecting $l_1$. One 
     Find a nice example of a singular quadric surface including a 4-chain.
 \end{proof}
 
+\begin{definition}
+    We define $Q_m \subseteq \mathbb{G}(1,3)^m$ to be the subset of m-tuples of lines $(l_1, \dots, l_m)$ such that they form an $m$-chain.
+\end{definition}
+
 Now we will look at the the case of 7-chains in cubic surfaces. 
 
 \begin{lemma}
-    Let $Q_m \subseteq \mathbb{G}(1,3)^m$ be the subset of m-tuples of lines $(l_1, \dots, l_m)$ such that they form an $m$-chain. Then $Q_m$ is an irreducible variety \todo{verify} of dimension $3m + 1$.
+    $Q_m$ is an irreducible variety \todo{verify} of dimension $3m + 1$.
 \end{lemma}
 \label{lem:dimQm}
+
+\todo[inline]{Irreducibility is dicussed in EH 3.3.1, saying schubert cells and their closures are irreducible.}
 
 \begin{proof}
     We will prove this by induction on $m$. For $m=1$, we have that $Q_1 = \mathbb{G}(1,3)$, which is irreducible of dimension 4. Now, assume that the statement holds for $m-1$. Consider the projection map $\pi: Q_m \to Q_{m-1}$ given by $\pi(l_1, \dots, l_m) = (l_1, \dots, l_{m-1})$. The fiber over a point $(l_1, \dots, l_{m-1}) \in Q_{m-1}$ is given by the set of lines $l_m$ such that $l_m$ intersects $l_{m-1}$. The set of lines intersecting a given line in $\mathbb{P}^3$ is a 2-dimensional variety (it can be identified with the projective plane of lines through a point in the plane orthogonal to the given line). Thus, the fiber has dimension 2. By the induction hypothesis, we have that $\dim Q_{m-1} = 3(m-1) + 1 = 3m - 2$. Therefore, by the fiber dimension theorem, we have that
@@ -34,6 +40,12 @@ Now we will look at the the case of 7-chains in cubic surfaces.
     \dim Q_m = \dim Q_{m-1} + \dim \pi^{-1}(l_1, \dots, l_{m-1}) = (3m - 2) + 2 = 3m.
     \]
     To show irreducibility, note that $Q_m$ can be constructed as a sequence of projective bundles over $Q_{m-1}$, each time adding a line that intersects the previous one. Since projective bundles over irreducible varieties are irreducible, it follows by induction that $Q_m$ is irreducible. Thus, the lemma holds for all $m$.
+\end{proof}
+
+\todo[inline]{Rewrite proof in own words, correct proof, and verify irreducibility. It seems this can be explained by schubert cycles, 3.3.1 in EH. This can maybe be a subsection in preliminaries.}
+
+\begin{proof}
+    To show irreducibility, note that $Q_2$ can be constructed as the image of the incidence correspondence $\Gamma = \{\}$ together with $\mathbb{G}(1,3)$. 
 \end{proof}
 
 \begin{proposition}
@@ -55,6 +67,7 @@ Now we will look at the the case of 7-chains in cubic surfaces.
     \mathcal{M}  & & \mathbb{G}(1,3)^7
     \end{tikzcd}
     \end{equation}
+    \todo[inline]{Should we use $Q_7$ instead of $\mathbb{G}(1,3)^7$?}
     
     The projection map $\pi_1: \mathcal{N} \to \mathcal{M}$ is given by $\pi_1(S_d, l_1, \dots, l_7) = S_d$. Then the fiber over a point $S_d \in \mathcal{M}$ is given by the set of 7-chains included in $S_d$. Since a smooth cubic surface includes exactly 27 lines,\todo{Refer to result} we can find a 7-chain by choosing 7 lines from these 27. We know from (!?) \todo{Result in this section} that it is possible to find a 7-chain, and so this fiber is not empty. Furthermore, there are only a finite amount 7-chains when there are a finite amount of lines. Then the dimension of the fiber $\dim pi_1^{-1}(S_d)$ is 0, being a finite set of 7-chains. Thus, from (!?), we have that $\dim \mathcal{N} = \dim \mathcal{M} + \dim \pi_1^{-1}(S_d) = 19 + 0 = 19$. \todo{Refer to theorem about dimension of fiber.}
 
