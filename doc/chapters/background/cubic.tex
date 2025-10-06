@@ -1,3 +1,57 @@
-% 27 lines in a cubic surface
 \section{Lines in a cubic surface}
 
+\begin{definition}
+    A \emph{cubic surface} is a surface $S \subset \mathbb{P}^3$ defined as the zero locus of a homogeneous polynomial of degree 3 in 4 variables.
+\end{definition}
+
+\begin{theorem}
+    Each smooth cubic surface in $\mathbb{P}^3$ contains exactly 27 distinct lines.
+\end{theorem}
+
+This will be the main theorem of this section. We will prove it in two different ways. The first will be a well known proof, relating cubic surfaces to blow-ups of $\mathbb{P}^2$ in 6 points. The second proof will be more computational, using intersection theory on the Grassmannian $\mathbb{G}(1, 3)$. \todo[inline]{Make sure the second result is included in thesis.}
+
+We start with the first proof.
+
+\subsection{Cubic surfaces as blow-ups of \texorpdfstring{$\mathbb{P}^2$}{P2} in 6 points}
+
+\begin{proposition}
+    (\cite{Ha77}, 4.7/4.7.3) Let $P_1, \dots, P_6 \in \mathbb{P}^2$ be 6 points, where no three are collinear, and all six are not lying on a conic.  Let $X \subset \mathbb{P}^3$ be a smooth cubic surface. Then $X$ is isomorphic to the blow-up of $\mathbb{P}^2$ in the points $P_1, \dots, P_6$.
+\end{proposition}
+
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[scale=1,
+    plane/.style = {draw, rectangle, rounded corners=4pt, minimum width=9cm, minimum height=6cm},
+    pt/.style = {fill=black, circle, inner sep=1.6pt},
+    lab/.style = {font=\small}
+    ]
+
+    % The plane
+    \node[plane] (P2) at (0,0) {};
+    \node[lab] at ($(P2.north) + (30mm,-6mm)$) {$\mathbb{P}^2$};
+
+    % Six blowup points (simple, in general position)
+    \coordinate (E1) at ($(P2.center)+(-2.2,0.0)$);
+    \coordinate (E2) at ($(P2.center)+(-0.6,1.3)$);
+    \coordinate (E3) at ($(P2.center)+(1.2,1.0)$);
+    \coordinate (E4) at ($(P2.center)+(-1.0,-1.1)$);
+    \coordinate (E5) at ($(P2.center)+(0.8,-1.2)$);
+    \coordinate (E6) at ($(P2.center)+(1.8,0.1)$);
+
+    % Draw points and labels
+    \node[pt] at (E1) {}; \node[lab, above left]  at ($(E1)+(0.10,0.10)$) {$E_1$};
+    \node[pt] at (E2) {}; \node[lab, above left]  at ($(E2)+(0.08,0.12)$) {$E_2$};
+    \node[pt] at (E3) {}; \node[lab, above right] at ($(E3)+(0.08,0.08)$) {$E_3$};
+    \node[pt] at (E4) {}; \node[lab, below left]  at ($(E4)+(0.08,0.08)$) {$E_4$};
+    \node[pt] at (E5) {}; \node[lab, below right] at ($(E5)+(0.08,0.08)$) {$E_5$};
+    \node[pt] at (E6) {}; \node[lab, right]       at ($(E6)+(0.10,0.00)$) {$E_6$};
+
+    % Optional short caption implying blowup (remove if you prefer plain figure)
+    % \node[lab] at ($(P2.south) + (0,-9mm)$) {Blow up $\mathbb{P}^2$ at the six marked points};
+
+    \end{tikzpicture}
+  \caption{The projective plane $\mathbb{P}^2$ with six marked blow-up points.}
+  \label{fig:blowup6}
+\end{figure}
+\todo[inline]{Make a better figure of the blow-up of $\mathbb{P}^2$ in 6 points.}

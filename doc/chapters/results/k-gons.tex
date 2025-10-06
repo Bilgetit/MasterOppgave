@@ -114,3 +114,59 @@ We will now look at a resolution of the ideal sheaf of the 4-gon. We have that $
 \end{pmatrix}} \mathcal{O}_{\mathbb{P}^3}(-2)^{\oplus 2} \xrightarrow{\begin{pmatrix}
     x_1x_3 & x_0x_2
 \end{pmatrix}} I_{C_4} \to 0.\]
+
+\begin{tikzpicture}[scale=1,
+  face/.style = {draw, fill=gray!8},
+  pt/.style = {circle, draw, inner sep=0pt, minimum size=5pt, fill=#1},
+  pt/.default = black,
+  lab/.style = {font=\small},
+  edge/.style = {black!70, line width=0.9pt}
+]
+
+% A simple oblique box to suggest a 3D region (model of P^3)
+\coordinate (A)  at (0,0);
+\coordinate (B)  at (5,0);
+\coordinate (C)  at (4,2.2);
+\coordinate (D)  at (-1,2.2);
+
+\coordinate (A') at (1.2,1.0);
+\coordinate (B') at (6.2,1.0);
+\coordinate (C') at (5.2,3.2);
+\coordinate (D') at (0.2,3.2);
+
+\draw[face] (A) -- (B) -- (C) -- (D) -- cycle;
+\draw[face] (A') -- (B') -- (C') -- (D') -- cycle;
+\draw (A) -- (A') (B) -- (B') (C) -- (C') (D) -- (D');
+
+\node[lab, above right=2mm and 2mm of C'] {$\mathbb{P}^3$};
+
+% Four points placed to suggest 3D positions
+\coordinate (P1) at ($(D)!0.55!(A)$);         % front-left interior
+\coordinate (P2) at ($(B)!0.45!(C)$);         % front-right interior
+\coordinate (P3) at ($(C')!0.45!(B')$);       % back-right
+\coordinate (P4) at ($(A)!0.55!(C')$);        % interior between front and back
+
+% Draw points
+\filldraw[red!70!black]   (P1) circle (2.8pt) node[left=2mm]  {$P_1$};
+\filldraw[blue!70!black]  (P2) circle (2.8pt) node[right=2mm] {$P_2$};
+\filldraw[green!60!black] (P3) circle (2.8pt) node[above right=1mm and 1mm] {$P_3$};
+\filldraw[orange!80!black](P4) circle (2.8pt) node[below left=1mm and 1mm] {$P_4$};
+
+% Draw lines between every pair of points (edges of the tetrahedron)
+\draw[edge] (P1) -- (P2);
+\draw[edge] (P1) -- (P4);
+\draw[edge] (P2) -- (P3);
+\draw[edge] (P3) -- (P4);
+
+% Optional: small legend of homogeneous coordinates
+\node[lab, right=6mm of B'] {
+  \begin{tabular}{l}
+    $P_1=[1:0:0:0]$\\
+    $P_2=[0:1:0:0]$\\
+    $P_3=[0:0:1:0]$\\
+    $P_4=[0:0:0:1]$
+  \end{tabular}
+};
+
+\end{tikzpicture}
+\todo[inline]{Make a better figure of the 4-gon in $\mathbb{P}^3$.}
