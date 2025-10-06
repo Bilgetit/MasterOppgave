@@ -22,7 +22,7 @@ We begin with the following lemma of non-existence:
     Then we can fix a line $l_{k+1}$ in $H$, which does not intersect $p$, and which does not lie in the hypersurface $X_d$.
     $l_{k+1}$ will intersect each of the lines at a point $p_i$, all being distinct since the lines only intersects in $p$, and thus no other point. 
     $l_{k+1}$ will also intersect the hypersurface at the points $p_i$, thus intersecting the hypersurface at $k$ points.
-    By Bezout's theorem, the intersection of a line with a hypersurface of degree $d$ is at most $d$ points, giving a contradiction.
+    By Bezout's theorem (\cref{thm:bezout}), the intersection of a line with a hypersurface of degree $d$ is at most $d$ points, giving a contradiction.
 \end{proof}
 
 We now move on to the case of existence, with the following proposition:
@@ -32,7 +32,7 @@ We now move on to the case of existence, with the following proposition:
 \end{proposition}
 \begin{proof}
     Let $\mathfrak{L}$ be the linear system of hypersurfaces of degree $k$ in $\mathbb{P}^3$ containing the lines $l_0, l_1, \dots, l_k$. 
-    Bertini's theorem states that the general member of $\mathfrak{L}$ is smooth outside the base locus of $\mathfrak{L}$.
+    Recall that Bertini's theorem (\cref{thm:bertini}) tells us that the general member of $\mathfrak{L}$ is smooth outside the base locus of $\mathfrak{L}$.
     The base locus of $\mathfrak{L}$ is the union of the lines $l_0, l_1, \dots, l_k$.
     Thus we must find a function $f \in \mathbb{C}[x_0, x_1, x_2, x_3]_k$ such that $V(f)$ is smooth on the lines $l_0, l_1, \dots, l_k$.
     Bertini's theorem then gives us that we can find a hypersurface which is also smooth outside the base locus of $\mathfrak{L}$.
