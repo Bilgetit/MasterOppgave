@@ -1,23 +1,32 @@
 \section{Lines in a cubic surface}
-
-\begin{definition}
-    A \emph{cubic surface} is a surface $S \subset \mathbb{P}^3$ defined as the zero locus of a homogeneous polynomial of degree 3 in 4 variables.
-\end{definition}
+From \cref{cor:Fano}, we know that a smooth cubic surface contains finitely many lines. We will now show that it contains exactly 27 lines.
 
 \begin{theorem}
     Each smooth cubic surface in $\mathbb{P}^3$ contains exactly 27 distinct lines.
 \end{theorem}
 
-This will be the main theorem of this section. We will prove it in two different ways. The first will be a well known proof, relating cubic surfaces to blow-ups of $\mathbb{P}^2$ in 6 points. The second proof will be more computational, using intersection theory on the Grassmannian $\mathbb{G}(1, 3)$. \todo[inline]{Make sure the second result is included in thesis.}
+This will be the main theorem of this section. We will prove it in two different ways. The first will be a well known proof, relating cubic surfaces to blow-ups of $\mathbb{P}^2$ in 6 points. The second proof will use intersection theory on the Grassmannian $\mathbb{G}(1, 3)$. \todo[inline]{Make sure the second result is included in thesis.}
 
 We start with the first proof.
 
 \subsection{Cubic surfaces as blow-ups of \texorpdfstring{$\mathbb{P}^2$}{P2} in 6 points}
 
+\begin{remark}
+    The points $P_1, \dots, P_6$ in $\mathbb{P}^2$ are said to be in \emph{general position} if no three of the points are collinear, and no six lie on a conic.
+\end{remark}
+
 \begin{proposition}
-    (\cite{Ha77}, 4.7/4.7.3) Let $P_1, \dots, P_6 \in \mathbb{P}^2$ be 6 points, where no three are collinear, and all six are not lying on a conic.  Let $X \subset \mathbb{P}^3$ be a smooth cubic surface. Then $X$ is isomorphic to the blow-up of $\mathbb{P}^2$ in the points $P_1, \dots, P_6$.
+    (\cite{Ha77}, 4.7/4.7.3) Let $P_1, \dots, P_6 \in \mathbb{P}^2$ are in general position. Let $X \subset \mathbb{P}^3$ be a smooth cubic surface. Then $X$ is isomorphic to the blow-up of $\mathbb{P}^2$ in the points $P_1, \dots, P_6$.
 \end{proposition}
 
+\begin{proposition}
+    (\cite{Ha77}, 4.9) Let $X \subset \mathbb{P}^3$ be a smooth cubic surface. Then $X$ contains exactly 27 distinct lines. Each having self-intersection $-1$, and they are the only irreducible curves with negative self-intersection. They are:
+    \begin{itemize}
+        \item The exceptional curves $E_1, \dots E_6$ (6 of these)
+        \item The strict transform of lines in $\mathbb{P}^2$ containing pairs of points $P_i, P_j$, $i \neq j$ (15 of these).
+        \item The strict transform of conics in $\mathbb{P}^2$ not containing $P_i$ (6 of these)
+    \end{itemize}
+\end{proposition}
 
 \begin{figure}[htbp]
     \centering
@@ -32,23 +41,23 @@ We start with the first proof.
     \node[lab] at ($(P2.north) + (30mm,-6mm)$) {$\mathbb{P}^2$};
 
     % Six blowup points (simple, in general position)
-    \coordinate (E1) at ($(P2.center)+(-2.2,0.0)$);
-    \coordinate (E2) at ($(P2.center)+(-0.6,1.3)$);
-    \coordinate (E3) at ($(P2.center)+(1.2,1.0)$);
-    \coordinate (E4) at ($(P2.center)+(-1.0,-1.1)$);
-    \coordinate (E5) at ($(P2.center)+(0.8,-1.2)$);
-    \coordinate (E6) at ($(P2.center)+(1.8,0.1)$);
+    \coordinate (E1) at ($(P2.center)+(-0.6,1.3)$);
+    \coordinate (E2) at ($(P2.center)+(1.2,1.0)$);
+    \coordinate (E3) at ($(P2.center)+(1.8,0.1)$);
+    \coordinate (E4) at ($(P2.center)+(0.8,-1.2)$);
+    \coordinate (E5) at ($(P2.center)+(-1.0,-1.1)$);
+    \coordinate (E6) at ($(P2.center)+(-2.2,0.0)$);
 
-    % Draw points and labels
+    % Draw a line between E5 and E2 (labelled as \ell_{25})
+    \draw[very thick] (E5) -- (E2) node[midway, sloped, above] {$\ell_{25}$};
+
+    % Draw points and labels (drawn after the line so they sit on top)
     \node[pt] at (E1) {}; \node[lab, above left]  at ($(E1)+(0.10,0.10)$) {$E_1$};
     \node[pt] at (E2) {}; \node[lab, above left]  at ($(E2)+(0.08,0.12)$) {$E_2$};
     \node[pt] at (E3) {}; \node[lab, above right] at ($(E3)+(0.08,0.08)$) {$E_3$};
     \node[pt] at (E4) {}; \node[lab, below left]  at ($(E4)+(0.08,0.08)$) {$E_4$};
     \node[pt] at (E5) {}; \node[lab, below right] at ($(E5)+(0.08,0.08)$) {$E_5$};
     \node[pt] at (E6) {}; \node[lab, right]       at ($(E6)+(0.10,0.00)$) {$E_6$};
-
-    % Optional short caption implying blowup (remove if you prefer plain figure)
-    % \node[lab] at ($(P2.south) + (0,-9mm)$) {Blow up $\mathbb{P}^2$ at the six marked points};
 
     \end{tikzpicture}
   \caption{The projective plane $\mathbb{P}^2$ with six marked blow-up points.}

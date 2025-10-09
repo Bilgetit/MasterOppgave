@@ -2,16 +2,17 @@ listOfResults = {};
 listOfSurprises = {};
 
 kk = ZZ/32749;
+-- kk = QQ;
 RingP3 = kk[x_0..x_3];
 
 pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
 lineFromPoints = pointsMatrix -> minors(3, pointsMatrix);
 
 time0 = currentTime();
-d = 19;
+d = 2;
 while currentTime() - time0 < 12*3600 do(  -- wait for 12 hours
     maxNoPoints = ceiling((d+3)*(d+2)*(d+1)/(6*d));
-    for noPoints from maxNoPoints - 1 to maxNoPoints do (
+    for noPoints from maxNoPoints - 1 to maxNoPoints+3 do (
         myPoints = apply(noPoints, i -> (
             v := for j in 0..3 list random(kk);
             -- Ensure the point is not the zero vector
@@ -21,7 +22,7 @@ while currentTime() - time0 < 12*3600 do(  -- wait for 12 hours
             v
         )); 
         subsequentPairs = for i from 0 to (#myPoints - 2) list {myPoints#i, myPoints#(i+1)};
-        subsequentPairs = append(subsequentPairs, {myPoints#0, myPoints#(#myPoints-1)});
+        -- subsequentPairs = append(subsequentPairs, {myPoints#0, myPoints#(#myPoints-1)});
         pointPairs = apply(subsequentPairs, pointsMatrix);
         allLines = apply(pointPairs, lineFromPoints);
 
