@@ -1,0 +1,22 @@
+\begin{definition}[\cite{Ha77}, 12.7]
+    Let $Y$ be a topological space. A function $\phi\colon Y \to \mathbb{Z}$ is \emph{upper semicontinuous} if for each $y \in Y$, there is an open neighborhood $U$ of $y$, such that for all $y' \in U, \phi(y') \leq \phi(y)$ 
+\end{definition}
+
+\begin{lemma}[\cite{EO25}, Cor. 10.59]
+    Let $k$ be a field, and let $f \colon X \to Y$ be a morphism of projective schemes over $k$ Then $f$ is proper. In particular, the image $f(X) \subseteq Y$ is closed in $Y$.
+\end{lemma}
+
+\begin{theorem}[Dimension formula for fibers]
+    Let $k$ be a field and let $f\colon X \to Y$ be a dominant morphism of irreducible projective varieties over $k$. Let $\eta$ denote the generic point of $Y$ and write $X_\eta = X \times_Y \mathrm{Spec}\,k(Y)$ for the generic fibre. Then
+    \[
+        \dim X \;=\; \dim Y \;+\; \dim X_\eta.
+    \]
+\end{theorem}
+\begin{proof}
+    For irreducible varieties over a field, the Krull dimension equals the transcendence degree of the function field over $k$. Dominance of $f$ gives an inclusion of function fields $k(Y)\hookrightarrow k(X)$ and $k(X)$ is a finitely generated field extension of $k(Y)$. Hence
+    \[
+        \dim X = \operatorname{trdeg}_k k(X) = \operatorname{trdeg}_k k(Y) + \operatorname{trdeg}_{k(Y)} k(X).
+    \]
+    By definition $\operatorname{trdeg}_{k(Y)} k(X)=\dim X_\eta$, and $\operatorname{trdeg}_k k(Y)=\dim Y$, which yields the claimed equality.
+\end{proof}
+\todo[inline]{Write the proof above in own words, and find reference.}
