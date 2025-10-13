@@ -1,26 +1,54 @@
 \section{Incidence correspondance and the universal Fano scheme}
 
-We aim to introduce the powerful concept of incidence correspondences, which will be a tool we will use several times later in this thesis. 
+\begin{itemize}
+    \item Introduce the universal Fano scheme, and incidence correspondences.
+    \item State the dimension of the universal Fano scheme, and the expected dimension of the Fano scheme of a general hypersurface.
+    \item Explain how this tells us whether to expect a hypersurface to contain lines, and of which dimension those lines are. 
+    \item State \ref{cor:Fano}, which tells us when to expect lines on a general surface in $\mathbb{P}^3$.
+\end{itemize}
+
+We aim to introduce the powerful concept of incidence correspondences (or incidence variety), which will be a tool we will use several times later in this thesis. We do this by introducing the universal Fano scheme, which is an example of an incidence variety. Generally, an incidence correspondence is a set of pairs $(x,y)$ such that $x$ lies in $y$, where $x$ and $y$ are elements of $X$ and $Y$ respectively, for some varieties $X$ and $Y$. This can be visualized in the following diagram, with projection maps $\pi_1$ and $\pi_2$:
+
+\begin{equation} 
+    \begin{tikzcd}
+    & \mathcal{I} = \{(x,y) \in X \times Y \mid x \text{ lies in }y\} \arrow[dl, "\pi_1"'] \arrow[dr, "\pi_2"] & \\
+    X  & & Y
+    \end{tikzcd}
+\end{equation}
 
 \begin{definition}
-    (\cite{EH16} Section 6.1). N = $\binom{n+d}{d}-1$
+    (\cite{EH16} Section 6.1). Let N = $\binom{n+d}{d}-1$, so that $\mathbb{P}^N$ parametrizes all degree $d$ hypersurfaces in $\mathbb{P}^n$. The \emph{universal Fano scheme} is defined as
 
     \[\Phi = \{(X, L) \in \mathbb{P}^N \times \mathbb{G}(k,n) \mid L \subseteq X\}\]
 \end{definition}
 
-\begin{proposition}
-    $\Phi \subset \mathbb{P}^N \times \mathbb{G}(k,n)$ is a closed subset of $\mathbb{P}^N \times \mathbb{G}(k,n)$.
-\end{proposition}
+\begin{remark}\label{remark:universal Fano}
+    The \emph{Fano scheme} $F_k(X) \subseteq \mathbb{G}(k,n)$ of a variety $X \subseteq \mathbb{P}^n$ parametrizes $k$-planes on $X$. The universal Fano scheme parametrizes $k$-planes for all varieties of a certain degree in $\mathbb{P}^n$. By taking the fiber over any point $[X] \in \mathbb{P}^N$, that being the class of the surface $X \subseteq \mathbb{P}^n$, we get the Fano scheme $F_k(X)$ for the specified variety. In this sense, studying the universal Fano scheme tells us what we can "expect" when examining a specific Fano scheme. It is therefore a very useful tool in telling us about a general member of the varieties. 
+\end{remark}
 
-\todo[inline]{Decide if we want to prove, or refer to proof. Can refer to Harris 1995 chapter 6, or perhaps proof of 22.31 in EO}
+\begin{lemma}
+    $\Phi \subset \mathbb{P}^N \times \mathbb{G}(k,n)$ is a closed subset of $\mathbb{P}^N \times \mathbb{G}(k,n)$.
+\end{lemma}
+
+\todo[inline]{Decide if we want to prove, or refer to proof. Can refer to Harris 1995 chapter 6, or perhaps proof of 24.31 in EO}
 
 \begin{proposition}[EH16, Proposition 6.1]
     Let $N = \binom{n+d}{d}-1$. The universal Fano scheme $\Phi = \Phi(n,d,k) \subseteq \mathbb{P}^N \times \mathbb{G}(k,n)$ is a smooth irreducible variety of dimension
-    \[\dim \Phi(n,d,k) = N 0 (k+1)(n-k) - \binom{k+d}{k}.\]
+    \[\dim \Phi(n,d,k) = N + (k+1)(n-k) - \binom{k+d}{k}.\]
 \end{proposition}
 
+We ask when we expect a general smooth surface $X$ of degree $d$ to contain lines, and remember that this question is answered by looking at the geometry of the Fano scheme $F_k(X)$ for a general smooth surface $X$. More precisely one asks of what dimension the Fano scheme has, therefore deciding what dimension the set of lines in our general surface is. As noted in \cref{remark:universal Fano}, $F_k(X)$ can be obtained by taking the fiber over a point $[X]\in \mathbb{P}^N$. We therefore ask what dimension this fiber will have. From \cref{thm:fiber}
+
+
+We would expect the the family of $k$-planes on a general hypersurface $X \subseteq \mathbb{P}^n$ of degree $d$ to have dimension $\phi(n,d,k) := \dim \Phi - N$. 
+
+
 \begin{corollary}[EH16, corollary 6.2]
-    \todo[inline]{Include result.}
+    \begin{enumerate}[label=(\alph*)]
+        \item The dimension of any component of the family of $k$-planes on any hypersurface of degree d in $\mathbb{P}^n$ is at least \[\phi(n,d,k):= (k+1)(n-k)-\binom{k+d}{k}.\]
+        \item If $\phi(n,d,k) < 0$, then the general hypersurface of degree $d$ in $\mathbb{P}^n$ contains no $k$-planes.
+        \item If $\phi(n,d,k) \geq 0$, and the general hypersurface of degree $d$ contains any $k$-planes, then every hypersurface of degree $d$ contains $k$-planes, and every component of the family of $k$-planes on a general hypersurface of degre $d$ has dimension exactly $\phi(n,d,k)$.
+    \end{enumerate}
 \end{corollary}
 
 \begin{corollary} \label{cor:Fano}
