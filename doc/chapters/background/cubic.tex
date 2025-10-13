@@ -1,23 +1,29 @@
-\section{Lines in a cubic surface}
-From \cref{cor:Fano}, we know that a smooth cubic surface contains finitely many lines. We will now show that it contains exactly 27 lines.
+\section{Lines on a cubic surface}
+From \cref{cor:Fano}, we know that a smooth cubic surface contains finitely many lines. We will now show that it contains exactly 27 lines. This is a very famous result, which most who work in the field of algebraic geometry will know quite well. It was first proved in 1849 by Arthur Cayley and George Salmon, in a proof we will give a sketch of(!?). \todo[inline]{Consider continuing this historical view.}
 
 \begin{theorem}
     Each smooth cubic surface in $\mathbb{P}^3$ contains exactly 27 distinct lines.
 \end{theorem}
 
-This will be the main theorem of this section. We will prove it in two different ways. The first will be a well known proof, relating cubic surfaces to blow-ups of $\mathbb{P}^2$ in 6 points. The second proof will use intersection theory on the Grassmannian $\mathbb{G}(1, 3)$. \todo[inline]{Make sure the second result is included in thesis.}
+This will be the main theorem of this section. We will prove it in two different ways. The first will be a well known proof, relating cubic surfaces to blow-ups of $\mathbb{P}^2$ in 6 points. The second proof will use intersection theory on the Grassmannian $\mathbb{G}(1, 3)$. \todo[inline]{Descrive second result better.}
 
-We start with the first proof.
+We start with the first proof. We refer to \cite{Ha77} for much of the actual proof.
 
 \subsection{Cubic surfaces as blow-ups of \texorpdfstring{$\mathbb{P}^2$}{P2} in 6 points}
 
-\begin{remark}
-    The points $P_1, \dots, P_6$ in $\mathbb{P}^2$ are said to be in \emph{general position} if no three of the points are collinear, and no six lie on a conic.
-\end{remark}
+\begin{enumerate}
+    \item Give isomorphism between cubic surface and P2.
+    \item Count lines on P2.
+    \item Keep it simple, refering to Heartshorne. This is not the main subject of out thesis. 
+\end{enumerate}
+
+The points $P_1, \dots, P_6$ in $\mathbb{P}^2$ are said to be in \emph{general position} if no three of the points are collinear, and no six lie on a conic.
 
 \begin{proposition}
     (\cite{Ha77}, 4.7/4.7.3) Let $P_1, \dots, P_6 \in \mathbb{P}^2$ are in general position. Let $X \subset \mathbb{P}^3$ be a smooth cubic surface. Then $X$ is isomorphic to the blow-up of $\mathbb{P}^2$ in the points $P_1, \dots, P_6$.
 \end{proposition}
+
+This is part of a bigger class of surfaces, those being the \emph{Del Pezzo} surfaces. \todo{cite Beauville}
 
 \begin{proposition}
     (\cite{Ha77}, 4.9) Let $X \subset \mathbb{P}^3$ be a smooth cubic surface. Then $X$ contains exactly 27 distinct lines. Each having self-intersection $-1$, and they are the only irreducible curves with negative self-intersection. They are:

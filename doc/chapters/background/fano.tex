@@ -37,20 +37,28 @@ We aim to introduce the powerful concept of incidence correspondences (or incide
     \[\dim \Phi(n,d,k) = N + (k+1)(n-k) - \binom{k+d}{k}.\]
 \end{proposition}
 
-We ask when we expect a general smooth surface $X$ of degree $d$ to contain lines, and remember that this question is answered by looking at the geometry of the Fano scheme $F_k(X)$ for a general smooth surface $X$. More precisely one asks of what dimension the Fano scheme has, therefore deciding what dimension the set of lines in our general surface is. As noted in \cref{remark:universal Fano}, $F_k(X)$ can be obtained by taking the fiber over a point $[X]\in \mathbb{P}^N$. We therefore ask what dimension this fiber will have. From \cref{thm:fiber}
-
-
-We would expect the the family of $k$-planes on a general hypersurface $X \subseteq \mathbb{P}^n$ of degree $d$ to have dimension $\phi(n,d,k) := \dim \Phi - N$. 
-
+We ask when we expect a general smooth surface $X$ of degree $d$ to contain lines, and remember that this question is answered by looking at the geometry of the Fano scheme $F_k(X)$ for a general smooth surface $X$. More precisely one asks of what dimension the Fano scheme has, therefore deciding what dimension the set of lines in our general surface is. As noted in \cref{remark:universal Fano}, $F_k(X)$ can be obtained by taking the fiber over a point $[X]\in \mathbb{P}^N$. We therefore ask what dimension this fiber will have. From \cref{thm:fiber} we get that $\dim \pi^{-1}([X]) = \dim \Phi - \dim \mathbb{P}^N$. We define this as $\phi(n,d,k) := \dim \Phi - N$. We gather these facts in the following corollary:
 
 \begin{corollary}[EH16, corollary 6.2]
+
     \begin{enumerate}[label=(\alph*)]
         \item The dimension of any component of the family of $k$-planes on any hypersurface of degree d in $\mathbb{P}^n$ is at least \[\phi(n,d,k):= (k+1)(n-k)-\binom{k+d}{k}.\]
         \item If $\phi(n,d,k) < 0$, then the general hypersurface of degree $d$ in $\mathbb{P}^n$ contains no $k$-planes.
         \item If $\phi(n,d,k) \geq 0$, and the general hypersurface of degree $d$ contains any $k$-planes, then every hypersurface of degree $d$ contains $k$-planes, and every component of the family of $k$-planes on a general hypersurface of degre $d$ has dimension exactly $\phi(n,d,k)$.
     \end{enumerate}
+
 \end{corollary}
 
+\begin{proof}
+    \todo[inline]{Decide if we want to prove, or refer to proof. }
+\end{proof}
+
+To bring this back to a familiar context of lines on surfaces in $\mathbb{P}^3$, we set $n=3$ and $k=1$. We then get that $\phi(3,d,1) = 3-d$. We use this in the following corollary:
+
 \begin{corollary} \label{cor:Fano}
-    (\cite{EO25}, 22.31) For a hypersurface $S_d \subseteq \mathbb{P}^3$ of degree $d$, we expect to find no lines on $S_d$ when $d \geq 4$, finitely many lines when $d=3$, and positive-dimensional families of lines when $d \leq 2$.
+    (\cite{EO25}, 22.31) For a hypersurface $X \subseteq \mathbb{P}^3$ of degree $d$, we expect to find no lines on $X$ when $d \geq 4$, finitely many lines when $d=3$, and positive-dimensional families of lines when $d \leq 2$.
 \end{corollary}
+
+\begin{remark}
+    Note that being smooth is an open condition on $X$, meaning this applies to smooth hypersurfaces. \todo[inline]{Include or not? Need to cite it being an open condition.}
+\end{remark}
