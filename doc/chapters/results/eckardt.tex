@@ -1,48 +1,59 @@
 \chapter{Results}\label{results}
 \section{Surfaces including intersecting lines}
 
-In this section we will study the problem of finding a smooth hypersurface $X_d \subset \mathbb{P}^3$ of degree $d$, containing $k$ lines intersecting at a common point $p$ and lying in a common plane $H$. We will denote the lines as $l_1, l_2, \dots, l_k$. 
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[scale=1]
+    % Six lines passing through a common point p at the origin
+    \foreach \theta/\i/\pos in {0/1/above,30/2/above,65/3/left,115/4/left,-35/5/below,-80/6/right} {
+        \draw[rotate=\theta, line width=0.9pt] (-3,0) -- (3,0)
+        node[pos=0.85, \pos] {$\ell_{\i}$};
+    }
+    % Common intersection point p
+    \fill (0,0) circle (2pt) node[below right] {$p$};
+
+    % Optional label
+    \node at (3,2.4) {$Z_6 = \bigcup_{i=1}^{6} \ell_i$};
+    \end{tikzpicture}
+  \caption{An example of a 6-cross in $\mathbb{P}^3$.}
+  \label{fig:Z_6}
+\end{figure}
+
+In this section we will study the problem of finding a smooth hypersurface $X_d \subset \mathbb{P}^3$ of degree $d$, containing a \emph{$k$-cross}. It is worth noting the specific question we are asking, which is that given a $k$-cross, does there exist a smooth hypersurface of degree $d$ including it. We do not ask whether a $k$-cross is to be expected inside a general hypersurface. \todo{Keep or not?}
 
 \begin{definition}
-    A k-cross is a union of k lines $l_1, l_2, \dots, l_k$ in $\mathbb{P}^3$ which intersect at a common point $p$. We will write $Z_k = \bigcup_{i=1}^k l_i$.
+    A k-cross is a union of k lines $l_1, l_2, \dots, l_k$ in $\mathbb{P}^3$ which intersect at a common point $p$ and lying in a common plane $H$. We will write $Z_k = \bigcup_{i=1}^k l_i$.
 \end{definition}
 
+We require the lines to lie in a plane because if this is not true, then the point $p$ gives rise to a tangent space of dimension 3, which cannot be included in a surface in $\mathbb{P}^3$. \todo[inline]{Make this argument rigorous, maybe a proposition.}
+
 \begin{remark}
-    Note that for automorphisms of $\mathbb{P}^3$, lines are sent to lines. Therefore we can study the lines $l_0 = (\alpha : \beta : 0 : 0), \ l_1 = (\alpha : 0 : \gamma : 0), \ l_2=(\alpha: \delta : \lambda_2 \delta: 0), \dots, l_k = (\alpha : \delta : \lambda_k \delta : 0)$ for $\lambda_i \in \mathbb{N}$, take the automorphism of $\mathbb{P}^3$ which sends these lines to the given lines, and then study the hypersurface of degree $d$ in $\mathbb{P}^3$ which contains these lines.
-    This automorphism will also takes a smooth hypersurface of degree $d$ to a smooth hypersurface of degree $d$, so showing the following properties for  lines in this form is sufficient for the general case. 
+    Note that for automorphisms of $\mathbb{P}^3$, lines are sent to lines. Therefore we can study the lines $l_1 = (\alpha : \beta : 0 : 0), \ l_2 = (\alpha : 0 : \gamma : 0), \ l_3=(\alpha: \delta : \lambda_3 \delta: 0), \dots, l_k = (\alpha : \delta : \lambda_k \delta : 0)$ for $\lambda_i \in \mathbb{N}$ by taking the automorphism of $\mathbb{P}^3$ which sends these lines to the given lines, and then study the hypersurface of degree $d$ in $\mathbb{P}^3$ which contains these lines.
+    This automorphism will also takes a smooth hypersurface of degree $d$ to a smooth hypersurface of degree $d$, so showing properties for lines in this form is sufficient for the general case. 
 \end{remark}
 
-We begin with the following lemma of non-existence:
+We are interested in both the existence and non-existence of degree $d$ hypersurfaces containing $k$-crosses. We first consider surfaces with degree less than $k$, but more than 1 (1 provides us a simple choice of surface including a $k$-cross, namely $H$).
 
 \begin{lemma}
-    Given $k$ distinct lines $l_1, l_2, \dots, l_k$ in $\mathbb{P}^3$ intersecting at a common point $p$ and lying in a common plane $H$, there does not exist any smooth hypersurface of degree $2 \leq d \leq k-1$ such that the lines are contained in the hypersurface.
+    Given a $k$-cross, there does not exist any smooth hypersurface of degree $1 < d < k$ such that the lines are contained in the hypersurface.
 \end{lemma}
 \begin{proof}
-    Assume for contradiction that there exists a smooth hypersurface of degree $2 \leq d \leq k-1$ such that the lines are contained in the hypersurface. 
-    Then we can fix a line $l_{k+1}$ in $H$, which does not intersect $p$, and which does not lie in the hypersurface $X_d$.
-    $l_{k+1}$ will intersect each of the lines at a point $p_i$, all being distinct since the lines only intersects in $p$, and thus no other point. 
-    $l_{k+1}$ will also intersect the hypersurface at the points $p_i$, thus intersecting the hypersurface at $k$ points.
-    By Bezout's theorem (\cref{thm:bezout}), the intersection of a line with a hypersurface of degree $d$ is at most $d$ points, giving a contradiction.
+    Assume for contradiction that there exists a smooth hypersurface of degree $1 < d < k$ such that the lines are contained in the hypersurface. Then we can fix another line $\ell$ in $H$, which does not intersect $p$, and which does not lie in the hypersurface $X_d$. $\ell$ will intersect each of the lines at a point $p_i$, all being distinct since the lines only intersects in $p$. $\ell$ will also intersect $X_d$ at the points $p_i$, thus intersecting the hypersurface at $k$ points. By Bezout's theorem (\cref{thm:bezout}), the intersection of a line with a hypersurface of degree $d$ is at most $d$ points, giving a contradiction. \todo[inline]{Can't the line stay on our surface when going from one line to the other?}
 \end{proof}
 
 We now move on to the case of existence, with the following proposition:
 
 \begin{proposition}
-    For $k$ lines in $\mathbb{P}^3$ intersecting at a common point $p$ and lying in a common plane, we can find a smooth hypersurface of degree $k$ such that the lines are contained in the hypersurface.
+    For  $k$-cross, we can find a smooth hypersurface of degree $k$ such that the lines are contained in the hypersurface.
 \end{proposition}
 \begin{proof}
-    Let $\mathfrak{L}$ be the linear system of hypersurfaces of degree $k$ in $\mathbb{P}^3$ containing the lines $l_0, l_1, \dots, l_k$. 
-    Recall that Bertini's theorem (\cref{thm:bertini}) tells us that the general member of $\mathfrak{L}$ is smooth outside the base locus of $\mathfrak{L}$.
-    The base locus of $\mathfrak{L}$ is the union of the lines $l_0, l_1, \dots, l_k$.
-    Thus we must find a function $f \in \mathbb{C}[x_0, x_1, x_2, x_3]_k$ such that $V(f)$ is smooth on the lines $l_0, l_1, \dots, l_k$.
-    Bertini's theorem then gives us that we can find a hypersurface which is also smooth outside the base locus of $\mathfrak{L}$.
+    Let $\mathfrak{L}$ be the linear system of hypersurfaces of degree $k$ in $\mathbb{P}^3$ containing the lines $l_0, l_1, \dots, l_k$. Recall that Bertini's theorem (\cref{thm:bertini}) tells us that the general member of $\mathfrak{L}$ is smooth outside the base locus of $\mathfrak{L}$. The base locus of $\mathfrak{L}$ is the union of the lines $l_0, l_1, \dots, l_k$. Thus we must find a function $f \in \mathbb{C}[x_0, x_1, x_2, x_3]_k$ such that $V(f)$ is smooth on the lines $l_0, l_1, \dots, l_k$. Bertini's theorem then gives us that we can find a hypersurface which is also smooth outside the base locus of $\mathfrak{L}$.
 
     We study the function $f = g(x_1, x_2) + h(x_0, x_3)$, where $h = x_0^{k-1}x_3$ and $g = \prod l_i = x_1x_2 \prod_{i=3}^k (x_1 - \lambda_i x_2)$, giving the following polynomial:
     \[
         f(x_0, x_1, x_2, x_3) = x_1x_2 \prod_{i=3}^k (x_1 - \lambda_i x_2) + x_0^{k-1}x_3
     \]
-    We can see that $f$ is a polynomial of degree $k$, and that $f$ includes the lines $l_0, l_1, \dots, l_k$, since $f(\alpha: \beta: 0: 0) = f(\alpha: 0: \gamma: 0) = f(\alpha: \delta: \lambda_i \delta: 0) = 0$.
-    We must then check that $f$ is smooth on the base locus of $\mathfrak{L}$, which is to check that $\bigcap_{i=0}^3 (\partial_i f = 0) = \emptyset$.
+    We can see that $f$ is a polynomial of degree $k$, and that $f$ includes the lines $l_0, l_1, \dots, l_k$, since $f(\alpha: \beta: 0: 0) = f(\alpha: 0: \gamma: 0) = f(\alpha: \delta: \lambda_i \delta: 0) = 0$. We must then check that $f$ is smooth on the base locus of $\mathfrak{L}$, which is to check that $\bigcap_{i=0}^3 (\partial_i f = 0) = \emptyset$.
     
     We get the following derivatives:
 
