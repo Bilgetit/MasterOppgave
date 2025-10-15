@@ -1,0 +1,5 @@
+hypersurface
+automorphisms
+hypersurfaces
+Bertini
+Bezout

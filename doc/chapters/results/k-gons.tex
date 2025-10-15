@@ -7,6 +7,40 @@ In this section, we will consider $k$-gons in $\mathbb{P}^3$ and their relations
     A $k$-gon is a union of $k$ lines $l_1, l_2, \dots, l_k$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < k$, and $l_k$ intersects $l_1$. We will write $C_k = \bigcup_{i=1}^k l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < k$, and $p_k = l_k \cap l_1$.
 \end{definition}
 
+% Reusable k-gon drawing: usage \kgon{<k>} draws a polygon of k lines and labels the
+% intersection points p_1, ..., p_k and the lines l_1, ..., l_k. The drawing is planar
+% (a schematic picture) and intended for exposition; the parameter k may be changed.
+\begin{figure}[htbp]
+    \centering
+    % define a macro that draws a k-gon placed on a circle
+    \newcommand{\kgon}[1]{%
+        \begin{tikzpicture}[scale=1, every node/.style={font=\small}]
+            % radius of circle
+            \def\R{2.2cm}
+            \pgfmathparse{int(#1)}\let\K\pgfmathresult
+            % place the points on a circle and draw the lines
+            \foreach \i in {1,...,\K} {
+                \pgfmathsetmacro{\ang}{90 - 360*(\i-1)/\K}
+                \coordinate (P\i) at (\ang:\R);
+            }
+            % draw the edges (lines) and label them l_i at the midpoint
+            \foreach \i in {1,...,\K} {
+                \pgfmathtruncatemacro{\j}{ifthenelse(\i==\K,1,\i+1)}
+                \draw[line width=0.9pt] (P\i) -- (P\j) node[midway, above, font=\small] {$l_{\i}$};
+            }
+            % draw and label intersection points p_i (small filled dots)
+            \foreach \i in {1,...,\K} {
+                \fill (P\i) circle (2.4pt) node[below right=1mm and 1mm] {$p_{\i}$};
+            }
+        \end{tikzpicture}
+    }
+
+    % Example: draw a 7-gon (change the number to any k you want)
+    \kgon{7}
+  \caption{Schematic $k$-gon (here $k=7$) drawn in a plane; each vertex is an intersection point $p_i$ and the line segments represent the lines $l_i$.}
+  \label{fig:k-gon}
+\end{figure}
+
 \begin{proposition}
     Let $C_k = \bigcup_{i=1}^k l_i$ be a $k$-gon in $\mathbb{P}^3$. Then we can find a hypersurface of degree $d$ such that $C_k \subseteq S_d$ when $k \leq \frac{(d+3)(d+2)(d+1)}{6d}$.
 \end{proposition}
