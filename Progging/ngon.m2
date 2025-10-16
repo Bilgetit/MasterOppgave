@@ -1,6 +1,5 @@
 -- Step 1: Define the ring and parameters
-kk = ZZ/32749;
-kk = QQ;  -- Uncomment to work over the rationals
+kk = QQ; 
 RingP3 = kk[x_0..x_3];
 d = 2;  -- Degree of the hypersurface
 nrPoints = 4;

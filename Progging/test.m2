@@ -21,7 +21,7 @@ myPoints = apply(nrPoints, i -> (
     v
 ));
 
--- myPoints = {{1,0,0,0}, {0,1,0,0}, {0,0,1,0}, {0,0,0,1}};
+-- myPoints = {{1,0,0,0}, {0,1,0,0}, {0,0,1,0}, {0,0,0,1}, {1,1,1,1}};
 -- M = matrix {{x_0 .. x_3}, myPoints#0, myPoints#1};
 
 -- Function to convert two points to a matrix with first row {x_0 .. x_3}

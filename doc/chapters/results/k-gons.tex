@@ -10,7 +10,7 @@ In this section, we will consider $k$-gons in $\mathbb{P}^3$ and their relations
 % Reusable k-gon drawing: usage \kgon{<k>} draws a polygon of k lines and labels the
 % intersection points p_1, ..., p_k and the lines l_1, ..., l_k. The drawing is planar
 % (a schematic picture) and intended for exposition; the parameter k may be changed.
-\begin{figure}[htbp]
+\begin{figure}
     \centering
     % define a macro that draws a k-gon placed on a circle
     \newcommand{\kgon}[1]{%
@@ -37,19 +37,19 @@ In this section, we will consider $k$-gons in $\mathbb{P}^3$ and their relations
 
     % Example: draw a 7-gon (change the number to any k you want)
     \kgon{7}
-  \caption{Schematic $k$-gon (here $k=7$) drawn in a plane; each vertex is an intersection point $p_i$ and the line segments represent the lines $l_i$.}
+  \caption{7-gon drawn in a plane; each vertex is an intersection point $p_i$ and the line segments represent the lines $l_i$.}
   \label{fig:k-gon}
 \end{figure}
 
-\begin{proposition}
-    Let $C_k = \bigcup_{i=1}^k l_i$ be a $k$-gon in $\mathbb{P}^3$. Then we can find a hypersurface of degree $d$ such that $C_k \subseteq S_d$ when $k \leq \frac{(d+3)(d+2)(d+1)}{6d}$.
+\todo[inline]{Make lines go past intersection points.}
+
+\begin{proposition}\label{prop:k-gon}
+    Let $C_k$ be a $k$-gon in $\mathbb{P}^3$. Then we can find a hypersurface of degree $d$ such that $C_k \subseteq S_d$ when $k \leq \frac{(d+3)(d+2)(d+1)}{6d}$.
 \end{proposition}
 
 \begin{proof}
 
-    We can look at the zero cohomology of the ideal sheaf $\mathcal{I}_{C_k}$ of the $k$-gon to see if the $k$-gon can be contained in a hypersurface. We will denote the union of the lines as $C_k = \bigcup_{i=1}^k l_i$. 
-
-    We have the short exact sequence
+    We can look at the zero cohomology of the ideal sheaf $\mathcal{I}_{C_k}$ of the $k$-gon to see if the $k$-gon can be contained in a hypersurface. \todo{Why?} We have the short exact sequence
     \[0 \to \mathcal{I}_{C_k} \to \mathcal{O}_{\mathbb{P}^3}\to \mathcal{O}_{C_k} \to 0.\]
 
     We twist this by $\mathcal{O}_{\mathbb{P}^3}(d)$ to get
@@ -57,7 +57,7 @@ In this section, we will consider $k$-gons in $\mathbb{P}^3$ and their relations
 
     From this we get the long exact sequence in cohomology:
 
-    \begin{tikzcd}
+    \begin{tikzcd}[sep=small]
     0 \rar & H^0(\mathbb{P}^3, \mathcal{I}_{C_k}(d)) \rar & H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar &  H^0(C_k, \mathcal{O}_{C_k}(d)) \ar[out=-20, in=160]{dll} \\
     & H^1(\mathbb{P}^3, \mathcal{I}_{C_k}(d)) \rar & H^1(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar & H^1(C_k, \mathcal{O}_{C_k}(d)) \ar[out=-20, in=160]{dll} \\
     & H^2(\mathbb{P}^3, \mathcal{I}_{C_k}(d)) \rar & H^2(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar & H^2(C_k, \mathcal{O}_{C_k}(d)) \ar[out=-20, in=160]{dll}\\
@@ -75,7 +75,7 @@ In this section, we will consider $k$-gons in $\mathbb{P}^3$ and their relations
     h^0(\mathbb{P}^3, \mathcal{I}_{C_k}) = h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) + h^1(\mathbb{P}^3, \mathcal{I}_{C_k}) - h^0(C_k, \mathcal{O}_{C_k}). 
     \]
 
-    By Thm 18.4 in (EO) we get that $h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) = \binom{d+3}{3}$. $h^0(C_k, \mathcal{O}_{C_k}(d))$ can be computed by considering the short exact sequence: 
+    By Thm 18.4 (!?) in \cite{EO25} we get that $h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) = \binom{d+3}{3}$. $h^0(C_k, \mathcal{O}_{C_k}(d))$ can be computed by considering the short exact sequence: 
     \[
     0 \to \mathcal{O}_{C_k}(d) \to \bigoplus_{i=1}^k \mathcal{O}_{l_i}(d) \to \bigoplus_{i=1}^n \mathcal{O}_{p_i} \to 0.
     \]
@@ -90,7 +90,7 @@ In this section, we will consider $k$-gons in $\mathbb{P}^3$ and their relations
 
 \end{proof}
 
-To get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{C_k})$, we would need to compute $h^1(\mathbb{P}^3, \mathcal{I}_{C_k})$. This issue will be explored in section (!?). 
+To get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{C_k})$, we would need to compute $h^1(\mathbb{P}^3, \mathcal{I}_{C_k})$. This issue will be explored further in \cref{sec:cohomology}. 
 
 
 \begin{remark}
@@ -98,9 +98,9 @@ To get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{C_k})$, we would need 
 \end{remark}
 
 \section{Computational results}
-\todo[inline]{Improve this section.}
+\todo[inline]{We should probably move the code to the appendix, and just discuss the results here.}
 
-We have done computational experiments in Macaulay2 to get a better understading of the inequality above. We have tested the existence and smoothness of hypersurfaces including $k$-gons for various degrees $d$ and number of lines $k$. The code used for these experiments is included in the following snippet. We will discuss the details of the code below, along with its results.
+We have done computational experiments in Macaulay2 to get a better understanding of the inequality in \cref{prop:k-gon}. We have tested the existence and smoothness of hypersurfaces including $k$-gons for various degrees $d$ and number of lines $k$. The code used for these experiments is included in the following snippet. We will discuss the details of the code below, along with its results.
 
 \lstinputlisting[caption={k-gon}, label={lst:k-gon}]{../Progging/ngon.m2}
 
@@ -127,8 +127,48 @@ Step 6: We choose a random member of $I_Z(d)$ and compute if this defines an emp
 
 Results: We have been interested in finding the maximum number of lines $k$ such that we can find a smooth surface of degree $d$ including a $k$-gon. The results are summarized in the following table:
 
+\todo[inline]{Improve code explanation, and include results. Focus on main ideas of the code?}
 
-\section{Cohomology of a 4-gon}
+\section{Cohomology of a 4-gon}\label{sec:cohomology}
+
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[scale=1.2, line cap=round]
+
+        \draw[thick, name path=l1] (-3,-2.4) -- (3,2.4);
+        \draw[thick, name path=l2] (-3, 2.5) -- (3,-0.5);
+        \draw[thick, name path=l3] (-3,-4.4) -- (3,0.4);
+        \draw[thick, name path=l4] (-3, 0.5) -- (3,-2.5);
+
+        \path[name intersections={of=l1 and l2, by=p1}];
+        \path[name intersections={of=l2 and l3, by=p2}];
+        \path[name intersections={of=l3 and l4, by=p3}];
+        \path[name intersections={of=l4 and l1, by=p4}];
+
+        \fill[white] (p1) circle (2.25pt);
+        \draw[thick]  (p1) circle (2.25pt) node[above left] {$p_1$};
+
+        \fill[white] (p2) circle (2.25pt);
+        \draw[thick]  (p2) circle (2.25pt) node[below right] {$p_2$};
+
+        \fill[white] (p3) circle (2.25pt);
+        \draw[thick]  (p3) circle (2.25pt) node[below right] {$p_3$};
+
+        \fill[white] (p4) circle (2.25pt);
+        \draw[thick]  (p4) circle (2.25pt) node[below left] {$p_4$};
+
+        \node[font=\small, anchor=north west] at (1.6,0.6) {$l_1$};
+        \node[font=\small, anchor=north west] at (1.6,-0.8) {$l_2$};
+        \node[font=\small, anchor=north east] at (0.0,-1) {$l_3$};
+        \node[font=\small, anchor=south west] at (-0.5,0) {$l_4$};
+
+        \node[below right] at (-2.9,-4.3) {$C_4 = l_1 \cup l_2 \cup l_3 \cup l_4$};
+
+    \end{tikzpicture}
+    \caption{A 4-gon in $\mathbb{P}^3$, drawn on a plane.}
+    \label{fig:4-gon}
+\end{figure}
 
 As mentioned earlier, to get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{C_k})$, we would need to compute $h^1(\mathbb{P}^3, \mathcal{I}_{C_k})$. We will now explore this issue for the case of a 4-gon and looking at a suitable resolution of the ideal sheaf of the 4-gon. First we claim that the intersection points of a 4-gon can, by an automorphism of $\mathbb{P}^3$, be expressed as the points $(1:0:0:0), (0:1:0:0), (0:0:1:0), (0:0:0:1)$. Then the 4-gon can be expressed as the union of the lines $l_1 = V(x_2, x_3), l_2 = V(x_0, x_3), l_3 = V(x_0, x_1), l_4 = V(x_1, x_2)$. Now the ideal of the 4-gon is given by $I_{C_4} = (x_2, x_3) \cap (x_0, x_3) \cap (x_0, x_1) \cap (x_1, x_2) = (x_1x_3, x_0x_2)$. We justify our chose of points in the following lemma.
 
@@ -141,7 +181,7 @@ As mentioned earlier, to get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{
 \end{proof}
 
 
-We will now look at a resolution of the ideal sheaf of the 4-gon. We have that $I_{C_4} = (x_1x_3, x_0x_2)$. This ideal has the following free resolution:
+We will now look at a resolution of the ideal sheaf of the 4-gon. From the previous discussion, we have that $I_{C_4} = (x_1x_3, x_0x_2)$. This ideal has the following free resolution:
 
 \[0 \to \mathcal{O}_{\mathbb{P}^3}(-4) \xrightarrow{\begin{pmatrix}
     -x_0x_2 \\
@@ -150,59 +190,59 @@ We will now look at a resolution of the ideal sheaf of the 4-gon. We have that $
     x_1x_3 & x_0x_2
 \end{pmatrix}} I_{C_4} \to 0.\]
 
-\begin{tikzpicture}[scale=1,
-  face/.style = {draw, fill=gray!8},
-  pt/.style = {circle, draw, inner sep=0pt, minimum size=5pt, fill=#1},
-  pt/.default = black,
-  lab/.style = {font=\small},
-  edge/.style = {black!70, line width=0.9pt}
-]
+% \begin{tikzpicture}[scale=1,
+%   face/.style = {draw, fill=gray!8},
+%   pt/.style = {circle, draw, inner sep=0pt, minimum size=5pt, fill=#1},
+%   pt/.default = black,
+%   lab/.style = {font=\small},
+%   edge/.style = {black!70, line width=0.9pt}
+% ]
 
-% A simple oblique box to suggest a 3D region (model of P^3)
-\coordinate (A)  at (0,0);
-\coordinate (B)  at (5,0);
-\coordinate (C)  at (4,2.2);
-\coordinate (D)  at (-1,2.2);
+% % A simple oblique box to suggest a 3D region (model of P^3)
+% \coordinate (A)  at (0,0);
+% \coordinate (B)  at (5,0);
+% \coordinate (C)  at (4,2.2);
+% \coordinate (D)  at (-1,2.2);
 
-\coordinate (A') at (1.2,1.0);
-\coordinate (B') at (6.2,1.0);
-\coordinate (C') at (5.2,3.2);
-\coordinate (D') at (0.2,3.2);
+% \coordinate (A') at (1.2,1.0);
+% \coordinate (B') at (6.2,1.0);
+% \coordinate (C') at (5.2,3.2);
+% \coordinate (D') at (0.2,3.2);
 
-\draw[face] (A) -- (B) -- (C) -- (D) -- cycle;
-\draw[face] (A') -- (B') -- (C') -- (D') -- cycle;
-\draw (A) -- (A') (B) -- (B') (C) -- (C') (D) -- (D');
+% \draw[face] (A) -- (B) -- (C) -- (D) -- cycle;
+% \draw[face] (A') -- (B') -- (C') -- (D') -- cycle;
+% \draw (A) -- (A') (B) -- (B') (C) -- (C') (D) -- (D');
 
-\node[lab, above right=2mm and 2mm of C'] {$\mathbb{P}^3$};
+% \node[lab, above right=2mm and 2mm of C'] {$\mathbb{P}^3$};
 
-% Four points placed to suggest 3D positions
-\coordinate (P1) at ($(D)!0.55!(A)$);         % front-left interior
-\coordinate (P2) at ($(B)!0.45!(C)$);         % front-right interior
-\coordinate (P3) at ($(C')!0.45!(B')$);       % back-right
-\coordinate (P4) at ($(A)!0.55!(C')$);        % interior between front and back
+% % Four points placed to suggest 3D positions
+% \coordinate (P1) at ($(D)!0.55!(A)$);         % front-left interior
+% \coordinate (P2) at ($(B)!0.45!(C)$);         % front-right interior
+% \coordinate (P3) at ($(C')!0.45!(B')$);       % back-right
+% \coordinate (P4) at ($(A)!0.55!(C')$);        % interior between front and back
 
-% Draw points
-\filldraw[red!70!black]   (P1) circle (2.8pt) node[left=2mm]  {$P_1$};
-\filldraw[blue!70!black]  (P2) circle (2.8pt) node[right=2mm] {$P_2$};
-\filldraw[green!60!black] (P3) circle (2.8pt) node[above right=1mm and 1mm] {$P_3$};
-\filldraw[orange!80!black](P4) circle (2.8pt) node[below left=1mm and 1mm] {$P_4$};
+% % Draw points
+% \filldraw[red!70!black]   (P1) circle (2.8pt) node[left=2mm]  {$P_1$};
+% \filldraw[blue!70!black]  (P2) circle (2.8pt) node[right=2mm] {$P_2$};
+% \filldraw[green!60!black] (P3) circle (2.8pt) node[above right=1mm and 1mm] {$P_3$};
+% \filldraw[orange!80!black](P4) circle (2.8pt) node[below left=1mm and 1mm] {$P_4$};
 
-% Draw lines between every pair of points (edges of the tetrahedron)
-\draw[edge] (P1) -- (P2);
-\draw[edge] (P1) -- (P4);
-\draw[edge] (P2) -- (P3);
-\draw[edge] (P3) -- (P4);
+% % Draw lines between every pair of points (edges of the tetrahedron)
+% \draw[edge] (P1) -- (P2);
+% \draw[edge] (P1) -- (P4);
+% \draw[edge] (P2) -- (P3);
+% \draw[edge] (P3) -- (P4);
 
-% Optional: small legend of homogeneous coordinates
-\node[lab, right=6mm of B'] {
-  \begin{tabular}{l}
-    $P_1=[1:0:0:0]$\\
-    $P_2=[0:1:0:0]$\\
-    $P_3=[0:0:1:0]$\\
-    $P_4=[0:0:0:1]$
-  \end{tabular}
-};
+% % Optional: small legend of homogeneous coordinates
+% \node[lab, right=6mm of B'] {
+%   \begin{tabular}{l}
+%     $P_1=[1:0:0:0]$\\
+%     $P_2=[0:1:0:0]$\\
+%     $P_3=[0:0:1:0]$\\
+%     $P_4=[0:0:0:1]$
+%   \end{tabular}
+% };
 
-\end{tikzpicture}
-\todo[inline]{Make a better figure of the 4-gon in $\mathbb{P}^3$.}
+% \end{tikzpicture}
 \todo[inline]{Finish argument.}
+
