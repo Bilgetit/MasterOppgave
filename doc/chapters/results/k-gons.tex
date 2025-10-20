@@ -60,16 +60,15 @@ In this section, we will consider $k$-gons in $\mathbb{P}^3$ and their relations
     \begin{tikzcd}[sep=small]
     0 \rar & H^0(\mathbb{P}^3, \mathcal{I}_{C_k}(d)) \rar & H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar &  H^0(C_k, \mathcal{O}_{C_k}(d)) \ar[out=-20, in=160]{dll} \\
     & H^1(\mathbb{P}^3, \mathcal{I}_{C_k}(d)) \rar & H^1(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar & H^1(C_k, \mathcal{O}_{C_k}(d)) \ar[out=-20, in=160]{dll} \\
-    & H^2(\mathbb{P}^3, \mathcal{I}_{C_k}(d)) \rar & H^2(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar & H^2(C_k, \mathcal{O}_{C_k}(d)) \ar[out=-20, in=160]{dll}\\
-    & H^3(\mathbb{P}^3, \mathcal{I}_{C_k}(d)) \rar & H^3(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar & H^3(C_k, \mathcal{O}_{C_k}(d)) \rar & 0
+    & H^2(\mathbb{P}^3, \mathcal{I}_{C_k}(d)) \rar & H^2(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar & \dots \\
     \end{tikzcd}
 
-    We know that $H^i(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) = 0$ for $i > 0$. This means we can focus on the first part of the sequence:
+    We know that $H^i(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) = 0$ for $i > 0$ (cite)(!?). This means we can focus on the first part of the sequence:
 
     \[0 \to H^0(\mathbb{P}^3, \mathcal{I}_{C_k}) \to H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) \to H^0(C_k, \mathcal{O}_{C_k}) \to H^1(\mathbb{P}^3, \mathcal{I}_{C_k}) \to 0.\] 
 
 
-    Since $h^0$ is additive, we get
+    Since taking dimensions in cohomology is additive, we get
 
     \[
     h^0(\mathbb{P}^3, \mathcal{I}_{C_k}) = h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) + h^1(\mathbb{P}^3, \mathcal{I}_{C_k}) - h^0(C_k, \mathcal{O}_{C_k}). 
@@ -87,10 +86,11 @@ In this section, we will consider $k$-gons in $\mathbb{P}^3$ and their relations
     \]
 
     Meaning we can guarantee a degree $d$ surface when $\binom{d+3}{3} - kd \geq 0$, or equivalently when $k \leq \frac{(d+3)(d+2)(d+1)}{6d}$.
-
 \end{proof}
+\todo[inline]{Make proof more coherent, we jump around a bit.}
 
 To get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{C_k})$, we would need to compute $h^1(\mathbb{P}^3, \mathcal{I}_{C_k})$. This issue will be explored further in \cref{sec:cohomology}. 
+\todo[inline]{Explain significance of $h^0$, and do it before this proof.}
 
 
 \begin{remark}
@@ -170,18 +170,18 @@ Results: We have been interested in finding the maximum number of lines $k$ such
     \label{fig:4-gon}
 \end{figure}
 
-As mentioned earlier, to get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{C_k})$, we would need to compute $h^1(\mathbb{P}^3, \mathcal{I}_{C_k})$. We will now explore this issue for the case of a 4-gon and looking at a suitable resolution of the ideal sheaf of the 4-gon. First we claim that the intersection points of a 4-gon can, by an automorphism of $\mathbb{P}^3$, be expressed as the points $(1:0:0:0), (0:1:0:0), (0:0:1:0), (0:0:0:1)$. Then the 4-gon can be expressed as the union of the lines $l_1 = V(x_2, x_3), l_2 = V(x_0, x_3), l_3 = V(x_0, x_1), l_4 = V(x_1, x_2)$. Now the ideal of the 4-gon is given by $I_{C_4} = (x_2, x_3) \cap (x_0, x_3) \cap (x_0, x_1) \cap (x_1, x_2) = (x_1x_3, x_0x_2)$. We justify our chose of points in the following lemma.
+As mentioned earlier, to get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{C_k})$, we want to compute $h^1(\mathbb{P}^3, \mathcal{I}_{C_k})$. We will now explore this issue for the case of a 4-gon and looking at a suitable resolution of the ideal sheaf of the 4-gon. First we claim that the intersection points of a 4-gon can, by an automorphism of $\mathbb{P}^3$, be expressed as the points $(1:0:0:0), (0:1:0:0), (0:0:1:0), (0:0:0:1)$. Then the 4-gon can be expressed as the union of the lines $l_1 = V(x_2, x_3), l_2 = V(x_0, x_3), l_3 = V(x_0, x_1), l_4 = V(x_1, x_2)$. Now the ideal of the 4-gon is given by $I_{C_4} = (x_2, x_3) \cap (x_0, x_3) \cap (x_0, x_1) \cap (x_1, x_2) = (x_1x_3, x_0x_2)$. We justify our chose of points in the following lemma.
 
 \begin{lemma}
     Let $C_4$ be a 4-gon in $\mathbb{P}^3$. Then there exists an automorphism of $\mathbb{P}^3$ such that the intersection points of $C_4$ are given by the points $(1:0:0:0), (0:1:0:0), (0:0:1:0), (0:0:0:1)$.
 \end{lemma}
 
 \begin{proof}
-    Let $p_1, p_2, p_3, p_4$ be the intersection points of $C_4$. To be in general position in $\mathbb{P}^3$, we require that no three of the points are collinear, and that the points do not all lie in a plane. We can then find a projective transformation sending $p_1$ to $(1:0:0:0)$, $p_2$ to $(0:1:0:0)$, and $p_3$ to $(0:0:1:0)$. Since no three of the points are collinear, $p_4$ cannot be sent to a point on the line between any two of the other points. Furthermore, since the points do not all lie in a plane, $p_4$ cannot be sent to a point in the plane spanned by any three of the other points. Thus, we can send $p_4$ to $(0:0:0:1)$.
+    Let $p_1, p_2, p_3, p_4$ be the intersection points of $C_4$. To be in general position in $\mathbb{P}^3$, we require that no three of the points are collinear, and that the points do not all lie in a plane. We can then find a projective transformation sending $p_1$ to $(1:0:0:0)$, $p_2$ to $(0:1:0:0)$, and $p_3$ to $(0:0:1:0)$. Since no three of the points are collinear, $p_4$ cannot be sent to a point on the line between any two of the other points. Furthermore, since the points do not all lie in a plane, $p_4$ cannot be sent to a point in the plane spanned by any three of the other points. Then we can send $p_4$ to $(0:0:0:1)$, and we are finished.
 \end{proof}
 
 
-We will now look at a resolution of the ideal sheaf of the 4-gon. From the previous discussion, we have that $I_{C_4} = (x_1x_3, x_0x_2)$. This ideal has the following free resolution:
+We will now look at a resolution of the ideal sheaf of the 4-gon. From the discussion above, we have that $I_{C_4} = (x_1x_3, x_0x_2)$. This ideal has the following free resolution:
 
 \[0 \to \mathcal{O}_{\mathbb{P}^3}(-4) \xrightarrow{\begin{pmatrix}
     -x_0x_2 \\

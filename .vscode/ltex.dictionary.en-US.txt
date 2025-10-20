@@ -20,3 +20,6 @@ Krull
 Chern
 Pezzo
 Eckardt
+subscheme
+codimension
+Weil
