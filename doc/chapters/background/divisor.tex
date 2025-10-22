@@ -1,6 +1,8 @@
 \section{Divisors}
 \todo[inline]{Decide if this is viable/necessary for the thesis. We do use this in the 27 lines proof, specifically self-intersection. This could be assumed known. }
 
+We will assume that $X$ is a separated Noetherian integral normal scheme throughout this section.
+
 A \emph{prime divisor} is an integral subscheme $Z \subset X$ of codimension 1.
 
 \begin{definition}
@@ -10,3 +12,9 @@ A \emph{prime divisor} is an integral subscheme $Z \subset X$ of codimension 1.
 \end{definition}
 
 The set of divisors will form a group, denoted $\text{Div}(X)$. We say that a divisor $D$ is \emph{effective} if each $m_i \geq 0$, and we write $D \geq 0$. 
+
+\begin{definition}{\cite{EO25}, Definition 20.4}
+    For a rational function $f \in K(X)^\times$, we define its corresponding divisor by
+    \[\text{div}(f) = \sum_Z \text{ord}_Z(f) Z,\]
+    where the sum runs over all prime divisors. Divisors of the form $\text{div}(f)$ are called \emph{principal divisors}, and they form a subgroup of $\text{Div}(X)$.
+\end{definition}
