@@ -5,13 +5,26 @@ In this chapter we will introduce Grassmann varieties, or Grassmannians, and foc
 
 \section{Definition and basic properties}
 A Grassmannian is a projective variety whose closed points correspond to linear subspaces of a certain dimension in an $n$-dimensional vector space. As a set, $\mathrm{Gr}(k, V)$ is the set of all $k$-dimensional linear subspaces of the vector space $V$. In \cref{sec:Plucker}, we will give it the structure of a projective variety. In our case, $V$ will be a vector space over $\mathbb{C}$. \todo[inline]{What happens when we use another field than $\mathbb{C}$? EO works over $\mathbb{Z}$ to get all fields.}
-\[\mathrm{Gr}(k,n)(\mathbb{C}) = \{[L] \mid L \subseteq k^n \text{ is a linear space of dimension } k\}.\]
+\[\mathrm{Gr}(k,n)(\mathbb{C}) = \{[L] \mid L \subseteq \mathbb{k}^n \text{ is a linear space of dimension } k\}.\]
 \todo{\cite{EO25}}
 
 A $k$-dimensional linear subspace of an $n$-dimensional vector space $V$ can also be thought of as a $(k - 1)$-dimensional linear subspace of $\mathbb{P}V \cong \mathbb{P}^{n-1}$. Due to this, we will often write $\mathrm{Gr}(k, V)$ as $\mathbb{G}(k-1, \mathbb{P}V)$. When there is no need to specify the vector space $V$, only its dimension $n$, we will write $\mathrm{Gr}(k,n) = \mathbb{G}(k-1, n-1)$.
 
 % To give it the structure of a projective variety, we give an inclusion in a projective space, called the Plücker embedding, and show that the image is the zero locus of a certain collection of homogeneous polynomials.
 
+
+\cite{EO25} A dimension $n-k$ linear subspace $L \subseteq \mathbb{k}^n$ is described as the kernel of a surjective linear map $\mathbb{k}^n \to \mathbb{k}^{n-k}$, represented by an $(n-k) \times n$ matrix $a$ of rank $n-k$:
+\[L = \text{Ker}(A) \subseteq \mathbb{k}^n,\]
+
+where 
+\[A = \begin{pmatrix}
+a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{(n-k),1} & a_{(n-k),2} & \cdots & a_{(n-k),n}
+\end{pmatrix}.\]
+
+Note that the matrix $A$ is not unique for a given linear subspace $L$, since multiplying $A$ on the left by an invertible $(n-k) \times (n-k)$ matrix $G$ gives another matrix $GA$ with the same kernel as $A$. Thus, we consider the equivalence relation on the set of $(n-k) \times n$ matrices of rank $n-k$ given by $A \sim A'$ if there exists an invertible $(n-k) \times (n-k)$ matrix $G$ such that $A' = GA$. The Grassmannian $\mathrm{Gr}(k,n)$ can then be identified with the set of equivalence classes of $(n-k) \times n$ matrices of rank $n-k$ under this equivalence relation.
 
 \section{The Plücker embedding} \label{sec:Plucker}
 
@@ -27,6 +40,18 @@ A $k$-dimensional linear subspace of an $n$-dimensional vector space $V$ can als
     \item Example: $\mathbb{G}(1,3)$.
 \end{itemize}
 
+\begin{example}
+For $n=4, k=2$, there are 6 affine spaces $\mathbb{A}^4$. They are:
+
+\begin{align*}
+    U_{1,2} &=\begin{pmatrix}1 & 0 & a_{1,3} & a_{1,4} \\0 & 1 & a_{2,3} & a_{2,4}\end{pmatrix} \\
+    U_{1,3} &=\begin{pmatrix}1 & a_{1,2} & 0 & a_{1,4} \\0 & a_{2,2} & 1 & a_{2,4}\end{pmatrix} \\
+    U_{1,4} &=\begin{pmatrix}1 & a_{1,2} & a_{1,3} & 0 \\0 & a_{2,2} & a_{2,3} & 1\end{pmatrix} \\
+    U_{2,3} &=\begin{pmatrix}a_{1,1} & 1 & 0 & a_{1,4} \\a_{2,1} & 0 & 1 & a_{2,4}\end{pmatrix} \\
+    U_{2,4} &=\begin{pmatrix}a_{1,1} & 1 & a_{1,3} & 0 \\a_{2,1} & 0 & a_{2,3} & 1\end{pmatrix} \\
+\end{align*}
+
+\end{example}
 \section{Short on Schubert cycles (?)}
 \todo[inline]{Decide if we should include or not. Probably not.}
 

@@ -1,2 +1,4 @@
 {"rule":"DOUBLE_PUNCTUATION","sentence":"^\\Q[caption=k-gon, label=lst:k-gon]../Progging/ngon.m2\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q[caption=k-gon, label=lst:k-gon]../Progging/ngon.m2\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QConsider adding remark about ord Z being well defined.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QConsider adding remark about ord Z being well-defined.\\E$"}

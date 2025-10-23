@@ -24,3 +24,4 @@ subscheme
 codimension
 Weil
 Noetherian
+Hartshorne
