@@ -25,3 +25,5 @@ codimension
 Weil
 Noetherian
 Hartshorne
+subbundle
+subvarieties

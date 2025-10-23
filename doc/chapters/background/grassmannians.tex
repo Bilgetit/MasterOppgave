@@ -3,9 +3,16 @@
 
 In this chapter we will introduce Grassmann varieties, or Grassmannians, and focus on $\mathbb{G}(1, 3)$, which is the space of lines in $\mathbb{P}^3$. We will also introduce the Plücker embedding, which is a way to embed the Grassmannian into a projective space, giving it the structure of a projective variety. For a more detailed introduction to Grassmannians, we refer to \cite{EH16}.
 
+
+%-----------------------------------------------------------------------------
 \section{Definition and basic properties}
-A Grassmannian is a projective variety whose closed points correspond to linear subspaces of a certain dimension in an $n$-dimensional vector space. As a set, $\mathrm{Gr}(k, V)$ is the set of all $k$-dimensional linear subspaces of the vector space $V$. In \cref{sec:Plucker}, we will give it the structure of a projective variety. In our case, $V$ will be a vector space over $\mathbb{C}$. \todo[inline]{What happens when we use another field than $\mathbb{C}$? EO works over $\mathbb{Z}$ to get all fields.}
-\[\mathrm{Gr}(k,n)(\mathbb{C}) = \{[L] \mid L \subseteq \mathbb{k}^n \text{ is a linear space of dimension } k\}.\]
+
+\begin{remark}
+    We will use $k$ to refer to the dimension of a linear subspace, and $\Bbbk$ to refer to a field.
+\end{remark}
+
+A Grassmannian is a projective variety whose closed points correspond to linear subspaces of a certain dimension in an $n$-dimensional vector space. As a set, $\mathrm{Gr}(k, V)$ is the set of all $k$-dimensional linear subspaces of the vector space $V$. In \cref{sec:Plucker}, we will give it the structure of a projective variety. In our case, $V$ will be a vector space over $\Bbbk$.
+\[\mathrm{Gr}(k,n)(\Bbbk) = \{[L] \mid L \subseteq \Bbbk^n \text{ is a linear space of dimension } k\}.\]
 \todo{\cite{EO25}}
 
 A $k$-dimensional linear subspace of an $n$-dimensional vector space $V$ can also be thought of as a $(k - 1)$-dimensional linear subspace of $\mathbb{P}V \cong \mathbb{P}^{n-1}$. Due to this, we will often write $\mathrm{Gr}(k, V)$ as $\mathbb{G}(k-1, \mathbb{P}V)$. When there is no need to specify the vector space $V$, only its dimension $n$, we will write $\mathrm{Gr}(k,n) = \mathbb{G}(k-1, n-1)$.
@@ -13,8 +20,8 @@ A $k$-dimensional linear subspace of an $n$-dimensional vector space $V$ can als
 % To give it the structure of a projective variety, we give an inclusion in a projective space, called the Plücker embedding, and show that the image is the zero locus of a certain collection of homogeneous polynomials.
 
 
-\cite{EO25} A dimension $n-k$ linear subspace $L \subseteq \mathbb{k}^n$ is described as the kernel of a surjective linear map $\mathbb{k}^n \to \mathbb{k}^{n-k}$, represented by an $(n-k) \times n$ matrix $a$ of rank $n-k$:
-\[L = \text{Ker}(A) \subseteq \mathbb{k}^n,\]
+\cite{EO25} A dimension $n-k$ linear subspace $L \subseteq \Bbbk^n$ is described as the kernel of a surjective linear map $\Bbbk^n \to \Bbbk^{n-k}$, represented by an $(n-k) \times n$ matrix $a$ of rank $n-k$:
+\[L = \text{Ker}(A) \subseteq \Bbbk^n,\]
 
 where 
 \[A = \begin{pmatrix}
@@ -26,6 +33,12 @@ a_{(n-k),1} & a_{(n-k),2} & \cdots & a_{(n-k),n}
 
 Note that the matrix $A$ is not unique for a given linear subspace $L$, since multiplying $A$ on the left by an invertible $(n-k) \times (n-k)$ matrix $G$ gives another matrix $GA$ with the same kernel as $A$. Thus, we consider the equivalence relation on the set of $(n-k) \times n$ matrices of rank $n-k$ given by $A \sim A'$ if there exists an invertible $(n-k) \times (n-k)$ matrix $G$ such that $A' = GA$. The Grassmannian $\mathrm{Gr}(k,n)$ can then be identified with the set of equivalence classes of $(n-k) \times n$ matrices of rank $n-k$ under this equivalence relation.
 
+That is, we want to consider the set
+\[(\mathbb{A}^{(n-k)n}(\Bbbk) - Z)/\mathrm{GL}_{n-k}(\Bbbk)\]
+
+\cite{EO25} Where $Z$ is the set of $(n-k) \times n$ matrices of rank less than $n-k$, and $\mathbb{A}^{(n-k)n}(\Bbbk)$ parametrizes the set of all $(n-k) \times n$ matrices with entries in $\Bbbk$. 
+
+%-----------------------------------------------------------------------------
 \section{The Plücker embedding} \label{sec:Plucker}
 
 \begin{itemize}
@@ -33,6 +46,10 @@ Note that the matrix $A$ is not unique for a given linear subspace $L$, since mu
     \item Example: $\mathbb{G}(1,3)$.
 \end{itemize}
 
+
+
+
+%-----------------------------------------------------------------------------
 \section{Covering by affine spaces}
 
 \begin{itemize}
@@ -52,6 +69,28 @@ For $n=4, k=2$, there are 6 affine spaces $\mathbb{A}^4$. They are:
 \end{align*}
 
 \end{example}
+
+%-----------------------------------------------------------------------------
+\section{Universal sub and quotient bundles}
+\todo[inline]{Fill in. Include prop 3.3 from EH16.}
+
+\cite{EH16} Let $V$ be an $n$-dimensional vector space over a field $\Bbbk$. Consider the Grassmannian $\mathrm{Gr}(k, V)$ of $k$-dimensional linear subspaces of $V$. Let $\mathcal{V} = \mathrm{Gr}(k, V) \times V$ be the trivial vector bundle over $\mathrm{Gr}(k, V)$ with fiber $V$. 
+
+\begin{definition}
+    The \emph{universal subbundle} $\mathcal{S}$ over $\mathrm{Gr}(k, V)$ is the vector bundle whose fiber over a point $[L] \in \mathrm{Gr}(k, V)$ is the subspace $L \subseteq V$. That is, 
+    \[S_{[L]} = L \subseteq V = \mathcal{V}_{[L]}.\]
+
+    The quotient $\mathcal{Q} = \mathcal{V} / \mathcal{S}$ is called the \emph{universal quotient bundle} over $\mathrm{Gr}(k, V)$.
+\end{definition}
+
+We define the \emph{universal subbundle} $\mathcal{S}$ over $\mathrm{Gr}(k, V)$ as the vector bundle whose fiber over a point $[L] \in \mathrm{Gr}(k, V)$ is the subspace $L \subseteq V$. Similarly, we define the \emph{universal quotient bundle} $\mathcal{Q}$ over $\mathrm{Gr}(k, V)$ as the vector bundle whose fiber over a point $[L] \in \mathrm{Gr}(k, V)$ is the quotient space $V/L$.
+
+
+\begin{proposition}[\cite{EH16}, Proposition 3.3]
+    The subset $\mathcal{S}$ of $\mathcal{V}$ whose fiber over a point $[L] \in \mathrm{Gr}(k, V)$ is the subspace $L \subseteq V$ is a vector bundle over $\mathrm{Gr}(k, V)$.
+\end{proposition}
+
+%-----------------------------------------------------------------------------
 \section{Short on Schubert cycles (?)}
 \todo[inline]{Decide if we should include or not. Probably not.}
 

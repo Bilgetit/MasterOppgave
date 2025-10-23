@@ -10,9 +10,9 @@ lineFromPoints = pointsMatrix -> minors(3, pointsMatrix);
 
 time0 = currentTime();
 d = 2;
-while currentTime() - time0 < 12*3600 do(  -- wait for 12 hours
+while currentTime() - time0 < 1*3600 do(  -- wait for 1 hour
     maxNoPoints = ceiling((d+3)*(d+2)*(d+1)/(6*d));
-    for noPoints from maxNoPoints - 1 to maxNoPoints+3 do (
+    for noPoints from maxNoPoints to maxNoPoints+2 do (
         myPoints = apply(noPoints, i -> (
             v := for j in 0..3 list random(kk);
             -- Ensure the point is not the zero vector

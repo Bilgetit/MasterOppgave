@@ -2,3 +2,4 @@
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q[caption=k-gon, label=lst:k-gon]../Progging/ngon.m2\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QConsider adding remark about ord Z being well defined.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QConsider adding remark about ord Z being well-defined.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qwhere the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q are \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-dimensional subvarieties of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, and the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q are integers.\\E$"}
