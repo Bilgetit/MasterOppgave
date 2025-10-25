@@ -27,3 +27,5 @@ Noetherian
 Hartshorne
 subbundle
 subvarieties
+subvariety
+subschemes
