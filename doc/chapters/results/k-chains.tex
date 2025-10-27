@@ -1,26 +1,11 @@
-\section{Surfaces including k-chains}
+\section{Surfaces including m-chains}
 
 \begin{definition}
-    A $k$-chain is a union of $k$ lines $l_1, l_2, \dots, l_k$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < k$. We will write $C_k = \bigcup_{i=1}^k l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < k$.
+    An $m$-chain is a union of $k$ lines $l_1, l_2, \dots, l_k$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < k$. We will write $C_k = \bigcup_{i=1}^k l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < k$.
 \end{definition}
 
-Notice that a $k$-chain is a $(k+1)$-gon excluding the line $l_k$ intersecting $l_1$. One can then modify the code above to create $k$-chains instead of $(k+1)$-gons, by excluding the final pair of points. The results from this are similar to those of $k$-gons, in that for higher degrees, we find smooth surfaces, up until we find no surfaces. There are however interesting exceptions for degree 2 and 3 surfaces. Here we get singular surfaces for 4-chains and 7-chains. We will handle the cases separately.
-\todo[inline]{Include results for $k$-chains}
-
-\begin{proposition}
-    For a general 4-chain in $\mathbb{P}^3$, we cannot find a smooth quadric surface $ S_2 \subset \mathbb{P}^3$ such that it includes the 4-chain.
-\end{proposition}
-
-\begin{proof}
-    First, assume that $S_2$ is smooth. Since $S_2$ is a smooth quadric surface in $\mathbb{P}^3$, it is of the form $S_2 = \mathbb{P}^1 \times \mathbb{P}^1$. \todo{Cite Beauville} This means that $S_2$ has two rulings, meaning that there are two families of lines on $S_2$, such that any two lines in the same family do not intersect, and any two lines in different families intersect at exactly one point. Denote the two families as $F_1$ and $F_2$. Then we can see that a 4-chain must consist of two lines from $F_1$ and two lines from $F_2$, since any two lines in the same family do not intersect. This means that the 4-chain must be of the form $l_1, l_2, l_3, l_4$ where $l_1, l_3 \in F_1$ and $l_2, l_4 \in F_2$. However, this means that $l_4$ intersects $l_1$, since they are in different families, meaning that the 4-chain is in fact a 4-gon. This is a contradiction, since this is not a general 4-chain. Thus, we cannot find a smooth quadric surface $ S_2 \subset \mathbb{P}^3$ such that it includes the 4-chain.
-\end{proof}
-
-\begin{proposition}
-    For a general 4-chain in $\mathbb{P}^3$, we can find a singular quadric surface $ S_2 \subset \mathbb{P}^3$ such that it includes the 4-chain.
-\end{proposition}
-\begin{proof}
-    Find a nice example of a singular quadric surface including a general 4-chain. May be able to use example from m2. It takes the five points $(1:0:0:0), (0:1:0:0), (0:0:1:0), (0:0:0:1), (1:1:1:1)$, which are the intersection points of a 4-chain, and gives the singular quadric surface $V(xw - yw)$ including the 4-chain.
-\end{proof}
+Notice that an $m$-chain is an $(m+1)$-gon excluding the line $l_m$ intersecting $l_1$. One can then modify the code above ("as in" cite appendix)(!?) to create $m$-chains instead of $(m+1)$-gons, by excluding the final pair of points. The results from this are similar to those of $m$-gons, in that for higher degrees, we find smooth surfaces, up until we find no surfaces. There are however interesting exceptions for degree 2 and 3 surfaces. Here we find singular surfaces when considering 4-chains and 6-chains respectively. We will handle the cases separately. First, we will study the set of $m$-chains in $\mathbb{P}^3$. We will mostly use this in the case of 6-chains, but the results hold in general. (Do we want to use this for 4-chains also?)(!?)
+\todo[inline]{Include m2 results for $m$-chains}
 
 \begin{definition}
     We define $Q_m \subseteq \mathbb{G}(1,3)^m$ to be the subset of m-tuples of lines $(l_1, \dots, l_m)$ such that they form an $m$-chain.
@@ -50,6 +35,26 @@ Notice that a $k$-chain is a $(k+1)$-gon excluding the line $l_k$ intersecting $
 
 \todo[inline]{Update proof with notes from 09.10. Don't think this is rigorous enough to show irreducibility.}
 
+\subsection{The case of 4-chains}
+
+\begin{proposition}
+    For a general 4-chain in $\mathbb{P}^3$, we cannot find a smooth quadric surface $ S_2 \subset \mathbb{P}^3$ such that it includes the 4-chain.
+\end{proposition}
+
+\begin{proof}
+    First, assume that $S_2$ is smooth. Since $S_2$ is a smooth quadric surface in $\mathbb{P}^3$, it is of the form $S_2 = \mathbb{P}^1 \times \mathbb{P}^1$. \todo{Cite Beauville} This means that $S_2$ has two rulings, meaning that there are two families of lines on $S_2$, such that any two lines in the same family do not intersect, and any two lines in different families intersect at exactly one point. Denote the two families as $F_1$ and $F_2$. Then we can see that a 4-chain must consist of two lines from $F_1$ and two lines from $F_2$, since any two lines in the same family do not intersect. This means that the 4-chain must be of the form $l_1, l_2, l_3, l_4$ where $l_1, l_3 \in F_1$ and $l_2, l_4 \in F_2$. However, this means that $l_4$ intersects $l_1$, since they are in different families, meaning that the 4-chain is in fact a 4-gon. This is a contradiction, since this is not a general 4-chain. Thus, we cannot find a smooth quadric surface $ S_2 \subset \mathbb{P}^3$ such that it includes the 4-chain.
+\end{proof}
+
+\begin{proposition}
+    For a general 4-chain in $\mathbb{P}^3$, we can find a singular quadric surface $ S_2 \subset \mathbb{P}^3$ such that it includes the 4-chain.
+\end{proposition}
+\begin{proof}
+    Find a nice example of a singular quadric surface including a general 4-chain. May be able to use example from m2. It takes the five points $(1:0:0:0), (0:1:0:0), (0:0:1:0), (0:0:0:1), (1:1:1:1)$, which are the intersection points of a 4-chain, and gives the singular quadric surface $V(xw - yw)$ including the 4-chain.
+\end{proof}
+\todo[inline]{Use the example of the union of two planes.}
+
+\subsection{The case of 6-chains}
+
 Now we will look at the case of 7-chains in cubic surfaces.
 
 \begin{proposition}
@@ -63,7 +68,7 @@ Now we will look at the case of 7-chains in cubic surfaces.
 % \end{proof}
 
 \begin{proof}
-    Let $\mathcal{M}$ be the space of smooth cubic surfaces in $\mathbb{P}^3$. This is an open subset of $\mathbb{P}(\mathbb{C}[x_0,\dots, x_3]_3) \cong \mathbb{P}^{19}$. \todo{Why open?} Since $\mathcal{M}$ is an open subset, it shares the dimension, i.e. $\dim \mathcal{M} = 19$. Let $ \mathcal{N} = \{(S_d, l_1, \dots, l_7) \in \mathcal{M} \times \mathbb{G}(1,3)^7 \mid \mathcal{L} \subset S_d, \mathcal{L} \text{ is a $k$-chain}\}$ be the incidence variety of smooth cubic surfaces including a general 7-chain. We have the following diagram:
+    Let $\mathcal{M}$ be the space of smooth cubic surfaces in $\mathbb{P}^3$. This is an open subset of $\mathbb{P}(\mathbb{C}[x_0,\dots, x_3]_3) \cong \mathbb{P}^{19}$. \todo{Why open?} Since $\mathcal{M}$ is an open subset, it shares the dimension, i.e. $\dim \mathcal{M} = 19$. Let $ \mathcal{N} = \{(S_d, l_1, \dots, l_7) \in \mathcal{M} \times \mathbb{G}(1,3)^7 \mid \mathcal{L} \subset S_d, \mathcal{L} \text{ is a $m$-chain}\}$ be the incidence variety of smooth cubic surfaces including a general 7-chain. We have the following diagram:
 
     \begin{equation}
     \begin{tikzcd}
@@ -107,6 +112,6 @@ By removing one of the lines from the 12-gon, we immediately get the following:
     For a smooth cubic surface in $\mathbb{P}^3$, we can find an 11-chain such that it is included in the surface.
 \end{corollary}
 
-This implies that the $k$-chains longer than 7 included in the smooth cubic surfaces are somehow special. \todo{Fill out later.}
+This implies that the $m$-chains longer than 7 included in the smooth cubic surfaces are somehow special. \todo{Fill out later.}
 
 \todo[inline]{Fix G(k,n). k is overloaded. Maybe change to using m-chains and m-gons?}

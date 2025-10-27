@@ -1,16 +1,58 @@
 \section{Chern classes}
 
+% Why is $\alpha$ a rational function?
+
+% Because locally a line bundle is trivial. Choose a cover ${U_i}$ with local frames $e_i$ for $\mathcal{L}$. On each $U_i$ write $\sigma = f_i e_i$, $\tau = g_i e_i$ with $f_i,g_i$ regular (or rational) functions on $U_i$. Then on $U_i$ where $\tau \neq 0$ define $\alpha|_{U_i} = \sigma/\tau = (f_i e_i)/(g_i e_i) = f_i/g_i$. On overlaps $U_i \cap U_j$ the frames are related by an invertible regular transition $h_{ij}$ ($e_i = h_{ij} e_j$), so $f_i/g_i = (f_j h_{ij})/(g_j h_{ij}) = f_j/g_j$, hence the local ratios glue to a single element of the function field $k(X)$. Thus $\alpha$ is a well-defined rational function (defined on the dense open set where $\tau \neq 0$).
+
+% Can we not make the same argument to say that $\sigma$ is a rational function, just by excluding $\tau$ from the argument?
+
+% No — not in general.
+
+% A section $\alpha$ of a line bundle $L$ is locally $\sigma|_{U_i} = f_i e_i$, but on overlaps $f_i = h_{ij} f_j$, where $h_{ij}$ are the transition functions. The local functions $f_i$ do not glue to a global function unless all $h_{ij}=1$ (i.e. $L$ is trivial).
+% For $\sigma/\tau$ the transition factors cancel: $(f_i/g_i) = (f_j h_{ij})/(g_j h_{ij}) = f_j/g_j$, so the local ratios glue to a single element of $k(X)$. That is why $\sigma/\tau$ is a rational function.
+% Equivalently, a single section $\sigma$ defines a rational function only after choosing a trivialization (or a nonvanishing reference section $\tau$) or if $L$ is trivial.
+
 \cite{EH16} Recall that a Cartier divisor is defined through the vanishing loci of sections of line bundles. Chern classes are a way of generalizing this to vector bundles of higher rank, with the first Chern class corresponding to the Cartier divisor case. 
 \todo[inline]{Include assumptions on $X$ to say this is an isomorphism.}
 
 \subsection{The first Chern class of a line bundle}
 
 (\cite{EH16}, 1.4.)
-Let $\mathcal{L}$ be a line bundle on a variety $X$ and $\sigma$ be a rational section. Then on an open affine set $U$ of a covering of $X$, we can write $\sigma|_U = f_U g_U$, and define $\text{Div}(\sigma)|_U = \text{Div}(f_U) - \text{Div}(g_U)$. This definition agrees on the intersections of the open affine sets, and thus defines a divisor on X, which is a \emph{Cartier divisor}.
+Let $\mathcal{L}$ be a line bundle on a variety $X$ and $\sigma$ be a rational section. Then on an open affine set $U$ of a covering of $X$, we can write $\sigma|_U = f_U / g_U$, and define $\text{Div}(\sigma)|_U = \text{Div}(f_U) - \text{Div}(g_U)$. This definition agrees on the intersections of the open affine sets, and thus defines a Cartier divisor on $X$. Moreover, if $\tau$ is another rational section of $\mathcal{L}$, then $\alpha = \sigma / \tau$ is a well-defined rational function(!?), so $\mathrm{Div}(\sigma)$ and $\mathrm{Div}(\tau)$ are rationally equivalent divisors: 
+\[\mathrm{Div}(\sigma) - \mathrm{Div}(\tau) = \mathrm{Div}(\alpha) \equiv 0 \text{ mod } \mathrm{Rat}(X).\]
+
+Thus, we can define the first Chern class of the line bundle $\mathcal{L}$ as
+\[c_1(\mathcal{L}) = [\mathrm{Div}(\sigma)] \in A^1(X),\]
+the rational equivalence class $\mathrm{Div}(\sigma)$  in the Chow group $A^1(X)$, for any nonzero rational section $\sigma$. This is well-defined, as it does not depend on the choice of rational section $\sigma$.
+
+\begin{example}
+    A consequence is that $c_1(\mathcal{O}_{\mathbb{P}^n}(d))$ is the class of any hypersurface of degree $d$.
+\end{example}
+\todo[inline]{Improve or remove.}
+
+\cite{BEA96} Recall that the Picard group $\mathrm{Pic}(X)$ is the group of isomorphism classes of line bundles $\mathcal{L}$ (or of invertible sheaves) on $X$, with addition given by the tensor product, $[\mathcal{L}] + [\mathcal{L'}]$ = $[\mathcal{L} \otimes \mathcal{L'}]$. To every effective divisor $D$ on $X$, we can associate a line bundle $\mathcal{O}_X(D)$, defined locally as the set of rational functions $f$ on $X$ such that $\text{Div}(f) + D \geq 0$, and a section $s \in H^0(X, \mathcal{O}_X(D))$, $s \neq 0$ which is unique up to scalar multiplication, such that $\mathrm{Div}(s) = D$. The map $D \mapsto \mathcal{O}_X(D)$ identifies $\mathrm{Pic}(X)$ with the group of linear equivalence classes of divisors on $X$. (see \cite{BEA96}, I.1) (Do we need smooth $X$?)(!?). 
+
+\begin{proposition}[\cite{EH16}, Proposition 1.30]
+    If $X$ is a variety of dimension $n$, then $c_1$ is a group homomorphism
+    \[c_1 \colon \mathrm{Pic}(X) \to A^1(X).\]
+    If $X$ is smooth, then $c_1$ is an isomorphism.
+\end{proposition}
+
+\cite{EH16} If $Y \subseteq X$ is a divisor on a smooth variety $X$, then the ideal sheaf of $Y$ is a line bundle denoted $\mathcal{O}_X(-Y)$, and its inverse in the Picard group is denoted $\mathcal{O}_X(Y)$. The inverse of the map $c_1$ takes $[Y]$ to $\mathcal{O}_X(Y)$.
 
 \subsection{Chern classes of vector bundles}
 
-Let $\mathcal{E}$ be a vector bundle on an $n$-dimensional variety $X$. We define a Chern class $c_i(\mathcal{E}) \in A^i(X)$.
+We now extend the definition of Chern classes to vector bundles of higher rank. Let $\mathcal{E}$ be a vector bundle on an $n$-dimensional variety $X$, and let $r = \mathrm{rank}(\mathcal{E})$. We follow the approach of \cite{EH16} section 5.2, giving an informal characterization rather than a formal definition.
+
+In the case $r=1$, the Chern class $c_1(\mathcal{L})$ can be viewed as a measure of non-triviality. If $c_1(\mathcal{L}) = 0$, then $\mathcal{L}$ has a nowhere-vanishing section, and $\mathcal{L} \cong \mathcal{O}_X$. We extend this idea to higher rank vector bundles by considering the ``degeneracy locus'' of collections of sections. Roughly, this is the locus where the sections become linearly dependent in the fibers of $\mathcal{E}$.
+
+More precisely, the bundle $\mathcal{E}$ is said to be trivial if and only if it has $r$ global sections  which are everywhere linearly independent. In this case, any set of $r$ general sections will do. \todo{Necessary?} We look at the exterior powers of $\mathcal{E}$. The $(r-i)$-th exterior power $\bigwedge^k \mathcal{E}$ is a vector bundle of rank $\binom{r}{r-i}$, and general sections $s_1, \dots, s_{r-i}$ induce sections of $\bigwedge^{r-i} \mathcal{E}$ given by $s_{1} \wedge s_{2} \wedge \dots \wedge s_{r-i}$. For $i=0$, we have a single section $s_1 \wedge s_2 \wedge \dots \wedge s_r$ of the line bundle $\bigwedge^r \mathcal{E}$, and the zero locus is by definition $c_1(\bigwedge^r \mathcal{E})$. This is a class in $A^1(X)$, and we call it the \emph{first Chern class of $\mathcal{E}$}.
+
+In general, we have that for $(r-i)$ general sections, we can consider the vanishing locus of 
+\[s_1 \wedge \dots \wedge s_{r-i} \in \bigwedge^{r-i} \mathcal{E}.\]
+This is called the \emph{$i$-th degeneracy locus} of the sections $s_1, \dots, s_{r-i}$.
+
+% If $s_1, \dots, s_r$ are linearly independent sections of $\mathcal{E}$, they form a basis.
 
 \subsection{Important results on Chern classes}
 
