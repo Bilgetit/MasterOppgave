@@ -1,11 +1,30 @@
 \section{Chern classes}
 
-Briefly introduce Chern classes. Include Whitney sum formula and the splitting principle. 
+\cite{EH16} Recall that a Cartier divisor is defined through the vanishing loci of sections of line bundles. Chern classes are a way of generalizing this to vector bundles of higher rank, with the first Chern class corresponding to the Cartier divisor case. 
+\todo[inline]{Include assumptions on $X$ to say this is an isomorphism.}
 
 \subsection{The first Chern class of a line bundle}
 
-\cite{EH16},  1.4.
+(\cite{EH16}, 1.4.)
+Let $\mathcal{L}$ be a line bundle on a variety $X$ and $\sigma$ be a rational section. Then on an open affine set $U$ of a covering of $X$, we can write $\sigma|_U = f_U g_U$, and define $\text{Div}(\sigma)|_U = \text{Div}(f_U) - \text{Div}(g_U)$. This definition agrees on the intersections of the open affine sets, and thus defines a divisor on X, which is a \emph{Cartier divisor}.
 
-Let $\mathcal{L}$ be a line bundle on a variety $X$ and $\sigma$ be a rational section. Then on an open affine set $U$ of a covering of $X$, we can write $\sigma|_U = f_U g_U$, and define $\text{Div}(\sigma)|_U = \text{Div}(f_U) - \text{Div}(g_U)$. This definition agrees on the intersections of the open affine sets, and thus defines a divisor on X, which is a \emph{Cartier divisor}. 
+\subsection{Chern classes of vector bundles}
+
+Let $\mathcal{E}$ be a vector bundle on an $n$-dimensional variety $X$. We define a Chern class $c_i(\mathcal{E}) \in A^i(X)$.
+
+\subsection{Important results on Chern classes}
+
+\begin{theorem}[\cite{EH16}, Theorem 5.3 (a), (c)]
+    There is a unique way of assigning to each vector bundle $\mathcal{E}$ on a smooth quasi-projective variety $X$ a class $c(\mathcal{E}) = 1 + c_1(\mathcal{E}) + \ldots + c_n(\mathcal{E}) \in A(X)$ in such a way that
+    \begin{itemize}
+        \item If $\mathcal{L}$ is a line bundle, then $c(\mathcal{L})$ is $1 + c_1(\mathcal{L})$, where $c_1(\mathcal{L}) \in A^1(X)$ is the class of the divisor of zeros minus the divisor of poles of any rational section of $\mathcal{L}$.
+        \item If $0 \to \mathcal{E} \to \mathcal{F} \to \mathcal{G} \to 0$ is an exact sequence of vector bundles on $X$, then $c(\mathcal{E}) = c(\mathcal{F}) c(\mathcal{G}) \in A(X)$.
+    \end{itemize}
+\end{theorem}
+
+\begin{theorem}[\cite{EH16}, Theorem 5.12, Splitting principle]
+    Any identity among Chern classes of bundles that is true for bundles that are direct sums of line bundles is true in general.
+\end{theorem}
+\todo[inline]{Se veiledning fra 14.03.}
 
 
