@@ -21,22 +21,22 @@
 
 \todo[inline]{Align name of lines better}
 
-In this section we will study the problem of finding a smooth hypersurface $X_d \subset \mathbb{P}^3$ of degree $d$, containing a \emph{$k$-cross}. 
+In this section we will study the problem of finding a smooth hypersurface $X_d \subset \mathbb{P}^3$ of degree $d$, containing an \emph{$m$-cross}. 
 
 \begin{definition}
-    A k-cross is a union of k lines $l_1, l_2, \dots, l_k$ in $\mathbb{P}^3$ which intersect at a common point $p$ and lying in a common plane $H$. We will write $Z_k = \bigcup_{i=1}^k l_i$.
+    A m-cross is a union of m lines $l_1, l_2, \dots, l_m$ in $\mathbb{P}^3$ which intersect at a common point $p$ and lying in a common plane $H$. We will write $Z_m = \bigcup_{i=1}^m l_i$.
 \end{definition}
 
 We require the lines to lie in a plane because if this is not true, then the point $p$ gives rise to a tangent space of dimension 3, which cannot be included in a surface in $\mathbb{P}^3$. \todo[inline]{Make this argument rigorous, maybe a proposition.}
 
-It is worth noting the specific question we are asking, which is that given a $k$-cross, does there exist a smooth hypersurface of degree $d$ including it. We do not ask whether a $k$-cross is to be expected inside a general hypersurface.
+It is worth noting the specific question we are asking, which is that given an $m$-cross, does there exist a smooth hypersurface of degree $d$ including it. We do not ask whether an $m$-cross is to be expected inside a general hypersurface.
 
 \begin{remark}
-    Note that for automorphisms of $\mathbb{P}^3$, lines are sent to lines. Therefore, we can study the lines $l_1 = (\alpha : \beta : 0 : 0), \ l_2 = (\alpha : 0 : \gamma : 0), \ l_3=(\alpha: \delta : \lambda_3 \delta: 0), \dots, l_k = (\alpha : \delta : \lambda_k \delta : 0)$ for $\lambda_i \in \mathbb{N}$ by taking the automorphism of $\mathbb{P}^3$ which sends these lines to the given lines, and then study the hypersurface of degree $d$ in $\mathbb{P}^3$ which contains these lines.
+    Note that for automorphisms of $\mathbb{P}^3$, lines are sent to lines. Therefore, we can study the lines $l_1 = (\alpha : \beta : 0 : 0), \ l_2 = (\alpha : 0 : \gamma : 0), \ l_3=(\alpha: \delta : \lambda_3 \delta: 0), \dots, l_m = (\alpha : \delta : \lambda_m \delta : 0)$ for $\lambda_i \in \mathbb{N}$ by taking the automorphism of $\mathbb{P}^3$ which sends these lines to the given lines, and then study the hypersurface of degree $d$ in $\mathbb{P}^3$ which contains these lines.
     This automorphism will also take a smooth hypersurface of degree $d$ to a smooth hypersurface of degree $d$, so showing properties for lines in this form is sufficient for the general case. 
 \end{remark}
 
-We are interested in both the existence and non-existence of degree $d$ hypersurfaces containing $k$-crosses. We first consider surfaces with degree less than $k$, but more than 1 (degree 1 provides us a simple choice of surface including a $k$-cross, namely $H$).
+We are interested in both the existence and non-existence of degree $d$ hypersurfaces containing $m$-crosses. We first consider surfaces with degree less than $k$, but more than 1 (degree 1 provides us a simple choice of surface including a $m$-cross, namely $H$).
 
 \begin{lemma}\label{lem:H}
     If $S$ is a surface of degree $d > 1$, it does not contain a plane.
@@ -46,33 +46,33 @@ We are interested in both the existence and non-existence of degree $d$ hypersur
 \end{proof}
 
 \begin{lemma}
-    Given a $k$-cross, there does not exist any smooth hypersurface of degree $1 < d < k$ such that the lines are contained in the hypersurface.
+    Given an $m$-cross, there does not exist any smooth hypersurface of degree $1 < d < m$ such that the lines are contained in the hypersurface.
 \end{lemma}
 \begin{proof}
-    Assume for contradiction that there exists a smooth hypersurface of degree $1 < d < k$ such that the lines are contained in the hypersurface. Then we can fix another line $\ell$ in $H$, which does not intersect $p$, and which does not lie in the hypersurface $X_d$ by \cref{lem:H}. $\ell$ will intersect each of the lines at a point $p_i$, all being distinct since the lines only intersects in $p$. $\ell$ will also intersect $X_d$ at the points $p_i$, thus intersecting the hypersurface at $k$ points. By Bezout's theorem (\cref{thm:bezout}), the intersection of a line with a hypersurface of degree $d$ is at most $d$ points, giving a contradiction. \todo[inline]{Can't the line stay on our surface when going from one line to the other?}
+    Assume for contradiction that there exists a smooth hypersurface of degree $1 < d < m$ such that the lines are contained in the hypersurface. Then we can fix another line $\ell$ in $H$, which does not intersect $p$, and which does not lie in the hypersurface $X_d$ by \cref{lem:H}. $\ell$ will intersect each of the lines at a point $p_i$, all being distinct since the lines only intersects in $p$. $\ell$ will also intersect $X_d$ at the points $p_i$, thus intersecting the hypersurface at $m$ points. By Bezout's theorem (\cref{thm:bezout}), the intersection of a line with a hypersurface of degree $d$ is at most $d$ points, giving a contradiction. \todo[inline]{Can't the line stay on our surface when going from one line to the other?}
 \end{proof}
 
 We now move on to the case of existence, with the following proposition:
 
 \begin{proposition}
-    For a given $k$-cross, we can find a smooth hypersurface of degree $k$ such that the lines are contained in the hypersurface.
+    For a given $m$-cross, we can find a smooth hypersurface of degree $m$ such that the lines are contained in the hypersurface.
 \end{proposition}
 \begin{proof}
-    Let $\mathfrak{L}$ be the linear system of hypersurfaces of degree $k$ in $\mathbb{P}^3$ containing the lines $l_1, \dots, l_k$ (Prove this is not empty, because of singular surfaces.)(!?). Recall that Bertini's theorem (\cref{thm:bertini}) tells us that the general member of $\mathfrak{L}$ is smooth outside the base locus of $\mathfrak{L}$. The base locus of $\mathfrak{L}$ is the union of the lines $l_1, \dots, l_k$. \todo{prove} Thus, we must find a function $f \in \mathbb{C}[x_0, x_1, x_2, x_3]_k$ such that $V(f)$ is smooth on the lines $l_1, \dots, l_k$. Bertini's theorem then gives us that we can find a hypersurface which is also smooth outside the base locus of $\mathfrak{L}$.
+    Let $\mathfrak{L}$ be the linear system of hypersurfaces of degree $m$ in $\mathbb{P}^3$ containing the lines $l_1, \dots, l_k$ (Prove this is not empty, because of singular surfaces.)(!?). Recall that Bertini's theorem (\cref{thm:bertini}) tells us that the general member of $\mathfrak{L}$ is smooth outside the base locus of $\mathfrak{L}$. We can therefore narrow our search of singularities to the base locus. The base locus of $\mathfrak{L}$ is the union of the lines $l_1, \dots, l_k$. \todo{prove} Thus, we must find a function $f \in \mathbb{C}[x_0, x_1, x_2, x_3]_m$ such that $V(f)$ is smooth on the lines $l_1, \dots, l_m$. Bertini's theorem then gives us that we can find a hypersurface which is also smooth outside the base locus of $\mathfrak{L}$.
 
-    We study the function $f = g(x_1, x_2) + h(x_0, x_3)$, where $h = x_0^{k-1}x_3$ and $g = \prod l_i = x_1x_2 \prod_{i=3}^k (x_1 - \lambda_i x_2)$, giving the following polynomial:
+    We study the function $f = g(x_1, x_2) + h(x_0, x_3)$, where $h = x_0^{m-1}x_3$ and $g = \prod l_i = x_1x_2 \prod_{i=3}^k (x_1 - \lambda_i x_2)$, giving the following polynomial:
     \[
-        f(x_0, x_1, x_2, x_3) = x_1x_2 \prod_{i=3}^k (x_1 - \lambda_i x_2) + x_0^{k-1}x_3
+        f(x_0, x_1, x_2, x_3) = x_1x_2 \prod_{i=3}^m (x_1 - \lambda_i x_2) + x_0^{m-1}x_3
     \]
-    We can see that $f$ is a polynomial of degree $k$, and that $f$ includes the lines $l_1, \dots, l_k$, since $f(\alpha: \beta: 0: 0) = f(\alpha: 0: \gamma: 0) = f(\alpha: \delta: \lambda_i \delta: 0) = 0$. We must then check that $f$ is smooth on the base locus of $\mathfrak{L}$, which is to check that $\bigcap_{i=0}^3 (\partial_i f = 0) = \emptyset$.
+    We can see that $f$ is a polynomial of degree $m$, and that $f$ includes the lines $l_1, \dots, l_m$, since $f(\alpha: \beta: 0: 0) = f(\alpha: 0: \gamma: 0) = f(\alpha: \delta: \lambda_i \delta: 0) = 0$. We must then check that $f$ is smooth on the base locus of $\mathfrak{L}$, which is to check that $\bigcap_{i=0}^3 (\partial_i f = 0) = \emptyset$.
     
     We get the following derivatives:
 
     \begin{align*}
-        \partial_0 f &= \partial_0 g + \partial_0 h = 0 + (k-1)x_0^{k-2}x_3 = (k-1)x_0^{k-2}x_3 \\
-        \partial_1 f &= \partial_1 g + \partial_1 h = x_2 \prod_{i=3}^k (x_1 - \lambda_i x_2) + x_1x_2 \sum_{i=3}^k \prod_{\substack{j=3 \\ j \neq i}}^k (x_1 - \lambda_j x_2)\\
-        \partial_2 f &= \partial_2 g + \partial_2 h = x_1 \prod_{i=3}^k (x_1 - \lambda_i x_2) +  x_1x_2 \sum_{i=3}^k (-\lambda_i) \cdot \prod_{\substack{j=3 \\ j \neq i}}^k (x_1 - \lambda_j x_2)\\
-        \partial_3 f &= \partial_3 g + \partial_3 h = 0 + x_0^{k-1} = x_0^{k-1}
+        \partial_0 f &= \partial_0 g + \partial_0 h = 0 + (m-1)x_0^{m-2}x_3 = (m-1)x_0^{m-2}x_3 \\
+        \partial_1 f &= \partial_1 g + \partial_1 h = x_2 \prod_{i=3}^m (x_1 - \lambda_i x_2) + x_1x_2 \sum_{i=3}^m \prod_{\substack{j=3 \\ j \neq i}}^m (x_1 - \lambda_j x_2)\\
+        \partial_2 f &= \partial_2 g + \partial_2 h = x_1 \prod_{i=3}^m (x_1 - \lambda_i x_2) +  x_1x_2 \sum_{i=3}^m (-\lambda_i) \cdot \prod_{\substack{j=3 \\ j \neq i}}^m (x_1 - \lambda_j x_2)\\
+        \partial_3 f &= \partial_3 g + \partial_3 h = 0 + x_0^{m-1} = x_0^{m-1}
     \end{align*}
 
     We then find that 
@@ -80,7 +80,7 @@ We now move on to the case of existence, with the following proposition:
         \item $\partial_0 f = 0$ on the entire base locus.
         \item $\partial_1 f = 0$ on the line $l_0 = (\alpha : \beta : 0 : 0)$.
         \item $\partial_2 f = 0$ on the line $l_1 = (\alpha : 0 : \gamma : 0)$.
-        \item $\partial_3 f = 0$ if and only if $x_0 = 0$, which is the case for the following points: $(0 : \beta : 0 : 0), (0 : 0 : \gamma : 0), (0 : \delta : \lambda_i \delta : 0)$ for $3 \leq i \leq k$.  
+        \item $\partial_3 f = 0$ if and only if $x_0 = 0$, which is the case for the following points: $(0 : \beta : 0 : 0), (0 : 0 : \gamma : 0), (0 : \delta : \lambda_i \delta : 0)$ for $3 \leq i \leq m$.  
     \end{itemize}
     We can see that the intersection of all of these zero loci is empty, showing that the function $f$ is smooth on the base locus of $\mathfrak{L}$.
     Thus, we can find a smooth hypersurface of degree $k$ such that the lines are contained in the hypersurface.
@@ -89,25 +89,25 @@ We now move on to the case of existence, with the following proposition:
 
 By the results above, we get the following corollary:
 \begin{corollary}
-Given a $k$-cross, we can find a smooth hypersurface of degree $d$ such that the lines are contained in the hypersurface if and only if $d \geq k$ or $d=1$.
+Given an $m$-cross, we can find a smooth hypersurface of degree $d$ such that the lines are contained in the hypersurface if and only if $d \geq m$ or $d=1$.
 \end{corollary}
 \begin{proof}
-    If we have $k$ lines, we can find a smooth hypersurface of degree $d \geq k+1$ by including arbitrary lines $l_{k+1}, l_{k+2}, \dots, l_d$ lying in the plane. For the case $d=1$, we can take the plane $H$ containing the lines.
+    If we have $m$ lines, we can find a smooth hypersurface of degree $d \geq m+1$ by including arbitrary lines $l_{m+1}, l_{m+2}, \dots, l_d$ lying in the plane. For the case $d=1$, we can take the plane $H$ containing the lines.
 \end{proof}
 
-\section{The set of degree d surfaces including k-crosses}
+\section{The set of degree d surfaces including m-crosses}
 
-In the previous section we studied the existence and non-existence of smooth hypersurfaces of degree $d$ including a $k$-cross. We will now study the dimension of the set of degree $d$ surfaces including $k$-crosses. Let $Z_k$ be a $k$-cross lying in a plane $H$, which we will assume is the plane $V(x_3)$ by an automorphism of $\mathbb{P}^3$. 
+In the previous section we studied the existence and non-existence of smooth hypersurfaces of degree $d$ including a $m$-cross. We will now study the dimension of the set of degree $d$ surfaces including $m$-crosses. Let $Z_m$ be a $m$-cross lying in a plane $H$, which we will assume is the plane $V(x_3)$ by an automorphism of $\mathbb{P}^3$.
 
 \begin{proposition}
-    Let $A_k = \{S_d \subseteq \mathbb{P}^3 \mid Z_k \subset S_d\} \subseteq \{S_d \subseteq \mathbb{P}^3\}$ be the set of degree $d$ surfaces containing a general $Z_k$. Then $\dim{A_k} = \binom{d-k+2}{2} + \binom{d+2}{3} - 1$.
+    Let $A_m = \{S_d \subseteq \mathbb{P}^3 \mid Z_m \subset S_d\} \subseteq \{S_d \subseteq \mathbb{P}^3\}$ be the set of degree $d$ surfaces containing a general $Z_m$. Then $\dim{A_m} = \binom{d-m+2}{2} + \binom{d+2}{3} - 1$.
 \end{proposition}
 
 \begin{proof}
-    Let $S_d = V(f)$ for some $f \in \mathbb{C}[x_0, x_1, x_2, x_3]_d$ be a surface which includes $Z_k$. Since $Z_k$ is included in 
-    $H$, we write $f$ as $f = g(x_0,x_1,x_2) + x_3h(x_0,x_1,x_2,x_3)$, separating the part of $f$, $x_3h(x_0,x_1,x_2,x_3)$, which vanishes on the plane. Saying that $Z_k \subseteq S_d$ is the same as saying $f|_{Z_k} = 0$, which implies that $g(x_0,x_1,x_2)|_{Z_k} = 0$, since $x_3h(x_0,x_1,x_2,x_3)|_{Z_k}$ already vanishes. This implies that $l_1l_2 \cdots l_k$ divides $g(x_0,x_1,x_2)$, meaning $g(x_0,x_1,x_2) = l_1l_2 \dots l_k \cdot j(x_0,x_1,x_2)$ for some $j(x_0,x_1,x_2) \in \mathbb{C}[x_0,x_1,x_2]_{d-k}$. Thus, we can write $f$ as $f = l_1l_2 \cdots l_k \cdot j(x_0,x_1,x_2) + x_3h(x_0,x_1,x_2,x_3)$, where $h(x_0,x_1,x_2,x_3) \in \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1}$.
+    Let $S_d = V(f)$ for some $f \in \mathbb{C}[x_0, x_1, x_2, x_3]_d$ be a surface which includes $Z_m$. Since $Z_m$ is included in 
+    $H$, we write $f$ as $f = g(x_0,x_1,x_2) + x_3h(x_0,x_1,x_2,x_3)$, separating the part of $f$, $x_3h(x_0,x_1,x_2,x_3)$, which vanishes on the plane. Saying that $Z_m \subseteq S_d$ is the same as saying $f|_{Z_m} = 0$, which implies that $g(x_0,x_1,x_2)|_{Z_m} = 0$, since $x_3h(x_0,x_1,x_2,x_3)|_{Z_m}$ already vanishes. This implies that $l_1l_2 \cdots l_m$ divides $g(x_0,x_1,x_2)$, meaning $g(x_0,x_1,x_2) = l_1l_2 \dots l_m \cdot j(x_0,x_1,x_2)$ for some $j(x_0,x_1,x_2) \in \mathbb{C}[x_0,x_1,x_2]_{d-m}$. Thus, we can write $f$ as $f = l_1l_2 \cdots l_m \cdot j(x_0,x_1,x_2) + x_3h(x_0,x_1,x_2,x_3)$, where $h(x_0,x_1,x_2,x_3) \in \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1}$.
 
-    Since we can choose $j(x_0,x_1,x_2)$ and $h(x_0,x_1,x_2,x_3)$ freely, we get that $\dim{A_k} = \dim \mathbb{C}[x_0,x_1,x_2]_{d-k} + \dim \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1} = \binom{d-k+2}{2} + \binom{d+2}{3} - 1$. \todo[inline]{Should we subtract 1 to account for it being a projective space?}
+    Since we can choose $j(x_0,x_1,x_2)$ and $h(x_0,x_1,x_2,x_3)$ freely, we get that $\dim{A_m} = \dim \mathbb{C}[x_0,x_1,x_2]_{d-m} + \dim \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1} = \binom{d-m+2}{2} + \binom{d+2}{3} - 1$. \todo[inline]{Should we subtract 1 to account for it being a projective space?}
 \end{proof}
 
 \todo[inline]{Include examples?}

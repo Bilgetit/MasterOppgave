@@ -29,3 +29,5 @@ subbundle
 subvarieties
 subvariety
 subschemes
+surjection
+Duals

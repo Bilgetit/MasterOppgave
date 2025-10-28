@@ -50,7 +50,7 @@ More precisely, the bundle $\mathcal{E}$ is said to be trivial if and only if it
 
 In general, we have that for $(r-i)$ general sections, we can consider the vanishing locus of 
 \[s_1 \wedge \dots \wedge s_{r-i} \in \bigwedge^{r-i} \mathcal{E}.\]
-This is called the \emph{$i$-th degeneracy locus} of the sections $s_1, \dots, s_{r-i}$.
+This vanishing locus is called the \emph{$i$-th degeneracy locus} of the sections $s_1, \dots, s_{r-i}$.
 
 % If $s_1, \dots, s_r$ are linearly independent sections of $\mathcal{E}$, they form a basis.
 
@@ -67,6 +67,21 @@ This is called the \emph{$i$-th degeneracy locus} of the sections $s_1, \dots, s
 \begin{theorem}[\cite{EH16}, Theorem 5.12, Splitting principle]
     Any identity among Chern classes of bundles that is true for bundles that are direct sums of line bundles is true in general.
 \end{theorem}
+
+\begin{corollary}[\cite{EH16}, Corollary 5.5]
+    If $\mathcal{E}$ is the direct sum of line bundles $\mathcal{L}_i$, then 
+    \[c(\mathcal{E}) = \prod c(\mathcal{L}_i) = \prod (1 + c_1(\mathcal{L}_i)).\]
+\end{corollary}
+
 \todo[inline]{Se veiledning fra 14.03.}
 
+\begin{corollary}[\cite{EH16}, Example 5.13]
+    If $\mathcal{E}$ is a rank $r$ vector bundle, then $c_i(\mathcal{E}) = 0$ for $i > r$.
+\end{corollary}
 
+Examples:
+\begin{itemize}
+    \item Duals.
+    \item Symmetric squares.
+    \item Tensor products.
+\end{itemize}

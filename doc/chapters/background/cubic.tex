@@ -78,4 +78,53 @@ Decide if we want to include this classic proof. We could do as EO, Finding 27 l
 
 \subsection{Proof by degree of Chern classes}
 
-Do proof in EH16. 
+
+\begin{theorem}[\cite{EH16}, Theorem 5.1]
+    Each smooth cubic surface in $\mathbb{P}^3$ contains exactly 27 distinct lines.
+\end{theorem}
+\begin{proof}
+    Given a smooth cubic surface $X \subset \mathbb{P}^3$ determined by the vanishing of a cubic form $F$ in four variables, we wish to determine the degree of the locus in $\mathbb{G}(1,3)$ of lines contained in $X$.
+
+    Observe that if we fix a line $L$ in $\mathbb{P}^3$, then the condition that $L$ lies in $X$ is equivalent to the condition that the restriction of $F$ to $L$ is identically zero. Note that the restriction map from the 20-dimensional vector space of cubic forms on $\mathbb{P}^3$ to the 4-dimensional vector space of cubic forms on $L$, $V_L = H^0(L, \mathcal{O}_L(3)$ is a linear surjection, and the condition $L \subseteq X$ is that $F$ maps to 0 in $V_L$. This imposes four linear conditions on the coefficients of $F$(!?). 
+
+    As the line varies over $\mathbb{G}(1,3)$, the vector spaces $V_L$ fit together to form a vector bundle of rank 4, $\mathcal{V}$ on $\mathbb{G}(1,3)$, with fiber over the point $[L]$ being $V_L$. A cubic form $F$ on $\mathbb{P}^3$, through its restriction to each $V_L$, defines a global section $\sigma_F$ of this vector bundle. Thus, the locus of lines contained in the cubic surface $X$ is the zero locus of the section $\sigma_F$. Assuming that this zero locus is zero-dimensional(!?), its class in $A(\mathbb{G}(1,3))$ is given by the top Chern class $c_4(\mathcal{V})$ of the vector bundle $\mathcal{V}$. The number of lines contained in $X$ is therefore the degree of this class(!?).
+
+    To compute this degree, we first express $\mathcal{V}$ in terms of the universal sub-bundle $\mathcal{S}$ on $\mathbb{G}(1,3)$. Recall that the fiber of $\mathcal{S}$ over a point $[L]$ is the 2-dimensional vector space corresponding to the line $L \subseteq \mathbb{P}^3$. The restriction of cubic forms on $\mathbb{P}^3$ to $L$ factors through the symmetric third power of this vector space, so we have an isomorphism of vector bundles
+    \[\mathcal{V} \cong \mathrm{Sym}^3(\mathcal{S}^\vee).\]
+    Using the splitting principle, we can compute the Chern classes of $\mathcal{V}$ in terms of the Chern classes of $\mathcal{S}^\vee$. Let the Chern roots of $\mathcal{S}^\vee$ be $\alpha_1$ and $\alpha_2$. Then the Chern roots of $\mathcal{V}$ are given by
+    \[3\alpha_1, 2\alpha_1 + \alpha_2, \alpha_1 + 2\alpha_2, 3\alpha_2.\]
+    Thus, the top Chern class of $\mathcal{V}$ is
+    \begin{align*}
+        c_4(\mathcal{V}) &= (3\alpha_1)(2\alpha_1 + \alpha_2)(\alpha_1 + 2\alpha_2)(3\alpha_2) \\
+        &= 9 \alpha_1 \alpha_2 (2\alpha_1^2 + 5\alpha_1 \alpha_2 + 2\alpha_2^2) \\
+        &= 9 c_2(\mathcal{S}^\vee) (2 c_1(\mathcal{S}^\vee)^2 + 5 c_2(\mathcal{S}^\vee)).
+    \end{align*}
+    To compute the degree of this class, we express it in terms of the Schubert classes $\sigma_1 = c_1(\mathcal{S}^\vee)$ and $\sigma_{1,1} = c_2(\mathcal{S}^\vee)$, and use the intersection numbers computed in (!?).
+    Therefore, a smooth cubic surface in $\mathbb{P}^3$ contains exactly 27 distinct lines.
+\end{proof}
+\todo[inline]{Finish proof properly.}
+
+
+% Let $\mathcal{E}$ have rank 2. Then $\mathcal{E} = \mathcal{L} \oplus \mathcal{M}$. Let $\mathcal{F} = \mathrm{Sym}^3(\mathcal{E})$. 
+
+% \[\mathcal{F} = \mathrm{Sym}^3(\mathcal{L} \oplus \mathcal{M}) = \mathcal{L}^{\otimes 3} \oplus \mathcal{L}^{\otimes 2} \otimes \mathcal{M} \oplus \mathcal{L} \otimes \mathcal{M}^{\otimes 2} \oplus \mathcal{M}^{\otimes 3}\]
+
+% \[c(\mathcal{F}) = c(\mathcal{L}^{\otimes 3}) c(\mathcal{L}^{\otimes 2} \otimes \mathcal{M}) c(\mathcal{L} \otimes \mathcal{M}^{\otimes 2}) c(\mathcal{M}^{\otimes 3})\]
+
+% \[c_4(\mathcal{F}) = c_1(\mathcal{L}^{\otimes 3}) c_1(\mathcal{L}^{\otimes 2} \otimes \mathcal{M}) c_1(\mathcal{L} \otimes \mathcal{M}^{\otimes 2}) c_1(\mathcal{M}^{\otimes 3})\]
+
+% \[c_1(\mathcal{E}_1 \otimes \mathcal{E}_2) = c_1(\mathcal{E}_1) + 2c_1(\mathcal{E}_2)\]
+% \[c_2(\mathcal{E}_1 \otimes \mathcal{E}_2) = c_2(\mathcal{E}_1) + c_1(\mathcal{E}_1)c_1(\mathcal{E}_2) + c_2(\mathcal{E}_2)^2\]
+% \[c_1(\mathcal{L}^{\otimes a}\mathcal{M}^{\otimes b}) = ac_1(\mathcal{L}) + bc_1(\mathcal{M})\]
+% $\alpha = c_1(\mathcal{L})$, $\beta = c_1(\mathcal{M})$
+
+% \[c_1(\mathcal{E}) = \alpha + \beta = c_1(\mathcal{L}) + c_1(\mathcal{M})\]
+% \[c_2(\mathcal{E}) = \alpha \beta = c_1(\mathcal{L})c_1(\mathcal{M})\]
+
+% \begin{align*}
+%     c_4(\mathcal{F}) &= (3\alpha)(2\alpha + \beta)(\alpha + 2\beta)(3\beta) \\
+%     &= 9 \alpha \beta (2\alpha^2 + 5\alpha \beta + 2\beta^2) \\
+%     &= 9 \alpha \beta (2(\alpha + \beta)^2 - 3 \alpha \beta) \\
+%     &= 9 c_2(\mathcal{E}) (2 c_1(\mathcal{E})^2 + 3 c_2(\mathcal{E})) \\
+%     &= 18 c_2(\mathcal{E}) c_1(\mathcal{E})^2 - 27 c_2(\mathcal{E})^2
+% \end{align*}

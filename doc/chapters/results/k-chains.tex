@@ -1,7 +1,7 @@
 \section{Surfaces including m-chains}
 
 \begin{definition}
-    An $m$-chain is a union of $k$ lines $l_1, l_2, \dots, l_k$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < k$. We will write $C_k = \bigcup_{i=1}^k l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < k$.
+    An $m$-chain is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$. We will write $C_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$.
 \end{definition}
 
 Notice that an $m$-chain is an $(m+1)$-gon excluding the line $l_m$ intersecting $l_1$. One can then modify the code above ("as in" cite appendix)(!?) to create $m$-chains instead of $(m+1)$-gons, by excluding the final pair of points. The results from this are similar to those of $m$-gons, in that for higher degrees, we find smooth surfaces, up until we find no surfaces. There are however interesting exceptions for degree 2 and 3 surfaces. Here we find singular surfaces when considering 4-chains and 6-chains respectively. We will handle the cases separately. First, we will study the set of $m$-chains in $\mathbb{P}^3$. We will mostly use this in the case of 6-chains, but the results hold in general. (Do we want to use this for 4-chains also?)(!?)
@@ -113,5 +113,3 @@ By removing one of the lines from the 12-gon, we immediately get the following:
 \end{corollary}
 
 This implies that the $m$-chains longer than 7 included in the smooth cubic surfaces are somehow special. \todo{Fill out later.}
-
-\todo[inline]{Fix G(k,n). k is overloaded. Maybe change to using m-chains and m-gons?}
