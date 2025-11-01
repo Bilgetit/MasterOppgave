@@ -3,8 +3,28 @@
 In this section, we will consider $m$-gons in $\mathbb{P}^3$ and their relationship with hypersurfaces.
 
 \begin{definition}
-    A $m$-gon is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$, and $l_m$ intersects $l_1$. We will write $C_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$, and $p_m = l_m \cap l_1$.
+    An $m$-gon is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$, and $l_m$ intersects $l_1$. We will write $C_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$, and $p_m = l_m \cap l_1$. A \emph{regular} $m$-gon is an $m$-gon such that $l_i \neq l_j$ for $i \neq j$, and $l_i$ intersects only the other lines as described above.
 \end{definition}
+
+\begin{definition}
+    A \emph{regular} $m$-gon is an $m$-gon such that $l_i \neq l_j$ for $i \neq j$, and no lines other than the adjacent ones intersect.
+\end{definition}
+
+The notion of a regular $m$-gon is important. For example, a non-regular $m$-gon includes $m$ lines all intersecting at a single point, i.e. an $m$-cross. Such cases would not hold the same properties as what one would expect from $m$-gons such as the one drawn in \cref{fig:m-gon}.
+
+
+\begin{definition}
+    Let $\mathcal{C}_m$ be the family of all $m$-gons in $\mathbb{P}^3$.
+\end{definition}
+
+\begin{lemma}
+    Dimension and irreducibility.
+\end{lemma}
+
+\begin{lemma}
+    The set of regular $m$-gons is an open subset of $\mathcal{C}_m$.
+\end{lemma}
+\todo[inline]{Fill in.}
 
 % Reusable m-gon drawing: usage \mgon{<m>} draws a polygon of m lines and labels the
 % intersection points p_1, ..., p_m and the lines l_1, ..., l_m. The drawing is planar
@@ -40,15 +60,15 @@ In this section, we will consider $m$-gons in $\mathbb{P}^3$ and their relations
     \label{fig:m-gon}
 \end{figure}
 
-\todo[inline]{Make lines go past intersection points.}
+\todo[inline]{Make lines go past intersection points in figure.}
 
 \begin{proposition}\label{prop:m-gon}
-    Let $C_m$ be a $m$-gon in $\mathbb{P}^3$. Then we can find a hypersurface of degree $d$ such that $C_m \subseteq S_d$ when $m \leq \frac{(d+3)(d+2)(d+1)}{6d}$.
+    Let $C_m$ be an $m$-gon in $\mathbb{P}^3$. Then we can find a hypersurface of degree $d$ such that $C_m \subseteq S_d$ when $m \leq \frac{(d+3)(d+2)(d+1)}{6d}$.
 \end{proposition}
 
 \begin{proof}
 
-    We can look at the zero cohomology of the ideal sheaf $\mathcal{I}_{C_m}$ of the $m$-gon to see if the $m$-gon can be contained in a hypersurface. \todo{Why?} We have the short exact sequence
+    We can look at global sections of twists of the ideal sheaf $\mathcal{I}_{C_m}$ of the $m$-gon to see if the $m$-gon can be contained in a hypersurface. \todo{Why?} We have the short exact sequence
     \[0 \to \mathcal{I}_{C_m} \to \mathcal{O}_{\mathbb{P}^3}\to \mathcal{O}_{C_m} \to 0.\]
 
     We twist this by $\mathcal{O}_{\mathbb{P}^3}(d)$ to get
@@ -62,18 +82,18 @@ In this section, we will consider $m$-gons in $\mathbb{P}^3$ and their relations
     & H^2(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \rar & H^2(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar & \dots \\
     \end{tikzcd}
 
-    We know that $H^i(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) = 0$ for $i > 0$ (cite)(!?). This means we can focus on the first part of the sequence:
+    From \cite{EO25} Theorem 18.23, we know that $H^i(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) = 0$ for $i > 0$ and $d \geq -3$. This means we can focus on the first part of the sequence:
 
-    \[0 \to H^0(\mathbb{P}^3, \mathcal{I}_{C_m}) \to H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) \to H^0(C_m, \mathcal{O}_{C_m}) \to H^1(\mathbb{P}^3, \mathcal{I}_{C_m}) \to 0.\] 
+    \[0 \to H^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \to H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \to H^0(C_m, \mathcal{O}_{C_m}(d)) \to H^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \to 0.\] 
 
 
     Since taking dimensions in cohomology is additive, we get
 
     \[
-    h^0(\mathbb{P}^3, \mathcal{I}_{C_m}) = h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) + h^1(\mathbb{P}^3, \mathcal{I}_{C_m}) - h^0(C_m, \mathcal{O}_{C_m}). 
+    h^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) = h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) + h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) - h^0(C_m, \mathcal{O}_{C_m}(d)). 
     \]
 
-    By Thm 18.4 (!?) in \cite{EO25} we get that $h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) = \binom{d+3}{3}$. $h^0(C_m, \mathcal{O}_{C_m}(d))$ can be computed by considering the short exact sequence: 
+    By Theorem 18.4 (!?) in \cite{EO25} we get that $h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) = \binom{d+3}{3}$. $h^0(C_m, \mathcal{O}_{C_m}(d))$ can be computed by considering the short exact sequence: 
     \[
     0 \to \mathcal{O}_{C_m}(d) \to \bigoplus_{i=1}^m \mathcal{O}_{l_i}(d) \to \bigoplus_{i=1}^n \mathcal{O}_{p_i} \to 0.
     \]

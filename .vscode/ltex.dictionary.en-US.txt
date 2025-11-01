@@ -31,3 +31,5 @@ subvariety
 subschemes
 surjection
 Duals
+m-gon
+m-gons
