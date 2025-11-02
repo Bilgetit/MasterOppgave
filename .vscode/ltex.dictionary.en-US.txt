@@ -47,3 +47,5 @@ giveninits
 biblatex
 ngon
 Progging
+submatrix
+indeterminates

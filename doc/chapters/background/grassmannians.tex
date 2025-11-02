@@ -1,7 +1,7 @@
 \chapter{Grassmannians and the space of lines in \texorpdfstring{$\mathbb{P}^3$}{P3}}
 \label{grassmannians}
 
-In this chapter we will introduce Grassmann varieties, or Grassmannians, and focus on $\mathbb{G}(1, 3)$, which is the space of lines in $\mathbb{P}^3$. We will also introduce the Plücker embedding, which is a way to embed the Grassmannian into a projective space, giving it the structure of a projective variety. For a more detailed introduction to Grassmannians, we refer to \cite{EH16}.
+In this chapter we will introduce Grassmann varieties, or Grassmannians, and focus on the space of lines in $\mathbb{P}^3$, which is denoted $\mathbb{G}(1, 3)$. We will also describe the Grassmannians as projective by introducing its affine cover, and a way to embed the Grassmannian into a projective space, giving it the structure of a projective variety. For a more detailed introduction to Grassmannians, we refer to \cite{EH16} Chapter 3 and 4, or \cite{EO25} section 24.6. We closely follow the exposition in \cite{EO25}. (!?)
 
 
 %-----------------------------------------------------------------------------
@@ -11,32 +11,22 @@ In this chapter we will introduce Grassmann varieties, or Grassmannians, and foc
     We will use $k$ to refer to the dimension of a linear subspace, and $\Bbbk$ to refer to a field.
 \end{remark}
 
-A Grassmannian is a projective variety whose closed points correspond to linear subspaces of a certain dimension in an $n$-dimensional vector space. As a set, $\mathrm{Gr}(k, V)$ is the set of all $k$-dimensional linear subspaces of the vector space $V$. In \cref{sec:Plucker}, we will give it the structure of a projective variety. In our case, $V$ will be a vector space over $\Bbbk$.
-\[\mathrm{Gr}(k,n)(\Bbbk) = \{[L] \mid L \subseteq \Bbbk^n \text{ is a linear space of dimension } k\}.\]
-\todo{\cite{EO25}}
+A Grassmannian is a projective variety whose closed points correspond to linear subspaces of a certain dimension in a vector space. As a set, $\mathrm{Gr}(k, V)$ is the set of all $k$-dimensional linear subspaces of the $n$-dimensional vector space $V$. In our case, $V$ will be a vector space over an algebraically closed field $\Bbbk$.
 
-A $k$-dimensional linear subspace of an $n$-dimensional vector space $V$ can also be thought of as a $(k - 1)$-dimensional linear subspace of $\mathbb{P}V \cong \mathbb{P}^{n-1}$. Due to this, we will often write $\mathrm{Gr}(k, V)$ as $\mathbb{G}(k-1, \mathbb{P}V)$. When there is no need to specify the vector space $V$, only its dimension $n$, we will write $\mathrm{Gr}(k,n) = \mathbb{G}(k-1, n-1)$.
+\begin{definition}
+    \cite{EO25} We define the \emph{Grassmannian} $\mathrm{Gr}(k, V)$ of $k$-dimensional linear subspaces of $V$ as the set
+    \[\mathrm{Gr}(k,n)(\Bbbk) = \{[L] \mid L \subseteq \Bbbk^n \text{ is a linear space of dimension } k\}.\] 
+\end{definition}
+
+A $k$-dimensional linear subspace of an $n$-dimensional vector space $V$ can also be thought of as a $(k - 1)$-dimensional linear subspace of $\mathbb{P}V \cong \mathbb{P}^{n-1}$. Due to this, we will often write $\mathrm{Gr}(k, V)$ as $\mathbb{G}(k-1, \mathbb{P}V)$. When there is no need to specify the vector space $V$, only its dimension $n$, we will write $\mathrm{Gr}(k,n) = \mathbb{G}(k-1, n-1)$. In this thesis we will most often write $\mathbb{G}(k-1,n-1)$, as it will be more natural when working with linear subspaces of projective space. For example, $\mathbb{G}(1,3)$ parametrizes lines in $\mathbb{P}^3$. 
+
+The Grassmannian is an important and very useful structure in algebraic geometry. Naturally, when asking questions regarding lines, planes, or other linear subspaces of projective spaces, many answers include the geometry of this variety of the linear subspaces themselves. 
+
+Not discussed in this thesis is the theory of Schubert calculus.
+
+\todo[inline]{Continue discussion.}
 
 % To give it the structure of a projective variety, we give an inclusion in a projective space, called the Plücker embedding, and show that the image is the zero locus of a certain collection of homogeneous polynomials.
-
-
-\cite{EO25} A dimension $(n-k)$ linear subspace $L \subseteq \Bbbk^n$ is described as the kernel of a surjective linear map $\Bbbk^n \to \Bbbk^{n-k}$, represented by an $(n-k) \times n$ matrix $a$ of rank $n-k$:
-\[L = \text{Ker}(A) \subseteq \Bbbk^n,\]
-
-where 
-\[A = \begin{pmatrix}
-a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
-a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
-\vdots & \vdots & \ddots & \vdots \\
-a_{(n-k),1} & a_{(n-k),2} & \cdots & a_{(n-k),n}
-\end{pmatrix}.\]
-
-Note that the matrix $A$ is not unique for a given linear subspace $L$, since multiplying $A$ on the left by an invertible $(n-k) \times (n-k)$ matrix $G$ gives another matrix $GA$ with the same kernel as $A$. For this reason, we consider the equivalence relation on the set of $(n-k) \times n$ matrices of rank $n-k$ given by $A \sim A'$ if there exists an invertible $(n-k) \times (n-k)$ matrix $G$ such that $A' = GA$. The Grassmannian $\mathrm{Gr}(k,n)$ can then be identified with the set of equivalence classes of $(n-k) \times n$ matrices of rank $n-k$ under this equivalence relation.
-
-That is, we want to consider the set
-\[(\mathbb{A}^{(n-k)n}(\Bbbk) - Z)/\mathrm{GL}_{n-k}(\Bbbk)\]
-
-\cite{EO25} Where $Z$ is the set of $(n-k) \times n$ matrices of rank less than $n-k$, and $\mathbb{A}^{(n-k)n}(\Bbbk)$ parametrizes the set of all $(n-k) \times n$ matrices with entries in $\Bbbk$. 
 
 %-----------------------------------------------------------------------------
 \section{Covering by affine spaces}
@@ -45,6 +35,23 @@ That is, we want to consider the set
     \item Idea of covering by affine spaces, referencing EO and EH.
     \item Example: $\mathbb{G}(1,3)$.
 \end{itemize}
+
+To describe the Grassmannian as a projective variety, we will first describe an affine cover of the Grassmannian. We start by representing a linear subspace $L \subseteq \Bbbk^n$ as the kernel of the surjective linear map $\Bbbk^n \to \Bbbk^{n-k}$. This map can be represented by an $(n-k) \times n$ matrix $A$ of rank $(n-k)$. We have $L = \text{Ker}(A) \subseteq \Bbbk^n$, where
+\[A = \begin{pmatrix}
+a_{1,1} & \cdots & a_{1,n} \\
+\vdots & \ddots & \vdots \\
+a_{(n-k),1} & \cdots & a_{(n-k),n}
+\end{pmatrix}.\]
+
+Note that the matrix $A$ is not unique for a given linear subspace $L$, since multiplying $A$ on the left by an invertible $(n-k) \times (n-k)$ matrix $G$ gives another matrix $GA$ with the same kernel as $A$. For this reason, we consider the equivalence relation on the set of $(n-k) \times n$ matrices of rank $n-k$ given by $A \sim A'$ if there exists an invertible $(n-k) \times (n-k)$ matrix $G$ such that $A' = GA$. The Grassmannian $\mathrm{Gr}(k,n)$ can then be identified with the set of equivalence classes of $(n-k) \times n$ matrices of rank $n-k$ under this equivalence relation.
+
+That is, we want to consider the set
+\[(\mathbb{A}^{(n-k)n}(\Bbbk) - Z)/\mathrm{GL}_{n-k}(\Bbbk)\]
+\cite{EO25} where $\mathbb{A}^{(n-k)n}(\Bbbk)$ parametrizes the set of all $(n-k) \times n$ matrices with entries in $\Bbbk$, and $Z$ is the closed subset of $(n-k) \times n$ matrices of rank less than $(n-k)$. We notice that if $L$ is represented by a matrix $A$, we can find a more canonical example by instead regarding $A$ in its reduced echelon form. In this way, we represent $L$ by a matrix $A$ with some $(n-k)\times(n-k)$ identity matrix as a submatrix. At the same time, a matrix $A$ determines a subspace $L \subseteq \Bbbk^n$, and two matrices in reduced echelon form represent the same subspace if and only if they are equal. Note that a matrix in reduced echelon form with an $(n-k)\times(n-k)$ identity matrix as a submatrix has $(n-k)k$ free entries, and so the set of all such matrices is isomorphic to the affine space $\mathbb{A}^{(n-k)k}$. We can now try to construct an affine cover of $\mathrm{Gr}(k,n)$ by gluing together these affine spaces.
+
+We again consider the set of all $(n-k) \times n$ matrices, denoted $\mathbb{A}^{(n-k)n}(\Bbbk)$. Write $M = (x_{i,j})$ for the $(n-k)\times n$ matrix of indeterminates. If $I \subseteq \{1,\ldots,n\}$ is a subset of size $k$, we can define a map
+
+
 
 \begin{example}
 For $n=4, k=2$, there are 6 affine spaces $\mathbb{A}^4$. They are:
@@ -59,6 +66,8 @@ For $n=4, k=2$, there are 6 affine spaces $\mathbb{A}^4$. They are:
 
 \end{example}
 
+
+One can show that the Grassmannian is a scheme when working over any field by working over the base ring $\mathbb{Z}$. We will not go into details here, but refer to \cite{EO25} section 24.6 for more information.(!?)
 
 %-----------------------------------------------------------------------------
 \section{The Plücker embedding} \label{sec:Plucker}
@@ -102,3 +111,6 @@ We define the \emph{universal subbundle} $\mathcal{S}$ over $\mathrm{Gr}(k, V)$ 
 \section{Short on Schubert cycles (?)}
 \todo[inline]{Decide if we should include or not. Probably not. Is kinda relevant in the proof of 27 lines.}
 
+\begin{itemize}
+    \item Consider adding examples from EH16 to illustrate the kinds of questions one can answer after this chapter.
+\end{itemize}
