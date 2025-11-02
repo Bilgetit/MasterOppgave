@@ -243,3 +243,6 @@ d = 18, noPoints = 73, isSingular = false, isZero = false, time = 2679
 d = 18, noPoints = 74, isSingular = false, isZero = false, time = 3466
 d = 18, noPoints = 75, isSingular = false, isZero = true, time = 3596
 d = 18, noPoints = 76, isSingular = false, isZero = true, time = 3732
+
+
+ngon Q:d = 2, noPoints = 4, isSingular = false, isZero = false, time = 0d = 2, noPoints = 5, isSingular = false, isZero = true, time = 0d = 3, noPoints = 6, isSingular = false, isZero = false, time = 0d = 3, noPoints = 7, isSingular = false, isZero = true, time = 0d = 4, noPoints = 8, isSingular = false, isZero = false, time = 1d = 4, noPoints = 9, isSingular = false, isZero = true, time = 1d = 5, noPoints = 11, isSingular = false, isZero = false, time = 27d = 5, noPoints = 12, isSingular = false, isZero = true, time = 28d = 6, noPoints = 13, isSingular = false, isZero = false, time = 937d = 6, noPoints = 14, isSingular = false, isZero = true, time = 938d = 7, noPoints = 17, isSingular = false, isZero = false, time = 14608d = 7, noPoints = 18, isSingular = false, isZero = true, time = 14618

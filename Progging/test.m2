@@ -61,6 +61,25 @@ Iz = intersect allLines;
 
 -- Pick a random degree d element in Iz
 f = random(d, Iz);
+
+
+if f == 0 then (
+    print("Picked zero polynomial, trying to find a nonzero element in Iz of degree d...");
+    hf = hilbertFunction(d, RingP3/Iz);
+    -- Total number of degree-d monomials in 4 variables over kk is binomial(d+3,3)
+    totalForms = binomial(d+3,3);
+    numInIz = totalForms - hf; -- number of independent degree-d forms vanishing on Z
+    if numInIz > 0 then (
+        tries = 0;
+        maxAttempts = 100; -- abort with an error if we cannot find a nonzero element
+        while f == 0 do (
+            f = random(d, Iz);
+            tries = tries + 1;
+            if tries > maxAttempts then error ("Could not find nonzero element of degree " | toString d | " in Iz after " | toString maxAttempts | " attempts");
+        );
+    );
+);
+
 -- Create the variety defined by f
 Vf = variety ideal f;
 
@@ -68,9 +87,5 @@ Vf = variety ideal f;
 codimension = codim singularLocus ideal f;
 isZero = (f == 0)
 isSingular = (codimension < 4)
-isSmooth(Vf) and not isZero
-
--- F = sheaf(Iz);
--- H0 = HH^0(F(d))
 
 
