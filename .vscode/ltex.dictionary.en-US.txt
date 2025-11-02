@@ -33,3 +33,17 @@ surjection
 Duals
 m-gon
 m-gons
+Gjestrud
+Vold
+Rennemo
+Edvard
+Solen
+biber
+url
+doi
+maxcitenames
+maxbibnames
+giveninits
+biblatex
+ngon
+Progging
