@@ -36,38 +36,84 @@ Not discussed in this thesis is the theory of Schubert calculus.
     \item Example: $\mathbb{G}(1,3)$.
 \end{itemize}
 
-To describe the Grassmannian as a projective variety, we will first describe an affine cover of the Grassmannian. We start by representing a linear subspace $L \subseteq \Bbbk^n$ as the kernel of the surjective linear map $\Bbbk^n \to \Bbbk^{n-k}$. This map can be represented by an $(n-k) \times n$ matrix $A$ of rank $(n-k)$. We have $L = \text{Ker}(A) \subseteq \Bbbk^n$, where
+
+To describe the Grassmannian as a projective variety, we will describe an affine cover of the Grassmannian. Section 24.6 of \cite{EO25} goes into detail about this construction, shows that the cover glues to a scheme. We will go over the overall idea, but exclude the finer details. 
+
+We represent a linear subspace $L \subseteq \Bbbk^n$ as the kernel of a surjective linear map $\Bbbk^n \to \Bbbk^{n-k}$. This map can be represented by an $(n-k) \times n$ matrix $A$ of rank $(n-k)$. We have $L = \text{Ker}(A) \subseteq \Bbbk^n$, where
 \[A = \begin{pmatrix}
 a_{1,1} & \cdots & a_{1,n} \\
 \vdots & \ddots & \vdots \\
 a_{(n-k),1} & \cdots & a_{(n-k),n}
 \end{pmatrix}.\]
 
-Note that the matrix $A$ is not unique for a given linear subspace $L$, since multiplying $A$ on the left by an invertible $(n-k) \times (n-k)$ matrix $G$ gives another matrix $GA$ with the same kernel as $A$. For this reason, we consider the equivalence relation on the set of $(n-k) \times n$ matrices of rank $n-k$ given by $A \sim A'$ if there exists an invertible $(n-k) \times (n-k)$ matrix $G$ such that $A' = GA$. The Grassmannian $\mathrm{Gr}(k,n)$ can then be identified with the set of equivalence classes of $(n-k) \times n$ matrices of rank $n-k$ under this equivalence relation.
-
-That is, we want to consider the set
-\[(\mathbb{A}^{(n-k)n}(\Bbbk) - Z)/\mathrm{GL}_{n-k}(\Bbbk)\]
-\cite{EO25} where $\mathbb{A}^{(n-k)n}(\Bbbk)$ parametrizes the set of all $(n-k) \times n$ matrices with entries in $\Bbbk$, and $Z$ is the closed subset of $(n-k) \times n$ matrices of rank less than $(n-k)$. We notice that if $L$ is represented by a matrix $A$, we can find a more canonical example by instead regarding $A$ in its reduced echelon form. In this way, we represent $L$ by a matrix $A$ with some $(n-k)\times(n-k)$ identity matrix as a submatrix. At the same time, a matrix $A$ determines a subspace $L \subseteq \Bbbk^n$, and two matrices in reduced echelon form represent the same subspace if and only if they are equal. Note that a matrix in reduced echelon form with an $(n-k)\times(n-k)$ identity matrix as a submatrix has $(n-k)k$ free entries, and so the set of all such matrices is isomorphic to the affine space $\mathbb{A}^{(n-k)k}$. We can now try to construct an affine cover of $\mathrm{Gr}(k,n)$ by gluing together these affine spaces.
-
-We again consider the set of all $(n-k) \times n$ matrices, denoted $\mathbb{A}^{(n-k)n}(\Bbbk)$. Write $M = (x_{i,j})$ for the $(n-k)\times n$ matrix of indeterminates. If $I \subseteq \{1,\ldots,n\}$ is a subset of size $k$, we can define a map
-
-
+Note that the matrix $A$ is not unique for a given linear subspace $L$, since multiplying $A$ on the left by an invertible $(n-k) \times (n-k)$ matrix $G \in \mathrm{GL}_{n-k}(\Bbbk)$ gives another matrix $GA$ with the same kernel as $A$. For this reason, we consider the equivalence relation on the set of $(n-k) \times n$ matrices of rank $(n-k)$ given by $A \sim A'$ if there exists an invertible $(n-k) \times (n-k)$ matrix $G$ such that $A' = GA$. The Grassmannian $\mathrm{Gr}(k,n)$ can then be identified with the set of equivalence classes of $(n-k) \times n$ matrices of rank $(n-k)$ under this equivalence relation. We notice that if $L$ is represented by a matrix $A$, we can find a more canonical example by instead regarding $A$ in its reduced echelon form. In this way, we represent $L$ by a matrix $A$ with some $(n-k)\times(n-k)$ identity matrix as a submatrix. At the same time, a matrix $A$ determines a subspace $L \subseteq \Bbbk^n$, and two matrices in reduced echelon form represent the same subspace if and only if they are equal. Note that a matrix in reduced echelon form with an $(n-k)\times(n-k)$ identity matrix as a submatrix is parametrized by an affine space of dimension $(n-k)k$.
 
 \begin{example}
-For $n=4, k=2$, there are 6 affine spaces $\mathbb{A}^4$. They are:
-
-\begin{align*}
-    U_{1,2} &=\begin{pmatrix}1 & 0 & a_{1,3} & a_{1,4} \\0 & 1 & a_{2,3} & a_{2,4}\end{pmatrix} \\
-    U_{1,3} &=\begin{pmatrix}1 & a_{1,2} & 0 & a_{1,4} \\0 & a_{2,2} & 1 & a_{2,4}\end{pmatrix} \\
-    U_{1,4} &=\begin{pmatrix}1 & a_{1,2} & a_{1,3} & 0 \\0 & a_{2,2} & a_{2,3} & 1\end{pmatrix} \\
-    U_{2,3} &=\begin{pmatrix}a_{1,1} & 1 & 0 & a_{1,4} \\a_{2,1} & 0 & 1 & a_{2,4}\end{pmatrix} \\
-    U_{2,4} &=\begin{pmatrix}a_{1,1} & 1 & a_{1,3} & 0 \\a_{2,1} & 0 & a_{2,3} & 1\end{pmatrix} \\
-\end{align*}
-
+    The matrices 
+    \[\begin{pmatrix}1 & 0 & 1 & 1 \\1 & 1 & 0 & 1\end{pmatrix} \sim \begin{pmatrix}2 & 1 & 1 & 2 \\1 & 1 & 0 & 1\end{pmatrix}\] 
+    since they represent the same 2-dimensional subspace of $\Bbbk$, and is in the same class as the matrix their reduced echelon form 
+    \[\begin{pmatrix}1 & 0 & 1 & 1 \\0 & 1 & -1 & 0\end{pmatrix}\]
 \end{example}
 
+For these reasons, we consider the set
+\[(\mathbb{A}^{(n-k)n}(\Bbbk) - Z)/\mathrm{GL}_{n-k}(\Bbbk)\]
+where $\mathbb{A}^{(n-k)n}(\Bbbk)$ parametrizes the set of all $(n-k) \times n$ matrices with entries in $\Bbbk$, and $Z$ is the closed subset of $(n-k) \times n$ matrices of rank less than $(n-k)$. The $\Bbbk$-points of $\mathrm{Gr}(k,n)$ is bijective to the classes in this set. We now define an open cover of $\mathrm{Gr}(k,n)$.
+\todo[inline]{Is this correct? How best to describe this?}
 
-One can show that the Grassmannian is a scheme when working over any field by working over the base ring $\mathbb{Z}$. We will not go into details here, but refer to \cite{EO25} section 24.6 for more information.(!?)
+Let $I \subseteq \{1,\ldots,n\}$ be a subset of size $(n-k)$. For each $I$ let $U_I \subseteq \mathbb{A}^{(n-k)n}(\Bbbk)$ denote the closed subscheme such that the columns given by $I$ form a $(n-k)\times(n-k)$ submatrix which is also the identity matrix. Each $U_I$ is isomorphic to the affine space $\mathbb{A}^{(n-k)k}$. The collection of all such $U_I$ for all subsets $I$ of size $(n-k)$ gives an open cover of $\mathrm{Gr}(k,n)$. Note that there are $\binom{n}{n-k} = \binom{n}{k}$ such subsets, one for each $I$. \cite{EO25} shows that this cover glues to give the Grassmannian the structure of a scheme.
+
+\begin{example}
+    For $n=4, k=2$, there are 6 affine spaces $\mathbb{A}^4$. They are:
+    \begin{align*}
+        U_{12} &=\begin{pmatrix}1 & 0 & a_{1,3} & a_{1,4} \\0 & 1 & a_{2,3} & a_{2,4}\end{pmatrix} &  U_{13} &=\begin{pmatrix}1 & a_{1,2} & 0 & a_{1,4} \\0 & a_{2,2} & 1 & a_{2,4}\end{pmatrix} \\
+        U_{14} &=\begin{pmatrix}1 & a_{1,2} & a_{1,3} & 0 \\0 & a_{2,2} & a_{2,3} & 1\end{pmatrix} & U_{23} &=\begin{pmatrix}a_{1,1} & 1 & 0 & a_{1,4} \\a_{2,1} & 0 & 1 & a_{2,4}\end{pmatrix} \\
+        U_{24} &=\begin{pmatrix}a_{1,1} & 1 & a_{1,3} & 0 \\a_{2,1} & 0 & a_{2,3} & 1\end{pmatrix} & U_{34} &=\begin{pmatrix}a_{1,1} & a_{1,2} & 1 & 0 \\a_{2,1} & a_{2,2} & 0 & 1\end{pmatrix}\\
+    \end{align*}
+\end{example}
+\todo[inline]{Is this precise enough?}
+One can also show that this construction is possible over all fields by working over the base ring $\mathbb{Z}$. We will not go into details here, but refer to \cite{EO25} section 24.6.
+
+\begin{proposition}[\cite{EO25}, Theorem 24.26]
+    For a field $\Bbbk$, the Grassmannian $\mathrm{Gr}_\Bbbk(k,n)$ is a regular projective variety of dimension $k(n-k)$.
+\end{proposition}
+\begin{proof}
+    By construction, the Grassmannian has an affine covering of affine spaces $\mathbb{A}^{(n-k)k}$, so it is regular of dimension $k(n-k)$. The Plücker embedding (see \cref{sec:Plucker}) shows that it is projective.(!?)
+\end{proof}
+
+
+% \subsection{Reference}
+% To describe the Grassmannian as a projective variety, we will first describe an affine cover of the Grassmannian. We start by representing a linear subspace $L \subseteq \Bbbk^n$ as the kernel of the surjective linear map $\Bbbk^n \to \Bbbk^{n-k}$. This map can be represented by an $(n-k) \times n$ matrix $A$ of rank $(n-k)$. We have $L = \text{Ker}(A) \subseteq \Bbbk^n$, where
+% \[A = \begin{pmatrix}
+% a_{1,1} & \cdots & a_{1,n} \\
+% \vdots & \ddots & \vdots \\
+% a_{(n-k),1} & \cdots & a_{(n-k),n}
+% \end{pmatrix}.\]
+
+% Note that the matrix $A$ is not unique for a given linear subspace $L$, since multiplying $A$ on the left by an invertible $(n-k) \times (n-k)$ matrix $G$ gives another matrix $GA$ with the same kernel as $A$. For this reason, we consider the equivalence relation on the set of $(n-k) \times n$ matrices of rank $(n-k)$ given by $A \sim A'$ if there exists an invertible $(n-k) \times (n-k)$ matrix $G$ such that $A' = GA$. The Grassmannian $\mathrm{Gr}(k,n)$ can then be identified with the set of equivalence classes of $(n-k) \times n$ matrices of rank $(n-k)$ under this equivalence relation.
+
+% That is, we want to consider the set
+% \[(\mathbb{A}^{(n-k)n}(\Bbbk) - Z)/\mathrm{GL}_{n-k}(\Bbbk)\]
+% \cite{EO25} where $\mathbb{A}^{(n-k)n}(\Bbbk)$ parametrizes the set of all $(n-k) \times n$ matrices with entries in $\Bbbk$, and $Z$ is the closed subset of $(n-k) \times n$ matrices of rank less than $(n-k)$. We notice that if $L$ is represented by a matrix $A$, we can find a more canonical example by instead regarding $A$ in its reduced echelon form. In this way, we represent $L$ by a matrix $A$ with some $(n-k)\times(n-k)$ identity matrix as a submatrix. At the same time, a matrix $A$ determines a subspace $L \subseteq \Bbbk^n$, and two matrices in reduced echelon form represent the same subspace if and only if they are equal. Note that a matrix in reduced echelon form with an $(n-k)\times(n-k)$ identity matrix as a submatrix has $(n-k)k$ free entries, and so the set of all such matrices is isomorphic to the affine space $\mathbb{A}^{(n-k)k}$. We can now try to construct an affine cover of $\mathrm{Gr}(k,n)$ by gluing together these affine spaces.
+
+% We again consider the set of all $(n-k) \times n$ matrices, denoted $\mathbb{A}^{(n-k)n}(\Bbbk)$. Write $M = (x_{i,j})$ for the $(n-k)\times n$ matrix of indeterminates. If $I \subseteq \{1,\ldots,n\}$ is a subset of size $(n-k)$ and $A$ is an $(n-k)\times n$ matrix, we denote by $A_I$ the $(n-k)\times(n-k)$ submatrix of $A$ consisting of the columns indexed by $I$. For 
+
+
+
+% \begin{example}
+% For $n=4, k=2$, there are 6 affine spaces $\mathbb{A}^4$. They are:
+
+% \begin{align*}
+%     U_{1,2} &=\begin{pmatrix}1 & 0 & a_{1,3} & a_{1,4} \\0 & 1 & a_{2,3} & a_{2,4}\end{pmatrix} \\
+%     U_{1,3} &=\begin{pmatrix}1 & a_{1,2} & 0 & a_{1,4} \\0 & a_{2,2} & 1 & a_{2,4}\end{pmatrix} \\
+%     U_{1,4} &=\begin{pmatrix}1 & a_{1,2} & a_{1,3} & 0 \\0 & a_{2,2} & a_{2,3} & 1\end{pmatrix} \\
+%     U_{2,3} &=\begin{pmatrix}a_{1,1} & 1 & 0 & a_{1,4} \\a_{2,1} & 0 & 1 & a_{2,4}\end{pmatrix} \\
+%     U_{2,4} &=\begin{pmatrix}a_{1,1} & 1 & a_{1,3} & 0 \\a_{2,1} & 0 & a_{2,3} & 1\end{pmatrix} \\
+% \end{align*}
+
+% \end{example}
+
+
+% One can show that the Grassmannian is a scheme when working over any field by working over the base ring $\mathbb{Z}$. We will not go into details here, but refer to \cite{EO25} section 24.6 for more information.(!?)
 
 %-----------------------------------------------------------------------------
 \section{The Plücker embedding} \label{sec:Plucker}
@@ -77,13 +123,28 @@ One can show that the Grassmannian is a scheme when working over any field by wo
     \item Example: $\mathbb{G}(1,3)$.
 \end{itemize}
 
-If $L$ has basis $v_1, \dots, v_k$, then we associate it to the point $[v_1 \wedge v_2 \wedge \cdots \wedge v_k]$ in $\mathbb{P}(\bigwedge^k V)$.
-This gives us the \emph{Plücker embedding}
+% If $L$ has basis $v_1, \dots, v_k$, then we associate it to the point $[v_1 \wedge v_2 \wedge \cdots \wedge v_k]$ in $\mathbb{P}(\bigwedge^k V)$.
+% This gives us the \emph{Plücker embedding}
 
-\[i \colon \mathrm{Gr}(k,n) \hookrightarrow \mathbb{P}(\bigwedge^k V) \cong \mathbb{P}^{\binom{n}{k}-1}.\]
+% \[i \colon \mathrm{Gr}(k,n) \hookrightarrow \mathbb{P}(\bigwedge^k V) \cong \mathbb{P}^{\binom{n}{k}-1}.\]
 
-\todo[inline]{Use lemma 24.24 to say that this is a closed embedding.}
+% \todo[inline]{Use lemma 24.24 to say that this is a closed embedding.}
 
+Again we follow \cite{EO25} in describing the Plücker embedding, and keep the exposition brief. We look at $\mathbb{P}_\mathbb{Z}^N$ for $N = \binom{n}{k}-1$. We claim there is a closed embedding
+
+\[\rho \colon \mathrm{Gr}(k,n) \rightarrow \mathbb{P}^{\binom{n}{k}-1}.\]
+Locally, consider the morphism
+
+\[\rho_I \colon U_I \rightarrow \mathbb{P}^{\binom{n}{k}-1}\]
+defined by setting for each ring $R$, and $A \in U_I(R)$
+\[\rho_I(A) = [\det(A_J)]_{J \subseteq \{1,\ldots,n\}, |J|=k}.\]
+That is, $\rho_I$ sends a matrix to all of its $(n-k)\times(n-k)$ minors. 
+
+\begin{lemma}[\cite{EO25}, Lemma 24.24]
+    For each $I$, the morphism $\rho_I$ is a closed embedding.
+\end{lemma}
+
+This means that $\mathrm{Gr}(k,n)$ embeds as a closed subscheme of $\mathbb{P}^{\binom{n}{k}-1}$. 
 
 %-----------------------------------------------------------------------------
 \section{Universal sub and quotient bundles}
