@@ -245,4 +245,59 @@ d = 18, noPoints = 75, isSingular = false, isZero = true, time = 3596
 d = 18, noPoints = 76, isSingular = false, isZero = true, time = 3732
 
 
-ngon Q:d = 2, noPoints = 4, isSingular = false, isZero = false, time = 0d = 2, noPoints = 5, isSingular = false, isZero = true, time = 0d = 3, noPoints = 6, isSingular = false, isZero = false, time = 0d = 3, noPoints = 7, isSingular = false, isZero = true, time = 0d = 4, noPoints = 8, isSingular = false, isZero = false, time = 1d = 4, noPoints = 9, isSingular = false, isZero = true, time = 1d = 5, noPoints = 11, isSingular = false, isZero = false, time = 27d = 5, noPoints = 12, isSingular = false, isZero = true, time = 28d = 6, noPoints = 13, isSingular = false, isZero = false, time = 937d = 6, noPoints = 14, isSingular = false, isZero = true, time = 938d = 7, noPoints = 17, isSingular = false, isZero = false, time = 14608d = 7, noPoints = 18, isSingular = false, isZero = true, time = 14618
+ngon Q:
+d = 2, noPoints = 4, isSingular = false, isZero = false, time = 0
+d = 2, noPoints = 5, isSingular = false, isZero = true, time = 0
+d = 3, noPoints = 6, isSingular = false, isZero = false, time = 0
+d = 3, noPoints = 7, isSingular = false, isZero = true, time = 0
+d = 4, noPoints = 8, isSingular = false, isZero = false, time = 1
+d = 4, noPoints = 9, isSingular = false, isZero = true, time = 1
+d = 5, noPoints = 11, isSingular = false, isZero = false, time = 27
+d = 5, noPoints = 12, isSingular = false, isZero = true, time = 28
+d = 6, noPoints = 13, isSingular = false, isZero = false, time = 937
+d = 6, noPoints = 14, isSingular = false, isZero = true, time = 938
+d = 7, noPoints = 17, isSingular = false, isZero = false, time = 14608
+d = 7, noPoints = 18, isSingular = false, isZero = true, time = 14618
+
+ngon Q:
+d = 2, noPoints = 4, isSingular = false, isZero = false, numInIz = 2, time = 0
+d = 2, noPoints = 5, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 3, noPoints = 6, isSingular = false, isZero = false, numInIz = 2, time = 0
+d = 3, noPoints = 7, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 4, noPoints = 8, isSingular = false, isZero = false, numInIz = 3, time = 1
+d = 4, noPoints = 9, isSingular = false, isZero = true, numInIz = 0, time = 1
+d = 5, noPoints = 11, isSingular = false, isZero = false, numInIz = 1, time = 36
+d = 5, noPoints = 12, isSingular = false, isZero = true, numInIz = 0, time = 36
+d = 6, noPoints = 13, isSingular = false, isZero = false, numInIz = 6, time = 1095
+d = 6, noPoints = 14, isSingular = false, isZero = true, numInIz = 0, time = 1097
+
+
+ngon Z:
+d = 2, noPoints = 4, isSingular = false, isZero = false, numInIz = 2, time = 0
+d = 2, noPoints = 5, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 3, noPoints = 6, isSingular = false, isZero = false, numInIz = 2, time = 0
+d = 3, noPoints = 7, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 4, noPoints = 8, isSingular = false, isZero = false, numInIz = 3, time = 0
+d = 4, noPoints = 9, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 5, noPoints = 11, isSingular = false, isZero = false, numInIz = 1, time = 0
+d = 5, noPoints = 12, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 6, noPoints = 13, isSingular = false, isZero = false, numInIz = 6, time = 1
+d = 6, noPoints = 14, isSingular = false, isZero = true, numInIz = 0, time = 1
+d = 7, noPoints = 17, isSingular = false, isZero = false, numInIz = 1, time = 1
+d = 7, noPoints = 18, isSingular = false, isZero = true, numInIz = 0, time = 1
+d = 8, noPoints = 20, isSingular = false, isZero = false, numInIz = 5, time = 2
+d = 8, noPoints = 21, isSingular = false, isZero = true, numInIz = 0, time = 3
+d = 9, noPoints = 24, isSingular = false, isZero = false, numInIz = 4, time = 5
+d = 9, noPoints = 25, isSingular = false, isZero = true, numInIz = 0, time = 6
+d = 10, noPoints = 28, isSingular = false, isZero = false, numInIz = 6, time = 10
+d = 10, noPoints = 29, isSingular = false, isZero = true, numInIz = 0, time = 12
+d = 11, noPoints = 33, isSingular = false, isZero = false, numInIz = 1, time = 22
+d = 11, noPoints = 34, isSingular = false, isZero = true, numInIz = 0, time = 26
+d = 12, noPoints = 37, isSingular = false, isZero = false, numInIz = 11, time = 44
+d = 12, noPoints = 38, isSingular = false, isZero = true, numInIz = 0, time = 50
+d = 13, noPoints = 43, isSingular = false, isZero = false, numInIz = 1, time = 87
+d = 13, noPoints = 44, isSingular = false, isZero = true, numInIz = 0, time = 99
+d = 14, noPoints = 48, isSingular = false, isZero = false, numInIz = 8, time = 178
+d = 14, noPoints = 49, isSingular = false, isZero = true, numInIz = 0, time = 199
+d = 15, noPoints = 54, isSingular = false, isZero = false, numInIz = 6, time = 331
+d = 15, noPoints = 55, isSingular = false, isZero = true, numInIz = 0, time = 363

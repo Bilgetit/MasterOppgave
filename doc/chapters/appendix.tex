@@ -4,10 +4,11 @@
 \section{m-gon}
 \label{app:mgon}
 
+Note that the program generates an $m$-gon by picking $m$ random points in $\mathbb{P}^3$, then generating lines through pairs of points, essentially defining these points as the intersection points of the $m$-gon.
 
 \lstinputlisting[caption={m-gon}, label={lst:m-gon}]{../Progging/ngon.m2}
 
-We'll go through the code step by step. 
+We will go through the code step by step. 
 
 Step 1: We begin by defining the field and the polynomial ring in four variables over this field. We then define the degree $d$ of the surfaces we want to consider, and the number of points to use, which will be the same as the number of lines in the m-gon. 
 
@@ -35,6 +36,9 @@ Results: We have been interested in finding the maximum number of lines $m$ such
 
 \section{m-chain}
 \label{app:mchain}
+
+This code is almost exactly the same as for $m$-gons, the slight change being that we do not include the final line from the last point to the first. This also means that one should be careful when reading the results, as nrOfPoints no longer equal the number of lines.
+
 \lstinputlisting[caption={m-chain}, label={lst:m-chain}]{../Progging/nchain.m2}
 
 

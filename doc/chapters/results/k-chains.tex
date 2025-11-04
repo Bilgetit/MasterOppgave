@@ -1,11 +1,13 @@
 \section{Surfaces including m-chains}
 
+A `happy accident' we made when studying $m$-gons in Macaulay2 was to forget to add the final line which then intersects the first line, closing the loop. Before realizing what exactly had happened, we noted that the results were strange and suspected an error in our code, which we then promptly fixed. Still, the results were a bit surprising, implying that for some chains we find only singular surfaces of certain degrees. After getting more expected results for $m$-gons, we decided to study these new formations further, resulting the theory in this section. We begin with the new definition.
+
 \begin{definition}
     An $m$-chain is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$. We will write $C_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$. A \emph{regular} $m$-chain is an $m$-chain such that no line $l_i$ intersects any $l_j$ for $|i - j| > 1$, and $l_i \neq l_j$ for $i \neq j$.
 \end{definition}
 \todo[inline]{Improve regular definition wording.}
 
-Notice that an $m$-chain is an $(m+1)$-gon excluding the line $l_m$ intersecting $l_1$. One can then modify the code above ("as in" cite appendix)(!?) to create $m$-chains instead of $(m+1)$-gons, by excluding the final pair of points. The results from this are similar to those of $m$-gons, in that for higher degrees, we find smooth surfaces, up until we find no surfaces. There are however interesting exceptions for degree 2 and 3 surfaces. Here we find singular surfaces when considering 4-chains and 6-chains respectively. We will handle the cases separately. First, we will study the set of $m$-chains in $\mathbb{P}^3$. We will mostly use this in the case of 6-chains, but the results hold in general. (Do we want to use this for 4-chains also?)(!?)
+As discussed above, we note that an $m$-chain is an $(m+1)$-gon excluding the line $l_m$ intersecting $l_1$. One can then modify the code to create $m$-chains instead of $(m+1)$-gons, which is included in \cref{app:mchain}. The results from this are similar to those of $m$-gons, in that for higher degrees, we find smooth surfaces, up until we find no surfaces. There are however interesting exceptions for degree 2 and 3 surfaces. Here we find singular surfaces when considering 4-chains and 6-chains respectively. We will handle the cases separately. First, we will study the set of $m$-chains in $\mathbb{P}^3$.
 \todo[inline]{Include m2 results for $m$-chains}
 
 \begin{definition}
@@ -27,9 +29,7 @@ Notice that an $m$-chain is an $(m+1)$-gon excluding the line $l_m$ intersecting
 % \end{proof}
 
 \begin{proof}
-    We observe that $Q_m$ can be constructed as a product of Grassmannians, with a condition of intersection added for $m \geq 2$. That is, if we are given a line $L \in \mathbb{G}(1,3)$, we can consider the space of lines intersecting $L$, denoted as $\Sigma_L = \{l \in \mathbb{G}(1,3) \mid l \cap L \neq \emptyset\}$. Then $Q_m = \mathbb{G}(1,3) \times \Sigma_L^{m-1}$. For m = 1, we have that $Q_1 = \mathbb{G}(1,3)$, which is irreducible of dimension 4. Now, assume that the statement holds for $m-1$. Consider the projection map $\pi: Q_m \to Q_{m-1}$ given by $\pi(l_1, \dots, l_m) = (l_1, \dots, l_{m-1})$. The fiber over a point is given by $\pi^{-1}(l_1, \dots, l_{m-1}) = \{l \in \mathbb{G}(1,3) \mid l \cap l_{m-1} \neq \emptyset\}$. 
-
-    \todo[inline]{Should we denote the fiber over a point as the whole m-tuple, or just the last line? I think the first is more correct.}
+    We observe that $Q_m$ can be constructed as a product of Grassmannians, with a condition of intersection added for $m \geq 2$. That is, if we are given a line $L \in \mathbb{G}(1,3)$, we can consider the space of lines intersecting $L$, denoted as $\Sigma_L = \{l \in \mathbb{G}(1,3) \mid l \cap L \neq \emptyset\}$. Then $Q_m = \mathbb{G}(1,3) \times \Sigma_L^{m-1}$. For m = 1, we have that $Q_1 = \mathbb{G}(1,3)$, which is irreducible of dimension 4. Now, assume that the statement holds for $m-1$. Consider the projection map $\pi: Q_m \to Q_{m-1}$ given by $\pi(l_1, \dots, l_m) = (l_1, \dots, l_{m-1})$. The fiber over a point is given by $\pi^{-1}(l_1, \dots, l_{m-1}) = \{(l_1, \dots, l_{m-1}, l_m) \in Q_m \mid l_m \cap l_{m-1} \neq \emptyset\}$ which is isomorphic to $\Sigma_{l_{m-1}} = \{l \in \mathbb{G}(1,3) \mid l \cap l_{m-1} \neq \emptyset\}$. 
 
     Note that for a given line $L$, $\Sigma_L$ can be constructed as the image of the incidence correspondence $\Gamma = \{(l, p)\in \mathbb{G}(1,3) \times L \mid p \in l\}$ to $\mathbb{G}(1,3)$. The fiber of the projection map $f: \Gamma \to L$ is given by the set of lines through a point $p \in L$, which is isomorphic to $\mathbb{P}^2$. Then the fiber of each point in $L$ is irreducible of dimension 2, and since $f$ is proper, we have that $\Gamma$ is irreducible of dimension 3, meaning that $\Sigma_L$ is irreducible of dimension 3. Thus, $Q_m$ is the product of $m-1$ irreducible varieties of dimension 3, and one Grassmannian of dimension 4, so $Q_m$ is irreducible of dimension $4 + 3(m-1) = 3m + 1$. This completes the proof.
 \end{proof}
@@ -45,6 +45,8 @@ Notice that an $m$-chain is an $(m+1)$-gon excluding the line $l_m$ intersecting
 \begin{proof}
     First, assume that $S_2$ is smooth. Since $S_2$ is a smooth quadric surface in $\mathbb{P}^3$, it is of the form $S_2 = \mathbb{P}^1 \times \mathbb{P}^1$. \todo{Cite Beauville} This means that $S_2$ has two rulings, meaning that there are two families of lines on $S_2$, such that any two lines in the same family do not intersect, and any two lines in different families intersect at exactly one point. Denote the two families as $F_1$ and $F_2$. Then we can see that a 4-chain must consist of two lines from $F_1$ and two lines from $F_2$, since any two lines in the same family do not intersect. This means that the 4-chain must be of the form $l_1, l_2, l_3, l_4$ where $l_1, l_3 \in F_1$ and $l_2, l_4 \in F_2$. However, this means that $l_4$ intersects $l_1$, since they are in different families, meaning that the 4-chain is in fact a 4-gon. This is a contradiction, since this is not a general 4-chain. Thus, we cannot find a smooth quadric surface $ S_2 \subset \mathbb{P}^3$ such that it includes the 4-chain.
 \end{proof}
+
+\todo[inline]{Compare to a 4-gon, which can be included in a smooth quadric surface. Use for example $V(x_1x_3-x_0x_2)$}
 
 \begin{proposition}
     For a general 4-chain in $\mathbb{P}^3$, we can find a singular quadric surface $ S_2 \subset \mathbb{P}^3$ such that it includes the 4-chain.
@@ -130,12 +132,14 @@ Let $\mathcal{M}$ be the set of smooth cubic surfaces in $\mathbb{P}^3$. This is
 \todo[inline]{Should we use $\mathcal{Q}_7$ instead of $\mathbb{G}(1,3)^7$?}
 
 \begin{remark}
-    Note that it is important that we consider the incidence variety of over specifically the smooth cubic surfaces, including a general 6-chain. If not, one can notice that the fiber of the singular surfaces which are the union of 3 planes, will include a much higher dimensional family of 6-chains, and so the incidence variety will not be irreducible. (!?)
+    Note that it is important that we consider the incidence variety of over specifically the smooth cubic surfaces, including a general 6-chain. If not, one can prove that the fiber of the union of 3 planes, will include a much higher dimensional family of 6-chains, and so the incidence variety will not be irreducible. (!?)
 \end{remark}
 
 \begin{lemma}
-    For a smooth cubic surface, we cannot find a regular(!?) 6-chain. 
+    For a smooth cubic surface, we cannot find a regular 6-chain. 
 \end{lemma}
 \begin{proof}
     We denote the 27 lines of the cubic surface as $C_1, \dots, C_27$. Let $Q_5$ be a regular 5-chain, consisting of $C_1, \dots, C_5$. Look at the class $D = C_1 + C_2 - C_4 - C_5$. Then $D^2 = 0$, and $HD=0$. The Hodge index theorem(!?) tells us that $D=0$, and we have the equality $C_1 + C_2 = C_4 + C_5$. Now we know that if a line $C_i$ for $i \neq 4$ (then $C_4^2 + C_4C_5 = 0$) intersects $C_5$, it must also intersect either $C_1$ or $C_2$, and would not make a regular 6-chain. 
 \end{proof}
+
+\todo[inline]{Include section in background about intersection theory, Hodge index theorem etc.}
