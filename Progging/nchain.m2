@@ -51,3 +51,6 @@ isSmooth(Vf) and not isZero
 F = sheaf(Iz);
 H0 = HH^0(F(d))
 H1 = HH^1(F(d))
+
+-- primaryDecomposition(Iz)
+factor(f)

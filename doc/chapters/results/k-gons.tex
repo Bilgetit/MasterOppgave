@@ -10,7 +10,7 @@ In this section, we will consider $m$-gons in $\mathbb{P}^3$ and their relations
     A \emph{regular} $m$-gon is an $m$-gon such that $l_i \neq l_j$ for $i \neq j$, and no lines other than the adjacent ones intersect.
 \end{definition}
 
-The notion of a regular $m$-gon is important. For example, a non-regular $m$-gon includes $m$ lines all intersecting at a single point, i.e. an $m$-cross. Such cases would not hold the same properties as what one would expect from $m$-gons such as the one drawn in \cref{fig:m-gon}.
+The notion of a regular $m$-gon is important. For example, a non-regular $m$-gon can be $m$ lines all intersecting at a single point, i.e. an $m$-cross. Such cases would not hold the same properties as what one would expect from $m$-gons such as the one drawn in \cref{fig:m-gon}.
 
 
 \begin{definition}
@@ -63,7 +63,7 @@ The notion of a regular $m$-gon is important. For example, a non-regular $m$-gon
 \todo[inline]{Make lines go past intersection points in figure.}
 
 \begin{proposition}\label{prop:m-gon}
-    Let $C_m$ be an $m$-gon in $\mathbb{P}^3$. Then we can find a hypersurface of degree $d$ such that $C_m \subseteq S_d$ when $m \leq \frac{(d+3)(d+2)(d+1)}{6d}$.
+    Let $C_m$ be a regular $m$-gon in $\mathbb{P}^3$. Then we can find a hypersurface of degree $d$ such that $C_m \subseteq S_d$ when $m \leq \frac{(d+3)(d+2)(d+1)}{6d}$.
 \end{proposition}
 
 \begin{proof}
@@ -117,11 +117,38 @@ To get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{C_m})$, we would need 
 \end{remark}
 
 \subsection{Computational results}
-\todo[inline]{We should probably move the code to the appendix, and just discuss the results here.}
+We have done computational experiments in Macaulay2 to get a better understanding of the inequality in \cref{prop:m-gon}. The script tests the existence and smoothness of hypersurfaces including an $m$-gon for various degrees $d$ and number of lines $m$. The code used for these experiments is included in \cref{app:mgon}, where we also discuss the details of the code. The results are given below.
 
-We have done computational experiments in Macaulay2 to get a better understanding of the inequality in \cref{prop:m-gon}. We have tested the existence and smoothness of hypersurfaces including $m$-gons for various degrees $d$ and number of lines $m$. The code used for these experiments is included in \cref{app:mgon}, where we also discuss the details of the code. The results are given below.
+We note that to run this in Macaulay2, we have run the computation over a finite field $\mathbb{Z}_{32749}$, and over $\mathbb{Q}$, the latter being significantly slower. The results are summarized in \cref{tab:mgon-results_Q}. They are consistent with the inequality in \cref{prop:m-gon}, and also imply that we \emph{cannot} find any surface (smooth or singular) containing an $m$-gon when $m$ exceeds the bound. We also only find that the surfaces are smooth when they exist.
 
-\todo[inline]{Improve code explanation, and include results. Focus on main ideas of the code?}
+% \begin{table}[ht]
+%     \centering
+%     \caption{Results from Macaulay2 over $\mathbb{Q}$ testing existence and smoothness of surfaces containing an $m$-gon. Each row corresponds to one experiment: degree $d$, number of points used, whether the chosen form was singular, whether the space of degree-$d$ forms in the ideal was zero, the number of elements found in $I_Z(d)$, and runtime in seconds.}
+%     \label{tab:mgon-results}
+%     \small
+%     \begin{tabular}{r r c c r r}
+%         \toprule
+%         $d$ & $m$ & Singular & Zero & numInIz & time (s) \\
+%         \midrule
+%         2 & 4  & false & false & 2 & 0 \\
+%         2 & 5  & false & true  & 0 & 0 \\
+%         3 & 6  & false & false & 2 & 0 \\
+%         3 & 7  & false & true  & 0 & 0 \\
+%         4 & 8  & false & false & 3 & 1 \\
+%         4 & 9  & false & true  & 0 & 1 \\
+%         5 & 11 & false & false & 1 & 36 \\
+%         5 & 12 & false & true  & 0 & 36 \\
+%         6 & 13 & false & false & 6 & 1095 \\
+%         6 & 14 & false & true  & 0 & 1097 \\
+%         \bottomrule
+%     \end{tabular}
+% \end{table}
+
+\begin{remark}
+    When running the computations in Macaulay2, we have never encountered a case where we have gotten a singular surface one time, and a smooth surface another, even though the surfaces are picked at random. One of the reasons this is perhaps not very surprising, is to consider that being smooth is a Zariski open requirement, meaning the subset of smooth surfaces is open in the set of surfaces. Since we know that this means the subset is dense in the set of surfaces, and so it is not very surprising that the random surface picked is smooth. Still, this adds another reason to not use Macaulay2 as a proof of something, but merely a suggestion that it might be true. One could technically be very unlucky and only pick singular surfaces.
+\end{remark}
+
+\todo[inline]{Talk about all the limitations of using the computational approach. Like: We find no surfaces above the bound, find only smooth surfaces, etc. When is this dependent on the field?}
 
 \subsection{Cohomology of a 4-gon}\label{sec:cohomology}
 
