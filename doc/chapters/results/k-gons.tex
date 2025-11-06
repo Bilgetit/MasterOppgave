@@ -149,58 +149,22 @@ We note that to run this in Macaulay2, we have run the computation over a finite
 \end{remark}
 
 \todo[inline]{Talk about all the limitations of using the computational approach. Like: We find no surfaces above the bound, find only smooth surfaces, etc. When is this dependent on the field?}
+\todo[inline]{Include brief explanation of code, and a small table of results.}
 
 \subsection{Cohomology of a 4-gon}\label{sec:cohomology}
-
-
-\begin{figure}
-    \centering
-    \begin{tikzpicture}[scale=1.2, line cap=round]
-
-        \draw[thick, name path=l1] (-3,-2.4) -- (3,2.4);
-        \draw[thick, name path=l2] (-3, 2.5) -- (3,-0.5);
-        \draw[thick, name path=l3] (-3,-4.4) -- (3,0.4);
-        \draw[thick, name path=l4] (-3, 0.5) -- (3,-2.5);
-
-        \path[name intersections={of=l1 and l2, by=p1}];
-        \path[name intersections={of=l2 and l3, by=p2}];
-        \path[name intersections={of=l3 and l4, by=p3}];
-        \path[name intersections={of=l4 and l1, by=p4}];
-
-        \fill[white] (p1) circle (2.25pt);
-        \draw[thick]  (p1) circle (2.25pt) node[above left] {$p_1$};
-
-        \fill[white] (p2) circle (2.25pt);
-        \draw[thick]  (p2) circle (2.25pt) node[below right] {$p_2$};
-
-        \fill[white] (p3) circle (2.25pt);
-        \draw[thick]  (p3) circle (2.25pt) node[below right] {$p_3$};
-
-        \fill[white] (p4) circle (2.25pt);
-        \draw[thick]  (p4) circle (2.25pt) node[below left] {$p_4$};
-
-        \node[font=\small, anchor=north west] at (1.6,0.6) {$l_1$};
-        \node[font=\small, anchor=north west] at (1.6,-0.8) {$l_2$};
-        \node[font=\small, anchor=north east] at (0.0,-1) {$l_3$};
-        \node[font=\small, anchor=south west] at (-0.5,0) {$l_4$};
-
-        \node[below right] at (-2.9,-4.3) {$C_4 = l_1 \cup l_2 \cup l_3 \cup l_4$};
-
-    \end{tikzpicture}
-    \caption{A 4-gon in $\mathbb{P}^3$, drawn on a plane.}
-    \label{fig:4-gon}
-\end{figure}
 
 As mentioned earlier, to get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{C_m})$, we want to compute $h^1(\mathbb{P}^3, \mathcal{I}_{C_m})$. We will now explore this issue for the case of a 4-gon and looking at a suitable resolution of the ideal sheaf of the 4-gon. First we claim that the intersection points of a 4-gon can, by an automorphism of $\mathbb{P}^3$, be expressed as the points $(1:0:0:0), (0:1:0:0), (0:0:1:0), (0:0:0:1)$. Then the 4-gon can be expressed as the union of the lines $l_1 = V(x_2, x_3), l_2 = V(x_0, x_3), l_3 = V(x_0, x_1), l_4 = V(x_1, x_2)$. Now the ideal of the 4-gon is given by $I_{C_4} = (x_2, x_3) \cap (x_0, x_3) \cap (x_0, x_1) \cap (x_1, x_2) = (x_1x_3, x_0x_2)$. We justify our chose of points in the following lemma.
 
 \begin{lemma}
-    Let $C_4$ be a 4-gon in $\mathbb{P}^3$. Then there exists an automorphism of $\mathbb{P}^3$ such that the intersection points of $C_4$ are given by the points $(1:0:0:0), (0:1:0:0), (0:0:1:0), (0:0:0:1)$.
+    Let $C_4$ be a regular 4-gon in $\mathbb{P}^3$. Then there exists an automorphism of $\mathbb{P}^3$ such that the intersection points of $C_4$ are given by the points $(1:0:0:0), (0:1:0:0), (0:0:1:0), (0:0:0:1)$.
 \end{lemma}
 
 \begin{proof}
-    Let $p_1, p_2, p_3, p_4$ be the intersection points of $C_4$. To be in general position in $\mathbb{P}^3$, we require that no three of the points are collinear, and that the points do not all lie in a plane. We can then find a projective transformation sending $p_1$ to $(1:0:0:0)$, $p_2$ to $(0:1:0:0)$, and $p_3$ to $(0:0:1:0)$. Since no three of the points are collinear, $p_4$ cannot be sent to a point on the line between any two of the other points. Furthermore, since the points do not all lie in a plane, $p_4$ cannot be sent to a point in the plane spanned by any three of the other points. Then we can send $p_4$ to $(0:0:0:1)$, and we are finished.
+    Let $p_1, p_2, p_3, p_4$ be the intersection points of $C_4$. To be in general position in $\mathbb{P}^3$, we require that no three of the points are collinear, and that the points do not all lie in a plane. 
+    Let $A$ be the $4 \times 4$ matrix whose columns are the homogeneous coordinates of the points. Since we have that the points do not all lie on a plane, we know that the rows are linearly independent, and we can transform the points by multiplying the matrix by $A^{-1}$. Then $AA^{-1} = I_4$, and we have sent the points to the desired locations.
+    % We can then find a projective transformation sending $p_1$ to $(1:0:0:0)$, $p_2$ to $(0:1:0:0)$, and $p_3$ to $(0:0:1:0)$. Since no three of the points are collinear, $p_4$ cannot be sent to a point on the line between any two of the other points. Furthermore, since the points do not all lie in a plane, $p_4$ cannot be sent to a point in the plane spanned by any three of the other points. Then we can send $p_4$ to $(0:0:0:1)$, and we are finished.
 \end{proof}
-
+\todo[inline]{Look over again.}
 
 We will now look at a resolution of the ideal sheaf of the 4-gon. From the discussion above, we have that $I_{C_4} = (x_1x_3, x_0x_2)$. This ideal has the following free resolution:
 
@@ -265,5 +229,42 @@ We will now look at a resolution of the ideal sheaf of the 4-gon. From the discu
 % };
 
 % \end{tikzpicture}
-\todo[inline]{Finish argument.}
 
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[scale=1.2, line cap=round]
+
+        \draw[thick, name path=l1] (-3,-2.4) -- (3,2.4);
+        \draw[thick, name path=l2] (-3, 2.5) -- (3,-0.5);
+        \draw[thick, name path=l3] (-3,-4.4) -- (3,0.4);
+        \draw[thick, name path=l4] (-3, 0.5) -- (3,-2.5);
+
+        \path[name intersections={of=l1 and l2, by=p1}];
+        \path[name intersections={of=l2 and l3, by=p2}];
+        \path[name intersections={of=l3 and l4, by=p3}];
+        \path[name intersections={of=l4 and l1, by=p4}];
+
+        \fill[white] (p1) circle (2.25pt);
+        \draw[thick]  (p1) circle (2.25pt) node[above left] {$p_1$};
+
+        \fill[white] (p2) circle (2.25pt);
+        \draw[thick]  (p2) circle (2.25pt) node[below right] {$p_2$};
+
+        \fill[white] (p3) circle (2.25pt);
+        \draw[thick]  (p3) circle (2.25pt) node[below right] {$p_3$};
+
+        \fill[white] (p4) circle (2.25pt);
+        \draw[thick]  (p4) circle (2.25pt) node[below left] {$p_4$};
+
+        \node[font=\small, anchor=north west] at (1.6,0.6) {$l_1$};
+        \node[font=\small, anchor=north west] at (1.6,-0.8) {$l_2$};
+        \node[font=\small, anchor=north east] at (0.0,-1) {$l_3$};
+        \node[font=\small, anchor=south west] at (-0.5,0) {$l_4$};
+
+        \node[below right] at (1,2.5) {$C_4$};
+
+    \end{tikzpicture}
+    \caption{A 4-gon $C_4$ in $\mathbb{P}^3$, drawn on a plane.}
+    \label{fig:4-gon}
+\end{figure}

@@ -49,3 +49,4 @@ ngon
 Progging
 submatrix
 indeterminates
+Zariski
