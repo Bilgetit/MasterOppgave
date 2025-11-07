@@ -119,7 +119,7 @@ To get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{C_m})$, we would need 
 \subsection{Computational results}
 We have done computational experiments in Macaulay2 to get a better understanding of the inequality in \cref{prop:m-gon}. The script tests the existence and smoothness of hypersurfaces including an $m$-gon for various degrees $d$ and number of lines $m$. The code used for these experiments is included in \cref{app:mgon}, where we also discuss the details of the code. The results are given below.
 
-We note that to run this in Macaulay2, we have run the computation over a finite field $\mathbb{Z}_{32749}$, and over $\mathbb{Q}$, the latter being significantly slower. The results are summarized in \cref{tab:mgon-results_Q}. They are consistent with the inequality in \cref{prop:m-gon}, and also imply that we \emph{cannot} find any surface (smooth or singular) containing an $m$-gon when $m$ exceeds the bound. We also only find that the surfaces are smooth when they exist.
+We note that to run this in Macaulay2, we have run the computation over a finite field $\mathbb{Z}_{32749}$(!?), and over $\mathbb{Q}$, the latter being significantly slower. The results are summarized in \cref{tab:mgon-results_Q}. They are consistent with the inequality in \cref{prop:m-gon}, and also imply that we \emph{cannot} find any surface (smooth or singular) containing an $m$-gon when $m$ exceeds the bound. We also only find that the surfaces are smooth when they exist.
 
 % \begin{table}[ht]
 %     \centering
@@ -150,6 +150,16 @@ We note that to run this in Macaulay2, we have run the computation over a finite
 
 \todo[inline]{Talk about all the limitations of using the computational approach. Like: We find no surfaces above the bound, find only smooth surfaces, etc. When is this dependent on the field?}
 \todo[inline]{Include brief explanation of code, and a small table of results.}
+
+We summarize the steps taken in the code for checking if an $m$-gon is included in some degree $d$ surface:
+We pick $m$ points in $\mathbb{P}_\Bbbk^3$ for our chosen field $\Bbbk$. We use either $\mathbb{Q}$ or $\mathbb{Z}_{32749}$, where the latter is faster, but not of characteristic 0. Then we generate the ideal of the lines defined by pairs of points, $(p_i, p_{i+1})$, and $(p_m,p_1)$, by adding these as the rows of a matrix, described by the map
+\[((a,b,c,d), (d,e,f,g)) \mapsto 
+\begin{pmatrix}
+    x_0 & x_1 & x_2 & x_3 \\
+    a & b & c & d \\
+    d & e & f & g 
+\end{pmatrix}.\]
+We then intersect these ideals, to get the ideal of the union of the $m$-gon, and pick a random element of degree $d$. Then we check if this is smooth, singular, or equal to 0 (If there is no degree $d$ element, Macaulay2 will pick 0 as its random element).
 
 \subsection{Cohomology of a 4-gon}\label{sec:cohomology}
 
