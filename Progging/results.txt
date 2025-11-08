@@ -301,3 +301,28 @@ d = 14, noPoints = 48, isSingular = false, isZero = false, numInIz = 8, time = 1
 d = 14, noPoints = 49, isSingular = false, isZero = true, numInIz = 0, time = 199
 d = 15, noPoints = 54, isSingular = false, isZero = false, numInIz = 6, time = 331
 d = 15, noPoints = 55, isSingular = false, isZero = true, numInIz = 0, time = 363
+
+ngon ZZ, bare test maxNoPoints.
+d = 2, noPoints = 5, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 3, noPoints = 7, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 4, noPoints = 9, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 5, noPoints = 12, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 6, noPoints = 14, isSingular = false, isZero = true, numInIz = 0, time = 1
+d = 7, noPoints = 18, isSingular = false, isZero = true, numInIz = 0, time = 1
+d = 8, noPoints = 21, isSingular = false, isZero = true, numInIz = 0, time = 1
+d = 9, noPoints = 25, isSingular = false, isZero = true, numInIz = 0, time = 3
+d = 10, noPoints = 29, isSingular = false, isZero = true, numInIz = 0, time = 4
+d = 11, noPoints = 34, isSingular = false, isZero = true, numInIz = 0, time = 9
+d = 12, noPoints = 38, isSingular = false, isZero = true, numInIz = 0, time = 17
+d = 13, noPoints = 44, isSingular = false, isZero = true, numInIz = 0, time = 33
+d = 14, noPoints = 49, isSingular = false, isZero = true, numInIz = 0, time = 58
+d = 15, noPoints = 55, isSingular = false, isZero = true, numInIz = 0, time = 91
+d = 16, noPoints = 61, isSingular = false, isZero = true, numInIz = 0, time = 143
+d = 17, noPoints = 68, isSingular = false, isZero = true, numInIz = 0, time = 230
+d = 18, noPoints = 74, isSingular = false, isZero = true, numInIz = 0, time = 358
+d = 19, noPoints = 82, isSingular = false, isZero = true, numInIz = 0, time = 566
+d = 20, noPoints = 89, isSingular = false, isZero = true, numInIz = 0, time = 870
+d = 21, noPoints = 97, isSingular = false, isZero = true, numInIz = 0, time = 1331
+d = 22, noPoints = 105, isSingular = false, isZero = true, numInIz = 0, time = 2014
+d = 23, noPoints = 114, isSingular = false, isZero = true, numInIz = 0, time = 3038
+d = 24, noPoints = 122, isSingular = false, isZero = true, numInIz = 0, time = 4523

@@ -63,17 +63,15 @@ The notion of a regular $m$-gon is important. For example, a non-regular $m$-gon
 \todo[inline]{Make lines go past intersection points in figure.}
 
 \begin{proposition}\label{prop:m-gon}
-    Let $C_m$ be a regular $m$-gon in $\mathbb{P}^3$. Then we can find a hypersurface of degree $d$ such that $C_m \subseteq S_d$ when $m \leq \frac{(d+3)(d+2)(d+1)}{6d}$.
+    Let $C_m$ be a regular $m$-gon in $\mathbb{P}^3$. Then we can find a hypersurface $S_d$ of degree $d$ such that $C_m \subseteq S_d$ when $m < \frac{(d+3)(d+2)(d+1)}{6d}$.
 \end{proposition}
 
 \begin{proof}
-
-    We can look at global sections of twists of the ideal sheaf $\mathcal{I}_{C_m}$ of the $m$-gon to see if the $m$-gon can be contained in a hypersurface. \todo{Why?} We have the short exact sequence
-    \[0 \to \mathcal{I}_{C_m} \to \mathcal{O}_{\mathbb{P}^3}\to \mathcal{O}_{C_m} \to 0.\]
-
-    We twist this by $\mathcal{O}_{\mathbb{P}^3}(d)$ to get
+    % The non-zero global sections of the ideal sheaf $\mathcal{I}_{C_m}$ 
+    We are interested in the global sections of twists of the ideal sheaf $\mathcal{I}_{C_m}$ of the $m$-gon, i.e. $H^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d))$, to see if the $m$-gon can be contained in a hypersurface of degree $d$. To see why, consider the short exact sequence
+    \[0 \to \mathcal{I}_{C_m} \to \mathcal{O}_{\mathbb{P}^3}\to \mathcal{O}_{C_m} \to 0\]
+    where $\mathcal{I}_{C_m}$ is the kernel of the restriction map $\mathcal{O}_{\mathbb{P}^3} \to \mathcal{O}_{C_m}$. Since $\mathcal{O}_{\mathbb{P}^3}(d)$ is locally free, we can twist with these to get the short exact sequence
     \[0 \to \mathcal{I}_{C_m}(d) \to \mathcal{O}_{\mathbb{P}^3}(d) \to \mathcal{O}_{C_m}(d) \to 0.\]
-
     From this we get the long exact sequence in cohomology:
 
     \begin{tikzcd}[sep=small]
@@ -82,74 +80,28 @@ The notion of a regular $m$-gon is important. For example, a non-regular $m$-gon
     & H^2(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \rar & H^2(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar & \dots \\
     \end{tikzcd}
 
-    From \cite{EO25} Theorem 18.23, we know that $H^i(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) = 0$ for $i > 0$ and $d \geq -3$. This means we can focus on the first part of the sequence:
-
+    By Theorem 18.23 in \cite{EO25}, we know that $H^i(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) = 0$ for $i > 0$ and $d \geq (-3)$. Hence, we can focus on the first part of the sequence:
     \[0 \to H^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \to H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \to H^0(C_m, \mathcal{O}_{C_m}(d)) \to H^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \to 0.\] 
-
-
-    Since taking dimensions in cohomology is additive, we get
-
-    \[
-    h^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) = h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) + h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) - h^0(C_m, \mathcal{O}_{C_m}(d)). 
-    \]
-
-    By Theorem 18.4 (!?) in \cite{EO25} we get that $h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) = \binom{d+3}{3}$. $h^0(C_m, \mathcal{O}_{C_m}(d))$ can be computed by considering the short exact sequence: 
-    \[
-    0 \to \mathcal{O}_{C_m}(d) \to \bigoplus_{i=1}^m \mathcal{O}_{l_i}(d) \to \bigoplus_{i=1}^n \mathcal{O}_{p_i} \to 0.
-    \]
-
-    This gives us $h^0(C_m, \mathcal{O}_{C_m}) = m \cdot \binom{d+1}{1} - m = md$.
-
-    \[
-    h^0(\mathbb{P}^3, \mathcal{I}_{C_m}) \geq \binom{d+3}{3} - md.
-    \]
-
-    Meaning we can guarantee a degree $d$ surface when $\binom{d+3}{3} - md \geq 0$, or equivalently when $m \leq \frac{(d+3)(d+2)(d+1)}{6d}$.
+    Now, $H^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d))$ is precisely the kernel of the restriction map $H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \to H^0(C_m, \mathcal{O}_{C_m}(d))$, and so defines the global sections of $\mathcal{O}_{\mathbb{P}^3}(d)$ which vanish on $C_m$. Therefore, the dimension of this space reveals whether the space of global sections of $\mathcal{O}_{\mathbb{P}^3}(d)$ which vanish on $C_m$ is non-empty or not. Taking dimensions in cohomology is additive, and we get that
+    \[h^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) = h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) + h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) - h^0(C_m, \mathcal{O}_{C_m}(d)).\]
+    By Theorem 18.4 (!?) in \cite{EO25} we know $h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) = \binom{d+3}{3}$. $h^0(C_m, \mathcal{O}_{C_m}(d))$ can also be computed, by considering the short exact sequence:
+    \[0 \to \mathcal{O}_{C_m}(d) \to \bigoplus_{i=1}^m \mathcal{O}_{l_i}(d) \to \bigoplus_{i=1}^n \mathcal{O}_{p_i} \to 0.\]
+    \todo[inline]{How do we see that this is an exact sequence? Maybe use Mayer-Vietoris?}
+    Since $h^0(\bigoplus_{i=1}^n \mathcal{O}_{p_i}) = m$, and $h^0(\bigoplus_{i=1}^m \mathcal{O}_{l_i}(d)) = m \cdot \binom{d+1}{1}$, this gives us $h^0(C_m, \mathcal{O}_{C_m}) = md$. So we have that
+    \[h^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) = \binom{d+3}{3} - md + h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)).\]
+    $h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \geq 0$ measures the failure of the restriction map $H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \to H^0(C_m, \mathcal{O}_{C_m}(d))$ to be surjective, i.e. the failure of lifting sections on $C_m$ to global sections. If the map were surjective, we would have that $h^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) = \binom{d+3}{3} - md$. We can at least say that $h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \geq 0$, and so
+    \[h^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \geq \binom{d+3}{3} - md.\]
+    Meaning we can guarantee a degree $d$ surface when $\binom{d+3}{3} - md > 0$, or equivalently when $m < \frac{(d+3)(d+2)(d+1)}{6d}$.
 \end{proof}
-\todo[inline]{Make proof more coherent, we jump around a bit.}
-
-To get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{C_m})$, we would need to compute $h^1(\mathbb{P}^3, \mathcal{I}_{C_m})$. This issue will be explored further in \cref{sec:cohomology}. 
-\todo[inline]{Explain significance of $h^0$, and do it before this proof.}
-
+To get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{C_m})$, we would need to compute $h^1(\mathbb{P}^3, \mathcal{I}_{C_m})$. We have no direct answer of what this cohomology is, but the issue will be explored further through examples in the next two sections.
 
 \begin{remark}
     Note that this argument does not guarantee that the surface is smooth, only that it exists.
 \end{remark}
 
 \subsection{Computational results}
-We have done computational experiments in Macaulay2 to get a better understanding of the inequality in \cref{prop:m-gon}. The script tests the existence and smoothness of hypersurfaces including an $m$-gon for various degrees $d$ and number of lines $m$. The code used for these experiments is included in \cref{app:mgon}, where we also discuss the details of the code. The results are given below.
-
-We note that to run this in Macaulay2, we have run the computation over a finite field $\mathbb{Z}_{32749}$(!?), and over $\mathbb{Q}$, the latter being significantly slower. The results are summarized in \cref{tab:mgon-results_Q}. They are consistent with the inequality in \cref{prop:m-gon}, and also imply that we \emph{cannot} find any surface (smooth or singular) containing an $m$-gon when $m$ exceeds the bound. We also only find that the surfaces are smooth when they exist.
-
-% \begin{table}[ht]
-%     \centering
-%     \caption{Results from Macaulay2 over $\mathbb{Q}$ testing existence and smoothness of surfaces containing an $m$-gon. Each row corresponds to one experiment: degree $d$, number of points used, whether the chosen form was singular, whether the space of degree-$d$ forms in the ideal was zero, the number of elements found in $I_Z(d)$, and runtime in seconds.}
-%     \label{tab:mgon-results}
-%     \small
-%     \begin{tabular}{r r c c r r}
-%         \toprule
-%         $d$ & $m$ & Singular & Zero & numInIz & time (s) \\
-%         \midrule
-%         2 & 4  & false & false & 2 & 0 \\
-%         2 & 5  & false & true  & 0 & 0 \\
-%         3 & 6  & false & false & 2 & 0 \\
-%         3 & 7  & false & true  & 0 & 0 \\
-%         4 & 8  & false & false & 3 & 1 \\
-%         4 & 9  & false & true  & 0 & 1 \\
-%         5 & 11 & false & false & 1 & 36 \\
-%         5 & 12 & false & true  & 0 & 36 \\
-%         6 & 13 & false & false & 6 & 1095 \\
-%         6 & 14 & false & true  & 0 & 1097 \\
-%         \bottomrule
-%     \end{tabular}
-% \end{table}
-
-\begin{remark}
-    When running the computations in Macaulay2, we have never encountered a case where we have gotten a singular surface one time, and a smooth surface another, even though the surfaces are picked at random. One of the reasons this is perhaps not very surprising, is to consider that being smooth is a Zariski open requirement, meaning the subset of smooth surfaces is open in the set of surfaces. Since we know that this means the subset is dense in the set of surfaces, and so it is not very surprising that the random surface picked is smooth. Still, this adds another reason to not use Macaulay2 as a proof of something, but merely a suggestion that it might be true. One could technically be very unlucky and only pick singular surfaces.
-\end{remark}
-
-\todo[inline]{Talk about all the limitations of using the computational approach. Like: We find no surfaces above the bound, find only smooth surfaces, etc. When is this dependent on the field?}
-\todo[inline]{Include brief explanation of code, and a small table of results.}
+\todo[inline]{Discuss numInIz, and also rename.}
+We have done computational experiments in Macaulay2 to get a better understanding of the inequality in \cref{prop:m-gon}. The script tests the existence and smoothness of hypersurfaces including an $m$-gon for various degrees $d$ and number of lines $m$. The code used for these experiments is included in \cref{app:mgon}, where we also discuss the details of the code. We note that to run this in Macaulay2, we have run the computation over a finite field $\mathbb{Z}_{32749}$, and over $\mathbb{Q}$, the latter being significantly slower.
 
 We summarize the steps taken in the code for checking if an $m$-gon is included in some degree $d$ surface:
 We pick $m$ points in $\mathbb{P}_\Bbbk^3$ for our chosen field $\Bbbk$. We use either $\mathbb{Q}$ or $\mathbb{Z}_{32749}$, where the latter is faster, but not of characteristic 0. Then we generate the ideal of the lines defined by pairs of points, $(p_i, p_{i+1})$, and $(p_m,p_1)$, by adding these as the rows of a matrix, described by the map
@@ -160,6 +112,40 @@ We pick $m$ points in $\mathbb{P}_\Bbbk^3$ for our chosen field $\Bbbk$. We use 
     d & e & f & g 
 \end{pmatrix}.\]
 We then intersect these ideals, to get the ideal of the union of the $m$-gon, and pick a random element of degree $d$. Then we check if this is smooth, singular, or equal to 0 (If there is no degree $d$ element, Macaulay2 will pick 0 as its random element).
+
+
+\begin{table}
+    \centering
+    \caption{Results from Macaulay2 over $\mathbb{Q}$ testing existence and smoothness of surfaces containing an $m$-gon. Each row corresponds to one experiment: degree $d$, number of points used, whether the chosen form was singular, whether the space of degree-$d$ forms in the ideal was zero, the number of elements found in $I_Z(d)$, and runtime in seconds.}
+    \label{tab:mgon-results-small}
+    \small
+    \begin{tabular}{r r c c r r}
+        \toprule
+        $d$ & $m$ & Singular & Zero & numInIz & time (s) \\
+        \midrule
+        2 & 4  & false & false & 2 & 0 \\
+        2 & 5  & false & true  & 0 & 0 \\
+        3 & 6  & false & false & 2 & 0 \\
+        3 & 7  & false & true  & 0 & 0 \\
+        4 & 8  & false & false & 3 & 1 \\
+        4 & 9  & false & true  & 0 & 1 \\
+        5 & 11 & false & false & 1 & 36 \\
+        5 & 12 & false & true  & 0 & 36 \\
+        6 & 13 & false & false & 6 & 1095 \\
+        6 & 14 & false & true  & 0 & 1097 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The results are listed in full in the appendix. The tables are included in \cref{tab:mgon-results_Q} and \cref{tab:mgon-results_Z32749}, and we have included a smaller table of results over $\mathbb{Q}$ in \cref{tab:mgon-results-small}. They are consistent with the inequality in \cref{prop:m-gon}, always finding that an $m$-gon can be included in a surface of degree $d$ when $m$ is lower than the bound, and also always find the surfaces to be smooth. Interestingly, they also imply that we \emph{cannot} find any surface (smooth or singular) containing an $m$-gon when $m$ equals or exceeds the bound. This implies that $h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d))$ does not exceed $md-(\binom{d+3}{3}-1)$ when $m$ gets bigger, though we have not been able to prove this. Our tables include two values of $m$ for each degree $d$. This is to check both below and above the bound for each degree. If the bound is an integer $M$, we test $m=M-1$, and $m=M$. As is shown in the table in the appendix, we have found no cases where we can find a surface including an $m$-gon when $m$ is equal to or larger than the bound.
+
+
+
+\begin{remark}
+    When running the computations in Macaulay2, we have never encountered a case where we have gotten a singular surface one time, and a smooth surface another, even though the surfaces are picked at random. One of the reasons this is perhaps not very surprising, is to consider that being smooth is a Zariski open requirement, meaning the subset of smooth surfaces is open in the set of surfaces. Since we know that this means the subset is dense in the set of surfaces, and so it is not very surprising that the random surface picked is smooth. Still, this adds another reason to not use Macaulay2 as a proof of something, but merely a suggestion that it might be true. One could technically be very unlucky and only pick singular surfaces.
+\end{remark}
+
+\todo[inline]{Talk about all the limitations of using the computational approach. Like: We find no surfaces above the bound, find only smooth surfaces, etc. When is this dependent on the field?}
 
 \subsection{Cohomology of a 4-gon}\label{sec:cohomology}
 
