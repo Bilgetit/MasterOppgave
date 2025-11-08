@@ -10,9 +10,9 @@ lineFromPoints = pointsMatrix -> minors(3, pointsMatrix);
 
 time0 = currentTime();
 d = 2;
-while currentTime() - time0 < 9*3600 do(  -- wait for 9 hours
+while currentTime() - time0 < 24*3600 do(  -- wait for 24 hours
     maxNoPoints = ceiling((d+3)*(d+2)*(d+1)/(6*d));
-    for noPoints from maxNoPoints to maxNoPoints + 1 do ( -- maxNoPoints to maxNoPoints + 1 for m-chains
+    for noPoints from maxNoPoints-1 to maxNoPoints do ( -- maxNoPoints to maxNoPoints + 1 for m-chains, maxNoPoints-1 to maxNoPoints for m-gons
         myPoints = apply(noPoints, i -> (
             v := for j in 0..3 list random(kk);
             -- Ensure the point is not the zero vector
@@ -22,7 +22,7 @@ while currentTime() - time0 < 9*3600 do(  -- wait for 9 hours
             v
         )); 
         subsequentPairs = for i from 0 to (#myPoints - 2) list {myPoints#i, myPoints#(i+1)};
-        -- subsequentPairs = append(subsequentPairs, {myPoints#0, myPoints#(#myPoints-1)}); -- close the loop
+        subsequentPairs = append(subsequentPairs, {myPoints#0, myPoints#(#myPoints-1)}); -- close the loop
         pointPairs = apply(subsequentPairs, pointsMatrix);
         allLines = apply(pointPairs, lineFromPoints);
 

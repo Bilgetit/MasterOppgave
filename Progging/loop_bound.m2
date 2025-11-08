@@ -1,8 +1,8 @@
 listOfResults = {};
 listOfSurprises = {};
 
--- kk = ZZ/32749;
-kk = QQ;
+kk = ZZ/32749;
+-- kk = QQ;
 RingP3 = kk[x_0..x_3];
 
 pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
