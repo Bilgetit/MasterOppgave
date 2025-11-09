@@ -50,3 +50,4 @@ Progging
 submatrix
 indeterminates
 Zariski
+syzygy
