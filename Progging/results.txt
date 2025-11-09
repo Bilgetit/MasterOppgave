@@ -328,7 +328,7 @@ d = 23, noPoints = 114, isSingular = false, isZero = true, numInIz = 0, time = 3
 d = 24, noPoints = 122, isSingular = false, isZero = true, numInIz = 0, time = 4523
 
 
-ngon Z final.
+ngon Z lang kjøretid.
 d = 2, noPoints = 4, isSingular = false, isZero = false, numInIz = 2, time = 0
 d = 2, noPoints = 5, isSingular = false, isZero = true, numInIz = 0, time = 0
 d = 3, noPoints = 6, isSingular = false, isZero = false, numInIz = 2, time = 0
@@ -373,3 +373,39 @@ d = 22, noPoints = 104, isSingular = false, isZero = false, numInIz = 12, time =
 d = 22, noPoints = 105, isSingular = false, isZero = true, numInIz = 0, time = 18500
 d = 23, noPoints = 113, isSingular = false, isZero = false, numInIz = 1, time = 29168
 d = 23, noPoints = 114, isSingular = false, isZero = true, numInIz = 0, time = 29895
+
+
+
+ngon Z sjekk etter tomme flater:
+d = 2, noPoints = 5, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 3, noPoints = 7, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 4, noPoints = 9, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 5, noPoints = 12, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 6, noPoints = 14, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 7, noPoints = 18, isSingular = false, isZero = true, numInIz = 0, time = 0
+d = 8, noPoints = 21, isSingular = false, isZero = true, numInIz = 0, time = 1
+d = 9, noPoints = 25, isSingular = false, isZero = true, numInIz = 0, time = 1
+d = 10, noPoints = 29, isSingular = false, isZero = true, numInIz = 0, time = 3
+d = 11, noPoints = 34, isSingular = false, isZero = true, numInIz = 0, time = 6
+d = 12, noPoints = 38, isSingular = false, isZero = true, numInIz = 0, time = 10
+d = 13, noPoints = 44, isSingular = false, isZero = true, numInIz = 0, time = 19
+d = 14, noPoints = 49, isSingular = false, isZero = true, numInIz = 0, time = 34
+d = 15, noPoints = 55, isSingular = false, isZero = true, numInIz = 0, time = 58
+d = 16, noPoints = 61, isSingular = false, isZero = true, numInIz = 0, time = 97
+d = 17, noPoints = 68, isSingular = false, isZero = true, numInIz = 0, time = 164
+d = 18, noPoints = 74, isSingular = false, isZero = true, numInIz = 0, time = 262
+d = 19, noPoints = 82, isSingular = false, isZero = true, numInIz = 0, time = 421
+d = 20, noPoints = 89, isSingular = false, isZero = true, numInIz = 0, time = 662
+d = 21, noPoints = 97, isSingular = false, isZero = true, numInIz = 0, time = 1033
+d = 22, noPoints = 105, isSingular = false, isZero = true, numInIz = 0, time = 1571
+d = 23, noPoints = 114, isSingular = false, isZero = true, numInIz = 0, time = 2362
+d = 24, noPoints = 122, isSingular = false, isZero = true, numInIz = 0, time = 3446
+d = 25, noPoints = 132, isSingular = false, isZero = true, numInIz = 0, time = 5073
+d = 26, noPoints = 141, isSingular = false, isZero = true, numInIz = 0, time = 7271
+d = 27, noPoints = 151, isSingular = false, isZero = true, numInIz = 0, time = 10385
+d = 28, noPoints = 161, isSingular = false, isZero = true, numInIz = 0, time = 14663
+d = 29, noPoints = 172, isSingular = false, isZero = true, numInIz = 0, time = 20604
+d = 30, noPoints = 182, isSingular = false, isZero = true, numInIz = 0, time = 28369
+d = 31, noPoints = 194, isSingular = false, isZero = true, numInIz = 0, time = 39104
+d = 32, noPoints = 205, isZero = true, numInIz = 0, time = 13914
+d = 33, noPoints = 217, isZero = true, numInIz = 0, time = 32746

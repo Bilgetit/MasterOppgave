@@ -1,6 +1,6 @@
 -- Specify degree and number of points
 d = 3;
-nrPoints = 7; -- Is also the number of lines
+nrPoints = 9; -- Is also the number of lines
 
 kk = ZZ/32749;
 kk = QQ;
@@ -39,3 +39,8 @@ H0 = HH^0(F(d))
 H1 = HH^1(F(d))
 H2 = HH^2(F(d))
 H3 = HH^3(F(d))
+-- get dimension as vector space over kk
+dimH0 = numgens H0
+dimH1 = numgens H1
+dimH2 = numgens H2
+dimH3 = numgens H3

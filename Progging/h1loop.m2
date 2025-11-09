@@ -11,9 +11,9 @@ listOfIz = {};
 
 time0 = currentTime();
 d = 2;
-while currentTime() - time0 < 1 do(  -- wait for 60 seconds
+while currentTime() - time0 < 12*3600 do(  -- wait for 12 hours
     maxNoPoints = ceiling((d+3)*(d+2)*(d+1)/(6*d));
-    for noPoints from 3 to maxNoPoints+5 do (
+    for noPoints from 3 to maxNoPoints do (
         -- get or create a single Iz for this number of points
         getOrMakeIz = np -> (
             -- search cache
@@ -43,12 +43,12 @@ while currentTime() - time0 < 1 do(  -- wait for 60 seconds
         Iz = getOrMakeIz(noPoints);
         F = sheaf(Iz);
         H1 = HH^1(F(d));
-        dimH1 = dim H1;
+        numGens = numgens H1;
         -- listOfResults = append(listOfResults, (d, noPoints, isH1Zero, dimH1, currentTime() - time0));
         -- if not isH1Zero then (
         --     listOfSurprises = append(listOfSurprises, (d, noPoints, isH1Zero))
         -- );
-        print("d = " | toString d | ", noPoints = " | toString noPoints | ", dimH1 = " | toString dimH1 | ", time = " | toString (currentTime() - time0) );
+        print("d = " | toString d | ", noPoints = " | toString noPoints | ", numGensH1 = " | toString numGens | ", time = " | toString (currentTime() - time0) );
     );
     d = d + 1;
 )

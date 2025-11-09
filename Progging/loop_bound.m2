@@ -9,8 +9,8 @@ pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
 lineFromPoints = pointsMatrix -> minors(3, pointsMatrix);
 
 time0 = currentTime();
-d = 2;
-while currentTime() - time0 < 3600 do(  -- wait for 1 hour
+d = 32;
+while currentTime() - time0 < 12*3600 do(  -- wait for 12 hours
     maxNoPoints = ceiling((d+3)*(d+2)*(d+1)/(6*d));
     noPoints = maxNoPoints;
     myPoints = apply(noPoints, i -> (
@@ -46,14 +46,9 @@ while currentTime() - time0 < 3600 do(  -- wait for 1 hour
         );
     );
 
-        codimension = codim singularLocus ideal f;
         isZero = (f == 0);
-        isSingular = (codimension < 4);
-        listOfResults = append(listOfResults, (d, noPoints, isZero, isSingular, currentTime() - time0));
-        if isSingular then (
-            listOfSurprises = append(listOfSurprises, (d, noPoints, isZero, isSingular, currentTime() - time0))
-        );
-        print("d = " | toString d | ", noPoints = " | toString noPoints | ", isSingular = " | toString isSingular | ", isZero = " | toString isZero | ", numInIz = " | toString numInIz | ", time = " | toString (currentTime() - time0) );
+        listOfResults = append(listOfResults, (d, noPoints, isZero, currentTime() - time0));
+        print("d = " | toString d | ", noPoints = " | toString noPoints | ", isZero = " | toString isZero | ", numInIz = " | toString numInIz | ", time = " | toString (currentTime() - time0) );
     d = d + 1;
 )
 
