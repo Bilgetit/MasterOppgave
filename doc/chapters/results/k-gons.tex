@@ -3,31 +3,59 @@
 In this section, we will consider $m$-gons in $\mathbb{P}^3$ and their relationship with hypersurfaces.
 
 \begin{definition}
-    An $m$-gon is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$, and $l_m$ intersects $l_1$. We will write $C_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$, and $p_m = l_m \cap l_1$. A \emph{regular} $m$-gon is an $m$-gon such that $l_i \neq l_j$ for $i \neq j$, and $l_i$ intersects only the other lines as described above.
+    An $m$-gon is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$, and $l_m$ intersects $l_1$. We will write $C_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$, and $p_m = l_m \cap l_1$.
 \end{definition}
 
 \begin{definition}
     A \emph{regular} $m$-gon is an $m$-gon such that $l_i \neq l_j$ for $i \neq j$, and no lines other than the adjacent ones intersect.
 \end{definition}
 
-The notion of a regular $m$-gon is important. For example, a non-regular $m$-gon can be $m$ lines all intersecting at a single point, i.e. an $m$-cross. Such cases would not hold the same properties as what one would expect from $m$-gons such as the one drawn in \cref{fig:m-gon}.
-
+The notion of a regular $m$-gon is important. For example, a non-regular $m$-gon can be $m$ lines all intersecting at a single point, i.e. an $m$-cross. Such cases would not hold the same properties as what one would expect from $m$-gons such as the one drawn in \cref{fig:m-gon}. Next, we consider the set of $m$-gons for fixed $m$.
 
 \begin{definition}
-    Let $\mathcal{C}_m$ be the family of all $m$-gons in $\mathbb{P}^3$.
+    Let $\mathcal{C}_m \subseteq \mathbb{G}(1, 3)^m$ be the family of all $m$-gons in $\mathbb{P}^3$.
+\end{definition}
+We can describe $\mathcal{C}_m$ as the set 
+\[\mathcal{C}_m = \{(l_1, l_2, \dots, l_m) \in \mathbb{G}(1,3)^m \mid l_i \cap l_{i+1} \neq \emptyset \text{ for } 1 \leq i < m, \text{ and } l_m \cap l_1 \neq \emptyset\}.\]
+Now we aim to show that $\mathcal{C}_m$ is an irreducible variety, and compute its dimension. To do this, we first define a related variety which we will study further in \cref{sec:m-chain}, that being $m$-chains, which are configurations of lines much like $m$-gons, only without the requirement that $l_m$ shall intersect $l_1$. In this way, $m$-gons can be though of as being iteratively constructed by adding one line at a time, each time forming an $i$-chain for $i=1, \dots, m-1$, until we finally add the last line which intersects the first line, closing the loop. This construction allows us to first study the set of $m$-chains, and then viewing the projection map of $\mathcal{C}_m$ onto $\mathcal{Q}_m$ to get the desired results for $m$-gons.
+\begin{definition}
+    We define $\mathcal{Q}_m \subseteq \mathbb{G}(1,3)^m$ to be the subset of m-tuples of lines $(l_1, \dots, l_m)$ such that they form an $m$-chain.
 \end{definition}
 
-\begin{lemma}
-    Dimension and irreducibility.
+First we need the following lemma about Schubert varieties.
+\begin{lemma}\label{lem:Schubert}
+    The Schubert variety $\Sigma_L = \{l \in \mathbb{G}(1,3) \mid l \cap L \neq \emptyset\}$ for a fixed line $L$ is irreducible of dimension 3.
 \end{lemma}
+\todo[inline]{Probably put this in background chapter.}
 \begin{proof}
-    We 
+    \cite{EH16}, section 3.3.1. First, consider the incidence correspondence $\Gamma = \{(l, p) \in \mathbb{G}(1,3) \times L \mid p \in l\}$. The projection map $g \colon \Gamma \to \mathbb{G}(1,3)$ given by $g(l,p) = l$ gives us that $\Sigma_L$ is the image of $g$. Next, the fiber of the projection map $f \colon \Gamma \to L$ given by $f(l,p) = p$ is the set of lines through a point $p \in L$, meaning the fiber is isomorphic to $\mathbb{P}^2$. Since $L$ is isomorphic to $\mathbb{P}^1$, it is irreducible of dimension 1. Since $f$ is proper, and all the fibers are irreducible of dimension 2, we have that $\Gamma$ is irreducible of dimension $2 + 1 = 3$ (Find reference for this!?). 
+\end{proof}
+
+\begin{lemma} \label{lem:dimQm}
+    $\mathcal{Q}_m$ is an irreducible variety of dimension $3m + 1$ for $m \geq 1$. 
+\end{lemma} 
+
+
+
+\begin{proof}
+    We first observe that $\mathcal{Q}_1 = \mathbb{G}(1,3)$, which is irreducible of dimension 4. We then proceed by induction on $m$, assuming that $\mathcal{Q}_m$ is irreducible of dimension $M$ for some integer $M$.
+
+    Let $m \geq 2$, and consider the projection map $\pi_m \colon \mathcal{Q}_m \to \mathcal{Q}_{m-1}$ given by $\pi(l_1, \dots, l_m) = (l_1, \dots, l_{m-1})$. The fiber over a point is given by $\pi^{-1}(l_1, \dots, l_{m-1}) = \{(l_1, \dots, l_{m-1}, l_m) \in \mathcal{Q}_m \mid l_m \cap l_{m-1} \neq \emptyset\}$ which is isomorphic to $\Sigma_{l_{m-1}} = \{l \in \mathbb{G}(1,3) \mid l \cap l_{m-1} \neq \emptyset\}$. From \cref{lem:Schubert} we know that $\Sigma_{l_{m-1}}$ is irreducible of dimension 3, and by the induction hypothesis that $\mathcal{Q}_{m-1}$ is irreducible of dimension $M$. Then, since $\pi_m$ is proper, with irreducible fiber of dimension 3, we have that $\mathcal{Q}_m$ is irreducible of dimension $M + 3$(again, find reference!?). $M=4$ for $m=1$, and so we get that $\dim \mathcal{Q}_m = 4 + 3(m-1) = 3m + 1$. 
+\end{proof}
+
+\begin{corollary}
+    $\mathcal{C}_m$ is an irreducible variety of dimension $3m$ for $m \geq 3$.
+\end{corollary}
+\begin{proof}
+    Prove.
 \end{proof}
 
 \begin{lemma}
     The set of regular $m$-gons is an open subset of $\mathcal{C}_m$.
 \end{lemma}
-\todo[inline]{Fill in.}
+\begin{proof}
+    Prove.
+\end{proof}
 
 % Reusable m-gon drawing: usage \mgon{<m>} draws a polygon of m lines and labels the
 % intersection points p_1, ..., p_m and the lines l_1, ..., l_m. The drawing is planar
@@ -66,7 +94,7 @@ The notion of a regular $m$-gon is important. For example, a non-regular $m$-gon
 \todo[inline]{Make lines go past intersection points in figure.}
 
 \begin{proposition}\label{prop:m-gon}
-    Let $C_m$ be a regular $m$-gon in $\mathbb{P}^3$. Then we can find a hypersurface $S_d$ of degree $d$ such that $C_m \subseteq S_d$ when $m < \frac{(d+3)(d+2)(d+1)}{6d}$.
+    Let $C_m$ be a regular $m$-gon in $\mathbb{P}^3$. Then we can find a hypersurface $S_d$ of degree $d$ such that $C_m \subseteq S_d$ when $m < \binom{d+3}{3} \cdot \frac{1}{d}$, or equivalently $m < \frac{(d+3)(d+2)(d+1)}{6d}$.
 \end{proposition}
 
 \begin{proof}
@@ -145,7 +173,7 @@ We then intersect these ideals, to get the ideal of the union of the $m$-gon, an
     \end{tabular}
 \end{table}
 
-The results are listed in full in the appendix. The tables are included in \cref{tab:mgon-results_Q} and \cref{tab:mgon-results_Z32749}, and we have included a smaller table of results over $\mathbb{Q}$ in \cref{tab:mgon-results-small}. They are consistent with the inequality in \cref{prop:m-gon}, always finding that an $m$-gon can be included in a surface of degree $d$ when $m$ is lower than the bound, and also always find the surfaces to be smooth. Interestingly, they also imply that we \emph{cannot} find any surface (smooth or singular) containing an $m$-gon when $m$ equals or exceeds the bound. This implies that $h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d))$ does not exceed $md-(\binom{d+3}{3}-1)$ when $m$ gets bigger, though we have not been able to prove this. Our tables include two values of $m$ for each degree $d$. This is to check both below and above the bound for each degree. If the bound is an integer $M$, we test $m=M-1$, and $m=M$. As is shown in the table in the appendix, we have found no cases where we can find a surface including an $m$-gon when $m$ is equal to or larger than the bound.
+The results are listed in full in the appendix. The tables are included in \cref{tab:mgon-results_Q} and \cref{tab:mgon-results_Z32749}, and we have included a smaller table of results over $\mathbb{Q}$ in \cref{tab:mgon-results-small}. They are consistent with the inequality in \cref{prop:m-gon}, always finding that an $m$-gon can be included in a surface of degree $d$ when $m$ is lower than the bound, and also always find the surfaces to be smooth. Interestingly, they also imply that we \emph{cannot} find any surface (smooth or singular) containing an $m$-gon when $m$ equals or exceeds the bound. This implies that $h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d))$ does not exceed $md-\binom{d+3}{3}$ when $m$ gets bigger, though we have not been able to prove this. Our tables include two values of $m$ for each degree $d$. This is to check both below and above the bound for each degree. If the bound is an integer $M$, we test $m=M-1$, and $m=M$. As is shown in the table in the appendix, we have found no cases where we can find a surface including an $m$-gon when $m$ is equal to or larger than the bound.
 
 
 
