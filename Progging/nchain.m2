@@ -1,10 +1,11 @@
 -- Step 1: Define the ring and parameters
-kk = QQ;
--- kk = ZZ/32749; 
+-- kk = QQ;
+kk = ZZ/32749; 
 RingP3 = kk[x_0..x_3];
-d = 3;  -- Degree of the hypersurface
-nrLines = 6;
+d = 2;  -- Degree of the hypersurface
+nrLines = 5;
 nrPoints = nrLines+1;
+maxNoPoints = (binomial(d+3, 3) - 1)/d;
 
 -- Step 2 and 3: Generate random points and create pairs of subsequent points
 -- Function for generating i random points in P^3
@@ -53,4 +54,5 @@ H0 = HH^0(F(d))
 H1 = HH^1(F(d))
 
 -- primaryDecomposition(Iz)
-factor(f)
+-- factor(f)
+maxNoPoints = numeric((binomial(d+3, 3) - 1)/d)

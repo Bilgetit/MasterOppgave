@@ -11,10 +11,13 @@ listOfIz = {};
 
 time0 = currentTime();
 d = 2;
-while currentTime() - time0 < 12*3600 do(  -- wait for 12 hours
-    maxNoPoints = ceiling((d+3)*(d+2)*(d+1)/(6*d));
+while currentTime() - time0 < 10*60 do(  -- wait for 10 minutes
+    maxNoLines = (binomial(d+3, 3) - 1)/d;
+    print(numeric(maxNoLines));
+    maxNoPoints = ceiling(maxNoLines)+1;
+    print(maxNoPoints);
     for noPoints from maxNoPoints to maxNoPoints + 5 do (
-        M = binomial(d+3, 3) - noPoints * d;
+        M = binomial(d+3, 3) - (noPoints-1) * d - 1;
         -- get or create a single Iz for this number of points
         getOrMakeIz = np -> (
             -- search cache
@@ -33,7 +36,7 @@ while currentTime() - time0 < 12*3600 do(  -- wait for 12 hours
                 v
             ));
             subsequentPairs = for i from 0 to (#myPoints - 2) list {myPoints#i, myPoints#(i+1)};
-            subsequentPairs = append(subsequentPairs, {myPoints#0, myPoints#(#myPoints-1)});
+            -- subsequentPairs = append(subsequentPairs, {myPoints#0, myPoints#(#myPoints-1)});
             pointPairs = apply(subsequentPairs, pointsMatrix);
             allLines = apply(pointPairs, lineFromPoints);
             IzNew = intersect allLines;
@@ -49,7 +52,7 @@ while currentTime() - time0 < 12*3600 do(  -- wait for 12 hours
         -- if not isH1Zero then (
         --     listOfSurprises = append(listOfSurprises, (d, noPoints, isH1Zero))
         -- );
-        print("d = " | toString d | ", noPoints = " | toString noPoints | ", difference = " | toString (numGens + M) | ", numGensH1 = " | toString numGens | ", time = " | toString (currentTime() - time0) );
+        print("d = " | toString d | ", noLines = " | toString (noPoints-1) | ", difference = " | toString (numGens + M) | ", numGensH1 = " | toString numGens | ", time = " | toString (currentTime() - time0) );
     );
     d = d + 1;
 )

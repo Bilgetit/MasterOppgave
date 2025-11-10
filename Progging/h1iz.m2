@@ -1,9 +1,9 @@
 -- Specify degree and number of points
-d = 3;
-nrPoints = 9; -- Is also the number of lines
+d = 5;
+nrPoints = 11; -- Is also the number of lines
 
 kk = ZZ/32749;
-kk = QQ;
+-- kk = QQ;
 RingP3 = kk[x_0..x_3];
 
 -- Pick nrPoints random points in P^3
@@ -22,7 +22,7 @@ pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
 -- Create pairs of subsequent points, and also the pair consisting of the last and first point
 subsequentPairs = for i from 0 to (#myPoints - 2) list {myPoints#i, myPoints#(i+1)};
 -- Add final pair
--- subsequentPairs = append(subsequentPairs, {myPoints#0, myPoints#(#myPoints-1)});
+subsequentPairs = append(subsequentPairs, {myPoints#0, myPoints#(#myPoints-1)});
 
 -- Convert each pair of points to a matrix
 pointPairs = apply(subsequentPairs, pointsMatrix);
