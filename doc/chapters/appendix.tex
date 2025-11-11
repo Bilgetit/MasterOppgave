@@ -1,119 +1,133 @@
 \chapter{Programming}
 \label{sec:appendix}
 
-\section{m-gon}
+This appendix documents the Macaulay2 scripts used for the computational experiments. We describe how the line configurations are built, what the scripts test, and how to interpret the tables. We also note limitations of the approach (randomness, characteristic, layout).
+
+% -----------------------------------------------------------------------------
+\section{The m-gon script}
 \label{app:mgon}
 
-Note that the program generates an $m$-gon by picking $m$ random points in $\mathbb{P}^3$, then generating lines through pairs of points, essentially defining these points as the intersection points of the $m$-gon.
+An $m$-gon is produced by choosing $m$ random points of $\mathbb{P}^3$ and declaring lines through consecutive pairs, plus the final pair $(p_m,p_1)$. The points thus model the pairwise intersections required in the cycle.
 
-\lstinputlisting[caption={m-gon}, label={lst:m-gon}]{../Progging/ngon.m2}
+\lstinputlisting[caption={Script generating an $m$-gon and testing degree-$d$ forms}, label={lst:m-gon},numbers=left,breaklines=true]{../Progging/ngon.m2}
 
-We will go through the code step by step. 
+Workflow (enumerated):
+\begin{enumerate}
+    \item \textbf{Setup} Choose a field $k$ ($\mathbb{Q}$ or $\mathbb{Z}_{32749}$) and work in $R=k[x_0,x_1,x_2,x_3]$.
+    \item \textbf{Random points} Pick $m$ nonzero vectors in $k^4$; interpret them as homogeneous points $p_1,\dots,p_m$.
+    \item \textbf{Pairs} Form $(p_i,p_{i+1})$ for $1\le i < m$ and add $(p_m,p_1)$.
+    \item \textbf{Matrix to line} Each ordered pair yields a $3\times4$ matrix
+    \[
+        ((a,b,c,d),(e,f,g,h)) \mapsto
+        \begin{pmatrix}
+            x_0 & x_1 & x_2 & x_3 \\
+            a & b & c & d \\
+            e & f & g & h
+        \end{pmatrix}
+    \]
+    whose $3\times3$ minors generate the ideal of the line through the points.
+    \item \textbf{Union ideal} Intersect the $m$ line ideals to get $I_Z$ for $Z=\bigcup l_i$.
+    \item \textbf{Degree-$d$ test} Inspect $I_Z(d)$. If nonzero, pick a random element and test smoothness via the Jacobian criterion; if the element returned is $0$ retry until nonzero (a safeguard easily added).
+\end{enumerate}
 
-Step 1: We begin by defining the field and the polynomial ring in four variables over this field. We then define the degree $d$ of the surfaces we want to consider, and the number of points to use, which will be the same as the number of lines in the m-gon. 
+\begin{remark}[Zero element safeguard]
+Random selection almost never returns $0$ when $I_Z(d)\ne 0$, but to be rigorous one can loop until a nonzero form is obtained or a retry limit is hit.
+\end{remark}
 
-Step 2: We define a function to pick a given amount of random points in our quotient ring, ensuring they are not zero. We then apply the function to get the points, and gather the points into pairs of subsequent points so that we can later define lines between these.
+The computational goal: determine largest $m$ for which $I_Z(d)\ne 0$ and a generic form is smooth, comparing with the theoretical bound in Proposition~\ref{prop:m-gon}.
 
-Step 3: Next, we define a function for turning two points into a matrix. The function takes two points and returns a matrix, as follows:
-
-\[((a,b,c,d), (d,e,f,g)) \mapsto 
-\begin{pmatrix}
-    x_0 & x_1 & x_2 & x_3 \\
-    a & b & c & d \\
-    d & e & f & g 
-\end{pmatrix}\]
-
-Step 4: Now we can define the ideal of the line between the two points by taking the $3 \times 3$ minors of this matrix. 
-
-Step 5: Next we take the intersection of all the line ideals, to get the ideal of $Z = \bigcup l_i$, 
-
-Step 6: We choose a random member of $I_Z(d)$ and compute if this defines an empty, singular, or smooth surface.
-
-Results: We have been interested in finding the maximum number of lines $m$ such that we can find a smooth surface of degree $d$ including an $m$-gon. The results are summarized in the following table:
-
-\todo[inline]{Include the check that we don't use f=0 when the ideal has degree d elements.}
-
-
+% -----------------------------------------------------------------------------
 \subsection{Tables of results}
+We show values just below and at/above the theoretical bound. "Zero" indicates $I_Z(d)=0$. We used \verb+\FloatBarrier+ in the main document to encourage tables to appear together.
 
-We use \cref{prop:m-gon} and only test before and after the $m$ passes the inequality. We have tested more, but we save space here.
-\begin{table}[ht]
+\begin{table}[htbp]
     \centering
-    \caption{Results from Macaulay2 over $\mathbb{Q}$ testing existence and smoothness of surfaces containing an $m$-gon. Each row corresponds to one experiment: degree $d$, number of points used, whether the chosen form was singular, whether the space of degree-$d$ forms in the ideal was zero, the number of elements found in $I_Z(d)$, and runtime in seconds.}
+    \caption{Results over $\mathbb{Q}$ for $m$-gons.}
     \label{tab:mgon-results_Q}
     \small
-    \begin{tabular}{r r c c r r}
-        \toprule
-        $d$ & $m$ & Singular & Zero & numInIz & time (s) \\
+    \begin{tabular}{r r c c r}
+        	oprule
+        $d$ & $m$ & Singular & Zero & numInIz \\
         \midrule
-        2 & 4  & false & false & 2 & 0 \\
-        2 & 5  & false & true  & 0 & 0 \\
-        3 & 6  & false & false & 2 & 0 \\
-        3 & 7  & false & true  & 0 & 0 \\
-        4 & 8  & false & false & 3 & 1 \\
-        4 & 9  & false & true  & 0 & 1 \\
-        5 & 11 & false & false & 1 & 36 \\
-        5 & 12 & false & true  & 0 & 36 \\
-        6 & 13 & false & false & 6 & 1095 \\
-        6 & 14 & false & true  & 0 & 1097 \\
+        2 & 4  & false & false & 2 \\
+        2 & 5  & false & true  & 0 \\
+        3 & 6  & false & false & 2 \\
+        3 & 7  & false & true  & 0 \\
+        4 & 8  & false & false & 3 \\
+        4 & 9  & false & true  & 0 \\
+        5 & 11 & false & false & 1 \\
+        5 & 12 & false & true  & 0 \\
+        6 & 13 & false & false & 6 \\
+        6 & 14 & false & true  & 0 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-
-\begin{table}[ht]
+\begin{table}[htbp]
     \centering
-    \caption{Results from Macaulay2 over $\mathbb{Z}_{32749}$ testing existence and smoothness of surfaces containing an $m$-gon. Columns as in \autoref{tab:mgon-results_Q}.}
+    \caption{Results over $\mathbb{Z}_{32749}$ for $m$-gons (same columns).}
     \label{tab:mgon-results_Z32749}
     \small
-    \begin{tabular}{r r c c r r}
+    \begin{tabular}{r r c c r}
         	oprule
-        $d$ & $m$ & Singular & Zero & numInIz & time (s) \\
+        $d$ & $m$ & Singular & Zero & numInIz \\
         \midrule
-        2  & 4  & false & false & 2  & 0 \\
-        2  & 5  & false & true  & 0  & 0 \\
-        3  & 6  & false & false & 2  & 0 \\
-        3  & 7  & false & true  & 0  & 0 \\
-        4  & 8  & false & false & 3  & 0 \\
-        4  & 9  & false & true  & 0  & 0 \\
-        5  & 11 & false & false & 1  & 0 \\
-        5  & 12 & false & true  & 0  & 0 \\
-        6  & 13 & false & false & 6  & 1 \\
-        6  & 14 & false & true  & 0  & 1 \\
-        7  & 17 & false & false & 1  & 1 \\
-        7  & 18 & false & true  & 0  & 1 \\
-        8  & 20 & false & false & 5  & 2 \\
-        8  & 21 & false & true  & 0  & 3 \\
-        9  & 24 & false & false & 4  & 5 \\
-        9  & 25 & false & true  & 0  & 6 \\
-        10 & 28 & false & false & 6  & 10 \\
-        10 & 29 & false & true  & 0  & 12 \\
-        11 & 33 & false & false & 1  & 22 \\
-        11 & 34 & false & true  & 0  & 26 \\
-        12 & 37 & false & false & 11 & 44 \\
-        12 & 38 & false & true  & 0  & 50 \\
-        13 & 43 & false & false & 1  & 87 \\
-        13 & 44 & false & true  & 0  & 99 \\
-        14 & 48 & false & false & 8  & 178 \\
-        14 & 49 & false & true  & 0  & 199 \\
-        15 & 54 & false & false & 6  & 331 \\
-        15 & 55 & false & true  & 0  & 363 \\
+        2  & 4  & false & false & 2  \\
+        2  & 5  & false & true  & 0  \\
+        3  & 6  & false & false & 2  \\
+        3  & 7  & false & true  & 0  \\
+        4  & 8  & false & false & 3  \\
+        4  & 9  & false & true  & 0  \\
+        5  & 11 & false & false & 1  \\
+        5  & 12 & false & true  & 0  \\
+        6  & 13 & false & false & 6  \\
+        6  & 14 & false & true  & 0  \\
+        7  & 17 & false & false & 1  \\
+        7  & 18 & false & true  & 0  \\
+        8  & 20 & false & false & 5  \\
+        8  & 21 & false & true  & 0  \\
+        9  & 24 & false & false & 4  \\
+        9  & 25 & false & true  & 0  \\
+        10 & 28 & false & false & 6  \\
+        10 & 29 & false & true  & 0  \\
+        11 & 33 & false & false & 1  \\
+        11 & 34 & false & true  & 0  \\
+        12 & 37 & false & false & 11 \\
+        12 & 38 & false & true  & 0  \\
+        13 & 43 & false & false & 1  \\
+        13 & 44 & false & true  & 0  \\
+        14 & 48 & false & false & 8  \\
+        14 & 49 & false & true  & 0  \\
+        15 & 54 & false & false & 6  \\
+        15 & 55 & false & true  & 0  \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-
-\section{m-chain}
+% -----------------------------------------------------------------------------
+\section{The m-chain script}
 \label{app:mchain}
 
-This code is almost exactly the same as for $m$-gons, the slight change being that we do not include the final line from the last point to the first. This also means that one should be careful when reading the results, as nrOfPoints no longer equal the number of lines.
+An $m$-chain omits the closing line: with points $p_1,\dots,p_m$ we form lines only between $p_i$ and $p_{i+1}$ for $1\le i < m$. Thus there are $m-1$ lines. All other steps mirror the $m$-gon case; when comparing bounds replace $m$ (lines) by $m-1$.
 
-\lstinputlisting[caption={m-chain}, label={lst:m-chain}]{../Progging/nchain.m2}
+\lstinputlisting[caption={Script for an $m$-chain (number of lines $= m-1$)}, label={lst:m-chain},numbers=left,breaklines=true]{../Progging/nchain.m2}
+
+% -----------------------------------------------------------------------------
+\section{Code for the extra interested}
+\label{app:loop}
+
+To scan many $(d,m)$ pairs automatically a while-loop script iterates degrees until a time budget is exhausted, caching line ideals by number of points. A production version should (i) enforce a nonzero random draw in $I_Z(d)$, (ii) offer a fixed seed for reproducibility, and (iii) emit CSV output.
+
+\lstinputlisting[caption={Script for looping of different degrees of  $m$-chain (number of lines $= m-1$)}, label={lst:m-chain},numbers=left,breaklines=true]{../Progging/gonloop.m2}
 
 
-\section{Code for the especially interested}
-
-One may notice that requiring the change of degree $d$ and amount of points in the code above leads to the tedious work of changing each of these every time we calculate the program. We have used the code above especially when checking specific examples. An example is studying the ideal $I_Z$ in more detail to see whether the degree $d$ surface including the configurations are unique, by checking if the ideal is generated by a single degree $d$ element. But most of the time our goal has been to see the results for several values at once, which also becomes quite time-consuming as the values get bigger. We therefore opted for a while-loop, given below. This prints results as it moves along, and has a time limit one can change if desired. 
-
-\todo[inline]{Make the code proper, and include.}
+% % -----------------------------------------------------------------------------
+% \section{Limitations and cautions}
+% \begin{itemize}
+%     \item \textbf{Randomness} Absence of forms at/above the bound suggests sharpness but is not a proof.
+%     \item \textbf{Smoothness bias} Smoothness is Zariski open; random forms tend to be smooth when the linear system is nonempty.
+%     \item \textbf{Characteristic} No discrepancy observed between $\mathbb{Q}$ and $\mathbb{Z}_{32749}$ here; pathological behavior in small characteristic is still possible.
+%     \item \textbf{Performance} Intersections grow expensive for large $m$ and $d$; caching ideals reduces redundancy.
+%     \item \textbf{Layout} Floating, line-breaking, and grouping tables mitigate page splits; further manual tweaks (\verb+\clearpage+) can be added if needed.
+% \end{itemize}
 

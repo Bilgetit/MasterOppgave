@@ -6,13 +6,21 @@
 %     Let $k$ be a field, and let $f \colon X \to Y$ be a morphism of projective schemes over $k$ Then $f$ is proper. In particular, the image $f(X) \subseteq Y$ is closed in $Y$.
 % \end{lemma}
 
+\begin{theorem}[\cite{Vak25} 11.4.1]
+    Suppose $\pi \colon X \to Y$ is a (necessarily finite type) morphism of irreducible $k$-varieties, with $\dim X = m$ and $\dim Y = n$. Then there exists a nonempty open subset $U \subseteq Y$ such that for all $q \in U$, the fiber over $q$ has pure dimension $m-n$, or is empty.
+\end{theorem}
+
+\begin{lemma}\label{lem:irred_fiber}
+    Let $\pi \colon X \to Y$ be a proper morphism to an irreducible variety, and all the fibers are nonempty and irreducible of the same dimension. Then $X$ is irreducible.
+\end{lemma}
+
 \begin{theorem}[Dimension formula for fibers] \label{thm:fiber}
     Let $k$ be a field and let $f\colon X \to Y$ be a dominant morphism of irreducible projective varieties over $k$. Let $\eta$ denote the generic point of $Y$ and write $X_\eta = X \times_Y \mathrm{Spec}\,k(Y)$ for the generic fiber. Then
     \[
         \dim X \;=\; \dim Y \;+\; \dim X_\eta.
     \]
 \end{theorem}
-\todo[inline]{Write the proof, and/or find reference. Maybe use Vakil 11.4.2.}
+\todo[inline]{Write the proof, and/or find reference. Maybe use \cite{Vak25} 11.4.2.}
 % \begin{proof}
 %     For irreducible varieties over a field, the Krull dimension equals the transcendence degree of the function field over $k$. Dominance of $f$ gives an inclusion of function fields $k(Y)\hookrightarrow k(X)$ and $k(X)$ is a finitely generated field extension of $k(Y)$. Hence
 %     \[

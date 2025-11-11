@@ -1,2 +1,57 @@
 \section{Intersection Theory}
-We will follow the treatment of intersection theory of divisors as presented in the first chapter of \cite{BEA96}.
+
+An important tool in algebraic geometry is intersection theory. While we will only use it explicitly in a few cases in this thesis, it is a foundational concept which underpins much of the subject. We will follow the treatment of intersection theory of divisors as presented in the first chapter of \cite{BEA96}.
+
+Let $X$ be a scheme (Should it be smooth variety!?).  Recall that the Picard group $\mathrm{Pic}(X)$ is the group of isomorphism classes of line bundles $\mathcal{L}$ (i.e. of invertible sheaves) on $X$, with addition given by the tensor product, $[\mathcal{L}] + [\mathcal{L'}]$ = $[\mathcal{L} \otimes \mathcal{L'}]$. To every effective divisor $D$ on $X$, we can associate a line bundle $\mathcal{O}_X(D)$, defined locally as the set of rational functions $f$ on $X$ such that $\text{Div}(f) + D \geq 0$, and a section $s \in H^0(X, \mathcal{O}_X(D))$, $s \neq 0$ which is unique up to scalar multiplication, such that $\mathrm{Div}(s) = D$. The map $D \mapsto \mathcal{O}_X(D)$ identifies $\mathrm{Pic}(X)$ with the group of linear equivalence classes of divisors on $X$. 
+
+Let $Y$ be another scheme, and consider the morphism $f\colon X \to Y$. Then we can define the pullback of an invertible sheaf with respect to $f$ (\cite{EO25} section 16.5) to get a homomorphism $f^* \colon X \to Y$. If $f$ is a dominant morphism, we can also define the pullback of divisors. We can also define the pullback $f^*D$ of a Cartier divisor $D$ on $Y$ as a Cartier divisor on $X$ such that $f^*(\mathcal{O}_Y(D)) = \mathcal{O}_X(f^*D)$. See \cite{EO25} section 20.7 for details
+
+If $f$ is generically finite of degree $d$, then we define the direct image $f_*C$ of an irreducible curve by setting 
+\[
+f_*C :=
+\begin{cases}
+0, & \text{if } f(C) \text{ is a point},\\[4pt]
+r\Gamma, & \text{if } f(C)=\Gamma \text{ is a curve and the induced map } C \to \Gamma \text{ is finite of degree } r.
+\end{cases}
+\]
+We define $f_*D$ for all divisors $D$ on $X$ by linearity.
+
+We now define intersection multiplicity.
+
+\begin{definition}
+    Let $C, C'$ be two distinct irreducible curves on a surface $S$, $x \in C \cap C'$, $\mathcal{O}_x$ the local ring of $S$ at $x$. If $f$ and $g$ are local equations of $C$ and $C'$ in $\mathcal{O}_x$, then the \emph{intersection multiplicity} of $C$ and $C'$ at $x$ is defined as
+    \[m_x(C\cap C') = \dim_\mathbb{C} \mathcal{O}_x/(f,g).\]
+\end{definition}
+
+
+\begin{definition}
+    If $C, C'$ are two distinct irreducible curves on a surface $S$, then the \emph{intersection number} of $C$ and $C'$ is defined as
+    \[(C.C') = \sum_{x \in C \cap C'} m_x(C \cap C').\]
+\end{definition}
+
+\begin{remark}
+    We will often write $C.C'$ instead of $(C.C')$ for the intersection number.
+\end{remark}
+
+\begin{theorem}
+    Let $C, C'$ be two distinct irreducible curves on a surface $S$. Then 
+    \[(\mathcal{O}_S(C).\mathcal{O}_S(C')) = (C.C').\]
+\end{theorem}
+\begin{proof}
+    See \cite{BEA96} Theorem I.4
+\end{proof}
+
+In other words, we can compute the intersection number of two curves by computing the intersection number of their associated line bundles. If $D, D'$ are two divisors on $S$ we write $D.D'$ for $(\mathcal{O}_S(D).\mathcal{O}_S(D'))$. Then we have that we can calculate this intersection number by replacing $D$ or $D'$ by linearly equivalent divisors. This allows us to for example compute the self-intersection number of a divisor. Next we give an application of this.
+
+\begin{example}[Example I.9 (a) in \cite{BEA96}]
+    Let $S = \mathbb{P}^2$. We know that $\mathrm{Pic}(S) \cong \mathbb{Z}$. Let $C, C'$ be curves of degree $d$ and $d'$ respectively. Since $C \equiv dL$ and $C' \equiv d'L'$ for distinct lines $L, L'$, we get Bezout's theorem:
+    \[C.C' = dL.d'L' = dd' (L.L) = dd'.\]
+
+\end{example}
+
+
+Recall that a divisor $D$ on a variety $X$ is \emph{ample} if some positive multiple of $D$ defines an embedding of $X$ into projective space. We now state the Hodge Index Theorem for surfaces.
+\begin{theorem}[Hodge Index Theorem]\label{thm:hodge}
+    Let $H$ be an ample divisor on a smooth surface $X$, and suppose $D$ is a divisor, $D \neq 0$, with $D.H = 0$. Then $D^2 < 0$.
+\end{theorem}
+The proof can be found in \cite{Ha77} Theorem V.1.9.

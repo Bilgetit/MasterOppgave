@@ -19,6 +19,70 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global}
+    \entry{BEA96}{book}{}
+      \name{author}{1}{}{%
+        {{hash=63b9e8bc2c576ca9763336b6d305b740}{%
+           family={Beauville},
+           familyi={B\bibinitperiod},
+           given={Arnaud},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press, Cambridge}%
+      }
+      \strng{namehash}{63b9e8bc2c576ca9763336b6d305b740}
+      \strng{fullhash}{63b9e8bc2c576ca9763336b6d305b740}
+      \strng{bibnamehash}{63b9e8bc2c576ca9763336b6d305b740}
+      \strng{authorbibnamehash}{63b9e8bc2c576ca9763336b6d305b740}
+      \strng{authornamehash}{63b9e8bc2c576ca9763336b6d305b740}
+      \strng{authorfullhash}{63b9e8bc2c576ca9763336b6d305b740}
+      \field{labelalpha}{Bea96}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{Second}
+      \field{isbn}{0-521-49510-5; 0-521-49842-2}
+      \field{note}{Translated from the 1978 French original by R. Barlow, with assistance from N. I. Shepherd-Barron and M. Reid}
+      \field{series}{London Mathematical Society Student Texts}
+      \field{title}{Complex algebraic surfaces}
+      \field{volume}{34}
+      \field{year}{1996}
+      \field{pages}{x+132}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1017/CBO9780511623936
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1017/CBO9780511623936
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1017/CBO9780511623936
+      \endverb
+    \endentry
+    \entry{Do04}{article}{}
+      \name{author}{1}{}{%
+        {{hash=508393cb3a9b62cbfe42f33fc795e328}{%
+           family={Dolgachev},
+           familyi={D\bibinitperiod},
+           given={Igor},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{508393cb3a9b62cbfe42f33fc795e328}
+      \strng{fullhash}{508393cb3a9b62cbfe42f33fc795e328}
+      \strng{bibnamehash}{508393cb3a9b62cbfe42f33fc795e328}
+      \strng{authorbibnamehash}{508393cb3a9b62cbfe42f33fc795e328}
+      \strng{authornamehash}{508393cb3a9b62cbfe42f33fc795e328}
+      \strng{authorfullhash}{508393cb3a9b62cbfe42f33fc795e328}
+      \field{labelalpha}{Dol04}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{09}
+      \field{title}{Luigi Cremona and cubic surfaces}
+      \field{year}{2004}
+    \endentry
     \entry{EH16}{book}{}
       \name{author}{2}{}{%
         {{hash=1249d4c8877c098355d267da038c837b}{%
@@ -92,6 +156,45 @@
       \field{year}{2025}
       \field{dateera}{ce}
     \endentry
+    \entry{FUL84}{book}{}
+      \name{author}{1}{}{%
+        {{hash=205bfcbd8ec5b58401ee1d5cbd94a5de}{%
+           family={Fulton},
+           familyi={F\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag, Berlin}%
+      }
+      \strng{namehash}{205bfcbd8ec5b58401ee1d5cbd94a5de}
+      \strng{fullhash}{205bfcbd8ec5b58401ee1d5cbd94a5de}
+      \strng{bibnamehash}{205bfcbd8ec5b58401ee1d5cbd94a5de}
+      \strng{authorbibnamehash}{205bfcbd8ec5b58401ee1d5cbd94a5de}
+      \strng{authornamehash}{205bfcbd8ec5b58401ee1d5cbd94a5de}
+      \strng{authorfullhash}{205bfcbd8ec5b58401ee1d5cbd94a5de}
+      \field{labelalpha}{Ful84}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{3-540-12176-5}
+      \field{series}{Ergebnisse der Mathematik und ihrer Grenzgebiete (3) [Results in Mathematics and Related Areas (3)]}
+      \field{title}{Intersection theory}
+      \field{volume}{2}
+      \field{year}{1984}
+      \field{pages}{xi+470}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1007/978-3-662-02421-8
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-662-02421-8
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-662-02421-8
+      \endverb
+    \endentry
     \entry{Ha77}{book}{}
       \name{author}{1}{}{%
         {{hash=ee65baaab88f9233fbad3d51c399ee25}{%
@@ -121,6 +224,67 @@
       \field{year}{1977}
       \field{pages}{xvi+496}
       \range{pages}{-1}
+    \endentry
+    \entry{Vak25}{book}{}
+      \name{author}{1}{}{%
+        {{hash=fd27b54a95453be8ed6a0951d5bc5075}{%
+           family={Vakil},
+           familyi={V\bibinitperiod},
+           given={Ravi},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press, Princeton, NJ}%
+      }
+      \strng{namehash}{fd27b54a95453be8ed6a0951d5bc5075}
+      \strng{fullhash}{fd27b54a95453be8ed6a0951d5bc5075}
+      \strng{bibnamehash}{fd27b54a95453be8ed6a0951d5bc5075}
+      \strng{authorbibnamehash}{fd27b54a95453be8ed6a0951d5bc5075}
+      \strng{authornamehash}{fd27b54a95453be8ed6a0951d5bc5075}
+      \strng{authorfullhash}{fd27b54a95453be8ed6a0951d5bc5075}
+      \field{labelalpha}{Vak25}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-691-26866-8; 978-0-691-26867-5; 978-0-691-26868-2}
+      \field{title}{The rising sea---foundations of algebraic geometry}
+      \field{year}{[2025] ©2025}
+      \field{pages}{xxiii+662}
+      \range{pages}{-1}
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{1}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{data}{dataset}{}
+      \name{author}{1}{}{%
+        {{hash=3e3ce619cc4a64da59c8ee803f7976c6}{%
+           family={Author},
+           familyi={A\bibinitperiod},
+           given={The},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Dryad}%
+      }
+      \strng{namehash}{3e3ce619cc4a64da59c8ee803f7976c6}
+      \strng{fullhash}{3e3ce619cc4a64da59c8ee803f7976c6}
+      \strng{bibnamehash}{3e3ce619cc4a64da59c8ee803f7976c6}
+      \strng{authorbibnamehash}{3e3ce619cc4a64da59c8ee803f7976c6}
+      \strng{authornamehash}{3e3ce619cc4a64da59c8ee803f7976c6}
+      \strng{authorfullhash}{3e3ce619cc4a64da59c8ee803f7976c6}
+      \field{labelalpha}{Aut20}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Very Big and Important Dataset}
+      \field{year}{2020}
+      \verb{doi}
+      \verb XX.XXXX/XXX.XXXX.XXXXXXXX
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

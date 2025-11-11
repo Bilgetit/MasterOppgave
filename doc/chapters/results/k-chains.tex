@@ -1,40 +1,54 @@
 \section{Surfaces including m-chains}\label{sec:m-chain}
 
-A `happy accident' we made when studying $m$-gons in Macaulay2 was to forget to add the final line which then intersects the first line, closing the loop. Before realizing what exactly had happened, we noted that the results were strange and suspected an error in our code, which we then promptly fixed. Still, the results were a bit surprising, implying that for some chains we find only singular surfaces of certain degrees. After getting more expected results for $m$-gons, we decided to study these new formations further, resulting the theory in this section. We begin with the new definition.
+A `happy accident' we made when studying $m$-gons in Macaulay2 was to forget to add the final line which then intersects the first line, closing the loop. Before realizing what exactly had happened, we noted that the results were strange and suspected an error in our code, which we then promptly fixed. Still, the results were a bit surprising, implying that for some chains we find only singular surfaces of certain degrees. After getting more expected results for $m$-gons, we decided to study these new formations further, resulting the theory in this section. We begin by defining $m$-chains.
 
 \begin{definition}
-    An $m$-chain is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$. We will write $C_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$. A \emph{regular} $m$-chain is an $m$-chain such that no line $l_i$ intersects any $l_j$ for $|i - j| > 1$, and $l_i \neq l_j$ for $i \neq j$.
+    An $m$-chain is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$. We will write $Q_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$. 
 \end{definition}
-\todo[inline]{Improve regular definition wording.}
-
-As discussed above, we note that an $m$-chain is an $(m+1)$-gon excluding the line $l_m$ intersecting $l_1$. One can then modify the code to create $m$-chains instead of $(m+1)$-gons, which is included in \cref{app:mchain}. The results from this are similar to those of $m$-gons, in that for higher degrees, we find smooth surfaces, up until we find no surfaces. There are however interesting exceptions for degree 2 and 3 surfaces. Here we find singular surfaces when considering 4-chains and 6-chains respectively. We will handle the cases separately. First, we will study the set of $m$-chains in $\mathbb{P}^3$.
-\todo[inline]{Include m2 results for $m$-chains}
+\begin{definition}
+    A \emph{regular} $m$-chain is an $m$-chain such that no line $l_i$ intersects any $l_j$ for $|i - j| > 1$, and there are no double lines $l_i \neq l_j$ for $i \neq j$.
+\end{definition}
 
 \begin{definition}
     We define $\mathcal{Q}_m \subseteq \mathbb{G}(1,3)^m$ to be the subset of m-tuples of lines $(l_1, \dots, l_m)$ such that they form an $m$-chain.
 \end{definition}
 
-\begin{lemma} %\label{lem:dimQm}
+\begin{lemma}
     $\mathcal{Q}_m$ is an irreducible variety of dimension $3m + 1$ for $m \geq 1$. 
 \end{lemma} 
+This was shown in \cref{lem:dimQm}.
 
-\todo[inline]{Irreducibility is discussed in EH 3.3.1, saying Schubert cells and their closures are irreducible.}
-
-% \begin{proof}
-%     For $m=1$, we have that $\mathcal{Q}_1 = \mathbb{G}(1,3)$, which is irreducible of dimension 4. Now, assume that the statement holds for $m - 1$. Consider the projection map $\pi: \mathcal{Q}_m \to \mathcal{Q}_{m-1}$ given by $\pi(l_1, \dots, l_m) = (l_1, \dots, l_{m-1})$. The fiber over a point $(l_1, \dots, l_{m-1}) \in \mathcal{Q}_{m-1}$ is given by the set of lines $l_m$ such that $l_m$ intersects $l_{m-1}$. The set of lines intersecting a given line in $\mathbb{P}^3$ is a 2-dimensional variety (it can be identified with the projective plane of lines through a point in the plane orthogonal to the given line). Thus, the fiber has dimension 2. By the induction hypothesis, we have that $\dim \mathcal{Q}_{m-1} = 3(m-1) + 1 = 3m - 2$. Therefore, by the fiber dimension theorem, we have that
-%     \[
-%     \dim \mathcal{Q}_m = \dim \mathcal{Q}_{m-1} + \dim \pi^{-1}(l_1, \dots, l_{m-1}) = (3m - 2) + 2 = 3m.
-%     \]
-%     To show irreducibility, note that $\mathcal{Q}_m$ can be constructed as a sequence of projective bundles over $\mathcal{Q}_{m-1}$, each time adding a line that intersects the previous one. Since projective bundles over irreducible varieties are irreducible, it follows by induction that $\mathcal{Q}_m$ is irreducible. Thus, the lemma holds for all $m$.
-% \end{proof}
-
+\begin{proposition}
+    The set of regular $m$-chains in $\mathcal{Q}_m$ is a dense open subset of $\mathcal{Q}_m$.
+\end{proposition}
 \begin{proof}
-    We observe that $\mathcal{Q}_m$ can be constructed as a product of Grassmannians, with a condition of intersection added for $m \geq 2$. That is, if we are given a line $L \in \mathbb{G}(1,3)$, we can consider the space of lines intersecting $L$, denoted as $\Sigma_L = \{l \in \mathbb{G}(1,3) \mid l \cap L \neq \emptyset\}$. Then $\mathcal{Q}_m = \mathbb{G}(1,3) \times \Sigma_L^{m-1}$. For m = 1, we have that $\mathcal{Q}_1 = \mathbb{G}(1,3)$, which is irreducible of dimension 4. Now, assume that the statement holds for $m-1$. Consider the projection map $\pi: \mathcal{Q}_m \to \mathcal{Q}_{m-1}$ given by $\pi(l_1, \dots, l_m) = (l_1, \dots, l_{m-1})$. The fiber over a point is given by $\pi^{-1}(l_1, \dots, l_{m-1}) = \{(l_1, \dots, l_{m-1}, l_m) \in \mathcal{Q}_m \mid l_m \cap l_{m-1} \neq \emptyset\}$ which is isomorphic to $\Sigma_{l_{m-1}} = \{l \in \mathbb{G}(1,3) \mid l \cap l_{m-1} \neq \emptyset\}$. 
-
-    Note that for a given line $L$, $\Sigma_L$ can be constructed as the image of the incidence correspondence $\Gamma = \{(l, p)\in \mathbb{G}(1,3) \times L \mid p \in l\}$ to $\mathbb{G}(1,3)$. The fiber of the projection map $f: \Gamma \to L$ is given by the set of lines through a point $p \in L$, which is isomorphic to $\mathbb{P}^2$. Then the fiber of each point in $L$ is irreducible of dimension 2, and since $f$ is proper, we have that $\Gamma$ is irreducible of dimension 3, meaning that $\Sigma_L$ is irreducible of dimension 3. Thus, $\mathcal{Q}_m$ is the product of $m-1$ irreducible varieties of dimension 3, and one Grassmannian of dimension 4, so $\mathcal{Q}_m$ is irreducible of dimension $4 + 3(m-1) = 3m + 1$. This completes the proof.
+    
 \end{proof}
 
-\todo[inline]{Update proof with notes from 09.10. Don't think this is rigorous enough to show irreducibility.}
+As discussed above, we note that an $m$-chain is an $(m+1)$-gon excluding the line $l_m$ intersecting $l_1$. One can then modify the code to create $m$-chains instead of $(m+1)$-gons, which is included in \cref{app:mchain}. The results from this are similar to those of $m$-gons, in that for higher degrees, we find smooth surfaces, up until we find no surfaces. There are however interesting exceptions for degree 2 and 3 surfaces. Here we find singular surfaces when considering 4-chains and 6-chains respectively. We will handle the cases separately. First, we show a similar proposition to that of $m$-gons in \cref{prop:m-gon}.
+
+\begin{proposition}
+    Let $Q_m$ be a regular $m$-chain in $\mathbb{P}^3$. Then we can find a hypersurface $S_d$ of degree $d$ such that $Q_m \subseteq S_d$ when $m < (\binom{d+3}{3}-1) \cdot \frac{1}{d}$, or equivalently $m < \frac{(d+3)(d+2)(d+1)-1}{6d}$.
+\end{proposition}
+
+\begin{proof}
+    The proof is very similar to that of \cref{prop:m-gon}, so we will be brief here. We have the short exact sequence
+    \[0 \to \mathcal{I}_{Q_m}(d) \to \mathcal{O}_{\mathbb{P}^3}(d) \to \mathcal{O}_{Q_m}(d) \to 0,\]
+    which by the same analysis as before gives us 
+    \[h^0(\mathbb{P}^3, \mathcal{I}_{Q_m}(d)) = h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) + h^1(\mathbb{P}^3, \mathcal{I}_{Q_m}(d)) - h^0(Q_m, \mathcal{O}_{Q_m}(d)).\]
+
+    The computation of $h^0(Q_m, \mathcal{O}_{Q_m}(d))$ is only slightly different from before, since we now have $m-1$ intersection points instead of $m$. 
+    \[h^0(Q_m, \mathcal{O}_{Q_m}(d)) = h^0(\bigoplus_{i=1}^m \mathcal{O}_{l_i}(d)) - h^0(\bigoplus_{i=1}^{m-1} \mathcal{O}_{p_i}).\]
+    Thus, we have $h^0(Q_m, \mathcal{O}_{Q_m}) = m\cdot \binom{d+1}{1} - m - 1 = md-1$, and 
+    \[h^0(\mathbb{P}^3, \mathcal{I}_{Q_m}(d)) = \binom{d+3}{3}-md-1 + h^1(\mathbb{P}^3, \mathcal{I}_{Q_m}(d))\]
+
+    We still know that $h^1(\mathbb{P}^3, \mathcal{I}_{Q_m}(d)) \geq 0$, so 
+    \[h^0(\mathbb{P}^3, \mathcal{I}_{Q_m}(d)) = \binom{d+3}{3}-md-1,\]
+    and we can guarantee a surface when $m < (\binom{d+3}{3}-1) \cdot \frac{1}{d}$.
+\end{proof}
+
+\subsection{Computational results}
+\todo[inline]{Include m2 results for $m$-chains}
 
 \subsection{The case of 4-chains}
 
@@ -200,7 +214,7 @@ The fact that we cannot find a surface including a general 6-chain may not be ve
 \begin{proof}
     First we show that we can find a regular 5-chain. Again we consult \cref{fig:blowup6} which shows a smooth surface as the blow-up $\mathbb{P}^2$ in six points. Then the chain $E_1 \cup \ell_{1_2} \cup E_2 + \ell_{23} + E_3$ meets the criteria of a regular 5-chain.
 
-    Now we want to show that we cannot find a regular 6-chain. First, denote the 27 lines of the cubic surface as $C_1, \dots, C_{27}$. Let $Q_5$ be a regular 5-chain, consisting of $C_1, \dots, C_5$. Look at the class $D = C_1 + C_2 - C_4 - C_5$. Then $D^2 = 0$, and $HD=0$ for $H = f^*(\mathcal{O}_{\mathbb{P}^3}(1))$(!?). Since $H$ is ample, the Hodge index theorem(!?) tells us that $D=0$, and we have the equality $C_1 + C_2 = C_4 + C_5$. Let $C_i$ be another line which intersects $C_5$. Then it must also intersect either $C_1$ or $C_2$ by the equality, and thus cannot be used to make a regular 6-chain.
+    Now we want to show that we cannot find a regular 6-chain. First, denote the 27 lines of the cubic surface as $C_1, \dots, C_{27}$. Let $Q_5$ be a regular 5-chain, consisting of $C_1, \dots, C_5$. Look at the class $D = C_1 + C_2 - C_4 - C_5$. Then $D^2 = 0$, and $HD=0$ for $H = f^*(\mathcal{O}_{\mathbb{P}^3}(1))$(!?). Since $H$ is ample, the Hodge index theorem, \cref{thm:hodge}, tells us that $D=0$, and we have the equality $C_1 + C_2 = C_4 + C_5$. Let $C_i$ be another line which intersects $C_5$. Then it must also intersect either $C_1$ or $C_2$ by the equality, and thus cannot be used to make a regular 6-chain.
 \end{proof}
 \todo[inline]{We have only used the assumption that the $m$-chain do not intersect extra, so rewrite to clarify that this holds for more than just the regular chains.}
 \todo[inline]{Similar result for gons?}
