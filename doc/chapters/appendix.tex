@@ -1,5 +1,5 @@
-\chapter{Programming}
-\label{sec:appendix}
+\chapter{Computational methods and results}
+\label{appendix}
 
 This appendix documents the Macaulay2 scripts used for the computational experiments. We describe how the line configurations are built, what the scripts test, and how to interpret the tables. We also note limitations of the approach (randomness, characteristic, layout).
 
@@ -116,7 +116,7 @@ An $m$-chain omits the closing line: with points $p_1,\dots,p_m$ we form lines o
 \section{Code for the extra interested}
 \label{app:loop}
 
-To scan many $(d,m)$ pairs automatically a while-loop script iterates degrees until a time budget is exhausted, caching line ideals by number of points. A production version should (i) enforce a nonzero random draw in $I_Z(d)$, (ii) offer a fixed seed for reproducibility, and (iii) emit CSV output.
+To scan many $(d,m)$ pairs automatically a while-loop script iterates degrees until a time budget is exhausted.
 
 \lstinputlisting[caption={Script for looping of different degrees of  $m$-chain (number of lines $= m-1$)}, label={lst:m-chain},numbers=left,breaklines=true]{../Progging/gonloop.m2}
 

@@ -1,6 +1,6 @@
 \section{Intersection Theory}
 
-An important tool in algebraic geometry is intersection theory. While we will only use it explicitly in a few cases in this thesis, it is a foundational concept which underpins much of the subject. We will follow the treatment of intersection theory of divisors as presented in the first chapter of \cite{BEA96}.
+An important tool in algebraic geometry is intersection theory. While we will only use it explicitly in a few cases in this thesis, it is a foundational concept which . We will follow the treatment of intersection theory of divisors as presented in the first chapter of \cite{BEA96}.
 
 Let $X$ be a scheme (Should it be smooth variety!?).  Recall that the Picard group $\mathrm{Pic}(X)$ is the group of isomorphism classes of line bundles $\mathcal{L}$ (i.e. of invertible sheaves) on $X$, with addition given by the tensor product, $[\mathcal{L}] + [\mathcal{L'}]$ = $[\mathcal{L} \otimes \mathcal{L'}]$. To every effective divisor $D$ on $X$, we can associate a line bundle $\mathcal{O}_X(D)$, defined locally as the set of rational functions $f$ on $X$ such that $\text{Div}(f) + D \geq 0$, and a section $s \in H^0(X, \mathcal{O}_X(D))$, $s \neq 0$ which is unique up to scalar multiplication, such that $\mathrm{Div}(s) = D$. The map $D \mapsto \mathcal{O}_X(D)$ identifies $\mathrm{Pic}(X)$ with the group of linear equivalence classes of divisors on $X$. 
 
@@ -55,3 +55,5 @@ Recall that a divisor $D$ on a variety $X$ is \emph{ample} if some positive mult
     Let $H$ be an ample divisor on a smooth surface $X$, and suppose $D$ is a divisor, $D \neq 0$, with $D.H = 0$. Then $D^2 < 0$.
 \end{theorem}
 The proof can be found in \cite{Ha77} Theorem V.1.9.
+
+\todo[inline]{Legg til exceptional divisor, og kanskje at klassen til en fiber har selvsnitt 0.}

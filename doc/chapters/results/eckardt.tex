@@ -1,5 +1,5 @@
-\chapter{Results}\label{results}
-\section{Surfaces including intersecting lines}
+\chapter{Configurations of lines}\label{configs}
+\section{Surfaces including m-crosses}
 
 \begin{figure}
     \centering
@@ -19,15 +19,15 @@
   \label{fig:Z_6}
 \end{figure}
 
-\todo[inline]{Align name of lines better}
-
 In this section we will study the problem of finding a smooth hypersurface $X_d \subset \mathbb{P}^3$ of degree $d$, containing an \emph{$m$-cross}. 
 
 \begin{definition}
     An $m$-cross is a union of $m$ lines $l_1, l_2, \dots, l_m$ in $\mathbb{P}^3$ which intersect at a common point $p$ and lying in a common plane $H$. We will write $Z_m = \bigcup_{i=1}^m l_i$.
 \end{definition}
 
-We require the lines to lie in a plane because if this is not true, then the point $p$ gives rise to a tangent space of dimension 3, which cannot be included in a surface in $\mathbb{P}^3$. \todo[inline]{Make this argument rigorous, maybe a proposition.}
+We require the lines to lie in a plane because if this is not true, then the point $p$ gives rise to a tangent space of dimension 3, which cannot be included in a surface in $\mathbb{P}^3$. 
+
+\todo[inline]{Gjør dette argumentet rigorøst. Se notat fra 6.11.}
 
 It is worth noting the specific question we are asking, which is that given an $m$-cross, does there exist a smooth hypersurface of degree $d$ including it. We do not ask whether an $m$-cross is to be expected inside a general hypersurface.
 
@@ -44,12 +44,13 @@ We are interested in both the existence and non-existence of degree $d$ hypersur
 \begin{proof}
     Assume for contradiction that $S = V(g)$ contains a plane $H$. We let $H = V(x_3)$ without loss of generality (refer to a lemma or previous discussion?)(!?). Then $x_3$ divides $g$, and we write $g = x_3 h$ for some $h \in \Bbbk [x_0,x_1,x_2,x_3]_{d-1}$. We then use the Jacobi criterion (15.12 in EO!?) on $x_3 h$, and get that $S$ is singular on the whole of $V(x_3) \cap V(h)$. This is non-empty by Bezout's theorem (\cref{thm:bezout}), giving a contradiction. (Use $d>1$ to see that $\text{deg}(h) = d-1 > 0$)(!?). 
 \end{proof}
+\todo[inline]{Dette må forbedres.}
 
 \begin{lemma}
     Given an $m$-cross, there does not exist any smooth hypersurface of degree $1 < d < m$ such that the lines are contained in the hypersurface.
 \end{lemma}
 \begin{proof}
-    Assume for contradiction that there exists a smooth hypersurface of degree $1 < d < m$ such that the lines are contained in the hypersurface. Then we can fix another line $\ell$ in $H$, which does not intersect $p$, and which does not lie in the hypersurface $X_d$ by \cref{lem:H}. $\ell$ will intersect each of the lines at a point $p_i$, all being distinct since the lines only intersects in $p$. $\ell$ will also intersect $X_d$ at the points $p_i$, thus intersecting the hypersurface at $m$ points. By Bezout's theorem (\cref{thm:bezout}), the intersection of a line with a hypersurface of degree $d$ is at most $d$ points, giving a contradiction. \todo[inline]{Can't the line stay on our surface when going from one line to the other?}
+    Assume for contradiction that there exists a smooth hypersurface of degree $1 < d < m$ such that the lines are contained in the hypersurface. Then we can fix another line $\ell$ in $H$, which does not intersect $p$, and which does not lie in the hypersurface $X_d$ by \cref{lem:H}. $\ell$ will intersect each of the lines at a point $p_i$, all being distinct since the lines only intersects in $p$. $\ell$ will also intersect $X_d$ at the points $p_i$, thus intersecting the hypersurface at $m$ points. By Bezout's theorem (\cref{thm:bezout}), the intersection of a line with a hypersurface of degree $d$ is at most $d$ points, giving a contradiction. 
 \end{proof}
 
 We now move on to the case of existence, with the following proposition:
@@ -58,7 +59,7 @@ We now move on to the case of existence, with the following proposition:
     For a given $m$-cross, we can find a smooth hypersurface of degree $m$ such that the lines are contained in the hypersurface.
 \end{proposition}
 \begin{proof}
-    Let $\mathfrak{L}$ be the linear system of hypersurfaces of degree $m$ in $\mathbb{P}^3$ containing the lines $l_1, \dots, l_k$ (Prove this is not empty, because of singular surfaces.)(!?). Recall that Bertini's theorem (\cref{thm:bertini}) tells us that the general member of $\mathfrak{L}$ is smooth outside the base locus of $\mathfrak{L}$. We can therefore narrow our search of singularities to the base locus. The base locus of $\mathfrak{L}$ is the union of the lines $l_1, \dots, l_k$. \todo{prove} Thus, we must find a function $f \in \Bbbk[x_0, x_1, x_2, x_3]_m$ such that $V(f)$ is smooth on the lines $l_1, \dots, l_m$. Bertini's theorem then gives us that we can find a hypersurface which is also smooth outside the base locus of $\mathfrak{L}$.
+    Let $\mathfrak{L}$ be the linear system of hypersurfaces of degree $m$ in $\mathbb{P}^3$ containing the lines $l_1, \dots, l_k$ (Prove this is not empty, because of singular surfaces.)(!?). Recall that Bertini's theorem (\cref{thm:bertini}) tells us that the general member of $\mathfrak{L}$ is smooth outside the base locus of $\mathfrak{L}$. We can therefore narrow our search of singularities to the base locus. The base locus of $\mathfrak{L}$ is the union of the lines $l_1, \dots, l_k$ (prove this, use notes. We can find for every point not in a line, a surface which excludes the points, but includes the surface)(!?). Thus, we must find a function $f \in \Bbbk[x_0, x_1, x_2, x_3]_m$ such that $V(f)$ is smooth on the lines $l_1, \dots, l_m$. Bertini's theorem then gives us that we can find a hypersurface which is also smooth outside the base locus of $\mathfrak{L}$.
 
     We study the function $f = g(x_1, x_2) + h(x_0, x_3)$, where $h = x_0^{m-1}x_3$ and $g = \prod l_i = x_1x_2 \prod_{i=3}^k (x_1 - \lambda_i x_2)$, giving the following polynomial:
     \[
@@ -95,6 +96,7 @@ Given an $m$-cross, we can find a smooth hypersurface of degree $d$ such that th
     If we have $m$ lines, we can find a smooth hypersurface of degree $d \geq m+1$ by including arbitrary lines $l_{m+1}, l_{m+2}, \dots, l_d$ lying in the plane. For the case $d=1$, we can take the plane $H$ containing the lines.
 \end{proof}
 
+%-------------------------------------------------------------
 \section{The set of degree d surfaces including m-crosses}
 
 In the previous section we studied the existence and non-existence of smooth hypersurfaces of degree $d$ including an $m$-cross. We will now study the dimension of the set of degree $d$ surfaces including $m$-crosses. Let $Z_m$ be an $m$-cross lying in a plane $H$, which we will assume is the plane $V(x_3)$ by an automorphism of $\mathbb{P}^3$.

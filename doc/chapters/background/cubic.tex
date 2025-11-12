@@ -1,13 +1,13 @@
-\section{Lines on a cubic surface}
-From \cref{cor:Fano}, we know that a generic smooth cubic surface contains finitely many lines. We will now show that it contains exactly 27 lines. This is a very famous result, and it was first proved in 1849 by Arthur Cayley and George Salmon, in a proof we will give a sketch of(!?). \todo[inline]{Consider continuing this historical view.}
+\section{27 lines on a cubic surface}
+From \cref{cor:Fano}, we know that a generic smooth cubic surface contains finitely many lines. We will now show that it contains exactly 27 lines. The following Is the main theorem of this section.
 
 \begin{theorem}
     Each smooth cubic surface in $\mathbb{P}^3$ contains exactly 27 distinct lines.
 \end{theorem}
 
-This will be the main theorem of this section. We will prove it in two different ways. The first will be a well known proof, relating cubic surfaces to blow-ups of $\mathbb{P}^2$ in 6 points. The second proof will use intersection theory on the Grassmannian $\mathbb{G}(1, 3)$. \todo[inline]{Describe second result better.}
+This will be the main theorem of this section. We will prove it in two different ways. The first will be a well known proof, relating cubic surfaces to blow-ups of $\mathbb{P}^2$ in 6 points. The second proof will use intersection theory on the Grassmannian $\mathbb{G}(1, 3)$. We begin with the first proof.
 
-We begin with the first proof.
+\todo[inline]{Describe second result better.}
 
 \subsection{Cubic surfaces as blow-ups of \texorpdfstring{$\mathbb{P}^2$}{P2} in 6 points}
 
@@ -54,14 +54,12 @@ We begin with the first proof.
 
 This proof will rely on theory which is not in the scope of this thesis, but it will allow us to draw a picture to show a representation of the 27 lines themselves, which we will use later.
 
-The points $P_1, \dots, P_6$ in $\mathbb{P}^2$ are said to be in \emph{general position} if no three of the points are collinear, and no six lie on a conic.
+First, the points $P_1, \dots, P_6$ in $\mathbb{P}^2$ are said to be in \emph{general position} if no three of the points are collinear, and no six lie on a conic. 
 
 \begin{proposition}\label{prop:blowup6}
     (\cite{Ha77}, 4.7/4.7.3) Let $P_1, \dots, P_6 \in \mathbb{P}^2$ be in general position. Let $X \subset \mathbb{P}^3$ be a smooth cubic surface. Then $X$ is isomorphic to the blow-up of $\mathbb{P}^2$ in the points $P_1, \dots, P_6$.
 \end{proposition}
-
-This is part of a bigger class of surfaces, those being the \emph{Del Pezzo} surfaces. These are surfaces which (Consider continuing, and maybe cite Beauville if so)(!?)
-
+This is part of a bigger class of surfaces, those being the \emph{Del Pezzo} surfaces. These are surfaces which (Consider continuing, and maybe cite Beauville if so!?)
 
 \begin{proposition}\label{prop:27}
     (\cite{Ha77}, 4.9) Let $X \subset \mathbb{P}^3$ be a smooth cubic surface. Then $X$ contains exactly 27 distinct lines. Each having self-intersection $-1$, and they are the only irreducible curves with negative self-intersection. They are:
@@ -85,7 +83,7 @@ Decide if we want to include this classic proof. We could do as EO, Finding 27 l
 \begin{proof}
     Given a smooth cubic surface $X \subset \mathbb{P}^3$ determined by the vanishing of a cubic form $F$ in four variables, we wish to determine the degree of the locus in $\mathbb{G}(1,3)$ of lines contained in $X$.
 
-    Observe that if we fix a line $L$ in $\mathbb{P}^3$, then the condition that $L$ lies in $X$ is equivalent to the condition that the restriction of $F$ to $L$ is identically zero. Note that the restriction map from the 20-dimensional vector space of cubic forms on $\mathbb{P}^3$ to the 4-dimensional vector space of cubic forms on $L$, $V_L = H^0(L, \mathcal{O}_L(3)$ is a linear surjection, and the condition $L \subseteq X$ is that $F$ maps to 0 in $V_L$. This imposes four linear conditions on the coefficients of $F$(!?). 
+    Observe that if we fix a line $L$ in $\mathbb{P}^3$, then the condition that $L$ lies in $X$ is equivalent to the condition that the restriction of $F$ to $L$ is identically zero. Note that the restriction map from the 20-dimensional vector space of cubic forms on $\mathbb{P}^3$ to the 4-dimensional vector space of cubic forms on $L$, $V_L = H^0(L, \mathcal{O}_L(3))$ is a linear surjection, and the condition $L \subseteq X$ is that $F$ maps to 0 in $V_L$. This imposes four linear conditions on the coefficients of $F$(!?). 
 
     As the line varies over $\mathbb{G}(1,3)$, the vector spaces $V_L$ fit together to form a vector bundle of rank 4, $\mathcal{V}$ on $\mathbb{G}(1,3)$, with fiber over the point $[L]$ being $V_L$. A cubic form $F$ on $\mathbb{P}^3$, through its restriction to each $V_L$, defines a global section $\sigma_F$ of this vector bundle. Thus, the locus of lines contained in the cubic surface $X$ is the zero locus of the section $\sigma_F$. Assuming that this zero locus is zero-dimensional(!?), its class in $A(\mathbb{G}(1,3))$ is given by the top Chern class $c_4(\mathcal{V})$ of the vector bundle $\mathcal{V}$. The number of lines contained in $X$ is therefore the degree of this class(!?).
 

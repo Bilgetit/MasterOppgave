@@ -51,3 +51,4 @@ submatrix
 indeterminates
 Zariski
 syzygy
+quadrics

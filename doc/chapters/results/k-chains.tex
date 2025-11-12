@@ -13,26 +13,25 @@ A `happy accident' we made when studying $m$-gons in Macaulay2 was to forget to 
     We define $\mathcal{Q}_m \subseteq \mathbb{G}(1,3)^m$ to be the subset of m-tuples of lines $(l_1, \dots, l_m)$ such that they form an $m$-chain.
 \end{definition}
 
-\begin{lemma}
-    $\mathcal{Q}_m$ is an irreducible variety of dimension $3m + 1$ for $m \geq 1$. 
-\end{lemma} 
-This was shown in \cref{lem:dimQm}.
+\begin{remark}
+    We showed in \cref{lem:dimQm} that $\mathcal{Q}_m$ is an irreducible variety of dimension $3m + 1$ for $m \geq 1$. 
+\end{remark}
 
-\begin{proposition}
+\begin{corollary}
     The set of regular $m$-chains in $\mathcal{Q}_m$ is a dense open subset of $\mathcal{Q}_m$.
-\end{proposition}
+\end{corollary}
 \begin{proof}
-    
+    The proof is the same as that for \cref{lem:gon-open}. We are able to replace $m$-gons with $m$-chains since the set of $m$-chains is the same as $m$-gons with the non-destruction exclusion that $l_m$ need not intersect $l_1$.
 \end{proof}
 
 As discussed above, we note that an $m$-chain is an $(m+1)$-gon excluding the line $l_m$ intersecting $l_1$. One can then modify the code to create $m$-chains instead of $(m+1)$-gons, which is included in \cref{app:mchain}. The results from this are similar to those of $m$-gons, in that for higher degrees, we find smooth surfaces, up until we find no surfaces. There are however interesting exceptions for degree 2 and 3 surfaces. Here we find singular surfaces when considering 4-chains and 6-chains respectively. We will handle the cases separately. First, we show a similar proposition to that of $m$-gons in \cref{prop:m-gon}.
 
-\begin{proposition}
+\begin{proposition}\label{prop:n-chain}
     Let $Q_m$ be a regular $m$-chain in $\mathbb{P}^3$. Then we can find a hypersurface $S_d$ of degree $d$ such that $Q_m \subseteq S_d$ when $m < (\binom{d+3}{3}-1) \cdot \frac{1}{d}$, or equivalently $m < \frac{(d+3)(d+2)(d+1)-1}{6d}$.
 \end{proposition}
 
 \begin{proof}
-    The proof is very similar to that of \cref{prop:m-gon}, so we will be brief here. We have the short exact sequence
+    The proof is very similar to that of \cref{prop:m-gon}, so we will be brief here. Again, by abuse of notation, we write $\mathcal{O}_{Q_m}$ for $i_* \mathcal{O}_{Q_m}$, where $i: Q_m \to \mathbb{P}^3$ is the inclusion. We have the short exact sequence
     \[0 \to \mathcal{I}_{Q_m}(d) \to \mathcal{O}_{\mathbb{P}^3}(d) \to \mathcal{O}_{Q_m}(d) \to 0,\]
     which by the same analysis as before gives us 
     \[h^0(\mathbb{P}^3, \mathcal{I}_{Q_m}(d)) = h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) + h^1(\mathbb{P}^3, \mathcal{I}_{Q_m}(d)) - h^0(Q_m, \mathcal{O}_{Q_m}(d)).\]
@@ -47,9 +46,11 @@ As discussed above, we note that an $m$-chain is an $(m+1)$-gon excluding the li
     and we can guarantee a surface when $m < (\binom{d+3}{3}-1) \cdot \frac{1}{d}$.
 \end{proof}
 
+% --------------------------------------------------------------
 \subsection{Computational results}
-\todo[inline]{Include m2 results for $m$-chains}
+\todo[inline]{Include m2 results for $m$-chains, including the unique surface including the 6-chain.}
 
+% --------------------------------------------------------------
 \subsection{The case of 4-chains}
 
 \begin{proposition}
@@ -57,10 +58,10 @@ As discussed above, we note that an $m$-chain is an $(m+1)$-gon excluding the li
 \end{proposition}
 
 \begin{proof}
-    First, assume that $S_2$ is smooth. Since $S_2$ is a smooth quadric surface in $\mathbb{P}^3$, it is of the form $S_2 = \mathbb{P}^1 \times \mathbb{P}^1$. \todo{Cite Beauville} This means that $S_2$ has two rulings, meaning that there are two families of lines on $S_2$, such that any two lines in the same family do not intersect, and any two lines in different families intersect at exactly one point. Denote the two families as $F_1$ and $F_2$. Then we can see that a 4-chain must consist of two lines from $F_1$ and two lines from $F_2$, since any two lines in the same family do not intersect. This means that the 4-chain must be of the form $l_1, l_2, l_3, l_4$ where $l_1, l_3 \in F_1$ and $l_2, l_4 \in F_2$. However, this means that $l_4$ intersects $l_1$, since they are in different families, meaning that the 4-chain is in fact a 4-gon. This is a contradiction, since this is not a general 4-chain. Thus, we cannot find a smooth quadric surface $ S_2 \subset \mathbb{P}^3$ such that it includes the 4-chain.
+    First, assume that $S_2$ is smooth. Since $S_2$ is a smooth quadric surface in $\mathbb{P}^3$, it is of the form $S_2 = \mathbb{P}^1 \times \mathbb{P}^1$ (reference Beauville!?). This means that $S_2$ has two rulings, meaning that there are two families of lines on $S_2$, such that any two lines in the same family do not intersect, and any two lines in different families intersect at exactly one point. Denote the two families as $F_1$ and $F_2$. Then we can see that a 4-chain must consist of two lines from $F_1$ and two lines from $F_2$, since any two lines in the same family do not intersect. This means that the 4-chain must be of the form $l_1, l_2, l_3, l_4$ where $l_1, l_3 \in F_1$ and $l_2, l_4 \in F_2$. However, this means that $l_4$ intersects $l_1$, since they are in different families, meaning that the 4-chain is in fact a 4-gon. This is a contradiction, since this is not a general 4-chain. Thus, we cannot find a smooth quadric surface $ S_2 \subset \mathbb{P}^3$ such that it includes the 4-chain.
 \end{proof}
 
-\todo[inline]{Compare to a 4-gon, which can be included in a smooth quadric surface. Use for example $V(x_1x_3-x_0x_2)$}
+This contrasts the case of 4-gons, where we could find smooth quadric surfaces including the 4-gon, as shown in \cref{cor:4-gon} in \cref{sec:4-gon-cohomology}.
 
 \begin{proposition}
     For a general 4-chain in $\mathbb{P}^3$, we can find a singular quadric surface $ S_2 \subset \mathbb{P}^3$ such that it includes the 4-chain.
@@ -68,7 +69,6 @@ As discussed above, we note that an $m$-chain is an $(m+1)$-gon excluding the li
 \begin{proof}
     We pair the lines of the 4-chain as $(l_1, l_2)$ and $(l_3, l_4)$. Each pair of lines defines a plane in $\mathbb{P}^3$, denoted as $H_1 = \mathrm{span}(l_1, l_2)$ and $H_2 = \mathrm{span}(l_3, l_4)$. Since the 4-chain is general, we have that $H_1 \neq H_2$. Then the union of the two planes $S_2 = H_1 \cup H_2$ is a singular quadric surface in $\mathbb{P}^3$ that includes the 4-chain.
 \end{proof}
-\todo[inline]{Improve, used GPT here.}
 
 % \subsection{The case of 7-chains}
 
@@ -89,16 +89,16 @@ As discussed above, we note that an $m$-chain is an $(m+1)$-gon excluding the li
 
 %     \begin{equation}
 %         \begin{tikzcd}
-%             & \mathcal{N} \arrow[dl, "\pi_1"'] \arrow[dr, "\pi_2"] & \\
+%             & \mathcal{N} \arrow[dl, "p"'] \arrow[dr, "q"] & \\
 %             \mathcal{M}  & & \mathbb{G}(1,3)^7
 %         \end{tikzcd}. 
 %     \end{equation}
 %     \todo[inline]{Should we use $\mathcal{Q}_7$ instead of $\mathbb{G}(1,3)^7$?}
     
-%     The projection map $\pi_1: \mathcal{N} \to \mathcal{M}$ is given by $\pi_1(S_d, l_1, \dots, l_7) = S_d$. Then the fiber over a point $S_d \in \mathcal{M}$ is given by the set of 7-chains included in $S_d$. Since a smooth cubic surface includes exactly 27 lines,\todo{Refer to result} we can find a 7-chain by choosing 7 lines from these 27. We know from \cref{prop:12-gon}(!?) \todo{Result in this section} that it is possible to find a 7-chain, and so this fiber is not empty. Furthermore, there are only a finite number of 7-chains when there is a finite number of lines. Then the dimension of the fiber $\dim \pi_1^{-1}(S_d)$ is 0, being a finite set of 7-chains. Thus, from \cref{thm:fiber}, we have that $\dim \mathcal{N} = \dim \mathcal{M} + \dim \pi_1^{-1}(S_d) = 19 + 0 = 19$. 
+%     The projection map $p: \mathcal{N} \to \mathcal{M}$ is given by $p(S_d, l_1, \dots, l_7) = S_d$. Then the fiber over a point $S_d \in \mathcal{M}$ is given by the set of 7-chains included in $S_d$. Since a smooth cubic surface includes exactly 27 lines,\todo{Refer to result} we can find a 7-chain by choosing 7 lines from these 27. We know from \cref{prop:12-gon}(!?) \todo{Result in this section} that it is possible to find a 7-chain, and so this fiber is not empty. Furthermore, there are only a finite number of 7-chains when there is a finite number of lines. Then the dimension of the fiber $\dim p^{-1}(S_d)$ is 0, being a finite set of 7-chains. Thus, from \cref{thm:fiber}, we have that $\dim \mathcal{N} = \dim \mathcal{M} + \dim p^{-1}(S_d) = 19 + 0 = 19$. 
 %     \todo[inline]{Refer to theorem about dimension of fiber.}
 
-%     Now we are interested in the fiber of the set of 7-chains in $\mathbb{P}^3$, $\mathcal{Q}_7 \subseteq \mathbb{G}(1,3)^7$. By \cref{lem:dimQm}, we have that $\dim \mathcal{Q}_7 = 22$, and so the projection map $\pi_2: \mathcal{N} \to \mathbb{G}(1,3)^7$ given by $\pi_2(S_d, l_1, \dots, l_7) = (l_1, \dots, l_7)$ cannot be surjective on (dominate!?) $\mathcal{Q}_7$. This means that taking a general 7-chain $C_7 \in \mathcal{Q}_7$, and considering the fiber $\pi_2^{-1}(C_7)$, we do not expect this to be non-empty, meaning we will not have a surface including it. Thus, for a general 7-chain in $\mathbb{P}^3$, we cannot find a smooth cubic surface $S_3 \subset \mathbb{P}^3$ such that it includes the 7-chain.
+%     Now we are interested in the fiber of the set of 7-chains in $\mathbb{P}^3$, $\mathcal{Q}_7 \subseteq \mathbb{G}(1,3)^7$. By \cref{lem:dimQm}, we have that $\dim \mathcal{Q}_7 = 22$, and so the projection map $q: \mathcal{N} \to \mathbb{G}(1,3)^7$ given by $q(S_d, l_1, \dots, l_7) = (l_1, \dots, l_7)$ cannot be surjective on (dominate!?) $\mathcal{Q}_7$. This means that taking a general 7-chain $C_7 \in \mathcal{Q}_7$, and considering the fiber $q^{-1}(C_7)$, we do not expect this to be non-empty, meaning we will not have a surface including it. Thus, for a general 7-chain in $\mathbb{P}^3$, we cannot find a smooth cubic surface $S_3 \subset \mathbb{P}^3$ such that it includes the 7-chain.
 % \end{proof}
 
 % \todo[inline]{Proof should include: projection is surjective (every smooth cubic surface has at least a 7-chain, shown in this section), implies dim N $\geq$ dim M. Then fiber is finite, so dim N $\leq$ dim M. Prop 10.26?}
@@ -132,23 +132,33 @@ As discussed above, we note that an $m$-chain is an $(m+1)$-gon excluding the li
 
 % This implies that the $m$-chains longer than 7 included in the smooth cubic surfaces are somehow special. \todo{Fill out later.}
 
+% --------------------------------------------------------------
 \subsection{The case of 6-chains}
 
-Let $\mathcal{M}$ be the set of smooth cubic surfaces in $\mathbb{P}^3$. This is an open subset of $\mathbb{P}(\Bbbk[x_0,\dots, x_3]_3) \cong \mathbb{P}^{19}$. \todo{Why open?} Since $\mathcal{M}$ is an open subset, it shares the dimension, i.e. $\dim \mathcal{M} = 19$. Let $ \mathcal{N} = \{(S_d, Q_6) \in \mathcal{M} \times \mathcal{Q}_6 \mid Q_6 \subset S_d\}$ be the incidence variety of smooth cubic surfaces including a general 6-chain. We have the following diagram:
+Let $\mathcal{M}$ be the set of smooth cubic surfaces in $\mathbb{P}^3$. This is an open subset of $\mathbb{P}(\Bbbk[x_0,\dots, x_3]_3) \cong \mathbb{P}^{19}$. Since $\mathcal{M}$ is an open subset, it shares the dimension, i.e. $\dim \mathcal{M} = 19$. Let $ \mathcal{N} = \{(S_d, Q_6) \in \mathcal{M} \times \mathcal{Q}_6 \mid Q_6 \subset S_d\}$ be the incidence variety of smooth cubic surfaces including a general 6-chain. Note that this is equivalent to the set $\{(S_d, l_1, \dots, l_6) \in \mathcal{M} \times \mathbb{G}(1,3)^6 \mid \bigcup_{i=1}^6 l_i \text{ is a 6-chain included in } S_d\}$, it is just notationally simpler to use the first definition. We have the following diagram:
 
 \begin{figure}[ht]
     \centering
     \begin{tikzcd}
-        & \mathcal{N} \arrow[dl, "\pi_1"'] \arrow[dr, "\pi_2"] & \\
+        & \mathcal{N} \arrow[dl, "p"'] \arrow[dr, "q"] & \\
         \mathcal{M}  & & \mathcal{Q}_6
     \end{tikzcd}
-    \caption{Incidence diagram for the projections $\pi_1:\mathcal{N}\to\mathcal{M}$ and $\pi_2:\mathcal{N}\to\mathcal{Q}_6$.}
+    \caption{Incidence diagram with the morphisms $p:\mathcal{N}\to\mathcal{M}$ and $q:\mathcal{N}\to\mathcal{Q}_6$.}
     \label{fig:incidence}
 \end{figure}
 
 \begin{remark}
-    Note that it is important that we consider the incidence variety over specifically the smooth cubic surfaces, including a general 6-chain. If not, one can prove that the fiber of the union of 3 planes, will include a much higher dimensional family of 6-chains, and so the incidence variety will not be irreducible. (!?)
+    Note that it is important that we consider the incidence variety over specifically the smooth cubic surfaces including a general 6-chain. If not, one can prove that the fiber of the union of 3 planes, will include a much higher dimensional family of 6-chains, and so the incidence variety will not be irreducible. (Do calculation!?)
 \end{remark}
+
+\begin{proposition}
+    $\mathcal{N}$ is an irreducible variety. 
+\end{proposition}
+\begin{proof}
+    We prove this inductively, by considering projection maps $\pi_m \colon \mathcal{N}_m \to \mathcal{N}_{m-1}$ where $\mathcal{N}_m$ is the incidence variety of smooth cubic surfaces including a general $m$-chain. The base case is $m=1$, where we have the incidence variety of smooth cubic surfaces including a line. This is irreducible by \cref{prop:universalFano} in \cref{sec:fano}. Now, assume that $\mathcal{N}_{m-1}$ is irreducible. Consider the projection map $\pi_m \colon \mathcal{N}_m \to \mathcal{N}_{m-1}$ given by $\pi_m(S_d, Q_m) = (S_d, Q_{m-1})$, where $Q_{m-1}$ is the $(m-1)$-chain obtained by removing the last line from $Q_m$. Then the fiber over a point $(S_d, Q_{m-1}) \in \mathcal{N}_{m-1}$ is given by the set of lines $l_m$ such that $Q_m = Q_{m-1} \cup l_m$ is an $m$-chain included in $S_d$. Since $Q_{m-1}$ is a chain, it has a unique last line $l_{m-1}$, and so $l_m$ must intersect $l_{m-1}$. Thus, the fiber is given by the set of lines in $S_d$ intersecting $l_{m-1}$. This is an irreducible variety by modifying the proof of \cref{lem:Schubert} to consider the Fano variety of lines in $S_d$, $F_1(S_d)$, instead of the full Grassmannian $\mathbb{G}(1,3)$(is this correct!?). Therefore, the fiber is also irreducible. Then by \cref{lem:irred_fiber} we have that $\mathcal{N}_m$ is irreducible.
+\end{proof}
+
+% We know from \cref{lem:Schubert} that the set of lines intersecting a fixed line in $\mathbb{P}^3$ is a Schubert variety of dimension 3 in $\mathbb{G}(1,3)$. Intersecting this with the Fano variety of lines in $S_d$, $F_k(S_d)$, then gives us the fiber. $F_k(S_d)$ is smooth since $S_d$ is smooth (see \cite{EH16} section 6.1.1).
 
 Now we will examine 6-chains in cubic surfaces. We will show that a general 6-chain is not included in a smooth cubic surface in two ways(!?), but that we can find singular cubic surfaces including a general 6-chain. We start by studying the incidence variety of smooth cubic surfaces including a general 6-chain. First we show that we can find a singular cubic surface including a general 6-chain, which will be useful to prove that we cannot find a smooth cubic surface including a general 6-chain.
 
@@ -165,20 +175,20 @@ Our testing in Macaulay2 also suggested that the singular surface was unique, wh
     A general 6-chain in $\mathbb{P}^3$ is only included in a unique surface.
 \end{proposition}
 \begin{proof}
-    Consider the diagram in \cref{fig:incidence}. The map $\pi_2$ has fiber $\pi_2^{-1}(Q_6) = \{S \mid Q_6 \in S\}$ for $Q_6 \in \mathcal{Q}_6$. $\pi_2$ is projective, since it is the composition of two projective maps. Then taking the dimension of the fiber of $\pi_2$ is upper semi-continuous(!?). 
+    Consider the diagram in \cref{fig:incidence}. The map $q$ has fiber $q^{-1}(Q_6) = \{S \mid Q_6 \in S\}$ for $Q_6 \in \mathcal{Q}_6$. $q$ is a projective morphism, since it is the composition of the closed embedding $i \colon \mathcal{N} \to \mathbb{P}^N \times \mathcal{M}$, and the projective map $\pi \colon \mathbb{P}^N \times \mathcal{M} \to \mathcal{M}$. A projective morphism is proper by \cite{Ha77} Theorem II.4.9 (Check that this is cited correctly!?). Then taking the dimension of the fiber of $q$ is upper semi-continuous. 
 
-    From (refer to result in Macaulay2 saying that the surface is unique!?), we have an example where the fiber is a single point. Call the relevant 6-chain $Z$. Though this computation was done over $\mathbb{Q}$, the result extends to $\mathbb{C}$. To see why, first note that when we find that there is only one unique surface including $Z$, it is equivalent to saying that the kernel of the map $\phi \colon H^0(\mathbb{P}^3, \mathcal{O}(3)) \rightarrow H^0(Z, \mathcal{O}(3)|_{Z}$ is 1-dimensional. Note also that the fiber of $\pi_2(Z)$ is the set $\{f \in \mathbb{C}[x_0,x_1,x_2,x_3]_3 \mid f|_{Z} = 0\}$, which are the polynomials which are zero on $Z$. The equations requiring $f|_{Z} = 0$ have rational coefficients, since our $Z$ is defined over the rationals. Therefore, the kernel of $\phi$ is also 1-dimensional over $\mathbb{C}$. Because of this, there exists at least one 6-chain with a single point as fiber, and so the fiber over this point is 0-dimensional.
+    From (refer to result in Macaulay2 saying that the surface is unique!?), we have an example where the fiber is a single point. Call the relevant 6-chain $Z$. Though this computation was done over $\mathbb{Q}$, the result extends to $\mathbb{C}$. To see why, first note that when we find that there is only one unique surface including $Z$, it is equivalent to saying that the kernel of the map $\phi \colon H^0(\mathbb{P}^3, \mathcal{O}(3)) \rightarrow H^0(Z, \mathcal{O}(3)|_{Z}$ is 1-dimensional(0-dimensional!?). Note also that the fiber of $q(Z)$ is the set $\{f \in \mathbb{C}[x_0,x_1,x_2,x_3]_3 \mid f|_{Z} = 0\}$, which are the polynomials which are zero on $Z$. The equations requiring $f|_{Z} = 0$ have rational coefficients, since our $Z$ is defined over the rationals. Therefore, the kernel of $\phi$ is also 1-dimensional over $\mathbb{C}$. Because of this, there exists at least one 6-chain with a single point as fiber, and so the fiber over this point is 0-dimensional.
 
-    For any surface $S$, we know that there exists $Q_6 \in \mathcal{Q}_6$ such that $\pi_2^{-1}(Q_6) = \{(S,Q_6)\}$, since all smooth surfaces includes 6-chains by \cref{lem:27}. Thus, the fiber of $\pi_2$ is non-empty. Then, by upper semi-continuity of fiber dimension (add to basic results, and cite!?), we have that since we know one fiber, $\pi_2^{-1}(Z)$ is 0-dimensional, there exists an open neighborhood $U$ of $Z$, such that $\dim \pi_2^{-1}(Z') \leq 0$ for all $Z' \in U$. Since the fiber is non-empty, all of these fibers are 0-dimensional, and so there are a finite number of surfaces including a general $Q_6$. Then we note that the fiber of $\pi_2$ is the set of solutions of linear equations, and so it defines a projective space. Since the fiber is 0-dimensional, it must be the point $\mathbb{P}^0$, and so there is only one surface. 
+    For any surface $S$, we know that there exists $Q_6 \in \mathcal{Q}_6$ such that $q^{-1}(Q_6) = \{(S,Q_6)\}$, since all smooth surfaces includes 6-chains by \cref{lem:27}. Thus, the fiber of $q$ is non-empty. Then, by upper semi-continuity of fiber dimension (add to basic results, and cite!?), we have that since we know one fiber, $q^{-1}(Z)$ is 0-dimensional, there exists an open neighborhood $U$ of $Z$, such that $\dim q^{-1}(Z') \leq 0$ for all $Z' \in U$. Since the fiber is non-empty, all of these fibers are 0-dimensional, and so there are a finite number of surfaces including a general $Q_6$. Then we note that the fiber of $q$ is the set of solutions of linear equations, and so it defines a projective space. Since the fiber is 0-dimensional, it must be the point $\mathbb{P}^0$, and so there is only one surface. 
 \end{proof}
 
 % \[\{f \in \mathbb{C}[x_0,x_1,x_2,x_3]_3 \mid f|_{Q_6} = 0\}\]
 % \[H^0(\mathbb{P}^3, \mathcal{O}(3)) \rightarrow H^0(Q_6, \mathcal{O}(3)|_{Q_6})\]
 % What we find in Macaulay2 is that the dimension of the kernel is 1, meaning that there is only one surface including the 6-chain. Though this applies $\mathbb{Q}$, it extends to $\mathbb{C}$ since the equations introduced to require $f|_{Q_6} = 0$ for the fixed $Q_6$ have rational coefficients, so the dimension of the kernel is the same.
 
-\begin{remark}
-    When testing in Macaulay2, we found only one singular surface including the 6-chains we checked. When we did a primary decomposition on this surface, we also found that it was indeed the union of 3 planes. (!?)
-\end{remark}
+% \begin{remark}
+%     When testing in Macaulay2, we found only one singular surface including the 6-chains we checked. When we did a primary decomposition on this surface, we also found that it was indeed the union of 3 planes.
+% \end{remark}
 
 Another lemma we will need is to show that we can find a 6-chain in any smooth cubic surface. We show that we can find a 27-chain, though this will be very degenerate, it will still include a 6-chain.
 
@@ -191,20 +201,19 @@ Another lemma we will need is to show that we can find a 6-chain in any smooth c
     For a general 6-chain in $\mathbb{P}^3$, we cannot find a smooth cubic surface $ S_3 \subset \mathbb{P}^3$ such that it includes the 6-chain.
 \end{proposition}
 
-Note: In this proposition, we use the notion of a general 6-chain instead of a regular 6-chain. We are able to prove this result for a regular 6-chain as well, which it is simpler, and relies on our definition of regular.
+% Note: In this proposition, we use the notion of a general 6-chain instead of a regular 6-chain. We are able to prove this result for a regular 6-chain as well, which is simpler, and relies on our definition of regular.
 
 \begin{proof}
-    $\pi_1 \colon \mathcal{N} \to \mathcal{M}$ is given by $\pi_1(S_d, Q_6) = S_d$. Then the fiber over a point $[S_d] \in \mathcal{M}$ is given by the set of 6-chains in $S_d$. Since $S_d$ is a smooth cubic surface, it includes exactly 27 lines, so we can find a 6-chain by choosing 6 lines from these 27. We know from \cref{lem:27} that it is possible to find a 6-chain, so this fiber is not empty. Furthermore, there are only a finite number of lines, and so the fiber $\pi_1^{-1}(S_d)$ has dimension 0. Thus, from the dimension formula for fibers, \cref{thm:fiber}, we have that $\dim \mathcal{N} = \dim \mathcal{M} + \dim \pi_1^{-1}(S_d) = 19$.
-    \todo[inline]{Need to show that $\mathcal{N}$ is irreducible.}
+    Let $p \colon \mathcal{N} \to \mathcal{M}$ be given by $p(S_d, Q_6) = S_d$. Then the fiber over a point $[S_d] \in \mathcal{M}$ is given by the set of 6-chains in $S_d$. Since $S_d$ is a smooth cubic surface, it includes exactly 27 lines, so we can find a 6-chain by choosing 6 lines from these 27. We know from \cref{lem:27} that it is possible to find a 6-chain, so this fiber is not empty. Furthermore, there are only a finite number of lines, and so the fiber $p^{-1}(S_d)$ has dimension 0. Thus, from the dimension formula for fibers, \cref{thm:fiber}, we have that $\dim \mathcal{N} = \dim \mathcal{M} + \dim p^{-1}(S_d) = 19$.
 
-    Now we are interested in $\pi_2$, and whether this dominates $\mathcal{Q}_6$. If it does not, we know that a general 6-chain does not have a representative in $\mathcal{N}$, and so is not included in a smooth cubic surface. By \cref{lem:dimQm}, we have that $\dim \mathcal{Q}_6 = 19$. Since the dimension of these sets are the same, we aim to show that the fiber is not 0-dimensional, so that the dimension formula would imply that the dimension of $\mathcal{N} > 19$ if $\pi_2$ dominates $\mathcal{Q}_6$. Hence, we claim that if a 6-chain is included in a smooth cubic surface, it must necessarily be included in at least a 1-dimensional family of cubic surfaces. To see this, let $Q_6$ be a general 6-chain in $\mathbb{P}^3$ which is included in a smooth surface $X$. Then, from \cref{lem:3planes}, we know that it is also included in a singular surface $Y$, since we made no restrictions on the 6-chain in the lemma. Then let $\mathcal{D}$ be the pencil $\{aX + bY\}$. All the surfaces in this linear system include our 6-chain(!?), and we apply Bertini to see that most of the surfaces are smooth. This gives us a 1-dimensional family of smooth surfaces including our 6-chain, and so $\pi_2$ cannot dominate $\mathcal{Q}_6$.
+    Now we are interested in $q$, and whether this dominates $\mathcal{Q}_6$. If it does not, we know that a general 6-chain does not have a representative in $\mathcal{N}$, and so is not included in a smooth cubic surface. By \cref{lem:dimQm}, we have that $\dim \mathcal{Q}_6 = 19$. Since the dimension of these sets are the same, we aim to show that the fiber is not 0-dimensional, so that the dimension formula would imply that the dimension of $\mathcal{N} > 19$ if $q$ dominates $\mathcal{Q}_6$. Hence, we claim that if a 6-chain is included in a smooth cubic surface, it must necessarily be included in at least a 1-dimensional family of cubic surfaces. To see this, let $Q_6$ be a general 6-chain in $\mathbb{P}^3$ which is included in a smooth surface $X$. Then, from \cref{lem:3planes}, we know that it is also included in a singular surface $Y$, since we made no restrictions on the 6-chain in the lemma. Then let $\mathcal{D}$ be the pencil $\{aX + bY\}$. All the surfaces in this linear system include our 6-chain, by the observation that if $X = V(f)$ and $Y = V(g)$, then inclusion is equivalent to $f|_{Q_6} = g|_{Q_6} = 0$, and $af|_{Q_6} + bg|_{Q_6} = 0$. Then we apply Bertini to see that most of the surfaces are smooth. This gives us a 1-dimensional family of smooth surfaces including our 6-chain, and so $q$ cannot dominate $\mathcal{Q}_6$.
 \end{proof}
 
 \begin{remark}
-    We use the set of $m$-chains, not regular $m$-chains, so that the fiber of $\pi_1$ is non-empty. 
+    We use the set of $m$-chains, not regular $m$-chains, so that the fiber of $p$ is non-empty. 
 \end{remark}
 
-Note that this means that the 6-chains included in smooth surfaces are not general. To see why this might be, note that requiring that pairs of lines in $\mathbb{P}^3$ do not meet is a Zariski-open condition(!?). This requirement is included in the definition of a regular $m$-chain.
+Note that this means that the 6-chains which \emph{are} included in smooth cubic surfaces, are not general. To see why this might be, note that as we saw in the proof of \cref{lem:gon-open}, requiring that pairs of lines in $\mathbb{P}^3$ do not meet is a Zariski-open condition. This is exactly the separating factor of the 6-chains included in smooth cubic surfaces. The requirement of non-intersection is also included in the definition of a regular $m$-chain.
 
 The fact that we cannot find a surface including a general 6-chain may not be very intuitive, but the following lemma gives a good reason.
 
@@ -212,14 +221,14 @@ The fact that we cannot find a surface including a general 6-chain may not be ve
     For a smooth cubic surface, we can find at most a regular 5-chain.
 \end{lemma}
 \begin{proof}
-    First we show that we can find a regular 5-chain. Again we consult \cref{fig:blowup6} which shows a smooth surface as the blow-up $\mathbb{P}^2$ in six points. Then the chain $E_1 \cup \ell_{1_2} \cup E_2 + \ell_{23} + E_3$ meets the criteria of a regular 5-chain.
+    First we show that we can find a regular 5-chain. Again we consult \cref{fig:blowup6} which shows a smooth surface as the blow-up $\mathbb{P}^2$ in six points. Then the chain $E_1 \cup \ell_{1_2} \cup E_2 \cup \ell_{23} \cup E_3$ meets the criteria of a regular 5-chain.
 
-    Now we want to show that we cannot find a regular 6-chain. First, denote the 27 lines of the cubic surface as $C_1, \dots, C_{27}$. Let $Q_5$ be a regular 5-chain, consisting of $C_1, \dots, C_5$. Look at the class $D = C_1 + C_2 - C_4 - C_5$. Then $D^2 = 0$, and $HD=0$ for $H = f^*(\mathcal{O}_{\mathbb{P}^3}(1))$(!?). Since $H$ is ample, the Hodge index theorem, \cref{thm:hodge}, tells us that $D=0$, and we have the equality $C_1 + C_2 = C_4 + C_5$. Let $C_i$ be another line which intersects $C_5$. Then it must also intersect either $C_1$ or $C_2$ by the equality, and thus cannot be used to make a regular 6-chain.
+    Now we want to show that we cannot find a regular 6-chain. First, denote the 27 lines of the cubic surface as $C_1, \dots, C_{27}$. Let $Q_5$ be a regular 5-chain, consisting of $C_1, \dots, C_5$. Look at the class $D = C_1 + C_2 - C_4 - C_5$. Then $D^2 = 0$, and $HD=0$ for $H = f^*(\mathcal{O}_{\mathbb{P}^3}(1))$(!?). Since $H$ is ample, the Hodge index theorem, \cref{thm:hodge}, tells us that $D=0$, and we have the equality $C_1 + C_2 = C_4 + C_5$. Let $C_i \neq C_4$ be another line which intersects $C_5$. Then it must also intersect either $C_1$ or $C_2$ by the equality, and thus cannot be used to make a regular 6-chain.
 \end{proof}
 \todo[inline]{We have only used the assumption that the $m$-chain do not intersect extra, so rewrite to clarify that this holds for more than just the regular chains.}
 \todo[inline]{Similar result for gons?}
 
 
-One could also use this lemma to prove \cref{prop:6chain} for regular 6-chains, similarly to our proof that a regular 4-chain is not included in a smooth quadric surface. One notes that if we have a 6-chain in a smooth cubic surface, the lemma above tells us that this cannot be a regular 6-chain. 
+One could also use this lemma to prove \cref{prop:6chain} for regular 6-chains, similarly to our proof that a regular 4-chain is not included in a smooth quadric surface. i.e. we note that if we have a 6-chain in a smooth cubic surface, the lemma above tells us that this cannot be a regular 6-chain. 
 
 
