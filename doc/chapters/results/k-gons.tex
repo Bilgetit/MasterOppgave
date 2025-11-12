@@ -166,7 +166,7 @@ We have done computational experiments in Macaulay2 to get a better understandin
 
 We summarize the steps taken in the code for checking if an $m$-gon is included in some degree $d$ surface:
 \begin{enumerate}
-    \item Choose field $\Bbbk$, we use either $\mathbb{Q}$ or $\mathbb{Z}_{32749}$, where the latter is faster, but not of characteristic 0.
+    \item Choose field $\mathbb{C}$, we use either $\mathbb{Q}$ or $\mathbb{Z}_{32749}$, where the latter is faster, but not of characteristic 0.
     \item Pick $m$ random points in $\mathbb{P}^3$.
     \item Build an $m$-gon by connecting the points in a cycle.
     \item Connect pairs of points to generate the ideal of the line defined by them.
@@ -223,7 +223,7 @@ As mentioned earlier, to get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{
     % We can then find a projective transformation sending $p_1$ to $(1:0:0:0)$, $p_2$ to $(0:1:0:0)$, and $p_3$ to $(0:0:1:0)$. Since no three of the points are collinear, $p_4$ cannot be sent to a point on the line between any two of the other points. Furthermore, since the points do not all lie in a plane, $p_4$ cannot be sent to a point in the plane spanned by any three of the other points. Then we can send $p_4$ to $(0:0:0:1)$, and we are finished.
 \end{proof}
 
-To get a value of $h^1(\mathbb{P}^3, \mathcal{I}_{C_4})$, we will first look at a resolution of the ideal sheaf $I_{C_4}$. We take inspiration from Hilbert's syzygy theorem, \cite{EO25} Theorem 17.16, which states that we can find a finite free resolution for a finitely generated graded module. We therefore aim to find a resolution. From the discussion above, we have that $I_{C_4} = (x_1x_3, x_0x_2)$ (the calculation was done in Macaulay2). We know that $I_{C_4}$ is of the form $\tilde{M}$ for some graded $R$-module $M$, with $R = \Bbbk[x_0, x_1, x_2, x_3]$, see \cite{EO25}, theorem 17.9. We can therefore look at a free resolution of $M$ to get a resolution of $I_{C_4}$. First, consider the map
+To get a value of $h^1(\mathbb{P}^3, \mathcal{I}_{C_4})$, we will first look at a resolution of the ideal sheaf $I_{C_4}$. We take inspiration from Hilbert's syzygy theorem, \cite{EO25} Theorem 17.16, which states that we can find a finite free resolution for a finitely generated graded module. We therefore aim to find a resolution. From the discussion above, we have that $I_{C_4} = (x_1x_3, x_0x_2)$ (the calculation was done in Macaulay2). We know that $I_{C_4}$ is of the form $\tilde{M}$ for some graded $R$-module $M$, with $R = \mathbb{C}[x_0, x_1, x_2, x_3]$, see \cite{EO25}, theorem 17.9. We can therefore look at a free resolution of $M$ to get a resolution of $I_{C_4}$. First, consider the map
 \[R^{\oplus 2}(-2) \to M\]
 given by the matrix 
 \[\begin{pmatrix}
