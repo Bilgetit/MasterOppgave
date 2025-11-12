@@ -33,7 +33,10 @@ It is worth noting the specific question we are asking, which is that given an $
 
 \begin{remark}
     Note that for automorphisms of $\mathbb{P}^3$, lines are sent to lines. Therefore, we can study the lines $l_1 = (\alpha : \beta : 0 : 0), \ l_2 = (\alpha : 0 : \gamma : 0), \ l_3=(\alpha: \delta : \lambda_3 \delta: 0), \dots, l_m = (\alpha : \delta : \lambda_m \delta : 0)$ for $\lambda_i \in \mathbb{N}$ by taking the automorphism of $\mathbb{P}^3$ which sends these lines to the given lines, and then study the hypersurface of degree $d$ in $\mathbb{P}^3$ which contains these lines.
-    This automorphism will also take a smooth hypersurface of degree $d$ to a smooth hypersurface of degree $d$, so showing properties for lines in this form is sufficient for the general case. 
+    This automorphism will also take a smooth hypersurface of degree $d$ to a smooth hypersurface of degree $d$, so showing properties for lines in this form is sufficient for the general case. In this way, we can assume without loss of generality that the plane $H$ containing the lines is given as $H = V(x_3)$, and that the lines can be descibed as the zero loci of the following polynomials: 
+    \begin{equation}\label{eq:li}
+        l_1 = V(x_3, x_2), \ l_2 = V(x_3, x_1), \ l_3 = V(x_3, x_1 - \lambda_3 x_2), \ \dots, \ l_m = V(x_3, x_1 - \lambda_m x_2).
+    \end{equation}
 \end{remark}
 
 We are interested in both the existence and non-existence of degree $d$ hypersurfaces containing $m$-crosses. We first consider surfaces with degree less than $k$, but more than 1 (degree 1 provides us a simple choice of surface including an $m$-cross, namely $H$).
@@ -42,7 +45,7 @@ We are interested in both the existence and non-existence of degree $d$ hypersur
     If $S$ is a surface of degree $d > 1$, it does not contain a plane.
 \end{lemma}
 \begin{proof}
-    Assume for contradiction that $S = V(g)$ contains a plane $H$. We let $H = V(x_3)$ without loss of generality (refer to a lemma or previous discussion?)(!?). Then $x_3$ divides $g$, and we write $g = x_3 h$ for some $h \in \Bbbk [x_0,x_1,x_2,x_3]_{d-1}$. We then use the Jacobi criterion (15.12 in EO!?) on $x_3 h$, and get that $S$ is singular on the whole of $V(x_3) \cap V(h)$. This is non-empty by Bezout's theorem (\cref{thm:bezout}), giving a contradiction. (Use $d>1$ to see that $\text{deg}(h) = d-1 > 0$)(!?). 
+    Assume for contradiction that $S = V(g)$ contains a plane $H$. We let $H = V(x_3)$ without loss of generality (refer to a lemma or previous discussion?)(!?). Then $x_3$ divides $g$, and we write $g = x_3 h$ for some $h \in \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1}$. We then use the Jacobi criterion (15.12 in EO!?) on $x_3 h$, and get that $S$ is singular on the whole of $V(x_3) \cap V(h)$. This is non-empty by Bezout's theorem (\cref{thm:bezout}), giving a contradiction. (Use $d>1$ to see that $\text{deg}(h) = d-1 > 0$)(!?). 
 \end{proof}
 \todo[inline]{Dette må forbedres.}
 
@@ -59,15 +62,19 @@ We now move on to the case of existence, with the following proposition:
     For a given $m$-cross, we can find a smooth hypersurface of degree $m$ such that the lines are contained in the hypersurface.
 \end{proposition}
 \begin{proof}
-    Let $\mathfrak{L}$ be the linear system of hypersurfaces of degree $m$ in $\mathbb{P}^3$ containing the lines $l_1, \dots, l_k$ (Prove this is not empty, because of singular surfaces.)(!?). Recall that Bertini's theorem (\cref{thm:bertini}) tells us that the general member of $\mathfrak{L}$ is smooth outside the base locus of $\mathfrak{L}$. We can therefore narrow our search of singularities to the base locus. The base locus of $\mathfrak{L}$ is the union of the lines $l_1, \dots, l_k$ (prove this, use notes. We can find for every point not in a line, a surface which excludes the points, but includes the surface)(!?). Thus, we must find a function $f \in \Bbbk[x_0, x_1, x_2, x_3]_m$ such that $V(f)$ is smooth on the lines $l_1, \dots, l_m$. Bertini's theorem then gives us that we can find a hypersurface which is also smooth outside the base locus of $\mathfrak{L}$.
+    Let $\mathfrak{L}$ be the linear system of hypersurfaces of degree $m$ in $\mathbb{P}^3$ containing the lines $l_1, \dots, l_m$ (Prove this is not empty, because of singular surfaces.)(!?). Recall that Bertini's theorem (\cref{thm:bertini}) tells us that the general member of $\mathfrak{L}$ is smooth outside the base locus of $\mathfrak{L}$. We can therefore narrow our search of singularities to the base locus. The base locus of $\mathfrak{L}$ is the union of the lines $l_1, \dots, l_m$. To see why, consider a point $x \in \mathbb{P}^3$ which does not lie on one of the lines. We want to show that for each of these points, we can find a surface which excludes the points, but includes the surface. First, if the point is not in the plane $H$, we can exclude it by the plane itself, so we assume the point lies in $H$, but not in one of the lines. 
+    Then we consider the loci which define the lines in \ref{eq:li}, denoted $l_i = V(g_i)$(!?). Then all the lines $l_1, \dots l_m$ are included in $V(\Pi_{i=1}^m g_i)$, while $x$ is not. 
+    % Then we consider the equations of the lines from \ref{eq:li}, denoted $l_i = V(g_i)$ for $g_i \in \mathcal{C}[x_0,x_1,x_2]$. Then all the lines $l_1, \dots l_m$ are included in $V(\Pi_{i=1}^m g_i)$, while $x$ is not. 
+    
+    Since we know exactly the base locus, we want to find a function $f \in \mathbb{C}[x_0, x_1, x_2, x_3]_m$ such that $V(f)$ is smooth on the lines $l_1, \dots, l_m$. Bertini's theorem then gives us that we can find a hypersurface which is also smooth outside the base locus of $\mathfrak{L}$.
 
-    We study the function $f = g(x_1, x_2) + h(x_0, x_3)$, where $h = x_0^{m-1}x_3$ and $g = \prod l_i = x_1x_2 \prod_{i=3}^k (x_1 - \lambda_i x_2)$, giving the following polynomial:
+   Now we take inspiration from \ref{eq:li}, and study the function $f = g(x_1, x_2) + h(x_0, x_3)$, where $h = x_0^{m-1}x_3$ and $g = \prod l_i = x_1x_2 \prod_{i=3}^k (x_1 - \lambda_i x_2)$, giving the following polynomial:
     \[
         f(x_0, x_1, x_2, x_3) = x_1x_2 \prod_{i=3}^m (x_1 - \lambda_i x_2) + x_0^{m-1}x_3
     \]
-    We can see that $f$ is a polynomial of degree $m$, and that $f$ includes the lines $l_1, \dots, l_m$, since $f(\alpha: \beta: 0: 0) = f(\alpha: 0: \gamma: 0) = f(\alpha: \delta: \lambda_i \delta: 0) = 0$. We must then check that $f$ is smooth on the base locus of $\mathfrak{L}$, which is to check that $\bigcap_{i=0}^3 (\partial_i f = 0) = \emptyset$.
+    We can see that $f$ is a polynomial of degree $m$, and that $f$ includes the lines $l_1, \dots, l_m$, since $f(\alpha: \beta: 0: 0) = f(\alpha: 0: \gamma: 0) = f(\alpha: \delta: \lambda_i \delta: 0) = 0$. We must then check that $f$ is smooth on the base locus of $\mathfrak{L}$, which is to check that $\bigcap_{i=0}^3 (\partial_i f = 0) = \emptyset$. 
     
-    We get the following derivatives:
+    The derivatives are given as follows:
 
     \begin{align*}
         \partial_0 f &= \partial_0 g + \partial_0 h = 0 + (m-1)x_0^{m-2}x_3 = (m-1)x_0^{m-2}x_3 \\
@@ -76,16 +83,15 @@ We now move on to the case of existence, with the following proposition:
         \partial_3 f &= \partial_3 g + \partial_3 h = 0 + x_0^{m-1} = x_0^{m-1}
     \end{align*}
 
-    We then find that 
+    We then find that on the base locus of $\mathfrak{L}$, the following hold:
     \begin{itemize}
-        \item $\partial_0 f = 0$ on the entire base locus.
-        \item $\partial_1 f = 0$ on the line $l_0 = (\alpha : \beta : 0 : 0)$.
-        \item $\partial_2 f = 0$ on the line $l_1 = (\alpha : 0 : \gamma : 0)$.
+        \item $\partial_0 f = 0$ on the entire base locus, since it contains the factor $x_3$, which is 0 on the entire plane.
+        \item $\partial_1 f = 0$ on the line $l_0 = (\alpha : \beta : 0 : 0)$, since $\partial_1 f$ contains the factor $x_2$, and is non-zero elsewhere on the base locus.
+        \item $\partial_2 f = 0$ on the line $l_1 = (\alpha : 0 : \gamma : 0)$, since $\partial_2 f$ contains the factor $x_1$, and is non-zero elsewhere on the base locus.
         \item $\partial_3 f = 0$ if and only if $x_0 = 0$, which is the case for the following points: $(0 : \beta : 0 : 0), (0 : 0 : \gamma : 0), (0 : \delta : \lambda_i \delta : 0)$ for $3 \leq i \leq m$.  
     \end{itemize}
     We can see that the intersection of all of these zero loci is empty, showing that the function $f$ is smooth on the base locus of $\mathfrak{L}$.
     Thus, we can find a smooth hypersurface of degree $k$ such that the lines are contained in the hypersurface.
-    
 \end{proof}
 
 By the results above, we get the following corollary:
@@ -106,10 +112,10 @@ In the previous section we studied the existence and non-existence of smooth hyp
 \end{proposition}
 
 \begin{proof}
-    Let $S_d = V(f)$ for some $f \in \Bbbk[x_0, x_1, x_2, x_3]_d$ be a surface which includes $Z_m$. Since $Z_m$ is included in 
-    $H$, we write $f$ as $f = g(x_0,x_1,x_2) + x_3h(x_0,x_1,x_2,x_3)$, separating the part of $f$, $x_3h(x_0,x_1,x_2,x_3)$, which vanishes on the plane. Saying that $Z_m \subseteq S_d$ is the same as saying $f|_{Z_m} = 0$, which implies that $g(x_0,x_1,x_2)|_{Z_m} = 0$, since $x_3h(x_0,x_1,x_2,x_3)|_{Z_m}$ already vanishes. This implies that $l_1l_2 \cdots l_m$ divides $g(x_0,x_1,x_2)$, meaning $g(x_0,x_1,x_2) = l_1l_2 \dots l_m \cdot j(x_0,x_1,x_2)$ for some $j(x_0,x_1,x_2) \in \Bbbk[x_0,x_1,x_2]_{d-m}$. Thus, we can write $f$ as $f = l_1l_2 \cdots l_m \cdot j(x_0,x_1,x_2) + x_3h(x_0,x_1,x_2,x_3)$, where $h(x_0,x_1,x_2,x_3) \in \Bbbk[x_0,x_1,x_2,x_3]_{d-1}$.
+    Let $S_d = V(f)$ for some $f \in \mathbb{C}[x_0, x_1, x_2, x_3]_d$ be a surface which includes $Z_m$. Since $Z_m$ is included in 
+    $H$, we write $f$ as $f = g(x_0,x_1,x_2) + x_3h(x_0,x_1,x_2,x_3)$, separating the part of $f$, $x_3h(x_0,x_1,x_2,x_3)$, which vanishes on the plane. Saying that $Z_m \subseteq S_d$ is the same as saying $f|_{Z_m} = 0$, which implies that $g(x_0,x_1,x_2)|_{Z_m} = 0$, since $x_3h(x_0,x_1,x_2,x_3)|_{Z_m}$ already vanishes. This implies that $l_1l_2 \cdots l_m$ divides $g(x_0,x_1,x_2)$, meaning $g(x_0,x_1,x_2) = l_1l_2 \dots l_m \cdot j(x_0,x_1,x_2)$ for some $j(x_0,x_1,x_2) \in \mathbb{C}[x_0,x_1,x_2]_{d-m}$. Thus, we can write $f$ as $f = l_1l_2 \cdots l_m \cdot j(x_0,x_1,x_2) + x_3h(x_0,x_1,x_2,x_3)$, where $h(x_0,x_1,x_2,x_3) \in \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1}$.
 
-    Since we can choose $j(x_0,x_1,x_2)$ and $h(x_0,x_1,x_2,x_3)$ freely, we get that $\dim{A_m} = \dim \Bbbk[x_0,x_1,x_2]_{d-m} + \dim \Bbbk[x_0,x_1,x_2,x_3]_{d-1} = \binom{d-m+2}{2} + \binom{d+2}{3} - 1$. We subtract 1 to account for the fact that we are working in projective space. (!?)
+    Since we can choose $j(x_0,x_1,x_2)$ and $h(x_0,x_1,x_2,x_3)$ freely, we get that $\dim{A_m} = \dim \mathbb{C}[x_0,x_1,x_2]_{d-m} + \dim \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1} = \binom{d-m+2}{2} + \binom{d+2}{3} - 1$. We subtract 1 to account for the fact that we are working in projective space. (!?)
 \end{proof}
 
 \todo[inline]{Include examples?}

@@ -41,19 +41,35 @@ We now define intersection multiplicity.
     See \cite{BEA96} Theorem I.4
 \end{proof}
 
-In other words, we can compute the intersection number of two curves by computing the intersection number of their associated line bundles. If $D, D'$ are two divisors on $S$ we write $D.D'$ for $(\mathcal{O}_S(D).\mathcal{O}_S(D'))$. Then we have that we can calculate this intersection number by replacing $D$ or $D'$ by linearly equivalent divisors. This allows us to for example compute the self-intersection number of a divisor. Next we give an application of this.
+In other words, we can compute the intersection number of two curves by computing the intersection number of their associated line bundles. If $D, D'$ are two divisors on $S$ we write $D.D'$ for $(\mathcal{O}_S(D).\mathcal{O}_S(D'))$. Then we have that we can calculate this intersection number by replacing $D$ or $D'$ by linearly equivalent divisors. This allows us to for example compute the self-intersection number of a divisor, denoted $D.D = D^2$. Next we give some applications of this, which also serve as instructive examples of working with intersection theory.
 
 \begin{example}[Example I.9 (a) in \cite{BEA96}]
     Let $S = \mathbb{P}^2$. We know that $\mathrm{Pic}(S) \cong \mathbb{Z}$. Let $C, C'$ be curves of degree $d$ and $d'$ respectively. Since $C \equiv dL$ and $C' \equiv d'L'$ for distinct lines $L, L'$, we get Bezout's theorem:
     \[C.C' = dL.d'L' = dd' (L.L) = dd'.\]
-
 \end{example}
 
+\begin{example}[Proposition I.8 (a) in \cite{BEA96}]
+    Let $C$ be a smooth curve, and let $f\colon S \to C$ be a surjective morphism from a smooth surface $S$ to $C$, with $F$ a fiber of $f$. Then $F^2 = 0$.
+\end{example}
+\begin{proof}
+    $F = f^*[x]$ for some point $x \in C$. Then there exists a divisor $A$ on $C$ linearly equivalent to $x$ (all points are linearly equivalent on a curve), such that $x \notin A$. Then $F \equiv f^*A$. Since $f^*A$ is a linear combination of fibers of $f$ all distinct from $F$, we have $F^2 = F.f^*A = 0$.
+\end{proof}
 
-Recall that a divisor $D$ on a variety $X$ is \emph{ample} if some positive multiple of $D$ defines an embedding of $X$ into projective space. We now state the Hodge Index Theorem for surfaces.
+Now we consider the case of a blow-up. Let $S$ be a smooth surface, and let $\pi\colon \hat{S} \to S$ be the blow-up of $S$ at a point $p \in S$. Let $E = \pi^{-1}(p)$ be the exceptional divisor, which we recall is isomorphic to $\mathbb{P}^1$. Also recall that for any curve $C$ on $S$, we can consider the strict transform $\hat{C}$ of $C$ on $\hat{S}$, defined as the closure of $\pi^{-1}(C \setminus \{p\})$ in $\hat{S}$. Then we have the following lemma on the pullback of divisors under the blow-up map.
+\begin{lemma}[Lemma II.2 in \cite{BEA96}]\label{lem:strict}
+    Let $C$ be an irreducible curve on $S$ which passes through $p$ with multiplicity $m$. Then $\pi^*(C) = \hat{C} + mE$
+\end{lemma}
+
+\begin{proposition}[Proposition II.3 (b) in \cite{BEA96}]
+    Let $S$ be a surface, $\pi\colon \hat{S} \to S$ blow up of a point $p \in X$ and $E \subseteq \hat{S}$ the exceptional curve. Let $D, D'$ be two divisors on $S$. Then $(\pi^*D).(\pi^*D') = D.D'$, $E.(\pi^*D) = 0$, $E^2 = -1$
+\end{proposition}
+\begin{proof}
+    For the first two equalities, we can replace $D$ and $D'$ by linearly equivalent divisors not passing through $p$, so that their strict transforms do not intersect $E$, and their intersection numbers can be computed on $S$. For the last equality, choose a curve $C$ passing through $p$ with multiplicity 1. So its strict transform intersects $E$ transversely at one point, and $\hat{C}.E = 1$. Since $\hat{C} = \pi^*C - E$ by \cref{lem:strict}, and so $(\pi^*C - E).E = 1$. We know from the second equality that $\pi^*C.E = 0$, so $-E^2 = 1$. Then we get $E^2 = -1$.
+\end{proof}
+
+
+Recall that a divisor $D$ on a variety $S$ is \emph{ample} if some positive multiple of $D$ defines an embedding of $S$ into projective space. We now state the Hodge Index Theorem for surfaces.
 \begin{theorem}[Hodge Index Theorem]\label{thm:hodge}
-    Let $H$ be an ample divisor on a smooth surface $X$, and suppose $D$ is a divisor, $D \neq 0$, with $D.H = 0$. Then $D^2 < 0$.
+    Let $H$ be an ample divisor on a smooth surface $S$, and suppose $D$ is a divisor, $D \neq 0$, with $D.H = 0$. Then $D^2 < 0$.
 \end{theorem}
 The proof can be found in \cite{Ha77} Theorem V.1.9.
-
-\todo[inline]{Legg til exceptional divisor, og kanskje at klassen til en fiber har selvsnitt 0.}

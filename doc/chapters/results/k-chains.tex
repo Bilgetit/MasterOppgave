@@ -70,6 +70,8 @@ This contrasts the case of 4-gons, where we could find smooth quadric surfaces i
     We pair the lines of the 4-chain as $(l_1, l_2)$ and $(l_3, l_4)$. Each pair of lines defines a plane in $\mathbb{P}^3$, denoted as $H_1 = \mathrm{span}(l_1, l_2)$ and $H_2 = \mathrm{span}(l_3, l_4)$. Since the 4-chain is general, we have that $H_1 \neq H_2$. Then the union of the two planes $S_2 = H_1 \cup H_2$ is a singular quadric surface in $\mathbb{P}^3$ that includes the 4-chain.
 \end{proof}
 
+In fact, this is the only quadric surface which includes a general 4-chain. 
+
 % \subsection{The case of 7-chains}
 
 % Now we will look at the case of 7-chains in cubic surfaces.
@@ -169,19 +171,6 @@ Now we will examine 6-chains in cubic surfaces. We will show that a general 6-ch
     We pair the lines of the 6-chain as $(l_1, l_2)$, $(l_3, l_4)$ and $(l_5, l_6)$. Each pair of lines define a plane in $\mathbb{P}^3$. Then the union of the three planes is a singular cubic surface in $\mathbb{P}^3$ that includes the 6-chain.
 \end{proof}
 
-Our testing in Macaulay2 also suggested that the singular surface was unique, which we will prove in the following proposition.
-
-\begin{proposition}
-    A general 6-chain in $\mathbb{P}^3$ is only included in a unique surface.
-\end{proposition}
-\begin{proof}
-    Consider the diagram in \cref{fig:incidence}. The map $q$ has fiber $q^{-1}(Q_6) = \{S \mid Q_6 \in S\}$ for $Q_6 \in \mathcal{Q}_6$. $q$ is a projective morphism, since it is the composition of the closed embedding $i \colon \mathcal{N} \to \mathbb{P}^N \times \mathcal{M}$, and the projective map $\pi \colon \mathbb{P}^N \times \mathcal{M} \to \mathcal{M}$. A projective morphism is proper by \cite{Ha77} Theorem II.4.9 (Check that this is cited correctly!?). Then taking the dimension of the fiber of $q$ is upper semi-continuous. 
-
-    From (refer to result in Macaulay2 saying that the surface is unique!?), we have an example where the fiber is a single point. Call the relevant 6-chain $Z$. Though this computation was done over $\mathbb{Q}$, the result extends to $\mathbb{C}$. To see why, first note that when we find that there is only one unique surface including $Z$, it is equivalent to saying that the kernel of the map $\phi \colon H^0(\mathbb{P}^3, \mathcal{O}(3)) \rightarrow H^0(Z, \mathcal{O}(3)|_{Z}$ is 1-dimensional(0-dimensional!?). Note also that the fiber of $q(Z)$ is the set $\{f \in \mathbb{C}[x_0,x_1,x_2,x_3]_3 \mid f|_{Z} = 0\}$, which are the polynomials which are zero on $Z$. The equations requiring $f|_{Z} = 0$ have rational coefficients, since our $Z$ is defined over the rationals. Therefore, the kernel of $\phi$ is also 1-dimensional over $\mathbb{C}$. Because of this, there exists at least one 6-chain with a single point as fiber, and so the fiber over this point is 0-dimensional.
-
-    For any surface $S$, we know that there exists $Q_6 \in \mathcal{Q}_6$ such that $q^{-1}(Q_6) = \{(S,Q_6)\}$, since all smooth surfaces includes 6-chains by \cref{lem:27}. Thus, the fiber of $q$ is non-empty. Then, by upper semi-continuity of fiber dimension (add to basic results, and cite!?), we have that since we know one fiber, $q^{-1}(Z)$ is 0-dimensional, there exists an open neighborhood $U$ of $Z$, such that $\dim q^{-1}(Z') \leq 0$ for all $Z' \in U$. Since the fiber is non-empty, all of these fibers are 0-dimensional, and so there are a finite number of surfaces including a general $Q_6$. Then we note that the fiber of $q$ is the set of solutions of linear equations, and so it defines a projective space. Since the fiber is 0-dimensional, it must be the point $\mathbb{P}^0$, and so there is only one surface. 
-\end{proof}
-
 % \[\{f \in \mathbb{C}[x_0,x_1,x_2,x_3]_3 \mid f|_{Q_6} = 0\}\]
 % \[H^0(\mathbb{P}^3, \mathcal{O}(3)) \rightarrow H^0(Q_6, \mathcal{O}(3)|_{Q_6})\]
 % What we find in Macaulay2 is that the dimension of the kernel is 1, meaning that there is only one surface including the 6-chain. Though this applies $\mathbb{Q}$, it extends to $\mathbb{C}$ since the equations introduced to require $f|_{Q_6} = 0$ for the fixed $Q_6$ have rational coefficients, so the dimension of the kernel is the same.
@@ -231,4 +220,17 @@ The fact that we cannot find a surface including a general 6-chain may not be ve
 
 One could also use this lemma to prove \cref{prop:6chain} for regular 6-chains, similarly to our proof that a regular 4-chain is not included in a smooth quadric surface. i.e. we note that if we have a 6-chain in a smooth cubic surface, the lemma above tells us that this cannot be a regular 6-chain. 
 
+Our testing in Macaulay2 also suggested that the singular surface was unique, which we will prove in the following proposition.
 
+\begin{proposition}
+    A general 6-chain in $\mathbb{P}^3$ is only included in a unique surface.
+\end{proposition}
+\begin{proof}
+    Consider the diagram in \cref{fig:incidence}. The map $q$ has fiber $q^{-1}(Q_6) = \{S \mid Q_6 \in S\}$ for $Q_6 \in \mathcal{Q}_6$. $q$ is a projective morphism, since it is the composition of the closed embedding $i \colon \mathcal{N} \to \mathbb{P}^N \times \mathcal{M}$, and the projective map $\pi \colon \mathbb{P}^N \times \mathcal{M} \to \mathcal{M}$. A projective morphism is proper by \cite{Ha77} Theorem II.4.9. Then taking the dimension of the fiber of $q$ is upper semi-continuous. 
+
+    From (refer to result in Macaulay2 saying that the surface is unique!?), we have an example where the fiber is a single point. Call the relevant 6-chain $Z$. Though this computation was done over $\mathbb{Q}$, the result extends to $\mathbb{C}$. To see why, first note that when we find that there is only one unique surface including $Z$, it is equivalent to saying that the kernel of the map $\phi \colon H^0(\mathbb{P}^3, \mathcal{O}(3)) \rightarrow H^0(Z, \mathcal{O}(3)|_{Z}$ is 1-dimensional(0-dimensional!?). Note also that the fiber of $q(Z)$ is the set $\{f \in \mathbb{C}[x_0,x_1,x_2,x_3]_3 \mid f|_{Z} = 0\}$, which are the polynomials which are zero on $Z$. The equations requiring $f|_{Z} = 0$ have rational coefficients, since our $Z$ is defined over the rationals. Therefore, the kernel of $\phi$ is also 1-dimensional over $\mathbb{C}$. Because of this, there exists at least one 6-chain with a single point as fiber, and so the fiber over this point is 0-dimensional.
+
+    For any surface $S$, we know that there exists $Q_6 \in \mathcal{Q}_6$ such that $q^{-1}(Q_6) = \{(S,Q_6)\}$, since all smooth surfaces includes 6-chains by \cref{lem:27}. Thus, the fiber of $q$ is non-empty. Then, by upper semi-continuity of fiber dimension (add to basic results, and cite!?), we have that since we know one fiber, $q^{-1}(Z)$ is 0-dimensional, there exists an open neighborhood $U$ of $Z$, such that $\dim q^{-1}(Z') \leq 0$ for all $Z' \in U$. Since the fiber is non-empty, all of these fibers are 0-dimensional, and so there are a finite number of surfaces including a general $Q_6$. Then we note that the fiber of $q$ is the set of solutions of linear equations, and so it defines a projective space. Since the fiber is 0-dimensional, it must be the point $\mathbb{P}^0$, and so there is only one surface. 
+\end{proof}
+
+\todo[inline]{Show same result for 4-chains.}

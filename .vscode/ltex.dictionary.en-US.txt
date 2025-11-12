@@ -52,3 +52,4 @@ indeterminates
 Zariski
 syzygy
 quadrics
+enumerative
