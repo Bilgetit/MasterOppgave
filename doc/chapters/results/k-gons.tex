@@ -121,12 +121,33 @@ First we need the following lemma about Schubert varieties.
     where $\mathcal{I}_{C_m}$ is the kernel of the restriction map $\mathcal{O}_{\mathbb{P}^3} \to \mathcal{O}_{C_m}$. Since $\mathcal{O}_{\mathbb{P}^3}(d)$ is locally free, we can twist with these to get the short exact sequence
     \[0 \to \mathcal{I}_{C_m}(d) \to \mathcal{O}_{\mathbb{P}^3}(d) \to \mathcal{O}_{C_m}(d) \to 0.\]
     From this we get the long exact sequence in cohomology:
+    %%% controls={+(x_start,-y_down) and +(x_end,y_up)}
+    %%% Relativt til center av blokken
+    \[
+        \begin{tikzcd}[sep=small]
+        0 \ar[r]
+        & H^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \ar[r]
+        & H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \ar[r]
+        & H^0(C_m, \mathcal{O}_{C_m}(d)) \ar[controls={+(3,-1.5) and +(-3,1.5)}]{dll} \\
+        {}
+        & H^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \ar[r]
+        & H^1(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \ar[r]
+        & H^1(C_m, \mathcal{O}_{C_m}(d)) \ar[controls={+(3,-1.5) and +(-3,1.5)}]{dll} \\
+        {}
+        & H^2(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \ar[r]
+        & H^2(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \ar[r]
+        & \dots
+        \end{tikzcd}
+    \]
 
-    \begin{tikzcd}[sep=small]
-    0 \rar & H^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \rar & H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar &  H^0(C_m, \mathcal{O}_{C_m}(d)) \ar[out=-20, in=160]{dll} \\
-    & H^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \rar & H^1(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar & H^1(C_m, \mathcal{O}_{C_m}(d)) \ar[out=-20, in=160]{dll} \\
-    & H^2(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \rar & H^2(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar & \dots \\
-    \end{tikzcd}
+    % From this we get the long exact sequence in cohomology:
+
+    % \begin{tikzcd}[sep=small]
+    % 0 \rar & H^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \rar & H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar &  H^0(C_m, \mathcal{O}_{C_m}(d)) \ar[out=-20, in=160]{dll} \\
+    % & H^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \rar & H^1(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar & H^1(C_m, \mathcal{O}_{C_m}(d)) \ar[out=-20, in=160]{dll} \\
+    % & H^2(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \rar & H^2(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \rar & \dots \\
+    % \end{tikzcd}
+
 
     By Theorem 18.23 in \cite{EO25}, we know that $H^i(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) = 0$ for $i > 0$ and $d \geq (-3)$. Hence, we can focus on the first part of the sequence:
     \[0 \to H^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \to H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \to H^0(C_m, \mathcal{O}_{C_m}(d)) \to H^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \to 0.\] 
@@ -264,13 +285,30 @@ Now we can twist this resolution by $\mathcal{O}_{\mathbb{P}^3}(d)$ to get
 \end{pmatrix}} I_{C_4}(d) \to 0.
 \end{equation}
 
-From this, we can get the long exact sequence in cohomology:
+% From this, we can get the long exact sequence in cohomology:
 
-\begin{tikzcd}[sep=small]
-0 \rar & H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-4)) \rar & H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-2))^{\oplus 2} \rar & H^0(\mathbb{P}^3, I_{C_4}(d)) \ar[out=-20, in=160]{dll} \\
-& H^1(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-4)) \rar & H^1(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-2))^{\oplus 2} \rar & H^1(\mathbb{P}^3, I_{C_4}(d)) \ar[out=-20, in=160]{dll} \\
-& H^2(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-4)) \rar & \dots \\
-\end{tikzcd}
+% \begin{tikzcd}[sep=small]
+% 0 \rar & H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-4)) \rar & H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-2))^{\oplus 2} \rar & H^0(\mathbb{P}^3, I_{C_4}(d)) \ar[out=-20, in=160]{dll} \\
+% & H^1(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-4)) \rar & H^1(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-2))^{\oplus 2} \rar & H^1(\mathbb{P}^3, I_{C_4}(d)) \ar[out=-20, in=160]{dll} \\
+% & H^2(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-4)) \rar & \dots \\
+% \end{tikzcd}
+
+From this, we can get the long exact sequence in cohomology:
+\[
+  \begin{tikzcd}[sep=small]
+    0 \ar[r]
+    & H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-4)) \ar[r]
+    & H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-2))^{\oplus 2} \ar[r]
+    & H^0(\mathbb{P}^3, I_{C_4}(d)) \ar[controls={+(3,-1.5) and +(-3,1.5)}]{dll} \\
+    {}
+    & H^1(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-4)) \ar[r]
+    & H^1(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-2))^{\oplus 2} \ar[r]
+    & H^1(\mathbb{P}^3, I_{C_4}(d)) \ar[controls={+(3,-1.5) and +(-3,1.5)}]{dll} \\
+    {}
+    & H^2(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d-4)) \ar[r]
+    & \dots
+  \end{tikzcd}
+\]
 
 By Theorem 18.23 in \cite{EO25}, we know that $H^i(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) = 0$ for $i > 0$ and $d \geq (-3)$. Therefore, when $d-4 \geq -3$, i.e. $d \geq 1$, we have that $H^1(\mathbb{P}^3, I_{C_4}(d)) = 0$. Thus, we get the following proposition:
 
