@@ -247,7 +247,7 @@ As mentioned earlier, to get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{
 To get a value of $h^1(\mathbb{P}^3, \mathcal{I}_{C_4})$, we will first look at a resolution of the ideal sheaf $I_{C_4}$. We take inspiration from Hilbert's syzygy theorem, \cite{EO25} Theorem 17.16, which states that we can find a finite free resolution for a finitely generated graded module. We therefore aim to find a resolution. From the discussion above, we have that $I_{C_4} = (x_1x_3, x_0x_2)$ (the calculation was done in Macaulay2). We know that $I_{C_4}$ is of the form $\tilde{M}$ for some graded $R$-module $M$, with $R = \mathbb{C}[x_0, x_1, x_2, x_3]$, see \cite{EO25}, theorem 17.9. We can therefore look at a free resolution of $M$ to get a resolution of $I_{C_4}$. First, consider the map
 \[R^{\oplus 2}(-2) \to M\]
 given by the matrix 
-\[\begin{pmatrix}
+\[>\begin{pmatrix}
     x_1x_3 & x_0x_2
 \end{pmatrix}.\]
 
@@ -268,7 +268,6 @@ Now we want to check if these are the only elements of the kernel. If $x_0x_2f +
 \end{pmatrix}} M \to 0.\]
 
 Taking tilde, we get the following resolution of the ideal sheaf of the 4-gon:
-
 \[0 \to \mathcal{O}_{\mathbb{P}^3}(-4) \xrightarrow{\begin{pmatrix}
     x_1x_3 \\
     -x_0x_2

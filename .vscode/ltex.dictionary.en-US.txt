@@ -53,3 +53,4 @@ Zariski
 syzygy
 quadrics
 enumerative
+Dolgachev

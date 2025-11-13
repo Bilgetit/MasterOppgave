@@ -3,16 +3,17 @@
 
 % Algebraic geometry is the study of solutions to polynomial equations. These solutions can be studied both from an algebraic and geometric perspective, and the interplay between these two viewpoints is what makes algebraic geometry such a rich and interesting field of mathematics.
 
-In 1849, Arthur Cayley communicates to George Salmon that a general cubic surface contains a finite number of lines, and later Salmon responded it must be equal to 27. Later this same year, Salmon proves that in fact any non-singular surface contains exactly 27 lines. \cite{Do04} claimed it can be considered as the beginning of modern algebraic geometry.
+In 1849, Arthur Cayley communicates to George Salmon that a general cubic surface contains a finite number of lines, and later Salmon responded it must be equal to 27. Later this same year, Salmon proves that in fact any non-singular surface contains exactly 27 lines. Dolgachev claims this can be considered the beginning of modern algebraic geometry (\cite{Do04}).
 
 \todo[inline]{Fortsett.}
 
 
 
 \section{Outline}
-There are two main aims of this paper. One is developing theory which describes lines and higher dimensional subspaces of projective varieties. The second aim is to apply this theory to the study of three line configurations  on surfaces, which we define in this paper. We study $m$-crosses, $m$-gons, and $m$-chains, and provide explicit computational examples illustrating the phenomena discussed.
-
 There are two main aims of this paper. One is proving the theorem that there are 27 lines on a cubic surface. The second aim is to study three line configurations on surfaces, which we define in this paper. These are the $m$-crosses, $m$-gons, and $m$-chains, and we provide explicit computational examples illustrating the phenomena discussed. We describe the theory of lines and higher dimensional subspaces of projective varieties to aid in our goals.
+
+% There are two main aims of this paper. One is developing theory which describes lines and higher dimensional subspaces of projective varieties. The second aim is to apply this theory to the study of three line configurations  on surfaces, which we define in this paper. We study $m$-crosses, $m$-gons, and $m$-chains, and provide explicit computational examples illustrating the phenomena discussed.
+
 
 The paper is organized as follows:
 \begin{itemize}
@@ -23,6 +24,7 @@ The paper is organized as follows:
     \item The final section summarizes the results and lists open questions and possible directions for further work, as well as conjectures based on computational evidence.
     \item Appendix \ref{appendix} describes the computational methods and implementations used (computer algebra systems and scripts), and presents concrete examples and data.
 \end{itemize}
+\todo[inline]{Fjern punktliste.}
 
 % In this paper we show several proofs that a smooth cubic surface contains exactly 27 lines, building up to this result by introducing background theory. This includes the theory of Chern classes, the universal Fano variety, the Grassmannian. We then introduce the notion of $m$-crosses, $m$-gons and $m$-chains of lines on surfaces, and study when surfaces contain such configurations of lines. We include computational results for these configurations. The
 
@@ -34,8 +36,8 @@ The paper is organized as follows:
 We will use the following notation throughout the thesis:
 \begin{itemize}
     % \item $\Bbbk$ denotes an algebraically closed field of characteristic $0$.
-    \item We work over the field of complex numbers $\mathcal{C}$ unless otherwise stated.
+    \item We work over the field of complex numbers $\mathbb{C}$ unless otherwise stated.
     \item $K(X)$ denotes the function field of a variety $X$.
     \item $K(X)^\times$ denotes the multiplicative group of non-zero elements in $K(X)$.
-    \item We denote $\dim_\mathcal{C} H^i(-,-)$ by $h^i(-,-)$.
+    \item We denote $\dim_\mathbb{C} H^i(-,-)$ by $h^i(-,-)$.
 \end{itemize}
