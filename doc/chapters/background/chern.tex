@@ -40,6 +40,7 @@ the rational equivalence class $\mathrm{Div}(\sigma)$  in the Chow group $A^1(X)
 
 \cite{EH16} If $Y \subseteq X$ is a divisor on a smooth variety $X$, then the ideal sheaf of $Y$ is a line bundle denoted $\mathcal{O}_X(-Y)$, and its inverse in the Picard group is denoted $\mathcal{O}_X(Y)$. The inverse of the map $c_1$ takes $[Y]$ to $\mathcal{O}_X(Y)$.
 
+% ---------------------------------------------------------------
 \subsection{Chern classes of vector bundles}
 
 We now extend the definition of Chern classes to vector bundles of higher rank. Let $\mathcal{E}$ be a vector bundle on an $n$-dimensional variety $X$, and let $r = \mathrm{rank}(\mathcal{E})$. We follow the approach of \cite{EH16} section 5.2, giving an informal characterization rather than a formal definition.
@@ -54,37 +55,64 @@ This vanishing locus is called the \emph{$i$-th degeneracy locus} of the section
 
 % If $s_1, \dots, s_r$ are linearly independent sections of $\mathcal{E}$, they form a basis.
 
+% ---------------------------------------------------------------
 \subsection{Important results on Chern classes}
+
+\todo[inline]{Se kommentar om degeneracy loci.}
 
 \begin{theorem}[\cite{EH16}, Theorem 5.3 (a), (c)]
     There is a unique way of assigning to each vector bundle $\mathcal{E}$ on a smooth quasi-projective variety $X$ a class $c(\mathcal{E}) = 1 + c_1(\mathcal{E}) + \ldots + c_n(\mathcal{E}) \in A(X)$ in such a way that
     \begin{itemize}
         \item If $\mathcal{L}$ is a line bundle, then $c(\mathcal{L})$ is $1 + c_1(\mathcal{L})$, where $c_1(\mathcal{L}) \in A^1(X)$ is the class of the divisor of zeros minus the divisor of poles of any rational section of $\mathcal{L}$.
-        \item If $0 \to \mathcal{E} \to \mathcal{F} \to \mathcal{G} \to 0$ is an exact sequence of vector bundles on $X$, then $c(\mathcal{E}) = c(\mathcal{F}) c(\mathcal{G}) \in A(X)$.
+        \item If $0 \to \mathcal{E} \to \mathcal{F} \to \mathcal{G} \to 0$ is an exact sequence of vector bundles on $X$, then $c(\mathcal{E}) = c(\mathcal{F}) c(\mathcal{G}) \in A(X)$. (Whitney sum formula!?)
     \end{itemize}
 \end{theorem}
 
+\todo[inline]{Se kommentar.}
 \begin{theorem}[\cite{EH16}, Theorem 5.12, Splitting principle]
-    Any identity among Chern classes of bundles that is true for bundles that are direct sums of line bundles is true in general.
+    Any identity(!?) among Chern classes of bundles that is true for bundles that are direct sums of line bundles is true in general.
 \end{theorem}
 
-\begin{corollary}[\cite{EH16}, Corollary 5.5]
+\begin{corollary}[\cite{EH16}, Corollary 5.5]\label{cor:sums}
     If $\mathcal{E}$ is the direct sum of line bundles $\mathcal{L}_i$, then 
     \[c(\mathcal{E}) = \prod c(\mathcal{L}_i) = \prod (1 + c_1(\mathcal{L}_i)).\]
 \end{corollary}
 
 \todo[inline]{Se veiledning fra 14.03.}
 
-\begin{corollary}[\cite{EH16}, Example 5.13]
-    If $\mathcal{E}$ is a rank $r$ vector bundle, then $c_i(\mathcal{E}) = 0$ for $i > r$.
-\end{corollary}
+The following examples are from \cite{EH16}, example 5.13, 5.14, and 5.16.
 
-Examples:
-\begin{itemize}
-    \item Duals.
-    \item Symmetric squares.
-    \item Tensor products.
-\end{itemize}
+\begin{example}[Vanishing]
+    If $\mathcal{E}$ is a rank $r$ vector bundle, then $c_i(\mathcal{E}) = 0$ for $i > r$. To see why, apply the splitting principle to write $\mathcal{E} = \bigoplus_{i=1}^r \mathcal{L}_i$ for line bundles $\mathcal{L}_i$. Then, since $c(\mathcal{L}_i) = 1 + c_1(\mathcal{L}_i)$, the total Chern class $c(\mathcal{E}) = \prod (1 + c_1(\mathcal{L}_i))$ by \cref{cor:sums}. This is a product of $r$ factors each of degree at most 1, so any Chern class of degree greater than $r$ must be zero. 
+\end{example}
+
+\begin{example}[Duals]
+    If $\mathcal{E} = \bigoplus \mathcal{L}_i$, Then
+    \[c(\mathcal{E}^\vee) = \prod c(\mathcal{L}_i^\vee) = \prod (1 - c_1(\mathcal{L}_i))\]
+    since $c_1(\mathcal{L}^\vee) = -c_1(\mathcal{L})$ when $\mathcal{L}$ is a line bundle. Given this, Whitney's formula gives
+    \[ci(\mathcal{E}^\vee) = (-1)^i c_i(\mathcal{E})\]
+\end{example}
+
+\begin{example}[Symmetric squares]
+    Suppose $\mathcal{E}$ is a bundle of rank 2. If $\mathcal{E}$ splits as a direct sum $\mathcal{L} \oplus \mathcal{M}$ of line bundles $\mathcal{L}$ and $\mathcal{M}$ with Chern classes $c_1(\mathcal{L}) = \alpha$, and $c_1(\mathcal{M}) = \beta$, then by Whitney's formula. 
+    \todo[inline]{Finish.}
+\end{example}
+
+% \begin{example}
+%     Let $\mathcal{E}$ be a rank $2$ vector bundle. Then, using the splitting principle, we can write $\mathcal{E} = \mathcal{L}_1 \oplus \mathcal{L}_2$ for line bundles $\mathcal{L}_1, \mathcal{L}_2$. Thus,
+%     \begin{align*}
+%         c(\mathcal{E}) &= c(\mathcal{L}_1) c(\mathcal{L}_2) \\
+%         &= (1 + c_1(\mathcal{L}_1))(1 + c_1(\mathcal{L}_2)) \\
+%         &= 1 + (c_1(\mathcal{L}_1) + c_1(\mathcal{L}_2)) + c_1(\mathcal{L}_1)c_1(\mathcal{L}_2).
+%     \end{align*}
+%     Therefore,
+%     \begin{align*}
+%         c_1(\mathcal{E}) &= c_1(\mathcal{L}_1) + c_1(\mathcal{L}_2), \\
+%         c_2(\mathcal{E}) &= c_1(\mathcal{L}_1)c_1(\mathcal{L}_2).
+%     \end{align*}
+% \end{example}
+
+\todo[inline]{Consider tensor products.}
 
 \begin{proposition}[\cite{EH16}, Proposition 6.4]
     Let $V$ be an (n+1)-dimensional vector space, and let $S \subseteq V \otimes \mathcal{O}_\mathcal{G}$ (Introduce this earlier!?) be the tautological rank-(k+1) subbundle on the Grassmannian $\mathcal{G} = \mathcal{G}(k,\mathbb{P}V)$ of $k$-planes in $\mathbb{P}V \cong \mathbb{P}^n$. A form $g$ of degree $d$ on $\mathbb{P}V$ gives rise to a global section $\sigma_g$ of $\mathrm{Sym}^d S^\vee$ whose zero locus is the Fano scheme $F_k(X)$, where $X = V(g) \subseteq \mathbb{P}V$ is the hypersurface defined by $g$. Thus, when $F_k(X)$ has expected codimension $\binom{k+d}{k} = \mathrm{rank}(\mathrm{Sym}(S^\vee))$ in $\mathcal{G}$, its class in the Chow ring of $\mathcal{G}$ is given by the top Chern class

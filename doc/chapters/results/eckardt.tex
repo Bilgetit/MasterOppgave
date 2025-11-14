@@ -22,7 +22,7 @@
 In this section we will study the problem of finding a smooth hypersurface $X_d \subset \mathbb{P}^3$ of degree $d$, containing an \emph{$m$-cross}. 
 
 \begin{definition}
-    An $m$-cross is a union of $m$ lines $l_1, l_2, \dots, l_m$ in $\mathbb{P}^3$ which intersect at a common point $p$ and lying in a common plane $H$. We will write $Z_m = \bigcup_{i=1}^m l_i$.
+    An $m$-cross is a union of $m$ distinct lines $l_1, l_2, \dots, l_m$ in $\mathbb{P}^3$ which intersect at a common point $p$ and lying in a common plane $H$. We will write $Z_m = \bigcup_{i=1}^m l_i$.
 \end{definition}
 
 We require the lines to lie in a plane because if this is not true, then the point $p$ gives rise to a tangent space of dimension 3, which cannot be included in a surface in $\mathbb{P}^3$. 
@@ -31,9 +31,10 @@ We require the lines to lie in a plane because if this is not true, then the poi
 
 It is worth noting the specific question we are asking, which is that given an $m$-cross, does there exist a smooth hypersurface of degree $d$ including it. We do not ask whether an $m$-cross is to be expected inside a general hypersurface.
 
-\begin{remark}
-    Note that for automorphisms of $\mathbb{P}^3$, lines are sent to lines. Therefore, we can study the lines $l_1 = (\alpha : \beta : 0 : 0), \ l_2 = (\alpha : 0 : \gamma : 0), \ l_3=(\alpha: \delta : \lambda_3 \delta: 0), \dots, l_m = (\alpha : \delta : \lambda_m \delta : 0)$ for $\lambda_i \in \mathbb{N}$ by taking the automorphism of $\mathbb{P}^3$ which sends these lines to the given lines, and then study the hypersurface of degree $d$ in $\mathbb{P}^3$ which contains these lines.
-    This automorphism will also take a smooth hypersurface of degree $d$ to a smooth hypersurface of degree $d$, so showing properties for lines in this form is sufficient for the general case. In this way, we can assume without loss of generality that the plane $H$ containing the lines is given as $H = V(x_3)$, and that the lines can be descibed as the zero loci of the following polynomials: 
+\todo[inline]{Se kommentar.}
+\begin{remark}\label{rem:autPm}
+    Note that for automorphisms of $\mathbb{P}^3$, lines are sent to lines. Therefore, we can study the lines $l_1 = (\alpha : \beta : 0 : 0), \ l_2 = (\alpha : 0 : \gamma : 0), \ l_3=(\alpha: \delta : \lambda_3 \delta: 0), \dots, l_m = (\alpha : \delta : \lambda_m \delta : 0)$ for $\lambda_i \in \mathbb{N}$, where $\alpha$, $\beta$, $\gamma$, and $\lambda_i$ are parameters which vary, by taking the automorphism of $\mathbb{P}^3$ which sends these lines to the given lines, and then study the hypersurface of degree $d$ in $\mathbb{P}^3$ which contains these lines. Note also that $l_1 = (1 : 0 : 0 : 0)$ since we are working in projective space.
+    This automorphism will also take a smooth hypersurface of degree $d$ to a smooth hypersurface of degree $d$, so showing properties for lines in this form is sufficient for the general case. In this way, we can assume without loss of generality that the plane $H$ containing the lines is given as $H = V(x_3)$, and we notice that a line $l_i = V(H)\cap V(g_i)$ for some $g_i \in \mathbb{C}[x_0,x_1,x_2,x_3]$. The lines given above can then be described as the zero loci of the following polynomials: 
     \begin{equation}\label{eq:li}
         l_1 = V(x_3, x_2), \ l_2 = V(x_3, x_1), \ l_3 = V(x_3, x_1 - \lambda_3 x_2), \ \dots, \ l_m = V(x_3, x_1 - \lambda_m x_2).
     \end{equation}
@@ -42,7 +43,7 @@ It is worth noting the specific question we are asking, which is that given an $
 We are interested in both the existence and non-existence of degree $d$ hypersurfaces containing $m$-crosses. We first consider surfaces with degree less than $k$, but more than 1 (degree 1 provides us a simple choice of surface including an $m$-cross, namely $H$).
 
 \begin{lemma}\label{lem:H}
-    If $S$ is a surface of degree $d > 1$, it does not contain a plane.
+    If $S$ is a smooth surface in $\mathbb{P}^3$ of degree $d > 1$, it does not contain a plane.
 \end{lemma}
 \begin{proof}
     Assume for contradiction that $S = V(g)$ contains a plane $H$. We let $H = V(x_3)$ without loss of generality (refer to a lemma or previous discussion?)(!?). Then $x_3$ divides $g$, and we write $g = x_3 h$ for some $h \in \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1}$. We then use the Jacobi criterion (15.12 in EO!?) on $x_3 h$, and get that $S$ is singular on the whole of $V(x_3) \cap V(h)$. This is non-empty by Bezout's theorem (\cref{thm:bezout}), giving a contradiction. (Use $d>1$ to see that $\text{deg}(h) = d-1 > 0$)(!?). 
@@ -53,7 +54,7 @@ We are interested in both the existence and non-existence of degree $d$ hypersur
     Given an $m$-cross, there does not exist any smooth hypersurface of degree $1 < d < m$ such that the lines are contained in the hypersurface.
 \end{lemma}
 \begin{proof}
-    Assume for contradiction that there exists a smooth hypersurface of degree $1 < d < m$ such that the lines are contained in the hypersurface. Then we can fix another line $\ell$ in $H$, which does not intersect $p$, and which does not lie in the hypersurface $X_d$ by \cref{lem:H}. $\ell$ will intersect each of the lines at a point $p_i$, all being distinct since the lines only intersects in $p$. $\ell$ will also intersect $X_d$ at the points $p_i$, thus intersecting the hypersurface at $m$ points. By Bezout's theorem (\cref{thm:bezout}), the intersection of a line with a hypersurface of degree $d$ is at most $d$ points, giving a contradiction. 
+    Assume for contradiction that there exists a smooth hypersurface of degree $1 < d < m$ such that the lines are contained in the hypersurface. Then we can fix another line $\ell$ in $H$, which does not intersect $p$, and which does not lie in the hypersurface $X_d$ by \cref{lem:H}. $\ell$ will intersect each of the lines at a point $p_i$, all being distinct since the lines only intersect in $p$. $\ell$ will also intersect $X_d$ at the points $p_i$, thus intersecting the hypersurface at $m$ points. By Bezout's theorem (\cref{thm:bezout}), the intersection of a line with a hypersurface of degree $d$ is at most $d$ points, giving a contradiction. 
 \end{proof}
 
 We now move on to the case of existence, with the following proposition:
@@ -63,16 +64,16 @@ We now move on to the case of existence, with the following proposition:
 \end{proposition}
 \begin{proof}
     Let $\mathfrak{L}$ be the linear system of hypersurfaces of degree $m$ in $\mathbb{P}^3$ containing the lines $l_1, \dots, l_m$ (Prove this is not empty, because of singular surfaces.)(!?). Recall that Bertini's theorem (\cref{thm:bertini}) tells us that the general member of $\mathfrak{L}$ is smooth outside the base locus of $\mathfrak{L}$. We can therefore narrow our search of singularities to the base locus. The base locus of $\mathfrak{L}$ is the union of the lines $l_1, \dots, l_m$. To see why, consider a point $x \in \mathbb{P}^3$ which does not lie on one of the lines. We want to show that for each of these points, we can find a surface which excludes the points, but includes the surface. First, if the point is not in the plane $H$, we can exclude it by the plane itself, so we assume the point lies in $H$, but not in one of the lines. 
-    Then we consider the loci which define the lines in \ref{eq:li}, denoted $l_i = V(g_i)$(!?). Then all the lines $l_1, \dots l_m$ are included in $V(\Pi_{i=1}^m g_i)$, while $x$ is not. 
+    Then we consider the loci which define the lines, as discussed in \cref{rem:autPm}, denoted $l_i = V(H) \cap V(g_i)$. Then all the lines $l_1, \dots l_m$ are included in $V(\Pi_{i=1}^m g_i)$, while $x$ is not. 
     % Then we consider the equations of the lines from \ref{eq:li}, denoted $l_i = V(g_i)$ for $g_i \in \mathcal{C}[x_0,x_1,x_2]$. Then all the lines $l_1, \dots l_m$ are included in $V(\Pi_{i=1}^m g_i)$, while $x$ is not. 
     
     Since we know exactly the base locus, we want to find a function $f \in \mathbb{C}[x_0, x_1, x_2, x_3]_m$ such that $V(f)$ is smooth on the lines $l_1, \dots, l_m$. Bertini's theorem then gives us that we can find a hypersurface which is also smooth outside the base locus of $\mathfrak{L}$.
 
    Now we take inspiration from \ref{eq:li}, and study the function $f = g(x_1, x_2) + h(x_0, x_3)$, where $h = x_0^{m-1}x_3$ and $g = \prod l_i = x_1x_2 \prod_{i=3}^k (x_1 - \lambda_i x_2)$, giving the following polynomial:
     \[
-        f(x_0, x_1, x_2, x_3) = x_1x_2 \prod_{i=3}^m (x_1 - \lambda_i x_2) + x_0^{m-1}x_3
+        f(x_0, x_1, x_2, x_3) = x_1x_2 \prod_{i=3}^m (x_1 - \lambda_i x_2) + x_0^{m-1}x_3.
     \]
-    We can see that $f$ is a polynomial of degree $m$, and that $f$ includes the lines $l_1, \dots, l_m$, since $f(\alpha: \beta: 0: 0) = f(\alpha: 0: \gamma: 0) = f(\alpha: \delta: \lambda_i \delta: 0) = 0$. We must then check that $f$ is smooth on the base locus of $\mathfrak{L}$, which is to check that $\bigcap_{i=0}^3 (\partial_i f = 0) = \emptyset$. 
+    We can see that $f$ is a polynomial of degree $m$, and that $V(f)$ includes the lines $l_1, \dots, l_m$, since $f(\alpha: \beta: 0: 0) = f(\alpha: 0: \gamma: 0) = f(\alpha: \delta: \lambda_i \delta: 0) = 0$. We must then check that $f$ is smooth on the base locus of $\mathfrak{L}$, which is to check that $\bigcap_{i=0}^3 (\partial_i f = 0) = \emptyset$. 
     
     The derivatives are given as follows:
     \begin{align*}
@@ -92,7 +93,7 @@ We now move on to the case of existence, with the following proposition:
     We can see that the intersection of all of these zero loci is empty, showing that the function $f$ is smooth on the base locus of $\mathfrak{L}$.
     Thus, we can find a smooth hypersurface of degree $k$ such that the lines are contained in the hypersurface.
 \end{proof}
-
+\todo[inline]{Fiks bevis. Se kommentar.}
 By the results above, we get the following corollary:
 \begin{corollary}
 Given an $m$-cross, we can find a smooth hypersurface of degree $d$ such that the lines are contained in the hypersurface if and only if $d \geq m$ or $d=1$.
@@ -112,9 +113,9 @@ In the previous section we studied the existence and non-existence of smooth hyp
 
 \begin{proof}
     Let $S_d = V(f)$ for some $f \in \mathbb{C}[x_0, x_1, x_2, x_3]_d$ be a surface which includes $Z_m$. Since $Z_m$ is included in 
-    $H$, we write $f$ as $f = g(x_0,x_1,x_2) + x_3h(x_0,x_1,x_2,x_3)$, separating the part of $f$, $x_3h(x_0,x_1,x_2,x_3)$, which vanishes on the plane. Saying that $Z_m \subseteq S_d$ is the same as saying $f|_{Z_m} = 0$, which implies that $g(x_0,x_1,x_2)|_{Z_m} = 0$, since $x_3h(x_0,x_1,x_2,x_3)|_{Z_m}$ already vanishes. This implies that $l_1l_2 \cdots l_m$ divides $g(x_0,x_1,x_2)$, meaning $g(x_0,x_1,x_2) = l_1l_2 \dots l_m \cdot j(x_0,x_1,x_2)$ for some $j(x_0,x_1,x_2) \in \mathbb{C}[x_0,x_1,x_2]_{d-m}$. Thus, we can write $f$ as $f = l_1l_2 \cdots l_m \cdot j(x_0,x_1,x_2) + x_3h(x_0,x_1,x_2,x_3)$, where $h(x_0,x_1,x_2,x_3) \in \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1}$.
+    $H$, we write $f$ as $f = g(x_0,x_1,x_2) + x_3h(x_0,x_1,x_2,x_3)$, separating the part of $f$, $x_3h(x_0,x_1,x_2,x_3)$, which vanishes on the plane. Saying that $Z_m \subseteq S_d$ is the same as saying $f|_{Z_m} = 0$, which is equivalent to $g(x_0,x_1,x_2)|_{Z_m} = 0$, since $x_3h(x_0,x_1,x_2,x_3)|_{Z_m}$ already vanishes. This is equivalent to $l_1l_2 \cdots l_m$ divides $g(x_0,x_1,x_2)$, meaning $g(x_0,x_1,x_2) = l_1l_2 \dots l_m \cdot j(x_0,x_1,x_2)$ for some $j(x_0,x_1,x_2) \in \mathbb{C}[x_0,x_1,x_2]_{d-m}$. Thus, we can write $f$ as $f = l_1l_2 \cdots l_m \cdot j(x_0,x_1,x_2) + x_3h(x_0,x_1,x_2,x_3)$, where $h(x_0,x_1,x_2,x_3) \in \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1}$.
 
-    Since we can choose $j(x_0,x_1,x_2)$ and $h(x_0,x_1,x_2,x_3)$ freely, we get that $\dim{A_m} = \dim \mathbb{C}[x_0,x_1,x_2]_{d-m} + \dim \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1} = \binom{d-m+2}{2} + \binom{d+2}{3} - 1$. We subtract 1 to account for the fact that we are working in projective space. (!?)
+    Since we can choose $j(x_0,x_1,x_2)$ and $h(x_0,x_1,x_2,x_3)$ freely, we get that $\dim{A_m} = \dim \mathbb{C}[x_0,x_1,x_2]_{d-m} + \dim \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1} - 1 = \binom{d-m+2}{2} + \binom{d+2}{3} - 1$. We subtract 1 to account for the fact that we are working in projective space.
 \end{proof}
 
 \todo[inline]{Include examples?}

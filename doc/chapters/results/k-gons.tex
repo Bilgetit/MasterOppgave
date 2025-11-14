@@ -17,7 +17,7 @@ The notion of a regular $m$-gon is important. For example, a non-regular $m$-gon
 \end{definition}
 We can describe $\mathcal{C}_m$ as the set 
 \[\mathcal{C}_m = \{(l_1, l_2, \dots, l_m) \in \mathbb{G}(1,3)^m \mid l_i \cap l_{i+1} \neq \emptyset \text{ for } 1 \leq i < m, \text{ and } l_m \cap l_1 \neq \emptyset\}.\]
-Now we aim to show that $\mathcal{C}_m$ is an irreducible variety, and compute its dimension. To do this, we first define a related variety which we will study further in \cref{sec:m-chain}, that being $m$-chains, which are configurations of lines much like $m$-gons, only without the requirement that $l_m$ shall intersect $l_1$. In this way, $m$-gons can be though of as being iteratively constructed by adding one line at a time, each time forming an $i$-chain for $i=1, \dots, m-1$, until we finally add the last line which intersects the first line, closing the loop. This construction allows us to first study the set of $m$-chains, and then viewing the projection map of $\mathcal{C}_m$ onto $\mathcal{Q}_m$ to get the desired results for $m$-gons.
+Now we aim to show that $\mathcal{C}_m$ is an irreducible variety, and compute its dimension. To do this, we first define a related variety which we will study further in \cref{sec:m-chain}, that being $m$-chains, which are configurations of lines much like $m$-gons, only without the requirement that $l_m$ shall intersect $l_1$. In this way, $m$-gons can be thought of as being iteratively constructed by adding one line at a time, each time forming an $i$-chain for $i=1, \dots, m-1$, until we finally add the last line which intersects the first line, closing the loop. This construction allows us to first study the set of $m$-chains, and then viewing the projection map of $\mathcal{C}_m$ onto $\mathcal{Q}_m$ to get the desired results for $m$-gons.
 \begin{definition}
     We define $\mathcal{Q}_m \subseteq \mathbb{G}(1,3)^m$ to be the subset of m-tuples of lines $(l_1, \dots, l_m)$ such that they form an $m$-chain.
 \end{definition}
@@ -30,6 +30,7 @@ First we need the following lemma about Schubert varieties.
 \begin{proof}
     \cite{EH16}, section 3.3.1. First, consider the incidence correspondence $\Gamma = \{(l, p) \in \mathbb{G}(1,3) \times L \mid p \in l\}$. The projection map $g \colon \Gamma \to \mathbb{G}(1,3)$ given by $g(l,p) = l$ gives us that $\Sigma_L$ is the image of $g$. Next, the fiber of the projection map $f \colon \Gamma \to L$ given by $f(l,p) = p$ is the set of lines through a point $p \in L$, meaning the fiber is isomorphic to $\mathbb{P}^2$. Since $L$ is isomorphic to $\mathbb{P}^1$, it is irreducible of dimension 1. Since $f$ is proper, and all the fibers are irreducible of dimension 2, we have from \cref{lem:irred_fiber} that $\Gamma$ is irreducible of dimension $2 + 1 = 3$. 
 \end{proof}
+\todo[inline]{Se kommentar.}
 
 \begin{lemma} \label{lem:dimQm}
     $\mathcal{Q}_m$ is an irreducible variety of dimension $3m + 1$ for $m \geq 1$. 
@@ -42,7 +43,7 @@ First we need the following lemma about Schubert varieties.
 \end{proof}
 
 \begin{lemma}
-    $\Sigma_L \cap \Sigma_{L'} = \{l \in \mathbb{G}(1,3) \mid l \cap L \neq \emptyset,\ l \cap L' \neq \emptyset\}$ for distinct lines $L, L'$ is irreducible of dimension 2.
+    $\Sigma_L \cap \Sigma_{L'} = \{l \in \mathbb{G}(1,3) \mid l \cap L \neq \emptyset,\ l \cap L' \neq \emptyset\}$, for distinct non-intersecting lines $L, L'$, is irreducible of dimension 2.
 \end{lemma}
 \begin{proof}
     Consider the incidence correspondence 
@@ -55,6 +56,7 @@ First we need the following lemma about Schubert varieties.
 \begin{corollary}
     $\mathcal{C}_m$ is an irreducible variety of dimension $3m$ for $m \geq 3$.
 \end{corollary}
+\todo[inline]{Se over.}
 \begin{proof}
     Consider the projection map $\pi \colon \mathcal{C}_m \to \mathcal{Q}_{m-1}$ given by $\pi(l_1, \dots, l_m) = (l_1, \dots, l_{m-1})$. The fiber over a point is given by
     \[
@@ -67,11 +69,11 @@ First we need the following lemma about Schubert varieties.
     The set of regular $m$-gons is an open subset of $\mathcal{C}_m$.
 \end{lemma}
 \begin{proof}
-    Let $R_m\subset \mathcal{C}_m$ be the locus of regular $m$-gons. By definition a tuple $(l_1,\dots,l_m)\in\mathcal{C}_m$ is regular iff:
+    Let $R_m\subset \mathcal{C}_m$ be the locus of regular $m$-gons. By definition a tuple $(l_1,\dots,l_m)\in\mathcal{C}_m$ is regular if and only if:
     (i) $l_i\neq l_j$ for all $i\neq j$; 
     (ii) $l_i\cap l_j=\emptyset$ whenever $j\not\equiv i\pm 1 \ (\mathrm{mod}\ m)$ (i.e. only adjacent pairs meet).
 
-    Condition (i) is can be described by the locus of a finite number of diagonals $\Delta_{ij}=\{(l_1,\dots,l_m)\mid l_i=l_j\}$ in $\mathbb{G}(1,3)$, and so its complement is open. Condition (ii) is described by the complements of a finite number of zero loci of the equations $l_i \cap l_j \neq \emptyset$ for adjacent pairs $(i,j)$, and so this condition is also open.
+    Condition (i) is can be described by the locus of a finite number of diagonals $\Delta_{ij}=\{(l_1,\dots,l_m)\mid l_i=l_j\}$ in $\mathbb{G}(1,3)^m$, and so its complement is open. Condition (ii) is described by the complements of a finite number of zero loci of the equations $l_i \cap l_j \neq \emptyset$ for adjacent pairs $(i,j)$, and so this condition is also open.
 \end{proof}
 
 % Condition (ii) is described by the complements of the Schubert varieties $\Sigma_{l_i}$ for non-adjacent pairs $(i,j)$, which are also open. The intersection of these open sets is $R_m$, hence $R_m$ is open in $\mathcal{C}_m$.
@@ -153,14 +155,15 @@ First we need the following lemma about Schubert varieties.
     \[0 \to H^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \to H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \to H^0(C_m, \mathcal{O}_{C_m}(d)) \to H^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) \to 0.\] 
     Now, $H^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d))$ is precisely the kernel of the restriction map $H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) \to H^0(C_m, \mathcal{O}_{C_m}(d))$, and so defines the global sections of $\mathcal{O}_{\mathbb{P}^3}(d)$ which vanish on $C_m$. Therefore, the dimension of this space reveals whether the space of global sections of $\mathcal{O}_{\mathbb{P}^3}(d)$ which vanish on $C_m$ is non-empty or not. Taking dimensions in cohomology is additive, and we get that
     \[h^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) = h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) + h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) - h^0(C_m, \mathcal{O}_{C_m}(d)).\]
-    By Theorem 18.4 (!?) in \cite{EO25} we know $h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}) = \binom{d+3}{3}$. 
+    By Theorem 18.4 (!?) in \cite{EO25} we know $h^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(d)) = \binom{d+3}{3}$. 
     
-    $h^0(C_m, \mathcal{O}_{C_m}(d))$ can also be computed, by considering the short exact sequence:
-    \[0 \to \bigoplus_{i=1}^m \mathcal{O}_{p_i} \to \bigoplus_{i=1}^m \mathcal{O}_{l_i}(d) \to \mathcal{O}_{C_m}(d) \to 0.\]
+    The number $h^0(C_m, \mathcal{O}_{C_m}(d))$ can also be computed, by considering the short exact sequence:
+    \[0 \to \mathcal{O}_{C_m}(d) \to \bigoplus_{i=1}^m \mathcal{O}_{l_i}(d) \to \bigoplus_{i=1}^m \mathcal{O}_{p_i} \to 0.\]
     This sequence comes from the fact that sections on $C_m$ can be viewed as collections of sections on each line $l_i$, which agree at the intersection points $p_i$, so we note that this argument requires the regularity of $C_m$. Taking the long exact sequence in cohomology, we get 
-    \[0 \to H^0(\bigoplus_{i=1}^m \mathcal{O}_{p_i}) \to H^0(\bigoplus_{i=1}^m \mathcal{O}_{l_i}(d)) \to  H^0(C_m, \mathcal{O}_{C_m}(d)) \to 0\]
+    \[0 \to H^0(C_m, \mathcal{O}_{C_m}(d)) \to H^0(\bigoplus_{i=1}^m \mathcal{O}_{l_i}(d)) \to H^0(\bigoplus_{i=1}^m \mathcal{O}_{p_i}) \to H^1(C_m, \mathcal{O}_{C_m}(d)) \to 0\]
     since $H^1(\bigoplus_{i=1}^m \mathcal{O}_{p_i}) = 0$. Taking dimensions, we get
     \[h^0(C_m, \mathcal{O}_{C_m}(d)) = h^0(\bigoplus_{i=1}^m \mathcal{O}_{l_i}(d)) - h^0(\bigoplus_{i=1}^m \mathcal{O}_{p_i}).\]
+    \todo[inline]{Fiks dette.}
 
     Since $h^0(\bigoplus_{i=1}^m \mathcal{O}_{p_i}) = m$, and $h^0(\bigoplus_{i=1}^m \mathcal{O}_{l_i}(d)) = m \cdot \binom{d+1}{1}$, this gives us $h^0(C_m, \mathcal{O}_{C_m}) = md$. So we have that
     \[h^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) = \binom{d+3}{3} - md + h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)).\]
@@ -174,7 +177,7 @@ First we need the following lemma about Schubert varieties.
     Note that this argument does not guarantee that the surface is smooth, only that it exists.
 \end{remark}
 
-To get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{C_m})$, we would need to compute $h^1(\mathbb{P}^3, \mathcal{I}_{C_m})$. We have no direct answer of what this cohomology is, but the issue will be explored further through examples in the next two sections. We add this corollary to the proposition:
+To get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d))$, we would need to compute $h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d))$. We have no direct answer of what this cohomology is, but the issue will be explored further through examples in the next two sections. We add this corollary to the proposition:
 
 \begin{corollary} \label{cor:h0-h1}
     \[h^0(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) - h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d)) = \binom{d+3}{3} - md.\]
@@ -198,7 +201,7 @@ We summarize the steps taken in the code for checking if an $m$-gon is included 
 
 \begin{table}
     \centering
-    \caption{Results from Macaulay2 over $\mathbb{Q}$ testing existence and smoothness of surfaces containing an $m$-gon. Each row corresponds to one experiment: degree $d$, number of points used, whether the chosen form was singular, whether the space of degree-$d$ forms in the ideal was zero, the number of elements found in $I_Z(d)$, and runtime in seconds.}
+    \caption{Results from Macaulay2 over $\mathbb{Q}$ testing existence and smoothness of surfaces containing an $m$-gon. Each row corresponds to one experiment: degree $d$, number of points used, whether the chosen form was singular, whether the space of degree-$d$ forms in the ideal was zero, the number of elements found in $I_Z(d)$.}
     \label{tab:mgon-results-small}
     \small
     \begin{tabular}{r r c c r }
@@ -219,7 +222,7 @@ We summarize the steps taken in the code for checking if an $m$-gon is included 
     \end{tabular}
 \end{table}
 
-The results are listed in full in the appendix. The tables are included in \cref{tab:mgon-results_Q} and \cref{tab:mgon-results_Z32749}, and we have included a smaller table of results over $\mathbb{Q}$ in \cref{tab:mgon-results-small}. They are consistent with the inequality in \cref{prop:m-gon}, always finding that an $m$-gon can be included in a surface of degree $d$ when $m$ is lower than the bound, and also always find the surfaces to be smooth. Interestingly, they also imply that we \emph{cannot} find any surface (smooth or singular) containing an $m$-gon when $m$ equals or exceeds the bound. This implies that $h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d))$ does not exceed $md-\binom{d+3}{3}$ when $m$ gets bigger, though we have not been able to prove this. Our tables include two values of $m$ for each degree $d$. This is to check both below and above the bound for each degree. If the bound is an integer $M$, we test $m=M-1$, and $m=M$. As is shown in the table in the appendix, we have found no cases where we can find a surface including an $m$-gon when $m$ is equal to or larger than the bound.
+The results are listed in full in the appendix. The tables are included in \cref{tab:mgon-results_Q} and \cref{tab:mgon-results_Z32749}, and we have included a smaller table of results over $\mathbb{Q}$ in \cref{tab:mgon-results-small}. They are consistent with the inequality in \cref{prop:m-gon}, always finding that an $m$-gon can be included in a surface of degree $d$ when $m$ is lower than the bound, and also always find the surfaces to be smooth. Interestingly, they also imply that we \emph{cannot} find any surface (smooth or singular) containing an $m$-gon when $m$ equals or exceeds the bound. This suggests that $h^1(\mathbb{P}^3, \mathcal{I}_{C_m}(d))$ does not exceed $md-\binom{d+3}{3}$ when $m$ gets bigger, though we have not been able to prove this. Our tables include two values of $m$ for each degree $d$. This is to check both below and above the bound for each degree. If the bound is an integer $M$, we test $m=M-1$, and $m=M$. As is shown in the table in the appendix, we have found no cases where we can find a surface including an $m$-gon when $m$ is equal to or larger than the bound.
 
 
 
@@ -239,7 +242,7 @@ As mentioned earlier, to get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{
 \end{lemma}
 
 \begin{proof}
-    Let $p_1, p_2, p_3, p_4$ be the intersection points of $C_4$. To be in general position in $\mathbb{P}^3$, we require that no three of the points are collinear, and that the points do not all lie in a plane. 
+    Let $p_1, p_2, p_3, p_4$ be the intersection points of $C_4$. To be in general position in $\mathbb{P}^3$, we require that no three of the points are collinear, and that the points do not all lie in a plane (The second part is already fulfilled by considering a regular 4-gon, since if this was included in a plane, then all lines would intersect!?). 
     Let $A$ be the $4 \times 4$ matrix whose columns are the homogeneous coordinates of the points. Since we have that the points do not all lie on a plane, we know that the rows are linearly independent, and we can transform the points by multiplying the matrix by $A^{-1}$. Then $AA^{-1} = I_4$, and we have sent the points to the desired locations.
     % We can then find a projective transformation sending $p_1$ to $(1:0:0:0)$, $p_2$ to $(0:1:0:0)$, and $p_3$ to $(0:0:1:0)$. Since no three of the points are collinear, $p_4$ cannot be sent to a point on the line between any two of the other points. Furthermore, since the points do not all lie in a plane, $p_4$ cannot be sent to a point in the plane spanned by any three of the other points. Then we can send $p_4$ to $(0:0:0:1)$, and we are finished.
 \end{proof}
@@ -247,7 +250,7 @@ As mentioned earlier, to get an exact value for $h^0(\mathbb{P}^3, \mathcal{I}_{
 To get a value of $h^1(\mathbb{P}^3, \mathcal{I}_{C_4})$, we will first look at a resolution of the ideal sheaf $I_{C_4}$. We take inspiration from Hilbert's syzygy theorem, \cite{EO25} Theorem 17.16, which states that we can find a finite free resolution for a finitely generated graded module. We therefore aim to find a resolution. From the discussion above, we have that $I_{C_4} = (x_1x_3, x_0x_2)$ (the calculation was done in Macaulay2). We know that $I_{C_4}$ is of the form $\tilde{M}$ for some graded $R$-module $M$, with $R = \mathbb{C}[x_0, x_1, x_2, x_3]$, see \cite{EO25}, theorem 17.9. We can therefore look at a free resolution of $M$ to get a resolution of $I_{C_4}$. First, consider the map
 \[R^{\oplus 2}(-2) \to M\]
 given by the matrix 
-\[>\begin{pmatrix}
+\[\begin{pmatrix}
     x_1x_3 & x_0x_2
 \end{pmatrix}.\]
 
@@ -267,7 +270,7 @@ Now we want to check if these are the only elements of the kernel. If $x_0x_2f +
     x_1x_3 & x_0x_2
 \end{pmatrix}} M \to 0.\]
 
-Taking tilde, we get the following resolution of the ideal sheaf of the 4-gon:
+Passing to the associated sheaves, we get the following resolution of the ideal sheaf of the 4-gon:
 \[0 \to \mathcal{O}_{\mathbb{P}^3}(-4) \xrightarrow{\begin{pmatrix}
     x_1x_3 \\
     -x_0x_2
@@ -333,7 +336,7 @@ Still, there are interesting conclusions to be drawn from this. For example, we 
 \end{corollary}
 For example, for $d=2$, we have that $h^0(\mathbb{P}^3, \mathcal{I}_{C_4}(2)) = \binom{5}{3} - 8 = 10 - 8 = 2$, so the linear system of quadrics containing a regular 4-gon is 1-dimensional(!?).
 
-This section also reveal why we have not yet found a general result for $h^1(\mathbb{P}^3, \mathcal{I}_{C_m})$, which is that we have so far relied on the generators of the ideal $I_{C_4}$ to compute it. The generators of ideals are generally troublesome, and it is hard to prove general facts by using them. A concrete reason for why we had trouble generalizing in our problem, was that when checking the ideal sheaves of higher $m$ in Macaulay2, we found that they do not grow linearly. We give a short table of the number of generators of the ideals of $m$-gons for small $m$:
+This section also reveals why we have not yet found a general result for $h^1(\mathbb{P}^3, \mathcal{I}_{C_m})$, which is that we have so far relied on the generators of the ideal $I_{C_4}$ to compute it. The generators of ideals are generally troublesome, and it is hard to prove general facts by using them. A concrete reason for why we had trouble generalizing in our problem, was that when checking the ideal sheaves of higher $m$ in Macaulay2, we found that they do not grow linearly. We give a short table of the number of generators of the ideals of $m$-gons for small $m$:
 
 \begin{table}[htbp]
     \centering
@@ -350,9 +353,12 @@ This section also reveal why we have not yet found a general result for $h^1(\ma
         8 & 7 \\
         9 & 11 \\
         10 & 6 \\
+        11 & 15 \\
         \bottomrule
     \end{tabular}
 \end{table}
+
+Note that these are the (minimal) number of all generators, not just for degree $d$.
 
 \begin{figure}
     \centering
