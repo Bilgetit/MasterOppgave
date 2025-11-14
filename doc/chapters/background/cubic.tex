@@ -1,8 +1,8 @@
 \section{27 lines on a cubic surface}
 From \cref{cor:Fano}, we know that a generic smooth cubic surface contains finitely many lines. We will now show that it contains exactly 27 lines. The following Is the main theorem of this section.
 
-\begin{theorem}
-    Each smooth cubic surface in $\mathbb{P}^3$ contains exactly 27 distinct lines.
+\begin{theorem}\label{thm:27}
+    Each smooth cubic surface in $\mathbb{P}^3$ contains exactly 27 distinct(!?) lines.
 \end{theorem}
 
 This will be the main theorem of this section. We will prove it in two different ways. The first will be a well known proof, relating cubic surfaces to blow-ups of $\mathbb{P}^2$ in 6 points. The second proof will use intersection theory on the Grassmannian $\mathbb{G}(1, 3)$. We begin with the first proof.
@@ -13,63 +13,36 @@ This will be the main theorem of this section. We will prove it in two different
 
 
 
-\begin{figure}
-    \centering
-    \begin{tikzpicture}[scale=1,
-    plane/.style = {draw, rectangle, rounded corners=4pt, minimum width=9cm, minimum height=6cm},
-    pt/.style = {fill=black, circle, inner sep=1.6pt},
-    lab/.style = {font=\small}
-    ]
 
-    % The plane
-    \node[plane] (P2) at (0,0) {};
-    \node[lab] at ($(P2.north) + (30mm,-6mm)$) {$\mathbb{P}^2$};
-
-    % Six blowup points (simple, in general position)
-    \coordinate (E1) at ($(P2.center)+(-0.6,1.3)$);
-    \coordinate (E2) at ($(P2.center)+(1.2,1.0)$);
-    \coordinate (E3) at ($(P2.center)+(1.8,0.1)$);
-    \coordinate (E4) at ($(P2.center)+(0.8,-1.2)$);
-    \coordinate (E5) at ($(P2.center)+(-1.0,-1.1)$);
-    \coordinate (E6) at ($(P2.center)+(-2.2,0.0)$);
-
-    % Draw a line between E5 and E2 (labelled as \ell_{25})
-    \draw[very thick] (E5) -- (E2) node[midway, sloped, above] {$\ell_{25}$};
-
-    % Draw points and labels (drawn after the line so they sit on top)
-    \node[pt] at (E1) {}; \node[lab, above left]  at ($(E1)+(0.10,0.10)$) {$E_1$};
-    \node[pt] at (E2) {}; \node[lab, above left]  at ($(E2)+(0.08,0.12)$) {$E_2$};
-    \node[pt] at (E3) {}; \node[lab, above right] at ($(E3)+(0.08,0.08)$) {$E_3$};
-    \node[pt] at (E4) {}; \node[lab, below left]  at ($(E4)+(0.08,0.08)$) {$E_4$};
-    \node[pt] at (E5) {}; \node[lab, below right] at ($(E5)+(0.08,0.08)$) {$E_5$};
-    \node[pt] at (E6) {}; \node[lab, right]       at ($(E6)+(0.10,0.00)$) {$E_6$};
-
-    \end{tikzpicture}
-  \caption{The projective plane $\mathbb{P}^2$ with six marked blow-up points and a strict transform of the line $\ell_{25}$.}
-  \label{fig:blowup6}
-\end{figure}
 \todo[inline]{Make a better figure of the blow-up of $\mathbb{P}^2$ in 6 points.}
 
-
+\begin{figure}%[ht]
+    \centering
+    \input{figures/blowup6.tex}
+    \caption{The projective plane $\mathbb{P}^2$ with six marked blow-up points and a strict transform of the line $\ell_{25}$.}
+    \label{fig:blowup6}
+\end{figure}
 
 This proof will rely on theory which is not in the scope of this thesis, but it will allow us to draw a picture to show a representation of the 27 lines themselves, which we will use later.
 
 First, the points $P_1, \dots, P_6$ in $\mathbb{P}^2$ are said to be in \emph{general position} if no three of the points are collinear, and no six lie on a conic. 
 
 \todo[inline]{Se kommentar.}
-\begin{proposition}\label{prop:blowup6}
-    (\cite{Ha77}, 4.7/4.7.3) Let $P_1, \dots, P_6 \in \mathbb{P}^2$ be in general position. Let $X \subset \mathbb{P}^3$ be a smooth cubic surface. Then $X$ is isomorphic to the blow-up of $\mathbb{P}^2$ in the points $P_1, \dots, P_6$.
+\begin{proposition}[\cite{Ha77}, 4.7/4.7.3]\label{prop:blowup6}
+    Let $X \subset \mathbb{P}^3$ be a smooth cubic surface. Then there exist points $P_1, \dots, P_6 \in \mathbb{P}^2$ in general position such that $X$ is isomorphic to the blow-up of $\mathbb{P}^2$ in these points.
 \end{proposition}
 This is part of a bigger class of surfaces, those being the \emph{Del Pezzo} surfaces. These are surfaces which (Consider continuing, and maybe cite Beauville if so!?)
 
 \begin{proposition}\label{prop:27}
-    (\cite{Ha77}, 4.9) Let $X \subset \mathbb{P}^3$ be a smooth cubic surface. Then $X$ contains exactly 27 distinct(!?) lines. Each having self-intersection $-1$, and they are the only irreducible curves with negative self-intersection. They are:
+    (\cite{Ha77}, 4.9) Let $X \subset \mathbb{P}^3$ be a smooth cubic surface. Then $X$ contains exactly 27 lines. Each has self-intersection $-1$, and they are the only irreducible curves with negative self-intersection. They are:
     \begin{itemize}
         \item The exceptional curves $E_1, \dots E_6$ (6 of these)
-        \item The strict transform of lines in $\mathbb{P}^2$ containing pairs of points $P_i, P_j$, $i \neq j$ (15 of these).
-        \item The strict transform of conics in $\mathbb{P}^2$ not containing $P_i$ (6 of these).
+        \item The strict transform of lines in $\mathbb{P}^2$ containing pairs of points $P_i, P_j$, $i \neq j$, denoted $\ell_{ij}$ (15 of these).
+        \item The strict transform of conics in $\mathbb{P}^2$ not containing $P_i$ denoted $C_i$ (6 of these).
     \end{itemize}
 \end{proposition}
+
+$\mathbb{P}^2$ blown up in 6 points is represented in \cref{fig:blowup6}. 
 
 \subsection{Cayley-Salmon (!?)}
 
@@ -81,7 +54,7 @@ Decide if we want to include this classic proof. We could do as EO, finding 27 l
 
 \subsection{Proof by degree of Chern classes}
 We will now give a proof using intersection theory on the Grassmannian $\mathbb{G}(1,3)$. Recall from Example \ref{ex:G13} that $\mathbb{G}(1,3)$ has dimension 4.
-\begin{proof}
+\begin{proof}[Proof of \cref{thm:27}.]
     Given a smooth cubic surface $X \subset \mathbb{P}^3$ determined by the vanishing of a cubic form $F$ in four variables, we wish to determine the degree of the locus in $\mathbb{G}(1,3)$ of lines contained in $X$.
 
     Observe that if we fix a line $L$ in $\mathbb{P}^3$, then the condition that $L$ lies in $X$ is equivalent to the condition that the restriction of $F$ to $L$ is identically zero. Note that the restriction map from the 20-dimensional vector space of cubic forms on $\mathbb{P}^3$ to the 4-dimensional vector space of cubic forms on $L$, $V_L = H^0(L, \mathcal{O}_L(3))$ is a linear surjection, and the condition $L \subseteq X$ is that $F$ maps to 0 in $V_L$. This imposes four linear conditions on the coefficients of $F$(!?). 

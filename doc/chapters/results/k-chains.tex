@@ -183,12 +183,32 @@ Now we will examine 6-chains in cubic surfaces. We will show that a regular 6-ch
 %     When testing in Macaulay2, we found only one singular surface including the 6-chains we checked. When we did a primary decomposition on this surface, we also found that it was indeed the union of 3 planes.
 % \end{remark}
 
-Another lemma we will need is to show that we can find a 6-chain in any smooth cubic surface. We show that we can find a 27-chain, though this will be very degenerate, it will still include a 6-chain.
+% Another lemma we will need is to show that we can find a 6-chain in any smooth cubic surface. We show that we can find a 27-chain, though this will be very degenerate, it will still include a 6-chain.
 
-\begin{lemma}\label{lem:27}
-    For a smooth cubic surface in $\mathbb{P}^3$, we can find a 27-chain such that it is included in the surface.
+% \begin{lemma}\label{lem:27}
+%     For a smooth cubic surface in $\mathbb{P}^3$, we can find a 27-chain such that it is included in the surface.
+% \end{lemma}
+% \todo[inline]{prove}
+
+Another lemma we will need is to show that we can find a 6-chain in any smooth cubic surface. We show that we can find at least a 12-chain, though this will be quite degenerate, it will still include a 6-chain.
+
+\begin{lemma}\label{lem:12}
+    For a smooth cubic surface in $\mathbb{P}^3$, we can find a 12-chain such that it is included in the surface.
 \end{lemma}
-\todo[inline]{prove}
+\begin{proof}
+    We will build this 12-chain explicitly. Recall from \cref{prop:blowup6} that a smooth cubic surface is isomorphic to the blowup of $\mathbb{P}^2$ at six points, and that there are 27 lines on the surface, as described in \cref{prop:27}. We will use the notation from these propositions. Consider the exceptional curves $E_1, E_2, E_3, E_4, E_5, E_6$, and the strict transforms of the lines $\ell_{12}, \ell_{23}, \ell_{34}, \ell_{45}, \ell_{56}$ through pairs of points. Then one forms a 12-chain by considering the lines in the following order:
+    \[E_1, \ell_{12}, E_2, \ell_{23}, E_3, \ell_{34}, E_4, \ell_{45}, E_5, \ell_{56}, E_6, C_1, \ell_{16}.\]
+    We include a figure of this in \cref{fig:12chain} for clarity. 
+\end{proof}
+
+Note that one could continue building the chain further, but we stop at 12 for simplicity, and especially for the nicer picture in \cref{fig:12chain}. Note also that the 12-chain is also a 12-gon, since the last line intersects the first line.
+
+\begin{figure}%[ht]
+    \centering
+    \input{figures/12chain.tex}
+    \caption{Six exceptional lines $E_1,\dots,E_6$, and the strict transform of six lines, used to form a $12$-gon.}
+    \label{fig:12chain}
+\end{figure}
 
 \begin{proposition}\label{prop:6chain}
     For a general 6-chain in $\mathbb{P}^3$, we cannot find a smooth cubic surface $ S_3 \subset \mathbb{P}^3$ such that it includes the 6-chain.
@@ -197,7 +217,7 @@ Another lemma we will need is to show that we can find a 6-chain in any smooth c
 % Note: In this proposition, we use the notion of a general 6-chain instead of a regular 6-chain. We are able to prove this result for a regular 6-chain as well, which is simpler, and relies on our definition of regular.
 
 \begin{proof}
-    Let $p \colon \mathcal{N} \to \mathcal{M}$ be given by $p(S_d, Q_6) = S_d$. Then the fiber over a point $[S_d] \in \mathcal{M}$ is given by the set of 6-chains in $S_d$. Since $S_d$ is a smooth cubic surface, it includes exactly 27 lines, so we can find a 6-chain by choosing 6 lines from these 27. We know from \cref{lem:27} that it is possible to find a 6-chain, so this fiber is not empty. Furthermore, there are only a finite number of lines, and so the fiber $p^{-1}(S_d)$ has dimension 0. Thus, from the dimension formula for fibers, \cref{thm:fiber}, we have that $\dim \mathcal{N} = \dim \mathcal{M} + \dim p^{-1}(S_d) = 19$.
+    Let $p \colon \mathcal{N} \to \mathcal{M}$ be given by $p(S_d, Q_6) = S_d$. Then the fiber over a point $[S_d] \in \mathcal{M}$ is given by the set of 6-chains in $S_d$. Since $S_d$ is a smooth cubic surface, it includes exactly 27 lines, so we can find a 6-chain by choosing 6 lines from these 27. We know from \cref{lem:12} that it is possible to find a 6-chain, so this fiber is not empty. Furthermore, there are only a finite number of lines, and so the fiber $p^{-1}(S_d)$ has dimension 0. Thus, from the dimension formula for fibers, \cref{thm:fiber}, we have that $\dim \mathcal{N} = \dim \mathcal{M} + \dim p^{-1}(S_d) = 19$.
 
     Now we are interested in $q$, and whether this dominates $\mathcal{Q}_6$. If it does not, we know that a general 6-chain does not have a representative in $\mathcal{N}$, and so is not included in a smooth cubic surface. By \cref{lem:dimQm}, we have that $\dim \mathcal{Q}_6 = 19$. Since the dimension of these sets are the same, we aim to show that the fiber is not 0-dimensional, so that the dimension formula would imply that the dimension of $\mathcal{N} > 19$ if $q$ dominates $\mathcal{Q}_6$. Hence, we claim that if a 6-chain is included in a smooth cubic surface, it must necessarily be included in at least a 1-dimensional family of cubic surfaces. To see this, let $Q_6$ be a general 6-chain in $\mathbb{P}^3$ which is included in a smooth surface $X$. Then, from \cref{lem:3planes}, we know that it is also included in a singular surface $Y$, since we made no restrictions on the 6-chain in the lemma. Then let $\mathcal{D}$ be the pencil $\{aX + bY\}$. All the surfaces in this linear system include our 6-chain, by the observation that if $X = V(f)$ and $Y = V(g)$, then inclusion is equivalent to $f|_{Q_6} = g|_{Q_6} = 0$, and $af|_{Q_6} + bg|_{Q_6} = 0$. Then we apply Bertini (that smoothness is an open property!?) to see that most of the surfaces are smooth. This gives us a 1-dimensional family of smooth surfaces including our 6-chain, and so $q$ cannot dominate $\mathcal{Q}_6$.
 \end{proof}
@@ -235,6 +255,6 @@ Our testing in Macaulay2 also suggested that the singular surface was unique, wh
 
     From (refer to result in Macaulay2 saying that the surface is unique!?), we have an example where the fiber is a single point. Call the relevant 6-chain $Z$. Though this computation was done over $\mathbb{Q}$, the result extends to $\mathbb{C}$. To see why, first note that when we find that there is only one unique surface including $Z$, it is equivalent to saying that the kernel of the map $\phi \colon H^0(\mathbb{P}^3, \mathcal{O}(3)) \rightarrow H^0(Z, \mathcal{O}(3)|_{Z}$ is 1-dimensional(0-dimensional!?). Note also that the fiber of $q(Z)$ is the set $\{f \in \mathbb{C}[x_0,x_1,x_2,x_3]_3 \mid f|_{Z} = 0\}$, which are the polynomials which are zero on $Z$. The equations requiring $f|_{Z} = 0$ have rational coefficients, since our $Z$ is defined over the rationals. Therefore, the kernel of $\phi$ is also 1-dimensional over $\mathbb{C}$. Because of this, there exists at least one 6-chain with a single point as fiber, and so the fiber over this point is 0-dimensional.
 
-    % For any surface $S$, we know that there exists $Q_6 \in \mathcal{Q}_6$ such that $q^{-1}(Q_6) = \{(S,Q_6)\}$, since all smooth surfaces includes 6-chains by \cref{lem:27}. Thus, the fiber of $q$ is non-empty. 
+    % For any surface $S$, we know that there exists $Q_6 \in \mathcal{Q}_6$ such that $q^{-1}(Q_6) = \{(S,Q_6)\}$, since all smooth surfaces includes 6-chains by \cref{lem:12}. Thus, the fiber of $q$ is non-empty. 
     By \cref{lem:3planes}, we know that any 6-chain is included in at least one cubic surface, so the fiber of $q$ is non-empty for all points in $\mathcal{Q}_6$. Then, by upper semi-continuity of fiber dimension (add to basic results, and cite!?), we have that since we know one fiber, $q^{-1}(Z)$ is 0-dimensional, there exists an open neighborhood $U$ of $Z$, such that $\dim q^{-1}(Z') \leq 0$ for all $Z' \in U$. Since every fiber is non-empty, all of these fibers are 0-dimensional, and so there are a finite number of surfaces including a regular $Q_6$. Then we note that the fiber of $q$ is the set of solutions of linear equations, and so it defines a projective space. Since the fiber is 0-dimensional, it must be the point $\mathbb{P}^0$, and so there is only one surface. 
 \end{proof}

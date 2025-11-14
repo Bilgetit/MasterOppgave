@@ -1,0 +1,48 @@
+% Improved schematic of the blow-up of $\mathbb{P}^2$ in six points.
+% Shows six points in general position and highlights the strict transform of the line $\ell_{25}$.
+% The other 14 lines through pairs are omitted to keep the figure uncluttered.
+\begin{tikzpicture}[scale=1.05,
+	plane/.style = {draw=black!35, top color=white, bottom color=black!5, rounded corners=6pt, minimum width=9.6cm, minimum height=6.4cm},
+	pt/.style = {draw=black, fill=white, circle, inner sep=1.9pt, line width=0.5pt},
+	blowpt/.style = {draw=black, fill=black, circle, inner sep=1.6pt},
+	linebase/.style = {line width=0.9pt, color=black!35},
+	selline/.style = {line width=1.2pt, color=red!70!black},
+	lab/.style = {font=\small, inner sep=1pt}
+]
+
+% Subtle background representing $\mathbb{P}^2$ before blow-up
+\node[plane] (P2) at (0,0) {};
+\node[lab, font=\normalsize] at ($(P2.north)+(3.0cm,-7mm)$) {$\mathbb{P}^2$};
+
+% Six points in general position (now labeled $E_1,\dots,E_6$ to emphasize exceptional curves)
+\coordinate (E1) at ($(P2.center)+(-0.6,1.35)$);
+\coordinate (E2) at ($(P2.center)+(1.25,1.05)$);
+\coordinate (E3) at ($(P2.center)+(1.85,0.05)$);
+\coordinate (E4) at ($(P2.center)+(0.85,-1.25)$);
+\coordinate (E5) at ($(P2.center)+(-1.05,-1.10)$);
+\coordinate (E6) at ($(P2.center)+(-2.25,0.05)$);
+
+% Draw the six marked points representing exceptional curves $E_i$
+\foreach \Q/\LBL in {E1/$E_1$, E2/$E_2$, E3/$E_3$, E4/$E_4$, E5/$E_5$, E6/$E_6$} {
+  \node[blowpt] at (\Q) {};
+  \node[lab] at ($(\Q)+(0.14,0.12)$) {\LBL};
+}
+
+% Highlight ONE line: strict transform of the line passing through the two centers giving $E_2$ and $E_5$.
+% We extend it slightly to suggest the original line in $\mathbb{P}^2$.
+\path let \p1 = (E2), \p2 = (E5) in
+  coordinate (ExtA) at ($(E2)!1.25!(E5)$)
+  coordinate (ExtB) at ($(E2)!-0.25!(E5)$);
+\draw[selline] (ExtA) -- (ExtB) node[midway, above left=2pt] {$\ell_{25}$};
+
+% (Optional) Previously showed gray circles to hint exceptional divisors; removed for consistency since points now labeled $E_i$.
+
+% Optional very faint hints of a few other pair-lines (commented out to keep clarity)
+% \draw[linebase,dashed] ($(P1)!1.15!(P2pt)$) -- ($(P1)!-0.15!(P2pt)$);
+% \draw[linebase,dashed] ($(P3)!1.10!(P4)$) -- ($(P3)!-0.10!(P4)$);
+% \draw[linebase,dashed] ($(P6)!1.10!(P1)$) -- ($(P6)!-0.10!(P1)$);
+
+% Annotation at bottom explaining conventions
+\node[font=\footnotesize, align=center, color=black!60] at ($(P2.south)+(0,-6mm)$) {Highlighted: strict transform of the line through $E_2$ and $E_5$ in $\mathbb{P}^2$.};
+
+\end{tikzpicture}

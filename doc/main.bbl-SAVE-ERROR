@@ -255,38 +255,5 @@
     \endentry
   \enddatalist
 \endrefsection
-
-\refsection{1}
-  \datalist[entry]{anyt/global//global/global}
-    \entry{data}{dataset}{}
-      \name{author}{1}{}{%
-        {{hash=3e3ce619cc4a64da59c8ee803f7976c6}{%
-           family={Author},
-           familyi={A\bibinitperiod},
-           given={The},
-           giveni={T\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Dryad}%
-      }
-      \strng{namehash}{3e3ce619cc4a64da59c8ee803f7976c6}
-      \strng{fullhash}{3e3ce619cc4a64da59c8ee803f7976c6}
-      \strng{bibnamehash}{3e3ce619cc4a64da59c8ee803f7976c6}
-      \strng{authorbibnamehash}{3e3ce619cc4a64da59c8ee803f7976c6}
-      \strng{authornamehash}{3e3ce619cc4a64da59c8ee803f7976c6}
-      \strng{authorfullhash}{3e3ce619cc4a64da59c8ee803f7976c6}
-      \field{labelalpha}{Aut20}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Very Big and Important Dataset}
-      \field{year}{2020}
-      \verb{doi}
-      \verb XX.XXXX/XXX.XXXX.XXXXXXXX
-      \endverb
-    \endentry
-  \enddatalist
-\endrefsection
 \endinput
 

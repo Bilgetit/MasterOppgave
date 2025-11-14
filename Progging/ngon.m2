@@ -2,7 +2,7 @@
 kk = QQ; 
 RingP3 = kk[x_0..x_3];
 d = 2;  -- Degree of the hypersurface
-nrPoints = 4;
+nrPoints = 12;
 
 -- Step 2 and 3: Generate random points and create pairs of subsequent points
 -- Function for generating i random points in P^3
@@ -35,6 +35,10 @@ allLines = apply(pointsMatrix, lineFromPoints);
 -- Step 5: Create the ideal of the union of all lines
 -- Intersect the ideals of the lines to get ideal of the union of all lines
 Iz = intersect allLines;
+IzGens = mingens Iz; -- If one wants to see the number of generators
+-- hf = hilbertFunction(d, RingP3/Iz);
+-- totalForms = binomial(d+3,3);
+-- numInIz = totalForms - hf;
 
 -- Step 6: Pick a degree d element in Iz, which defines a surface containing all the lines, and check properties
 -- Pick a random degree d element in Iz
@@ -47,3 +51,6 @@ codimension = codim singularLocus ideal f;
 isZero = (f == 0)
 isSingular = (codimension < 4)
 isSmooth(Vf) and not isZero
+
+IzGens
+-- numInIz

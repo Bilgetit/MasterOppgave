@@ -1,0 +1,39 @@
+% blowup6.tex
+% TikZ figure showing six points in general position and lines forming a 12-gon / 6-chain schematic
+% Usage: \input{doc/figures/blowup6.tex} inside a figure environment
+\begin{tikzpicture}[scale=0.9, every node/.style={font=\small}]
+  % Six points arranged roughly as a hexagon around a circle
+  \coordinate (p1) at (90:2.2);
+  \coordinate (p2) at (30:2.2);
+  \coordinate (p3) at (-30:2.2);
+  \coordinate (p4) at (-90:2.2);
+  \coordinate (p5) at (-150:2.2);
+  \coordinate (p6) at (150:2.2);
+
+  % Draw points
+  \foreach \i in {1,...,6} {
+    \filldraw[black] (p\i) circle (1.8pt);
+  }
+
+  % Label points
+  \node[above] at (p1) {$E_1$};
+  \node[right] at (p2) {$E_2$};
+  \node[right] at (p3) {$E_3$};
+  \node[below] at (p4) {$E_4$};
+  \node[left] at (p5) {$E_5$};
+  \node[left] at (p6) {$E_6$};
+
+  % Draw the six lines forming the 6-chain: l1 between p1-p2, l2 between p2-p3, ...
+  \draw[line width=0.8pt] ($(p1)!1.4!(p2)$) -- ($(p1)!-0.4!(p2)$) node[midway, above right] {$\ell_{12}$};
+  \draw[line width=0.8pt] ($(p2)!1.4!(p3)$) -- ($(p2)!-0.4!(p3)$) node[midway, right] {$\ell_{23}$};
+  \draw[line width=0.8pt] ($(p3)!1.4!(p4)$) -- ($(p3)!-0.4!(p4)$) node[midway, below right] {$\ell_{34}$};
+  \draw[line width=0.8pt] ($(p4)!1.4!(p5)$) -- ($(p4)!-0.4!(p5)$) node[midway, below left] {$\ell_{45}$};
+  \draw[line width=0.8pt] ($(p5)!1.4!(p6)$) -- ($(p5)!-0.4!(p6)$) node[midway, left] {$\ell_{56}$};
+  \draw[line width=0.8pt] ($(p6)!1.4!(p1)$) -- ($(p6)!-0.4!(p1)$) node[midway, above left] {$\ell_{61}$};
+
+  % Optional: draw a faint circle to hint at the hexagon arrangement
+%   \draw[gray!30, dashed] (0,0) circle (2.35);
+
+  % Add caption-like annotation (can be omitted when used in figure environment)
+  % \node[below=12pt] at (0,-2.7) {Schematic: six points $p_1,\dots,p_6$ and lines $l_1,\dots,l_6$.};
+\end{tikzpicture}
