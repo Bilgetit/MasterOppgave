@@ -1,5 +1,6 @@
 listOfResults = {};
 listOfSurprises = {};
+-- fn = "chainResults" << "";
 
 kk = ZZ/32749;
 -- kk = QQ;
@@ -10,11 +11,11 @@ lineFromPoints = pointsMatrix -> minors(3, pointsMatrix);
 
 time0 = currentTime();
 d = 2;
-while currentTime() - time0 < 10*60 do(  -- wait for 10 minutes
+while currentTime() - time0 < 12*60*60 do(  -- wait for 12 hours
     maxNoLines = (binomial(d+3, 3) - 1)/d;
     print(numeric(maxNoLines));
     maxNoPoints = ceiling(maxNoLines)+1;
-    for noPoints from maxNoPoints - 1 to maxNoPoints+1 do (
+    for noPoints from maxNoPoints - 1 to maxNoPoints do (
         myPoints = apply(noPoints, i -> (
             v := for j in 0..3 list random(kk);
             -- Ensure the point is not the zero vector
@@ -56,10 +57,14 @@ while currentTime() - time0 < 10*60 do(  -- wait for 10 minutes
             listOfSurprises = append(listOfSurprises, (d, noPoints, isSingular, isZero, currentTime() - time0))
         );
         print("d = " | toString d | ", noLines = " | toString (noPoints-1) | ", isSingular = " | toString isSingular | ", isZero = " | toString isZero | ", numInIz = " | toString numInIz | ", maxNoLines = " | toString numeric(maxNoLines) | ", time = " | toString (currentTime() - time0) );
+        fn = openOutAppend "chainResults";
+        fn << "d = " << toString d << ", noLines = " << toString (noPoints-1) << ", isSingular = " << toString isSingular << ", isZero = " << toString isZero << ", numInIz = " << toString numInIz << ", maxNoLines = " << toString numeric(maxNoLines) << ", time = " << toString (currentTime() - time0) << endl;
+        fn << close;
     );
     d = d + 1;
 )
 
+-- fn << close;
 time1 = currentTime();
 timeTaken = time1 - time0
 -- listOfResults
