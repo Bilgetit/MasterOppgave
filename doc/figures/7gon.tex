@@ -1,0 +1,25 @@
+% define a macro that draws a m-gon placed on a circle
+\newcommand{\mgon}[1]{%
+    \begin{tikzpicture}[scale=1, every node/.style={font=\small}]
+        % radius of circle
+        \def\R{2.2cm}
+        \pgfmathparse{int(#1)}\let\K\pgfmathresult
+        % place the points on a circle and draw the lines
+        \foreach \i in {1,...,\K} {
+            \pgfmathsetmacro{\ang}{90 - 360*(\i-1)/\K}
+            \coordinate (P\i) at (\ang:\R);
+        }
+        % draw the edges (lines) and label them l_i at the midpoint
+        \foreach \i in {1,...,\K} {
+            \pgfmathtruncatemacro{\j}{ifthenelse(\i==\K,1,\i+1)}
+            \draw[line width=0.9pt] (P\i) -- (P\j) node[midway, above, font=\small] {$l_{\i}$};
+        }
+        % draw and label intersection points p_i (small filled dots)
+        \foreach \i in {1,...,\K} {
+            \fill (P\i) circle (2.4pt) node[below right=1mm and 1mm] {$p_{\i}$};
+        }
+    \end{tikzpicture}
+}
+
+% Example: draw a 7-gon (change the number to any m you want)
+\mgon{7}
