@@ -15,7 +15,7 @@ listOfIz = {};
 
 time0 = currentTime();
 d = 2;
-while currentTime() - time0 < 2 do(  -- wait for 2 seconds
+while currentTime() - time0 < 60*60 do(  -- wait for one hour
     maxNoPoints = (d+3)*(d+2)*(d+1)/(6*d);
     print(numeric(maxNoPoints));
     fn = openOutAppend "h1Results";

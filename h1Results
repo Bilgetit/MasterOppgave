@@ -26,3 +26,120 @@ d = 5, noPoints = 14, difference = 0, numGensH1 = 14, time = 1
 d = 5, noPoints = 15, difference = 0, numGensH1 = 19, time = 1
 d = 5, noPoints = 16, difference = 0, numGensH1 = 24, time = 1
 d = 5, noPoints = 17, difference = 0, numGensH1 = 29, time = 2
+
+
+New Run, over kk:
+5
+d = 2, noPoints = 5, difference = 0, numGensH1 = 0, time = 0
+d = 2, noPoints = 6, difference = 0, numGensH1 = 2, time = 0
+d = 2, noPoints = 7, difference = 0, numGensH1 = 4, time = 0
+d = 2, noPoints = 8, difference = 0, numGensH1 = 6, time = 0
+d = 2, noPoints = 9, difference = 0, numGensH1 = 8, time = 0
+d = 2, noPoints = 10, difference = 0, numGensH1 = 10, time = 0
+6.66667
+d = 3, noPoints = 7, difference = 0, numGensH1 = 1, time = 0
+d = 3, noPoints = 8, difference = 0, numGensH1 = 4, time = 0
+d = 3, noPoints = 9, difference = 0, numGensH1 = 7, time = 0
+d = 3, noPoints = 10, difference = 0, numGensH1 = 10, time = 0
+d = 3, noPoints = 11, difference = 0, numGensH1 = 13, time = 0
+d = 3, noPoints = 12, difference = 0, numGensH1 = 16, time = 0
+8.75
+d = 4, noPoints = 9, difference = 0, numGensH1 = 1, time = 0
+d = 4, noPoints = 10, difference = 0, numGensH1 = 5, time = 0
+d = 4, noPoints = 11, difference = 0, numGensH1 = 9, time = 0
+d = 4, noPoints = 12, difference = 0, numGensH1 = 13, time = 0
+d = 4, noPoints = 13, difference = 0, numGensH1 = 17, time = 1
+d = 4, noPoints = 14, difference = 0, numGensH1 = 21, time = 1
+11.2
+d = 5, noPoints = 12, difference = 0, numGensH1 = 4, time = 1
+d = 5, noPoints = 13, difference = 0, numGensH1 = 9, time = 1
+d = 5, noPoints = 14, difference = 0, numGensH1 = 14, time = 1
+d = 5, noPoints = 15, difference = 0, numGensH1 = 19, time = 1
+d = 5, noPoints = 16, difference = 0, numGensH1 = 24, time = 2
+d = 5, noPoints = 17, difference = 0, numGensH1 = 29, time = 2
+14
+d = 6, noPoints = 14, difference = 0, numGensH1 = 0, time = 2
+d = 6, noPoints = 15, difference = 0, numGensH1 = 6, time = 2
+d = 6, noPoints = 16, difference = 0, numGensH1 = 12, time = 3
+d = 6, noPoints = 17, difference = 0, numGensH1 = 18, time = 3
+d = 6, noPoints = 18, difference = 0, numGensH1 = 24, time = 3
+d = 6, noPoints = 19, difference = 0, numGensH1 = 30, time = 4
+17.1429
+d = 7, noPoints = 18, difference = 0, numGensH1 = 6, time = 4
+d = 7, noPoints = 19, difference = 0, numGensH1 = 13, time = 4
+d = 7, noPoints = 20, difference = 0, numGensH1 = 20, time = 4
+d = 7, noPoints = 21, difference = 0, numGensH1 = 27, time = 5
+d = 7, noPoints = 22, difference = 0, numGensH1 = 34, time = 6
+
+New Run, over kk:
+5
+d = 2, noPoints = 5, difference = 0, numGensH1 = 0, time = 0
+d = 2, noPoints = 6, difference = 0, numGensH1 = 2, time = 0
+d = 2, noPoints = 7, difference = 0, numGensH1 = 4, time = 0
+d = 2, noPoints = 8, difference = 0, numGensH1 = 6, time = 0
+d = 2, noPoints = 9, difference = 0, numGensH1 = 8, time = 0
+d = 2, noPoints = 10, difference = 0, numGensH1 = 10, time = 0
+6.66667
+d = 3, noPoints = 7, difference = 0, numGensH1 = 1, time = 0
+d = 3, noPoints = 8, difference = 0, numGensH1 = 4, time = 0
+d = 3, noPoints = 9, difference = 0, numGensH1 = 7, time = 0
+d = 3, noPoints = 10, difference = 0, numGensH1 = 10, time = 0
+d = 3, noPoints = 11, difference = 0, numGensH1 = 13, time = 1
+d = 3, noPoints = 12, difference = 0, numGensH1 = 16, time = 1
+8.75
+d = 4, noPoints = 9, difference = 0, numGensH1 = 1, time = 1
+d = 4, noPoints = 10, difference = 0, numGensH1 = 5, time = 1
+d = 4, noPoints = 11, difference = 0, numGensH1 = 9, time = 1
+d = 4, noPoints = 12, difference = 0, numGensH1 = 13, time = 1
+d = 4, noPoints = 13, difference = 0, numGensH1 = 17, time = 1
+d = 4, noPoints = 14, difference = 0, numGensH1 = 21, time = 1
+11.2
+d = 5, noPoints = 12, difference = 0, numGensH1 = 4, time = 1
+d = 5, noPoints = 13, difference = 0, numGensH1 = 9, time = 1
+d = 5, noPoints = 14, difference = 0, numGensH1 = 14, time = 1
+d = 5, noPoints = 15, difference = 0, numGensH1 = 19, time = 1
+d = 5, noPoints = 16, difference = 0, numGensH1 = 24, time = 2
+d = 5, noPoints = 17, difference = 0, numGensH1 = 29, time = 3
+14
+d = 6, noPoints = 14, difference = 0, numGensH1 = 0, time = 3
+d = 6, noPoints = 15, difference = 0, numGensH1 = 6, time = 3
+d = 6, noPoints = 16, difference = 0, numGensH1 = 12, time = 3
+d = 6, noPoints = 17, difference = 0, numGensH1 = 18, time = 3
+d = 6, noPoints = 18, difference = 0, numGensH1 = 24, time = 4
+d = 6, noPoints = 19, difference = 0, numGensH1 = 30, time = 4
+17.1429
+d = 7, noPoints = 18, difference = 0, numGensH1 = 6, time = 4
+d = 7, noPoints = 19, difference = 0, numGensH1 = 13, time = 4
+d = 7, noPoints = 20, difference = 0, numGensH1 = 20, time = 5
+d = 7, noPoints = 21, difference = 0, numGensH1 = 27, time = 5
+d = 7, noPoints = 22, difference = 0, numGensH1 = 34, time = 6
+
+New Run, over kk:
+5
+d = 2, noPoints = 5, difference = 0, numGensH1 = 0, time = 0
+d = 2, noPoints = 6, difference = 0, numGensH1 = 2, time = 0
+d = 2, noPoints = 7, difference = 0, numGensH1 = 4, time = 0
+d = 2, noPoints = 8, difference = 0, numGensH1 = 6, time = 0
+d = 2, noPoints = 9, difference = 0, numGensH1 = 8, time = 0
+d = 2, noPoints = 10, difference = 0, numGensH1 = 10, time = 0
+6.66667
+d = 3, noPoints = 7, difference = 0, numGensH1 = 1, time = 0
+d = 3, noPoints = 8, difference = 0, numGensH1 = 4, time = 0
+d = 3, noPoints = 9, difference = 0, numGensH1 = 7, time = 0
+d = 3, noPoints = 10, difference = 0, numGensH1 = 10, time = 0
+d = 3, noPoints = 11, difference = 0, numGensH1 = 13, time = 1
+d = 3, noPoints = 12, difference = 0, numGensH1 = 16, time = 1
+8.75
+d = 4, noPoints = 9, difference = 0, numGensH1 = 1, time = 1
+d = 4, noPoints = 10, difference = 0, numGensH1 = 5, time = 1
+d = 4, noPoints = 11, difference = 0, numGensH1 = 9, time = 1
+d = 4, noPoints = 12, difference = 0, numGensH1 = 13, time = 1
+d = 4, noPoints = 13, difference = 0, numGensH1 = 17, time = 1
+d = 4, noPoints = 14, difference = 0, numGensH1 = 21, time = 1
+11.2
+d = 5, noPoints = 12, difference = 0, numGensH1 = 4, time = 1
+d = 5, noPoints = 13, difference = 0, numGensH1 = 9, time = 1
+d = 5, noPoints = 14, difference = 0, numGensH1 = 14, time = 1
+d = 5, noPoints = 15, difference = 0, numGensH1 = 19, time = 1
+d = 5, noPoints = 16, difference = 0, numGensH1 = 24, time = 2
+d = 5, noPoints = 17, difference = 0, numGensH1 = 29, time = 2

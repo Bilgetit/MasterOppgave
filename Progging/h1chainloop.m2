@@ -15,7 +15,7 @@ listOfIz = {};
 
 time0 = currentTime();
 d = 2;
-while currentTime() - time0 < 2 do(  -- wait for 2 seconds
+while currentTime() - time0 < 60*60 do(  -- wait for one hour
     maxNoLines = (binomial(d+3, 3) - 1)/d;
     print(numeric(maxNoLines));
     fn = openOutAppend "h1chainResults";

@@ -4,27 +4,54 @@
 % Algebraic geometry is the study of solutions to polynomial equations. These solutions can be studied both from an algebraic and geometric perspective, and the interplay between these two viewpoints is what makes algebraic geometry such a rich and interesting field of mathematics.
 
 In 1849, Arthur Cayley communicates to George Salmon that a general cubic surface contains a finite number of lines, and later Salmon responded it must be equal to 27. Later this same year, Salmon proves that in fact any non-singular surface contains exactly 27 lines. Dolgachev claims this can be considered the beginning of modern algebraic geometry (\cite{Do04}).
+\\
+The classical study of lines on hypersurfaces sits at a crossroads of enumerative geometry, birational geometry and modern moduli theory. The number 27 reappears in many guises: as the number of exceptional curves on a del Pezzo surface of degree three, as the number of tritangent planes to a smooth cubic curve, and in the rich Galois/monodromy action on the configuration of lines. Passing from the classical era to the modern language, one packages these lines into the \emph{Fano scheme} of a hypersurface. For a smooth cubic surface in $\mathbf{P}^3$ the Fano scheme of lines is a reduced zero-dimensional scheme of length $27$; for higher degree hypersurfaces it can have positive dimension and carries vector bundle data coming from restriction of the universal bundles on the Grassmannian.
 
-\todo[inline]{Fortsett.}
+We briefly state informal definitions (precise versions appear later):
+\begin{itemize}
+    \item An \emph{$m$-cross} is a configuration of $m$ distinct lines all passing through a single point of $S$, pairwise transverse in the sense that no two coincide and the point is a simple intersection for each pair.
+    \item An \emph{$m$-gon} of lines on a surface $S \subset \mathbf{P}^n$ is a cyclic ordered collection of distinct lines $(L_1,\dots,L_m)$ on $S$ with $L_i \cap L_{i+1} \neq \emptyset$ (indices modulo $m$) and with no other intersections among non-consecutive pairs. Thus they form a combinatorial cycle in the incidence graph.
+    \item An \emph{$m$-chain} is a path $(L_1,\dots,L_m)$ of distinct lines with $L_i \cap L_{i+1}\neq\emptyset$ for $1\le i<m$, and $L_i \cap L_j=\emptyset$ if $|i-j|>1$; unlike the $m$-gon it does not wrap around.
+\end{itemize}
+
+These patterns encode different geometric phenomena: crosses measure local tangency richness, chains capture constrained adjacency, and gons represent closed incidence cycles reminiscent of polygons in combinatorial geometry. Understanding when such configurations occur, whether they are rigid, and how many surfaces contain them leads to new existence and uniqueness statements. A novel result proved here is that a general $4$-gon and a general $6$-gon of lines are contained in unique smooth surfaces of degree $2$ and $3$ respectively (in suitable projective space), illustrating rigidity in low degree.
+
+Methodologically, we rely on:
+\begin{itemize}
+    \item The geometry of the Grassmannian $\mathrm{Gr}(1,3)$ and its universal bundles to parameterize lines.
+    \item Intersection theory and Chern classes to compute characteristic numbers and Euler characteristics appearing in enumerative counts.
+    \item The universal Fano scheme of lines in hypersurfaces to globalize local incidence conditions.
+    \item Explicit computer algebra (Macaulay2 scripts included in the repository) to construct examples, test dimension counts and verify uniqueness statements empirically before proving them.
+\end{itemize}
+
+\paragraph{Contributions.} Summarizing, the thesis:
+\begin{itemize}
+    \item Provides a streamlined account leading to the count of $27$ lines on a smooth cubic surface using modern intersection-theoretic tools.
+    \item Introduces the three configuration classes ($m$-crosses, $m$-gons, $m$-chains) and formalizes their incidence constraints.
+    \item Establishes existence and non-existence criteria in terms of degree, dimension and expected parameter counts.
+    \item Proves uniqueness results for general $4$-gons and $6$-gons in degrees $2$ and $3$ respectively.
+    \item Supplies computational data sets and scripts enabling reproduction and further exploration.
+\end{itemize}
+
+We now give a more detailed outline of the chapters and fix notation used throughout.
 
 
 
 \section{Outline}
-There are two main aims of this thesis. One is proving the theorem that there are 27 lines on a cubic surface. The second aim is to study three line configurations on surfaces, which we define in this paper. These are the $m$-crosses, $m$-gons, and $m$-chains, and we provide explicit computational examples illustrating the phenomena discussed. We describe the theory of lines and higher dimensional subspaces of projective varieties to aid in our goals.
-
 % There are two main aims of this paper. One is developing theory which describes lines and higher dimensional subspaces of projective varieties. The second aim is to apply this theory to the study of three line configurations  on surfaces, which we define in this paper. We study $m$-crosses, $m$-gons, and $m$-chains, and provide explicit computational examples illustrating the phenomena discussed.
+There are two main aims of this thesis. One is proving the theorem that there are 27 lines on a cubic surface. The second aim is to study three line configurations on surfaces, which we define in this paper. These are the $m$-crosses, $m$-gons, and $m$-chains, and we provide explicit computational examples illustrating the phenomena discussed. We describe the theory of lines and higher dimensional subspaces of projective varieties to aid in our goals. The paper is organized as follows:
 
+Later in this chapter we collect some necessary theorems and notation.
 
-The paper is organized as follows:
-\begin{itemize}
-    \item Chapter \ref{background} collects some necessary theorems, and introduces intersection theory.
-    \item Chapter \ref{grassmannians} introduces the Grassmannian, its universal bundles, and the geometry of the Fano variety of lines.
-    \item Chapter \ref{chern} develops Chern class techniques and uses them to give enumerative proofs, culminating in several proofs that a smooth cubic surface contains exactly 27 lines.
-    \item Chapter \ref{configs} introduces $m$-crosses, $m$-gons and $m$-chains of lines on surfaces, studies existence and classification results, and relates these configurations to the general theory. We prove the novel result that a general 4-gon and 6-gon is only included in unique smooth surfaces of degree 4 and 6 respectively.
-    \item The final section summarizes the results and lists open questions and possible directions for further work, as well as conjectures based on computational evidence.
-    \item Appendix \ref{appendix} describes the computational methods and implementations used (computer algebra systems and scripts), and presents concrete examples and data.
-\end{itemize}
-\todo[inline]{Fjern punktliste.}
+In chapter \ref{grassmannians} we introduce the Grassmannian, and give it the structure of a projective variety. We introduce its universal bundles, and we introduce the universal Fano scheme of lines on hypersurfaces. 
+
+Chapter \ref{chern} introduces intersection theory on divisors, and continues with the Chow ring. We then develop theory on Chern classes of vector bundles. Finally, we prove that a smooth cubic surface contains exactly 27 lines.
+
+In chapter \ref{configs} we introduce $m$-crosses, $m$-gons and $m$-chains of lines. We study existence and classification results. We prove the novel result that a general 4-gon and 6-gon is only included in unique smooth surfaces of degree 2 and 3 respectively. 
+
+The final chapter \ref{conc} summarizes the results and lists open questions and possible directions for further work, as well as conjectures based on computational results.
+
+Appendix \ref{appendix} describes the computational methods and implementations used, and presents concrete examples and data.
 
 % In this paper we show several proofs that a smooth cubic surface contains exactly 27 lines, building up to this result by introducing background theory. This includes the theory of Chern classes, the universal Fano variety, the Grassmannian. We then introduce the notion of $m$-crosses, $m$-gons and $m$-chains of lines on surfaces, and study when surfaces contain such configurations of lines. We include computational results for these configurations. The
 
