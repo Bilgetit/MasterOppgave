@@ -5,14 +5,21 @@ kk = ZZ/32749;
 -- kk = QQ;
 RingP3 = kk[x_0..x_3];
 
+fn = openOutAppend "gonResults";
+fn << endl << "New Run, over " << toString kk << ":" << endl;
+fn << close;
+
 pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
 lineFromPoints = pointsMatrix -> minors(3, pointsMatrix);
 
 time0 = currentTime();
 d = 2;
-while currentTime() - time0 < 60*60 do(  -- wait for 1 hour
+while currentTime() - time0 < 2 do(  -- wait for 2 seconds
     maxNoLines = (binomial(d+3, 3))/d;
     print(numeric(maxNoLines));
+    fn = openOutAppend "gonResults";
+    fn << numeric(maxNoLines) << endl;
+    fn << close;
     maxNoPoints = ceiling((d+3)*(d+2)*(d+1)/(6*d));
     for noPoints from maxNoPoints-1 to maxNoPoints do ( -- maxNoPoints to maxNoPoints + 1 for m-chains, maxNoPoints-1 to maxNoPoints for m-gons
         myPoints = apply(noPoints, i -> (
@@ -56,6 +63,9 @@ while currentTime() - time0 < 60*60 do(  -- wait for 1 hour
             listOfSurprises = append(listOfSurprises, (d, noPoints, isZero, isSingular, currentTime() - time0))
         );
         print("d = " | toString d | ", noPoints = " | toString noPoints | ", isSingular = " | toString isSingular | ", isZero = " | toString isZero | ", numInIz = " | toString numInIz | ", time = " | toString (currentTime() - time0) );
+        fn = openOutAppend "gonResults";
+        fn << "d = " << toString d << ", noPoints = " << toString noPoints << ", isSingular = " << toString isSingular << ", isZero = " << toString isZero << ", numInIz = " << toString numInIz << ", time = " << toString (currentTime() - time0) << endl;
+        fn << close;
     );
     d = d + 1;
 )

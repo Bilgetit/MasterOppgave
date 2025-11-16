@@ -1,13 +1,13 @@
 listOfResults = {};
 listOfSurprises = {};
 
-fn = openOutAppend "boundResults";
-fn << endl << "New Run:" << endl;
-fn << close;
-
 kk = ZZ/32749;
 -- kk = QQ;
 RingP3 = kk[x_0..x_3];
+
+fn = openOutAppend "boundResults";
+fn << endl << "New Run, over " << toString kk << ":" << endl;
+fn << close;
 
 pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
 lineFromPoints = pointsMatrix -> minors(3, pointsMatrix);
