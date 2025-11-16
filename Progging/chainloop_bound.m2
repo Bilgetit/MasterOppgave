@@ -1,7 +1,7 @@
 listOfResults = {};
 listOfSurprises = {};
 
-fn = openOutAppend "boundResults";
+fn = openOutAppend "chainBoundResults";
 fn << endl << "New Run:" << endl;
 fn << close;
 
@@ -17,7 +17,7 @@ d = 2;
 while currentTime() - time0 < 2 do(  -- wait for 2 seconds
     maxNoLines = (binomial(d+3, 3) - 1)/d;
     print(numeric(maxNoLines));
-    fn = openOutAppend "boundResults";
+    fn = openOutAppend "chainBoundResults";
     fn << numeric(maxNoLines) << endl;
     fn << close;
     maxNoPoints = ceiling(maxNoLines)+1;
@@ -58,7 +58,7 @@ while currentTime() - time0 < 2 do(  -- wait for 2 seconds
         isZero = (f == 0);
         listOfResults = append(listOfResults, (d, noPoints, isZero, currentTime() - time0));
         print("d = " | toString d | ", noPoints = " | toString noPoints | ", isZero = " | toString isZero | ", numInIz = " | toString numInIz | ", time = " | toString (currentTime() - time0) );
-        fn = openOutAppend "boundResults";
+        fn = openOutAppend "chainBoundResults";
         fn << "d = " << toString d << ", noPoints = " << toString noPoints << ", isZero = " << toString isZero << ", numInIz = " << toString numInIz << ", time = " << toString (currentTime() - time0) << endl;
         fn << close;
     d = d + 1;

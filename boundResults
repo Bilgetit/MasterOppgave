@@ -1,0 +1,36 @@
+5
+d = 2, noPoints = 5, isZero = true, numInIz = 0, time = 0
+6.66667
+d = 3, noPoints = 7, isZero = true, numInIz = 0, time = 0
+8.75
+d = 4, noPoints = 9, isZero = true, numInIz = 0, time = 0
+11.2
+d = 5, noPoints = 12, isZero = true, numInIz = 0, time = 0
+14
+d = 6, noPoints = 14, isZero = true, numInIz = 0, time = 0
+17.1429
+d = 7, noPoints = 18, isZero = true, numInIz = 0, time = 0
+20.625
+d = 8, noPoints = 21, isZero = true, numInIz = 0, time = 1
+24.4444
+d = 9, noPoints = 25, isZero = true, numInIz = 0, time = 1
+28.6
+d = 10, noPoints = 29, isZero = true, numInIz = 0, time = 3
+
+New Run:
+4.5
+d = 2, noPoints = 6, isZero = true, numInIz = 0, time = 0
+6.33333
+d = 3, noPoints = 8, isZero = true, numInIz = 0, time = 0
+8.5
+d = 4, noPoints = 10, isZero = true, numInIz = 0, time = 0
+11
+d = 5, noPoints = 12, isZero = true, numInIz = 0, time = 0
+13.8333
+d = 6, noPoints = 15, isZero = true, numInIz = 0, time = 1
+17
+d = 7, noPoints = 18, isZero = true, numInIz = 0, time = 1
+20.5
+d = 8, noPoints = 22, isZero = true, numInIz = 0, time = 1
+24.3333
+d = 9, noPoints = 26, isZero = true, numInIz = 0, time = 2

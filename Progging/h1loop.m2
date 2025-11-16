@@ -1,6 +1,10 @@
 -- listOfResults = {};
 -- listOfSurprises = {};
 
+fn = openOutAppend "h1Results";
+fn << endl << "New Run:" << endl;
+fn << close;
+
 kk = ZZ/32749;
 RingP3 = kk[x_0..x_3];
 
@@ -11,8 +15,13 @@ listOfIz = {};
 
 time0 = currentTime();
 d = 2;
-while currentTime() - time0 < 12*3600 do(  -- wait for 12 hours
-    maxNoPoints = ceiling((d+3)*(d+2)*(d+1)/(6*d));
+while currentTime() - time0 < 2 do(  -- wait for 2 seconds
+    maxNoPoints = (d+3)*(d+2)*(d+1)/(6*d);
+    print(numeric(maxNoPoints));
+    fn = openOutAppend "h1Results";
+    fn << numeric(maxNoPoints) << endl;
+    fn << close;
+    maxNoPoints = ceiling(maxNoPoints);
     for noPoints from maxNoPoints to maxNoPoints + 5 do (
         M = binomial(d+3, 3) - noPoints * d;
         -- get or create a single Iz for this number of points
@@ -50,6 +59,9 @@ while currentTime() - time0 < 12*3600 do(  -- wait for 12 hours
         --     listOfSurprises = append(listOfSurprises, (d, noPoints, isH1Zero))
         -- );
         print("d = " | toString d | ", noPoints = " | toString noPoints | ", difference = " | toString (numGens + M) | ", numGensH1 = " | toString numGens | ", time = " | toString (currentTime() - time0) );
+        fn = openOutAppend "h1Results";
+        fn << "d = " << toString d << ", noPoints = " << toString noPoints << ", difference = " << toString (numGens + M) << ", numGensH1 = " << toString numGens << ", time = " << toString (currentTime() - time0) << endl;
+        fn << close;
     );
     d = d + 1;
 )

@@ -1,0 +1,56 @@
+4.5
+d = 2, noLines = 5, difference = 0, numGensH1 = 1, time = 0
+d = 2, noLines = 6, difference = 0, numGensH1 = 3, time = 0
+d = 2, noLines = 7, difference = 0, numGensH1 = 5, time = 0
+d = 2, noLines = 8, difference = 0, numGensH1 = 7, time = 0
+d = 2, noLines = 9, difference = 0, numGensH1 = 9, time = 0
+d = 2, noLines = 10, difference = 0, numGensH1 = 11, time = 0
+6.33333
+d = 3, noLines = 7, difference = 0, numGensH1 = 2, time = 0
+d = 3, noLines = 8, difference = 0, numGensH1 = 5, time = 0
+d = 3, noLines = 9, difference = 0, numGensH1 = 8, time = 0
+d = 3, noLines = 10, difference = 0, numGensH1 = 11, time = 0
+d = 3, noLines = 11, difference = 0, numGensH1 = 14, time = 0
+d = 3, noLines = 12, difference = 0, numGensH1 = 17, time = 0
+8.5
+d = 4, noLines = 9, difference = 0, numGensH1 = 2, time = 0
+d = 4, noLines = 10, difference = 0, numGensH1 = 6, time = 0
+d = 4, noLines = 11, difference = 0, numGensH1 = 10, time = 0
+d = 4, noLines = 12, difference = 0, numGensH1 = 14, time = 0
+d = 4, noLines = 13, difference = 0, numGensH1 = 18, time = 0
+d = 4, noLines = 14, difference = 0, numGensH1 = 22, time = 0
+11
+d = 5, noLines = 11, difference = 0, numGensH1 = 0, time = 0
+d = 5, noLines = 12, difference = 0, numGensH1 = 5, time = 0
+d = 5, noLines = 13, difference = 0, numGensH1 = 10, time = 0
+d = 5, noLines = 14, difference = 0, numGensH1 = 15, time = 0
+d = 5, noLines = 15, difference = 0, numGensH1 = 20, time = 1
+d = 5, noLines = 16, difference = 0, numGensH1 = 25, time = 1
+13.8333
+d = 6, noLines = 14, difference = 0, numGensH1 = 1, time = 1
+d = 6, noLines = 15, difference = 0, numGensH1 = 7, time = 1
+d = 6, noLines = 16, difference = 0, numGensH1 = 13, time = 1
+d = 6, noLines = 17, difference = 0, numGensH1 = 19, time = 1
+d = 6, noLines = 18, difference = 0, numGensH1 = 25, time = 1
+d = 6, noLines = 19, difference = 0, numGensH1 = 31, time = 2
+17
+d = 7, noLines = 17, difference = 0, numGensH1 = 0, time = 2
+d = 7, noLines = 18, difference = 0, numGensH1 = 7, time = 2
+d = 7, noLines = 19, difference = 0, numGensH1 = 14, time = 2
+d = 7, noLines = 20, difference = 0, numGensH1 = 21, time = 2
+d = 7, noLines = 21, difference = 0, numGensH1 = 28, time = 3
+d = 7, noLines = 22, difference = 0, numGensH1 = 35, time = 3
+20.5
+d = 8, noLines = 21, difference = 0, numGensH1 = 4, time = 3
+d = 8, noLines = 22, difference = 0, numGensH1 = 12, time = 3
+d = 8, noLines = 23, difference = 0, numGensH1 = 20, time = 4
+d = 8, noLines = 24, difference = 0, numGensH1 = 28, time = 5
+d = 8, noLines = 25, difference = 0, numGensH1 = 36, time = 6
+d = 8, noLines = 26, difference = 0, numGensH1 = 44, time = 7
+24.3333
+d = 9, noLines = 25, difference = 0, numGensH1 = 6, time = 8
+d = 9, noLines = 26, difference = 0, numGensH1 = 15, time = 8
+d = 9, noLines = 27, difference = 0, numGensH1 = 24, time = 12
+d = 9, noLines = 28, difference = 0, numGensH1 = 33, time = 14
+d = 9, noLines = 29, difference = 0, numGensH1 = 42, time = 15
+d = 9, noLines = 30, difference = 0, numGensH1 = 51, time = 17

@@ -1,6 +1,10 @@
 -- listOfResults = {};
 -- listOfSurprises = {};
 
+fn = openOutAppend "h1chainResults";
+fn << endl << "New Run:" << endl;
+fn << close;
+
 kk = ZZ/32749;
 RingP3 = kk[x_0..x_3];
 
@@ -11,9 +15,12 @@ listOfIz = {};
 
 time0 = currentTime();
 d = 2;
-while currentTime() - time0 < 10*60 do(  -- wait for 10 minutes
+while currentTime() - time0 < 2 do(  -- wait for 2 seconds
     maxNoLines = (binomial(d+3, 3) - 1)/d;
     print(numeric(maxNoLines));
+    fn = openOutAppend "h1chainResults";
+    fn << numeric(maxNoLines) << endl;
+    fn << close;
     maxNoPoints = ceiling(maxNoLines)+1;
     print(maxNoPoints);
     for noPoints from maxNoPoints to maxNoPoints + 5 do (
@@ -53,6 +60,9 @@ while currentTime() - time0 < 10*60 do(  -- wait for 10 minutes
         --     listOfSurprises = append(listOfSurprises, (d, noPoints, isH1Zero))
         -- );
         print("d = " | toString d | ", noLines = " | toString (noPoints-1) | ", difference = " | toString (numGens + M) | ", numGensH1 = " | toString numGens | ", time = " | toString (currentTime() - time0) );
+        fn = openOutAppend "h1chainResults";
+        fn << "d = " << toString d << ", noLines = " << toString (noPoints-1) << ", difference = " << toString (numGens + M) << ", numGensH1 = " << toString numGens << ", time = " << toString (currentTime() - time0) << endl;
+        fn << close;
     );
     d = d + 1;
 )

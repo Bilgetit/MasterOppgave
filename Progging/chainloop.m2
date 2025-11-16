@@ -2,9 +2,13 @@ listOfResults = {};
 listOfSurprises = {};
 -- fn = "chainResults" << "";
 
-kk = ZZ/32749;
--- kk = QQ;
+-- kk = ZZ/32749;
+kk = QQ;
 RingP3 = kk[x_0..x_3];
+
+fn = openOutAppend "chainResults";
+fn << endl << "New Run, over " << toString kk << ":" << endl;
+fn << close;
 
 pointsMatrix = points -> matrix {{x_0 .. x_3}, points#0, points#1};
 lineFromPoints = pointsMatrix -> minors(3, pointsMatrix);
@@ -14,6 +18,9 @@ d = 2;
 while currentTime() - time0 < 12*60*60 do(  -- wait for 12 hours
     maxNoLines = (binomial(d+3, 3) - 1)/d;
     print(numeric(maxNoLines));
+    fn = openOutAppend "chainResults";
+    fn << numeric(maxNoLines) << endl;
+    fn << close;
     maxNoPoints = ceiling(maxNoLines)+1;
     for noPoints from maxNoPoints - 1 to maxNoPoints do (
         myPoints = apply(noPoints, i -> (
