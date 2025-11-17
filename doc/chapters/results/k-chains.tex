@@ -137,34 +137,29 @@ In fact, this is the only quadric surface which includes a regular 4-chain, by a
 
 % --------------------------------------------------------------
 \subsection{The case of 6-chains}
-
-Let $\mathcal{M}$ be the set of smooth cubic surfaces in $\mathbb{P}^3$. This is an open subset of $\mathbb{P}(\mathbb{C}[x_0,\dots, x_3]_3) \cong \mathbb{P}^{19}$. Since $\mathcal{M}$ is an open subset, it shares the dimension, i.e. $\dim \mathcal{M} = 19$. Let $ \mathcal{N} = \{(S_d, Q_6) \in \mathcal{M} \times \mathcal{Q}_6 \mid Q_6 \subset S_d\}$ be the incidence variety of smooth cubic surfaces including a regular 6-chain. Note that this is equivalent to the set $\{(S_d, l_1, \dots, l_6) \in \mathcal{M} \times \mathbb{G}(1,3)^6 \mid \bigcup_{i=1}^6 l_i \text{ is a regular 6-chain included in } S_d\}$, it is just notationally simpler to use the first definition. We have the following diagram:
+We now consider the incidence variety of cubic surfaces including a 6-chain. A cubic surface in $\mathbb{P}^3$ is represented(!?) by the projective space $\mathbb{P}(\mathbb{C}[x_0,\dots, x_3]_3) \cong \mathbb{P}^{19}$. Let $ \mathcal{N} = \{(X, Q_6) \in \mathbb{P}^{19} \times \mathcal{Q}_6 \mid Q_6 \subset X\}$ be the incidence variety of cubic surfaces including a 6-chain. Note that this is equivalent to the set $\{(X, l_1, \dots, l_6) \in \mathbb{P}^{19} \times \mathbb{G}(1,3)^6 \mid \bigcup_{i=1}^6 l_i \text{ is a 6-chain included in } X\}$, it is just notationally simpler to use the first definition. We have the following diagram:
 
 \begin{figure}[ht]
     \centering
     \begin{tikzcd}
         & \mathcal{N} \arrow[dl, "p"'] \arrow[dr, "q"] & \\
-        \mathcal{M}  & & \mathcal{Q}_6
+        \mathbb{P}^{19}  & & \mathcal{Q}_6
     \end{tikzcd}
-    \caption{Incidence diagram with the morphisms $p:\mathcal{N}\to\mathcal{M}$ and $q:\mathcal{N}\to\mathcal{Q}_6$.}
+    \caption{Incidence diagram with the morphisms $p:\mathcal{N} \to \mathbb{P}^{19}$ and $q:\mathcal{N}\to\mathcal{Q}_6$.}
     \label{fig:incidence}
 \end{figure}
 
-\begin{remark}
-    Note that it is important that we consider the incidence variety over specifically the smooth cubic surfaces including a regular 6-chain. If not, one can prove that the fiber of the union of 3 planes, will include a much higher dimensional family of 6-chains, and so the incidence variety will not be irreducible. (Do calculation!?)
-\end{remark}
-
-\begin{proposition}
-    $\mathcal{N}$ is an irreducible variety. 
-\end{proposition}
-\todo[inline]{Sjekk irredusibilitet.}
-\begin{proof}
-    We prove this inductively, by considering projection maps $\pi_m \colon \mathcal{N}_m \to \mathcal{N}_{m-1}$ where $\mathcal{N}_m$ is the incidence variety of smooth cubic surfaces including a regular $m$-chain. The base case is $m=1$, where we have the incidence variety of smooth cubic surfaces including a line. This is irreducible by \cref{prop:universalFano} in \cref{sec:fano}. Now, assume that $\mathcal{N}_{m-1}$ is irreducible. Consider the projection map $\pi_m \colon \mathcal{N}_m \to \mathcal{N}_{m-1}$ given by $\pi_m(S_d, Q_m) = (S_d, Q_{m-1})$, where $Q_{m-1}$ is the $(m-1)$-chain obtained by removing the last line from $Q_m$. Then the fiber over a point $(S_d, Q_{m-1}) \in \mathcal{N}_{m-1}$ is given by the set of lines $l_m$ such that $Q_m = Q_{m-1} \cup l_m$ is an $m$-chain included in $S_d$. Since $Q_{m-1}$ is a chain, it has a unique last line $l_{m-1}$, and so $l_m$ must intersect $l_{m-1}$. Thus, the fiber is given by the set of lines in $S_d$ intersecting $l_{m-1}$. This is an irreducible variety by modifying the proof of \cref{lem:Schubert} to consider the Fano variety of lines in $S_d$, $F_1(S_d)$, instead of the full Grassmannian $\mathbb{G}(1,3)$(is this correct!?). Therefore, the fiber is also irreducible. Then by \cref{lem:irred_fiber} we have that $\mathcal{N}_m$ is irreducible.
-\end{proof}
+% \begin{proposition}
+%     $\mathcal{N}$ is an irreducible variety. 
+% \end{proposition}
+% \todo[inline]{Sjekk irredusibilitet.}
+% \begin{proof}
+%     We prove this inductively, by considering projection maps $\pi_m \colon \mathcal{N}_m \to \mathcal{N}_{m-1}$ where $\mathcal{N}_m$ is the incidence variety of smooth cubic surfaces including a regular $m$-chain. The base case is $m=1$, where we have the incidence variety of smooth cubic surfaces including a line. This is irreducible by \cref{prop:universalFano} in \cref{sec:fano}. Now, assume that $\mathcal{N}_{m-1}$ is irreducible. Consider the projection map $\pi_m \colon \mathcal{N}_m \to \mathcal{N}_{m-1}$ given by $\pi_m(S_d, Q_m) = (S_d, Q_{m-1})$, where $Q_{m-1}$ is the $(m-1)$-chain obtained by removing the last line from $Q_m$. Then the fiber over a point $(S_d, Q_{m-1}) \in \mathcal{N}_{m-1}$ is given by the set of lines $l_m$ such that $Q_m = Q_{m-1} \cup l_m$ is an $m$-chain included in $S_d$. Since $Q_{m-1}$ is a chain, it has a unique last line $l_{m-1}$, and so $l_m$ must intersect $l_{m-1}$. Thus, the fiber is given by the set of lines in $S_d$ intersecting $l_{m-1}$. This is an irreducible variety by modifying the proof of \cref{lem:Schubert} to consider the Fano variety of lines in $S_d$, $F_1(S_d)$, instead of the full Grassmannian $\mathbb{G}(1,3)$(is this correct!?). Therefore, the fiber is also irreducible. Then by \cref{lem:irred_fiber} we have that $\mathcal{N}_m$ is irreducible.
+% \end{proof}
 
 % We know from \cref{lem:Schubert} that the set of lines intersecting a fixed line in $\mathbb{P}^3$ is a Schubert variety of dimension 3 in $\mathbb{G}(1,3)$. Intersecting this with the Fano variety of lines in $S_d$, $F_k(S_d)$, then gives us the fiber. $F_k(S_d)$ is smooth since $S_d$ is smooth (see \cite{EH16} section 6.1.1).
 
-Now we will examine 6-chains in cubic surfaces. We will show that a regular 6-chain is not included in a smooth cubic surface in two ways(!?), but that we can find singular cubic surfaces including a regular 6-chain. We start by studying the incidence variety of smooth cubic surfaces including a regular 6-chain. First we show that we can find a singular cubic surface including a regular 6-chain, which will be useful to prove that we cannot find a smooth cubic surface including a regular 6-chain.
+Now we will examine 6-chains in cubic surfaces. We will show that a regular 6-chain is not included in a smooth cubic surface in two ways. The first result uses the incidence variety, and the other shows that a 6-chain in a smooth cubic surface cannot be regular. We will first show that we can find singular cubic surfaces including any 6-chain, which will be useful to prove that we cannot find a smooth cubic surface including a regular 6-chain.
 
 \begin{lemma}\label{lem:3planes}
     Any 6-chain is included in a union of 3 planes in $\mathbb{P}^3$.
@@ -173,6 +168,10 @@ Now we will examine 6-chains in cubic surfaces. We will show that a regular 6-ch
     As in \cref{lem:2planes} We pair the lines of the 6-chain as $(l_1, l_2)$, $(l_3, l_4)$ and $(l_5, l_6)$. Each pair of lines define a plane in $\mathbb{P}^3$. Then the union of the three planes is a singular cubic surface in $\mathbb{P}^3$ that includes the 6-chain.
 \end{proof}
 
+% \begin{remark}
+%     Note that $\mathcal{N}$ is not irreducible. To see this, one can prove that the fiber of the union of 3 planes will include a much higher dimensional family of 6-chains, and so the incidence variety will not be irreducible. 
+% \end{remark}
+
 % \[\{f \in \mathbb{C}[x_0,x_1,x_2,x_3]_3 \mid f|_{Q_6} = 0\}\]
 % \[H^0(\mathbb{P}^3, \mathcal{O}(3)) \rightarrow H^0(Q_6, \mathcal{O}(3)|_{Q_6})\]
 % What we find in Macaulay2 is that the dimension of the kernel is 1, meaning that there is only one surface including the 6-chain. Though this applies $\mathbb{Q}$, it extends to $\mathbb{C}$ since the equations introduced to require $f|_{Q_6} = 0$ for the fixed $Q_6$ have rational coefficients, so the dimension of the kernel is the same.
@@ -180,13 +179,6 @@ Now we will examine 6-chains in cubic surfaces. We will show that a regular 6-ch
 % \begin{remark}
 %     When testing in Macaulay2, we found only one singular surface including the 6-chains we checked. When we did a primary decomposition on this surface, we also found that it was indeed the union of 3 planes.
 % \end{remark}
-
-% Another lemma we will need is to show that we can find a 6-chain in any smooth cubic surface. We show that we can find a 27-chain, though this will be very degenerate, it will still include a 6-chain.
-
-% \begin{lemma}\label{lem:27}
-%     For a smooth cubic surface in $\mathbb{P}^3$, we can find a 27-chain such that it is included in the surface.
-% \end{lemma}
-% \todo[inline]{prove}
 
 Another lemma we will need is to show that we can find a 6-chain in any smooth cubic surface. We show this by finding a 12 chain. This will be quite degenerate, but we are not looking for a regular chain here. 
 
@@ -208,16 +200,29 @@ Note that one could continue building the chain further, but we stop at 12 for s
     \label{fig:12chain}
 \end{figure}
 
+\begin{lemma}\label{lem:1dim}
+    If a 6-chain is included in a smooth cubic surface, it is included in an (at least) 1-dimensional family of smooth cubic surfaces.
+\end{lemma}
+\begin{proof}
+    Let $Q_6$ be a 6-chain in a smooth cubic surface $X$. From \cref{lem:3planes}, we know that it is also included in a singular surface $Y$. Then let $\mathcal{D}$ be the pencil $\{aX + bY\}$. All the surfaces in this linear system include our 6-chain, by the observation that if $X = V(f)$ and $Y = V(g)$, then inclusion is equivalent to $f|_{Q_6} = g|_{Q_6} = 0$, and $af|_{Q_6} + bg|_{Q_6} = 0$. Then we use that smoothness is an open property to see that most of the surfaces are smooth. This gives us a 1-dimensional family of smooth surfaces including our 6-chain.
+\end{proof}
+
 \begin{proposition}\label{prop:6chain}
-    For a general 6-chain in $\mathbb{P}^3$, we cannot find a smooth cubic surface $ S_3 \subset \mathbb{P}^3$ such that it includes the 6-chain.
+    For a regular 6-chain in $\mathbb{P}^3$, we cannot find a smooth cubic surface $ S_3 \subset \mathbb{P}^3$ such that it includes the 6-chain.
 \end{proposition}
 
 % Note: In this proposition, we use the notion of a general 6-chain instead of a regular 6-chain. We are able to prove this result for a regular 6-chain as well, which is simpler, and relies on our definition of regular.
 
-\begin{proof}
-    Let $p \colon \mathcal{N} \to \mathcal{M}$ be given by $p(S_d, Q_6) = S_d$. Then the fiber over a point $[S_d] \in \mathcal{M}$ is given by the set of 6-chains in $S_d$. Since $S_d$ is a smooth cubic surface, it includes exactly 27 lines, so we can find a 6-chain by choosing 6 lines from these 27. We know from \cref{lem:12} that it is possible to find a 6-chain, so this fiber is not empty. Furthermore, there are only a finite number of lines, and so the fiber $p^{-1}(S_d)$ has dimension 0. Thus, from the dimension formula for fibers, \cref{thm:fiber}, we have that $\dim \mathcal{N} = \dim \mathcal{M} + \dim p^{-1}(S_d) = 19$.
+% \begin{proof}
+%     Let $p \colon \mathcal{N} \to \mathcal{M}$ be given by $p(S_d, Q_6) = S_d$. Then the fiber over a point $[S_d] \in \mathcal{M}$ is given by the set of 6-chains in $S_d$. Since $S_d$ is a smooth cubic surface, it includes exactly 27 lines, so we can find a 6-chain by choosing 6 lines from these 27. We know from \cref{lem:12} that it is possible to find a 6-chain, so this fiber is not empty. Furthermore, there are only a finite number of lines, and so the fiber $p^{-1}(S_d)$ has dimension 0. Thus, from the dimension formula for fibers, \cref{thm:fiber}, we have that $\dim \mathcal{N} = \dim \mathcal{M} + \dim p^{-1}(S_d) = 19$.
 
-    Now we are interested in $q$, and whether this dominates $\mathcal{Q}_6$. If it does not, we know that a general 6-chain does not have a representative in $\mathcal{N}$, and so is not included in a smooth cubic surface. By \cref{lem:dimQm}, we have that $\dim \mathcal{Q}_6 = 19$. Since the dimension of these sets are the same, we aim to show that the fiber is not 0-dimensional, so that the dimension formula would imply that the dimension of $\mathcal{N} > 19$ if $q$ dominates $\mathcal{Q}_6$. Hence, we claim that if a 6-chain is included in a smooth cubic surface, it must necessarily be included in at least a 1-dimensional family of cubic surfaces. To see this, let $Q_6$ be a general 6-chain in $\mathbb{P}^3$ which is included in a smooth surface $X$. Then, from \cref{lem:3planes}, we know that it is also included in a singular surface $Y$, since we made no restrictions on the 6-chain in the lemma. Then let $\mathcal{D}$ be the pencil $\{aX + bY\}$. All the surfaces in this linear system include our 6-chain, by the observation that if $X = V(f)$ and $Y = V(g)$, then inclusion is equivalent to $f|_{Q_6} = g|_{Q_6} = 0$, and $af|_{Q_6} + bg|_{Q_6} = 0$. Then we apply Bertini (that smoothness is an open property!?) to see that most of the surfaces are smooth. This gives us a 1-dimensional family of smooth surfaces including our 6-chain, and so $q$ cannot dominate $\mathcal{Q}_6$.
+%     Now we are interested in $q$, and whether this dominates $\mathcal{Q}_6$. If it does not, we know that a general 6-chain does not have a representative in $\mathcal{N}$, and so is not included in a smooth cubic surface. By \cref{lem:dimQm}, we have that $\dim \mathcal{Q}_6 = 19$. Since the dimension of these sets are the same, we aim to show that the fiber is not 0-dimensional, so that the dimension formula would imply that the dimension of $\mathcal{N} > 19$ if $q$ dominates $\mathcal{Q}_6$. Hence, we claim that if a 6-chain is included in a smooth cubic surface, it must necessarily be included in at least a 1-dimensional family of cubic surfaces. To see this, let $Q_6$ be a general 6-chain in $\mathbb{P}^3$ which is included in a smooth surface $X$. Then, from \cref{lem:3planes}, we know that it is also included in a singular surface $Y$, since we made no restrictions on the 6-chain in the lemma. Then let $\mathcal{D}$ be the pencil $\{aX + bY\}$. All the surfaces in this linear system include our 6-chain, by the observation that if $X = V(f)$ and $Y = V(g)$, then inclusion is equivalent to $f|_{Q_6} = g|_{Q_6} = 0$, and $af|_{Q_6} + bg|_{Q_6} = 0$. Then we apply Bertini (that smoothness is an open property!?) to see that most of the surfaces are smooth. This gives us a 1-dimensional family of smooth surfaces including our 6-chain, and so $q$ cannot dominate $\mathcal{Q}_6$.
+% \end{proof}
+
+\begin{proof}
+    First, consider the diagram in \cref{fig:incidence}. The map $p \colon \mathcal{N} \to \mathbb{P}^{19}$ is given by $p(X, Q_6) = X$. Then $p^{-1}(\mathcal{M})$ for the smooth cubic surfaces $\mathcal{M} \subset \mathbb{P}^{19}$ is open in $\mathcal{N}$, we denote $p^{-1}(\mathcal{M}) = \mathcal{N}_\mathcal{M}$. The fiber over a point $X \in \mathcal{M}$ is given by the set of 6-chains included in $X$. Since a smooth cubic surface includes exactly 27 lines, there is only finitely many ways to choose 6 lines from these 27 to form a 6-chain. Thus, the dimension of the fiber $\dim p^{-1}(X)$ is 0. Then $\mathcal{N}_\mathcal{M}$ has dimension 19. 
+
+    We know that $\dim \mathcal{Q}_6 = 19$ from \cref{lem:dimQm}, and we want to show that $q(\mathcal{N}_\mathcal{M})$, which is the set of 6-chains included in smooth cubic surfaces, is not dense in $\mathcal{Q}_6$. We know from \cref{lem:1dim} that an element $Q_6 \in q(\mathcal{N}_\mathcal{M})$ is included in at least a 1-dimensional family of smooth cubic surfaces. Thus, the fiber $q^{-1}(Q_6)$ has dimension at least 1. Then $q(\mathcal{N}_\mathcal{M})$ must be of dimension at most 18. Since the subset of regular $m$-gons is an open subset of $\mathcal{Q}_m$, and $\mathcal{Q}_m$ is irreducible, the subset of regular 6-chains also has dimension 19. Therefore, we cannot find a smooth cubic surface including a regular 6-chain in $\mathbb{P}^3$.
 \end{proof}
 
 \begin{remark}
@@ -249,7 +254,7 @@ Our testing in Macaulay2 also suggested that the singular surface was unique, wh
 \end{proposition}
 \todo[inline]{Sjekk $q$ projektiv.}
 \begin{proof}
-    Consider the diagram in \cref{fig:incidence}. The map $q$ has fiber $q^{-1}(Q_6) = \{S \mid Q_6 \in S\}$ for $Q_6 \in \mathcal{Q}_6$. $q$ is a projective morphism, since it is the composition of the closed embedding $i \colon \mathcal{N} \to \mathbb{P}^N \times \mathcal{M}$, and the projective map $\pi \colon \mathbb{P}^N \times \mathcal{M} \to \mathcal{M}$. A projective morphism is proper by \cite{Ha77} Theorem II.4.9. Then taking the dimension of the fiber of $q$ is upper semi-continuous. 
+    Consider the diagram in \cref{fig:incidence}. The map $q$ has fiber $q^{-1}(Q_6) = \{X \mid Q_6 \in X\}$ for $Q_6 \in \mathcal{Q}_6$. $q$ is a projective morphism, since it is the composition of the closed embedding $i \colon \mathcal{N} \to \mathbb{P}^N \times \mathcal{M}$, and the projective map $\pi \colon \mathbb{P}^N \times \mathcal{M} \to \mathcal{M}$. A projective morphism is proper by \cite{Ha77} Theorem II.4.9. Then taking the dimension of the fiber of $q$ is upper semi-continuous. 
 
     From (refer to result in Macaulay2 saying that the surface is unique!?), we have an example where the fiber is a single point. Call the relevant 6-chain $Z$. Though this computation was done over $\mathbb{Q}$, the result extends to $\mathbb{C}$. To see why, first note that when we find that there is only one unique surface including $Z$, it is equivalent to saying that the kernel of the map $\phi \colon H^0(\mathbb{P}^3, \mathcal{O}(3)) \rightarrow H^0(Z, \mathcal{O}(3)|_{Z}$ is 1-dimensional(0-dimensional!?). Note also that the fiber of $q(Z)$ is the set $\{f \in \mathbb{C}[x_0,x_1,x_2,x_3]_3 \mid f|_{Z} = 0\}$, which are the polynomials which are zero on $Z$. The equations requiring $f|_{Z} = 0$ have rational coefficients, since our $Z$ is defined over the rationals. Therefore, the kernel of $\phi$ is also 1-dimensional over $\mathbb{C}$. Because of this, there exists at least one 6-chain with a single point as fiber, and so the fiber over this point is 0-dimensional.
 

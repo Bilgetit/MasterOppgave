@@ -38,8 +38,16 @@ We refer to \cite[Corollary 2.4]{EH16} (!?) for a proof.
 \begin{lemma}\label{lem:irred_fiber}
     Let $\pi \colon X \to Y$ be a proper morphism to an irreducible variety, and all the fibers are nonempty and irreducible of the same dimension. Then $X$ is irreducible.
 \end{lemma}
-This can be found in \cite{EO25}, exercise 14.2.21.
-\todo[inline]{Sjekk at oppgaven er samme plass.}
+This can be found in \cite[Exercise 14.4.21]{EO25}.
+
+\begin{theorem}[Upper semicontinuity of fiber dimension]\label{thm:uppersemicont}
+    Let $k$ be a field, and suppose $\pi \colon X \to Y$ is a morphism of finite type $k$-schemes. If $\pi$ is proper, then the dimension of the fiber of $\pi$ over $q \in Y$ is an upper semicontinuous function in $q$ (i.e., on $Y$). That is, for each integer $n \geq 0$, the set
+    \[
+        \{y \in Y \mid \dim f^{-1}(y) \geq n\}
+    \]
+    is closed in $Y$.
+\end{theorem}
+This can be found in \cite[Theorem 11.4.2]{Vak25}.
 
 \begin{theorem}[Dimension formula for fibers] \label{thm:fiber}
     Let $k$ be a field and let $f\colon X \to Y$ be a dominant morphism of irreducible projective varieties over $k$. Let $\eta$ denote the generic point of $Y$ and write $X_\eta = X \times_Y \mathrm{Spec}\,k(Y)$ for the generic fiber. Then
