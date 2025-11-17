@@ -3,18 +3,7 @@
 
 \begin{figure}
     \centering
-    \begin{tikzpicture}[scale=1]
-    % Six lines passing through a common point p at the origin
-    % Draw the six lines without inline labels
-    \foreach \theta in {115,-80,65,-35,30,0} {
-        \draw[rotate=\theta, line width=0.9pt] (-3,0) -- (3,0);
-    }
-    % Common intersection point p
-    \fill (0,0) circle (2pt) node[below right] {$p$};
-
-    % Optional label
-    \node at (3,2.4) {$Z_6$};
-    \end{tikzpicture}
+    \input{figures/6cross.tex}
   \caption{An example of a 6-cross in $\mathbb{P}^3$.}
   \label{fig:Z_6}
 \end{figure}
@@ -31,10 +20,8 @@ We require the lines to lie in a plane because if this is not true, then the poi
 
 It is worth noting the specific question we are asking, which is that given an $m$-cross, does there exist a smooth hypersurface of degree $d$ including it. We do not ask whether an $m$-cross is to be expected inside a general hypersurface.
 
-\todo[inline]{Se kommentar.}
 \begin{remark}\label{rem:autPm}
-    Note that for automorphisms of $\mathbb{P}^3$, lines are sent to lines. Therefore, we can study the lines $l_1 = (\alpha : \beta : 0 : 0), \ l_2 = (\alpha : 0 : \gamma : 0), \ l_3=(\alpha: \delta : \lambda_3 \delta: 0), \dots, l_m = (\alpha : \delta : \lambda_m \delta : 0)$ for $\lambda_i \in \mathbb{N}$, where $\alpha$, $\beta$, $\gamma$, and $\lambda_i$ are parameters which vary, by taking the automorphism of $\mathbb{P}^3$ which sends these lines to the given lines, and then study the hypersurface of degree $d$ in $\mathbb{P}^3$ which contains these lines. Note also that $l_1 = (1 : 0 : 0 : 0)$ since we are working in projective space.
-    This automorphism will also take a smooth hypersurface of degree $d$ to a smooth hypersurface of degree $d$, so showing properties for lines in this form is sufficient for the general case. In this way, we can assume without loss of generality that the plane $H$ containing the lines is given as $H = V(x_3)$, and we notice that a line $l_i = V(H)\cap V(g_i)$ for some $g_i \in \mathbb{C}[x_0,x_1,x_2,x_3]$. The lines given above can then be described as the zero loci of the following polynomials: 
+    Note that for automorphisms of $\mathbb{P}^3$, lines are sent to lines. Therefore, we can study the lines $l_1 = (\alpha : \beta : 0 : 0), \ l_2 = (\alpha : 0 : \gamma : 0), \ l_3=(\alpha: \delta : \lambda_3 \delta: 0), \dots, l_m = (\alpha : \delta : \lambda_m \delta : 0)$ for $\lambda_i \in \mathbb{N}$, where $\alpha$, $\beta$, $\gamma$, and $\lambda_i$ are parameters which vary, by taking the automorphism of $\mathbb{P}^3$ which sends these lines to the given lines, and then study the hypersurface of degree $d$ in $\mathbb{P}^3$ which contains these lines. This automorphism will also take a smooth hypersurface of degree $d$ to a smooth hypersurface of degree $d$, so showing properties for lines in this form is sufficient for the general case. In this way, we can assume without loss of generality that the plane $H$ containing the lines is given as $H = V(x_3)$, and we notice that a line $l_i = V(H)\cap V(g_i)$ for some $g_i \in \mathbb{C}[x_0,x_1,x_2,x_3]$. The lines given above can then be described as the zero loci of the following polynomials: 
     \begin{equation}\label{eq:li}
         l_1 = V(x_3, x_2), \ l_2 = V(x_3, x_1), \ l_3 = V(x_3, x_1 - \lambda_3 x_2), \ \dots, \ l_m = V(x_3, x_1 - \lambda_m x_2).
     \end{equation}
@@ -46,9 +33,9 @@ We are interested in both the existence and non-existence of degree $d$ hypersur
     If $S$ is a smooth surface in $\mathbb{P}^3$ of degree $d > 1$, it does not contain a plane.
 \end{lemma}
 \begin{proof}
-    Assume for contradiction that $S = V(g)$ contains a plane $H$. We let $H = V(x_3)$ without loss of generality (refer to a lemma or previous discussion?)(!?). Then $x_3$ divides $g$, and we write $g = x_3 h$ for some $h \in \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1}$. We then use the Jacobi criterion (15.12 in EO!?) on $x_3 h$, and get that $S$ is singular on the whole of $V(x_3) \cap V(h)$. This is non-empty by Bezout's theorem (\cref{thm:bezout}), giving a contradiction. (Use $d>1$ to see that $\text{deg}(h) = d-1 > 0$)(!?). 
+    Assume for contradiction that $S = V(g)$ contains a plane $H$. We let $H = V(x_3)$ without loss of generality, by \cref{rem:autPm}. Then $x_3$ divides $g$, and we write $g = x_3 h$ for some $h \in \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1}$. We then use the Jacobi criterion \cite[Proposition 16.16]{EO25} on $x_3 h$, and get that $S$ is singular on the whole of $V(x_3) \cap V(h)$. This is non-empty by Bezout's theorem (\cref{thm:bezout}), giving a contradiction. (Use $d>1$ to see that $\text{deg}(h) = d-1 > 0$)(!?). 
 \end{proof}
-\todo[inline]{Dette må forbedres.}
+\todo[inline]{Dobbeltsjekk hvis tid.}
 
 \begin{lemma}
     Given an $m$-cross, there does not exist any smooth hypersurface of degree $1 < d < m$ such that the lines are contained in the hypersurface.
@@ -63,7 +50,7 @@ We now move on to the case of existence, with the following proposition:
     For a given $m$-cross, we can find a smooth hypersurface of degree $m$ such that the lines are contained in the hypersurface.
 \end{proposition}
 \begin{proof}
-    Let $\mathfrak{L}$ be the linear system of hypersurfaces of degree $m$ in $\mathbb{P}^3$ containing the lines $l_1, \dots, l_m$ (Prove this is not empty, because of singular surfaces.)(!?). Recall that Bertini's theorem (\cref{thm:bertini}) tells us that the general member of $\mathfrak{L}$ is smooth outside the base locus of $\mathfrak{L}$. We can therefore narrow our search of singularities to the base locus. The base locus of $\mathfrak{L}$ is the union of the lines $l_1, \dots, l_m$. To see why, consider a point $x \in \mathbb{P}^3$ which does not lie on one of the lines. We want to show that for each of these points, we can find a surface which excludes the points, but includes the surface. First, if the point is not in the plane $H$, we can exclude it by the plane itself, so we assume the point lies in $H$, but not in one of the lines. 
+    Let $\mathfrak{L}$ be the linear system of hypersurfaces of degree $m$ in $\mathbb{P}^3$ containing the lines $l_1, \dots, l_m$. Recall that Bertini's theorem, \cref{thm:bertini}, tells us that the general member of $\mathfrak{L}$ is smooth outside the base locus of $\mathfrak{L}$. We can therefore narrow our search of singularities to the base locus. The base locus of $\mathfrak{L}$ is the union of the lines $l_1, \dots, l_m$. To see why, consider a point $x \in \mathbb{P}^3$ which does not lie on one of the lines. We want to show that for each of these points, we can find a surface which excludes the points, but includes the surface. First, if the point is not in the plane $H$, we can exclude it by the plane itself, so we assume the point lies in $H$, but not in one of the lines. 
     Then we consider the loci which define the lines, as discussed in \cref{rem:autPm}, denoted $l_i = V(H) \cap V(g_i)$. Then all the lines $l_1, \dots l_m$ are included in $V(\Pi_{i=1}^m g_i)$, while $x$ is not. 
     % Then we consider the equations of the lines from \ref{eq:li}, denoted $l_i = V(g_i)$ for $g_i \in \mathcal{C}[x_0,x_1,x_2]$. Then all the lines $l_1, \dots l_m$ are included in $V(\Pi_{i=1}^m g_i)$, while $x$ is not. 
     
@@ -91,9 +78,12 @@ We now move on to the case of existence, with the following proposition:
         \item $\partial_3 f = 0$ if and only if $x_0 = 0$, which is the case for the following points: $(0 : \beta : 0 : 0), (0 : 0 : \gamma : 0), (0 : \delta : \lambda_i \delta : 0)$ for $3 \leq i \leq m$.  
     \end{itemize}
     We can see that the intersection of all of these zero loci is empty, showing that the function $f$ is smooth on the base locus of $\mathfrak{L}$.
+
+    Finally, we create a specific linear system of hypersurfaces of degree $m$ in $\mathbb{P}^3$ containing the lines $l_1, \dots, l_m$. We take the pencil $\mathcal{D} = \{aV(h) + bV(g) \mid a,b \in \mathbb{C}\}$, where $h$ and $g$ are as above. Then the calculation above shows that the base locus of $\mathcal{D}$ is the $m$-cross, and that a member $aV(h) + bV(g)$ is smooth on the base locus as long as $a \neq 0$. By Bertini's theorem, the general member of $\mathcal{D}$ is smooth outside the base locus, so we conclude that the general member of $\mathcal{D}$ is smooth.
+    
     Thus, we can find a smooth hypersurface of degree $k$ such that the lines are contained in the hypersurface.
 \end{proof}
-\todo[inline]{Fiks bevis. Se kommentar.}
+
 By the results above, we get the following corollary:
 \begin{corollary}
 Given an $m$-cross, we can find a smooth hypersurface of degree $d$ such that the lines are contained in the hypersurface if and only if $d \geq m$ or $d=1$.
@@ -118,5 +108,5 @@ In the previous section we studied the existence and non-existence of smooth hyp
     Since we can choose $j(x_0,x_1,x_2)$ and $h(x_0,x_1,x_2,x_3)$ freely, we get that $\dim{A_m} = \dim \mathbb{C}[x_0,x_1,x_2]_{d-m} + \dim \mathbb{C}[x_0,x_1,x_2,x_3]_{d-1} - 1 = \binom{d-m+2}{2} + \binom{d+2}{3} - 1$. We subtract 1 to account for the fact that we are working in projective space.
 \end{proof}
 
-\todo[inline]{Include examples?}
+% \todo[inline]{Include examples?}
 

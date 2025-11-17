@@ -1,20 +1,18 @@
 \section{27 lines on a cubic surface}
-From \cref{cor:Fano}, we know that a generic smooth cubic surface contains finitely many lines. We will now show that it contains exactly 27 lines. The following Is the main theorem of this section.
+From \cref{cor:Fano}, we know that a generic smooth cubic surface contains finitely many lines. We will now show that it contains exactly 27 lines. The following is the main theorem of this section.
 
 \begin{theorem}\label{thm:27}
-    Each smooth cubic surface in $\mathbb{P}^3$ contains exactly 27 distinct(!?) lines.
+    Each smooth cubic surface in $\mathbb{P}^3$ contains exactly 27 distinct lines.
 \end{theorem}
 
-This will be the main theorem of this section. We will prove it in two different ways. The first will be a well known proof, relating cubic surfaces to blow-ups of $\mathbb{P}^2$ in 6 points. The second proof will use intersection theory on the Grassmannian $\mathbb{G}(1, 3)$. We begin with the first proof.
-
-\todo[inline]{Describe second result better.}
+We will prove it in two different ways. The first will relate cubic surfaces to blow-ups of $\mathbb{P}^2$ in 6 points, allowing us to picture the lines on smooth cubic surfaces concretely, aiding us later. The second result will use the degree of certain Chern classes to compute the degree of the Fano scheme of lines on a cubic surface, giving us the number of lines directly.
 
 \subsection{Cubic surfaces as blow-ups of \texorpdfstring{$\mathbb{P}^2$}{P2} in 6 points}
 
 
 
 
-\todo[inline]{Make a better figure of the blow-up of $\mathbb{P}^2$ in 6 points.}
+% \todo[inline]{Make a better figure of the blow-up of $\mathbb{P}^2$ in 6 points.}
 
 \begin{figure}%[ht]
     \centering
@@ -27,11 +25,11 @@ This proof will rely on theory which is not in the scope of this thesis, but it 
 
 First, the points $P_1, \dots, P_6$ in $\mathbb{P}^2$ are said to be in \emph{general position} if no three of the points are collinear, and no six lie on a conic. 
 
-\todo[inline]{Se kommentar.}
 \begin{proposition}[\cite{Ha77}, 4.7/4.7.3]\label{prop:blowup6}
     Let $X \subset \mathbb{P}^3$ be a smooth cubic surface. Then there exist points $P_1, \dots, P_6 \in \mathbb{P}^2$ in general position such that $X$ is isomorphic to the blow-up of $\mathbb{P}^2$ in these points.
 \end{proposition}
-This is part of a bigger class of surfaces, those being the \emph{Del Pezzo} surfaces. These are surfaces which (Consider continuing, and maybe cite Beauville if so!?)
+This is part of a bigger class of surfaces, those being the \emph{Del Pezzo} surfaces. We refer to \cite[Chapter 4]{BEA96} for more information on these. 
+% These are surfaces which (Consider continuing, and maybe cite Beauville if so)
 
 \begin{proposition}\label{prop:27}
     (\cite{Ha77}, 4.9) Let $X \subset \mathbb{P}^3$ be a smooth cubic surface. Then $X$ contains exactly 27 lines. Each has self-intersection $-1$, and they are the only irreducible curves with negative self-intersection. They are:
@@ -44,20 +42,16 @@ This is part of a bigger class of surfaces, those being the \emph{Del Pezzo} sur
 
 $\mathbb{P}^2$ blown up in 6 points is represented in \cref{fig:blowup6}. 
 
-\subsection{Cayley-Salmon (!?)}
+% \subsection{Cayley-Salmon}
 
-Decide if we want to include this classic proof. We could do as EO, finding 27 lines on the Fermat cubic. 
-
-\begin{lemma}
-    The Fermat cubic surface $X \subset \mathbb{P}^3$ defined by the vanishing of the form $F = x_0^3 + x_1^3 + x_2^3 + x_3^3$ contains exactly 27 distinct lines.
-\end{lemma}
+% Decide if we want to include this classic proof. We could do as EO, finding 27 lines on the Fermat cubic. 
 
 \subsection{Proof by degree of Chern classes}
-We will now give a proof using intersection theory on the Grassmannian $\mathbb{G}(1,3)$. Recall from Example \ref{ex:G13} that $\mathbb{G}(1,3)$ has dimension 4.
+Recall from Example \ref{ex:G13} that $\mathbb{G}(1,3)$ has dimension 4.
 \begin{proof}[Proof of \cref{thm:27}.]
-    Given a smooth cubic surface $X \subset \mathbb{P}^3$ determined by the vanishing of a cubic form $F$ in four variables, we wish to determine the degree of the locus in $\mathbb{G}(1,3)$ of lines contained in $X$.
+    Given a smooth cubic surface $X \subset \mathbb{P}^3$ determined by the vanishing of a general section $g \in \mathcal{O}_{\mathbb{P}^3}(3)$, we wish to determine the degree of the locus in $\mathbb{G}(1,3)$ of lines contained in $X$.
 
-    Observe that if we fix a line $L$ in $\mathbb{P}^3$, then the condition that $L$ lies in $X$ is equivalent to the condition that the restriction of $F$ to $L$ is identically zero. Note that the restriction map from the 20-dimensional vector space of cubic forms on $\mathbb{P}^3$ to the 4-dimensional vector space of cubic forms on $L$, $V_L = H^0(L, \mathcal{O}_L(3))$ is a linear surjection, and the condition $L \subseteq X$ is that $F$ maps to 0 in $V_L$. This imposes four linear conditions on the coefficients of $F$(!?). 
+    Observe that if we fix a line $L$ in $\mathbb{P}^3$, then the condition that $L$ lies in $X$ is equivalent to the condition that the restriction of $g$ to $L$ is identically zero, i.e. that $g$ is sent to 0 by the restriction map $H^0(\mathcal{O}_{\mathbb{P}^3}(3)) \to H^0(\mathcal{O}_L(3))$. Note that the restriction map from the 20-dimensional vector space of cubic forms on $\mathbb{P}^3$ to the 4-dimensional vector space of cubic forms on $L$, $V_L = H^0(L, \mathcal{O}_L(3))$ is a linear surjection, and the condition $L \subseteq X$ is that $F$ maps to 0 in $V_L$. This imposes four linear conditions on the coefficients of $F$. 
 
     As the line varies over $\mathbb{G}(1,3)$, the vector spaces $V_L$ fit together to form a vector bundle of rank 4, $\mathcal{V}$ on $\mathbb{G}(1,3)$, with fiber over the point $[L]$ being $V_L$. A cubic form $F$ on $\mathbb{P}^3$, through its restriction to each $V_L$, defines a global section $\sigma_F$ of this vector bundle. Thus, the locus of lines contained in the cubic surface $X$ is the zero locus of the section $\sigma_F$. Assuming that this zero locus is zero-dimensional(!?), its class in $A(\mathbb{G}(1,3))$ is given by the top Chern class $c_4(\mathcal{V})$ of the vector bundle $\mathcal{V}$. The number of lines contained in $X$ is therefore the degree of this class(!?).
 
@@ -101,3 +95,8 @@ We will now give a proof using intersection theory on the Grassmannian $\mathbb{
 %     &= 9 c_2(\mathcal{E}) (2 c_1(\mathcal{E})^2 + 3 c_2(\mathcal{E})) \\
 %     &= 18 c_2(\mathcal{E}) c_1(\mathcal{E})^2 - 27 c_2(\mathcal{E})^2
 % \end{align*}
+
+
+\begin{example}
+    The Fermat cubic surface $X \subset \mathbb{P}^3$ defined by the vanishing of the form $F = x_0^3 + x_1^3 + x_2^3 + x_3^3$ contains exactly 27 distinct lines.
+\end{example}

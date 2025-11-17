@@ -51,36 +51,44 @@ More precisely, the bundle $\mathcal{E}$ is said to be trivial if and only if it
 
 In general, we have that for $(r-i)$ general sections, we can consider the vanishing locus of 
 \[s_1 \wedge \dots \wedge s_{r-i} \in \bigwedge^{r-i} \mathcal{E}.\]
-This vanishing locus is called the \emph{$i$-th degeneracy locus} of the sections $s_1, \dots, s_{r-i}$. The class of the degeneracy locus is defined by a Chern class as follows.
+This vanishing locus is called the \emph{$i$-th degeneracy locus} of the sections $s_1, \dots, s_{r-i}$. Given general sections, the $i$-th degeneracy locus has codimension $i$ in $X$, and thus defines a class in $A^i(X)$. This class can be computed using Chern classes.
+\todo[inline]{Se kommentar om degeneracy loci.}
 
 % If $s_1, \dots, s_r$ are linearly independent sections of $\mathcal{E}$, they form a basis.
 
-\todo[inline]{Se kommentar om degeneracy loci.}
-The \emph{$i$-th Chern class} $c_i(\mathcal{E})$ of the vector bundle $\mathcal{E}$ is defined as the class of the $i$-th degeneracy locus of $(r-i)$ general sections of $\mathcal{E}$, i.e. the class of the vanishing locus of $s_1 \wedge \dots \wedge s_{r-i} \in \bigwedge^{r-i} \mathcal{E}$ for general sections $s_1, \dots, s_{r-i}$.
+
 
 % ---------------------------------------------------------------
 \subsection{Important results on Chern classes}
 
+The \emph{$i$-th Chern class} $c_i(\mathcal{E})$ of the vector bundle $\mathcal{E}$ is defined as the class of the $i$-th degeneracy locus of $(r-i)$ general sections of $\mathcal{E}$, i.e. the class of the vanishing locus of $s_1 \wedge \dots \wedge s_{r-i} \in \bigwedge^{r-i} \mathcal{E}$ for general sections $s_1, \dots, s_{r-i}$.
 
-\begin{theorem}[\cite{EH16}, Theorem 5.3 (a), (c)]
+To characterize the \emph{$i$-th Chern class} $c_i(\mathcal{E})$ of the vector bundle $\mathcal{E}$, we use the part (b) of the following theorem.
+
+\todo[inline]{Se over.}
+
+\begin{theorem}[\cite{EH16}, Theorem 5.3]
     There is a unique way of assigning to each vector bundle $\mathcal{E}$ on a smooth quasi-projective variety $X$ a class $c(\mathcal{E}) = 1 + c_1(\mathcal{E}) + \ldots + c_n(\mathcal{E}) \in A(X)$ in such a way that
-    \begin{itemize}
+    \begin{enumerate}[label=(\alph*)]
         \item If $\mathcal{L}$ is a line bundle, then $c(\mathcal{L})$ is $1 + c_1(\mathcal{L})$, where $c_1(\mathcal{L}) \in A^1(X)$ is the class of the divisor of zeros minus the divisor of poles of any rational section of $\mathcal{L}$.
-        \item If $0 \to \mathcal{E} \to \mathcal{F} \to \mathcal{G} \to 0$ is an exact sequence of vector bundles on $X$, then $c(\mathcal{E}) = c(\mathcal{F}) c(\mathcal{G}) \in A(X)$. (Whitney sum formula!?)
-    \end{itemize}
+        \item If $\tau_0, \dots, \tau_{r-i}$ are global sections of $\mathcal{E}$, and the degeneracy locus $D$ where they are all dependent has codimension $i$, then $c_i(\mathcal{E}) = [D] \in A^i(X)$.
+        \item (Whitney sum formula) If $0 \to \mathcal{E} \to \mathcal{F} \to \mathcal{G} \to 0$ is an exact sequence of vector bundles on $X$, then $c(\mathcal{E}) = c(\mathcal{F}) c(\mathcal{G}) \in A(X)$.
+        \item If $\phi \colon Y \to X$ is a morphism of smooth varieties, then 
+        \[\phi^*(c(\mathcal{E})) = c(\phi^*(\mathcal{E})).\]
+    \end{enumerate}
 \end{theorem}
 
-\todo[inline]{Se kommentar.}
 \begin{theorem}[\cite{EH16}, Theorem 5.12, Splitting principle]
-    Any identity(!?) among Chern classes of bundles that is true for bundles that are direct sums of line bundles is true in general.
+    Any universal formula involving Chern classes of bundles that is true for bundles that are direct sums of line bundles is true in general.
 \end{theorem}
+\todo[inline]{Se kommentar.}
 
 \begin{corollary}[\cite{EH16}, Corollary 5.5]\label{cor:sums}
     If $\mathcal{E}$ is the direct sum of line bundles $\mathcal{L}_i$, then 
     \[c(\mathcal{E}) = \prod c(\mathcal{L}_i) = \prod (1 + c_1(\mathcal{L}_i)).\]
 \end{corollary}
 
-\todo[inline]{Se veiledning fra 14.03.}
+% \todo[inline]{Se veiledning fra 14.03.}
 
 The following examples are from \cite{EH16}, example 5.13, 5.14, and 5.16.
 
@@ -92,14 +100,31 @@ The following examples are from \cite{EH16}, example 5.13, 5.14, and 5.16.
     If $\mathcal{E} = \bigoplus \mathcal{L}_i$, Then
     \[c(\mathcal{E}^\vee) = \prod c(\mathcal{L}_i^\vee) = \prod (1 - c_1(\mathcal{L}_i))\]
     since $c_1(\mathcal{L}^\vee) = -c_1(\mathcal{L})$ when $\mathcal{L}$ is a line bundle. Given this, Whitney's formula gives
-    \[ci(\mathcal{E}^\vee) = (-1)^i c_i(\mathcal{E})\]
+    \[c_i(\mathcal{E}^\vee) = (-1)^i c_i(\mathcal{E})\]
 \end{example}
 
 \begin{example}[Symmetric squares]
-    Suppose $\mathcal{E}$ is a bundle of rank 2. If $\mathcal{E}$ splits as a direct sum $\mathcal{L} \oplus \mathcal{M}$ of line bundles $\mathcal{L}$ and $\mathcal{M}$ with Chern classes $c_1(\mathcal{L}) = \alpha$, and $c_1(\mathcal{M}) = \beta$, then by Whitney's formula. 
-    \todo[inline]{Finish.}
+    Suppose $\mathcal{E}$ is a bundle of rank 2. If $\mathcal{E}$ splits as a direct sum $\mathcal{L} \oplus \mathcal{M}$ of line bundles $\mathcal{L}$ and $\mathcal{M}$ with Chern classes $c_1(\mathcal{L}) = \alpha$, and $c_1(\mathcal{M}) = \beta$, then $c(\mathcal{E}) = (1 + \alpha)(1 + \beta)$ by Whitney's formula. 
+    Then we get 
+    \[c_1(\mathcal{E}) = \alpha + \beta, \quad c_2(\mathcal{E}) = \alpha \beta.\]
+    Now, $\mathrm{Sym}^2 \mathcal{E}$ splits as $\mathcal{L}^2 \oplus (\mathcal{L} \otimes \mathcal{M}) \oplus \mathcal{M}^2$, so again by Whitney's formula,
+    \begin{align*}
+        c(\mathrm{Sym}^2 \mathcal{E}) &= (1 + 2\alpha)(1 + \alpha + \beta)(1 + 2\beta) \\
+        &= 1 + 2(\alpha + \beta) + (\alpha^2 + 8\alpha \beta + 2\beta^2) + 4\alpha \beta(\alpha + \beta).
+    \end{align*}
+    Now we consider these as the Chern classes of $\mathcal{E}$, and we get:
+    \[1 + 2c_1(\mathcal{E}) + (2c_1(\mathcal{E})^2 + 4c_2(\mathcal{E})) + 4c_2(\mathcal{E})c_1(\mathcal{E})\]
+    By the splitting principle, this holds in general. 
+    % Thus,
+    % \begin{align*}
+    %     c_1(\mathrm{Sym}^2 \mathcal{E}) &= 2c_1(\mathcal{E}), \\
+    %     c_2(\mathrm{Sym}^2 \mathcal{E}) &= 2c_1(\mathcal{E})^2 + 4c_2(\mathcal{E}), \\
+    %     c_3(\mathrm{Sym}^2 \mathcal{E}) &= 4c_2(\mathcal{E}) c_1(\mathcal{E}).
+    % \end{align*}
+    % Tror ikke jeg kan påstå dette.
 \end{example}
 
+One can use this method to compute Chern classes for any symmetric or exterior power. We will compute $\mathrm{Sym}^3 \mathcal{E}$ to compute the number of lines on a cubic surface in \cref{sec:fano}. To see why this is relevant, we first state the following proposition.
 % \begin{example}
 %     Let $\mathcal{E}$ be a rank $2$ vector bundle. Then, using the splitting principle, we can write $\mathcal{E} = \mathcal{L}_1 \oplus \mathcal{L}_2$ for line bundles $\mathcal{L}_1, \mathcal{L}_2$. Thus,
 %     \begin{align*}
@@ -114,10 +139,15 @@ The following examples are from \cite{EH16}, example 5.13, 5.14, and 5.16.
 %     \end{align*}
 % \end{example}
 
-\todo[inline]{Consider tensor products.}
+% \todo[inline]{Consider tensor products.}
 
 \begin{proposition}[\cite{EH16}, Proposition 6.4]
-    Let $V$ be an (n+1)-dimensional vector space, and let $S \subseteq V \otimes \mathcal{O}_\mathcal{G}$ (Introduce this earlier!?) be the tautological rank-(k+1) subbundle on the Grassmannian $\mathcal{G} = \mathcal{G}(k,\mathbb{P}V)$ of $k$-planes in $\mathbb{P}V \cong \mathbb{P}^n$. A form $g$ of degree $d$ on $\mathbb{P}V$ gives rise to a global section $\sigma_g$ of $\mathrm{Sym}^d S^\vee$ whose zero locus is the Fano scheme $F_k(X)$, where $X = V(g) \subseteq \mathbb{P}V$ is the hypersurface defined by $g$. Thus, when $F_k(X)$ has expected codimension $\binom{k+d}{k} = \mathrm{rank}(\mathrm{Sym}(S^\vee))$ in $\mathcal{G}$, its class in the Chow ring of $\mathcal{G}$ is given by the top Chern class
+    Let $V$ be an (n+1)-dimensional vector space, and let $S \subseteq V \otimes \mathcal{O}_\mathcal{G}$ be the tautological rank-(k+1) subbundle on the Grassmannian $\mathcal{G} = \mathcal{G}(k,\mathbb{P}V)$ of $k$-planes in $\mathbb{P}V \cong \mathbb{P}^n$. A form $g$ of degree $d$ on $\mathbb{P}V$ gives rise to a global section $\sigma_g$ of $\mathrm{Sym}^d S^\vee$ whose zero locus is the Fano scheme $F_k(X)$, where $X = V(g) \subseteq \mathbb{P}V$ is the hypersurface defined by $g$. Thus, when $F_k(X)$ has expected codimension $\binom{k+d}{k} = \mathrm{rank}(\mathrm{Sym}^d(S^\vee))$ in $\mathcal{G}$, its class in the Chow ring of $\mathcal{G}$ is given by the top Chern class
     \[\deg F_k(X) = c_{\binom{k+d}{k}}(\mathrm{Sym}^d S^\vee) \in A(\mathcal{G}).\]
 \end{proposition}
+
+This is a powerful result, as it allows us to compute the degree of the class of the Fano scheme of $k$-planes on a general hypersurface using only Chern classes, when the Fano scheme has the expected dimension. We will put this to use in the next section.
+
+% A hypersurface $X \in \mathbb{P}^n$ of degree $d$ is given by a section of $\mathrm{Sym}^d()$
+
 % In particular, if $F_k(X)$ is zero-dimensional, its degree is given by the top Chern class

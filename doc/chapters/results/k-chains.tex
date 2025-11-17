@@ -13,18 +13,71 @@ A `happy accident' we made when studying $m$-gons in Macaulay2 was to forget to 
     We define $\mathcal{Q}_m \subseteq \mathbb{G}(1,3)^m$ to be the subset of m-tuples of lines $(l_1, \dots, l_m)$ such that they form an $m$-chain.
 \end{definition}
 
+% \begin{remark}
+%     We showed in \cref{lem:dimQm} that $\mathcal{Q}_m$ is an irreducible variety of dimension $3m + 1$ for $m \geq 1$. 
+% \end{remark}
+
+First we need the following lemma.
+\begin{lemma}\label{lem:Schubert}
+    The variety $\Sigma_L = \{l \in \mathbb{G}(1,3) \mid l \cap L \neq \emptyset\}$ for a fixed line $L$ is irreducible of dimension 3.
+\end{lemma}
+\begin{proof}
+    First, consider the incidence correspondence $\Gamma = \{(l, p) \in \mathbb{G}(1,3) \times L \mid p \in l\}$. The projection map $g \colon \Gamma \to \mathbb{G}(1,3)$ given by $g(l,p) = l$ gives us that $\Sigma_L$ is the image of $g$. Next, the fiber of the projection map $f \colon \Gamma \to L$ given by $f(l,p) = p$ is the set of lines through a point $p \in L$, meaning the fiber is isomorphic to $\mathbb{P}^2$. Since $L$ is isomorphic to $\mathbb{P}^1$, it is irreducible of dimension 1. Since $f$ is proper, and all the fibers are irreducible of dimension 2, we have from \cref{lem:irred_fiber} that $\Gamma$ is irreducible of dimension $2 + 1 = 3$. 
+    It follows that $\Sigma_L$ is irreducible, and as a general fiber of $g$ is a single point, it follows that $\dim \Sigma_L = \dim g(\Gamma) = \dim \Gamma = 3$.
+\end{proof}
 \begin{remark}
-    We showed in \cref{lem:dimQm} that $\mathcal{Q}_m$ is an irreducible variety of dimension $3m + 1$ for $m \geq 1$. 
+    This variety $\Sigma_L$ is a Schubert variety, often denoted $\sigma_1$ in the literature. It is part of the Schubert calculus on Grassmannians, which is a powerful tool for computing intersection numbers of subvarieties of Grassmannians. It is beyond the scope of this thesis, but refer the interested reader to \cite[Section 3.3]{EH16} for more information.
 \end{remark}
+
+\begin{lemma} \label{lem:dimQm}
+    $\mathcal{Q}_m$ is an irreducible variety of dimension $3m + 1$ for $m \geq 1$. 
+\end{lemma} 
+
+\begin{proof}
+    We first observe that $\mathcal{Q}_1 = \mathbb{G}(1,3)$, which is irreducible of dimension 4. We then proceed by induction on $m$, assuming that $\mathcal{Q}_m$ is irreducible of dimension $M$ for some integer $M$.
+
+    Let $m \geq 2$, and consider the projection map $\pi_m \colon \mathcal{Q}_m \to \mathcal{Q}_{m-1}$ given by $\pi(l_1, \dots, l_m) = (l_1, \dots, l_{m-1})$. The fiber over a point is given by $\pi^{-1}(l_1, \dots, l_{m-1}) = \{(l_1, \dots, l_{m-1}, l_m) \in \mathcal{Q}_m \mid l_m \cap l_{m-1} \neq \emptyset\}$ which is isomorphic to $\Sigma_{l_{m-1}} = \{l \in \mathbb{G}(1,3) \mid l \cap l_{m-1} \neq \emptyset\}$. From \cref{lem:Schubert} we know that $\Sigma_{l_{m-1}}$ is irreducible of dimension 3, and by the induction hypothesis that $\mathcal{Q}_{m-1}$ is irreducible of dimension $M$. Then, since $\pi_m$ is proper, with irreducible fiber of dimension 3, we again have that $\mathcal{Q}_m$ is irreducible of dimension $M + 3$ by \cref{lem:irred_fiber}. $M=4$ for $m=1$, and so we get that $\dim \mathcal{Q}_m = 4 + 3(m-1) = 3m + 1$. 
+\end{proof}
 
 \begin{corollary}
     The set of regular $m$-chains in $\mathcal{Q}_m$ is a dense open subset of $\mathcal{Q}_m$.
 \end{corollary}
 \begin{proof}
-    The proof is the same as that for \cref{lem:gon-open}. We are able to replace $m$-gons with $m$-chains since the set of $m$-chains is the same as $m$-gons with the non-destruction exclusion that $l_m$ need not intersect $l_1$.
+    Let $R_m\subset \mathcal{Q}_m$ be the locus of regular $m$-chains. By definition a tuple $(l_1,\dots,l_m)\in\mathcal{Q}_m$ is regular if and only if:
+    (i) $l_i\neq l_j$ for all $i\neq j$; 
+    (ii) $l_i\cap l_j=\emptyset$ whenever $j\not\equiv i\pm 1$ (i.e. only adjacent pairs meet).
+
+    Condition (i) is can be described by the locus of a finite number of diagonals $\Delta_{ij}=\{(l_1,\dots,l_m)\mid l_i=l_j\}$ in $\mathbb{G}(1,3)^m$, and so its complement is open. Condition (ii) is described by the complements of a finite number of zero loci of the equations $l_i \cap l_j \neq \emptyset$ for adjacent pairs $(i,j)$, and so this condition is also open.
 \end{proof}
+% \begin{figure}[ht]
+%     \centering
+%     % Schematic 5-chain, see file for TikZ code
+%     \input{figures/5chain.tex}
+%     \caption{A schematic regular $5$-chain $Q_5 = l_1\cup l_2\cup l_3\cup l_4\cup l_5$ with intersection points $p_i = l_i\cap l_{i+1}$. Non-adjacent lines do not meet.}
+%     \label{fig:5chain}
+% \end{figure}
+% \begin{lemma}\label{lem:gon-open}
+%     The set of regular $m$-gons is an open subset of $\mathcal{C}_m$.
+% \end{lemma}
+% \begin{proof}
+%     Let $R_m\subset \mathcal{C}_m$ be the locus of regular $m$-gons. By definition a tuple $(l_1,\dots,l_m)\in\mathcal{C}_m$ is regular if and only if:
+%     (i) $l_i\neq l_j$ for all $i\neq j$; 
+%     (ii) $l_i\cap l_j=\emptyset$ whenever $j\not\equiv i\pm 1 \ (\mathrm{mod}\ m)$ (i.e. only adjacent pairs meet).
+
+%     Condition (i) is can be described by the locus of a finite number of diagonals $\Delta_{ij}=\{(l_1,\dots,l_m)\mid l_i=l_j\}$ in $\mathbb{G}(1,3)^m$, and so its complement is open. Condition (ii) is described by the complements of a finite number of zero loci of the equations $l_i \cap l_j \neq \emptyset$ for adjacent pairs $(i,j)$, and so this condition is also open.
+% \end{proof}
 
 As discussed above, we note that an $m$-chain is an $(m+1)$-gon excluding the line $l_m$ intersecting $l_1$. One can then modify the code to create $m$-chains instead of $(m+1)$-gons, which is included in \cref{app:mchain}. The results from this are similar to those of $m$-gons, in that for higher degrees, we find smooth surfaces, up until we find no surfaces. There are however interesting exceptions for degree 2 and 3 surfaces. Here we find singular surfaces when considering 4-chains and 6-chains respectively. We will handle the cases separately. First, we show a similar proposition to that of $m$-gons in \cref{prop:m-gon}.
+
+First we add the promised corollary to \cref{lem:h0Oc}:
+\begin{corollary}\label{cor:h0Oq}
+    The global sections of the structure sheaf of a regular $m$-chain $Q_m$ has dimension $h^0(Q_m, \mathcal{O}_{Q_m}(d)) = md - 1$, for $d \geq 1$.
+\end{corollary}
+\begin{proof}
+    The proof is similar to that of \cref{lem:h0Oc}, only now we have the short exact sequence
+    \[0 \to \mathcal{O}_{Q_m}(d) \to \bigoplus_{i=1}^m \mathcal{O}_{l_i}(d) \to \bigoplus_{i=1}^{m-1} \mathcal{O}_{p_i} \to 0,\]
+    since we only have $m-1$ intersection points in an $m$-chain. Following the same argument as in the proof of \cref{lem:h0Oc}, we get that $h^0(Q_m, \mathcal{O}_{Q_m}(d)) = h^0(\bigoplus_{i=1}^m \mathcal{O}_{l_i}(d)) - h^0(\bigoplus_{i=1}^{m-1} \mathcal{O}_{p_i}) = md - 1$.
+\end{proof}
 
 \begin{proposition}\label{prop:n-chain}
     Let $Q_m$ be a regular $m$-chain in $\mathbb{P}^3$. Then we can find a hypersurface $S_d$ of degree $d$ such that $Q_m \subseteq S_d$ when $m < (\binom{d+3}{3}-1) \cdot \frac{1}{d}$, or equivalently $m < \frac{(d+3)(d+2)(d+1)-1}{6d}$.
@@ -204,7 +257,7 @@ Note that one could continue building the chain further, but we stop at 12 for s
     If a 6-chain is included in a smooth cubic surface, it is included in an (at least) 1-dimensional family of smooth cubic surfaces.
 \end{lemma}
 \begin{proof}
-    Let $Q_6$ be a 6-chain in a smooth cubic surface $X$. From \cref{lem:3planes}, we know that it is also included in a singular surface $Y$. Then let $\mathcal{D}$ be the pencil $\{aX + bY\}$. All the surfaces in this linear system include our 6-chain, by the observation that if $X = V(f)$ and $Y = V(g)$, then inclusion is equivalent to $f|_{Q_6} = g|_{Q_6} = 0$, and $af|_{Q_6} + bg|_{Q_6} = 0$. Then we use that smoothness is an open property to see that most of the surfaces are smooth. This gives us a 1-dimensional family of smooth surfaces including our 6-chain.
+    Let $Q_6$ be a 6-chain in a smooth cubic surface $X$. From \cref{lem:3planes}, we know that it is also included in a singular surface $Y$. Then let $\mathcal{D}$ be the pencil $\{aX + bY\}$ for $a, b \in \mathbb{C}$. All the surfaces in this linear system include our 6-chain, by the observation that if $X = V(f)$ and $Y = V(g)$, then inclusion is equivalent to $f|_{Q_6} = g|_{Q_6} = 0$, and $af|_{Q_6} + bg|_{Q_6} = 0$. Then we use that smoothness is an open property to see that most of the surfaces are smooth. This gives us a 1-dimensional family of smooth surfaces including our 6-chain.
 \end{proof}
 
 \begin{proposition}\label{prop:6chain}
@@ -252,12 +305,11 @@ Our testing in Macaulay2 also suggested that the singular surface was unique, wh
 \begin{proposition}\label{prop:unique}
     A regular 6-chain in $\mathbb{P}^3$ is only included in a unique surface.
 \end{proposition}
-\todo[inline]{Sjekk $q$ projektiv.}
 \begin{proof}
     Consider the diagram in \cref{fig:incidence}. The map $q$ has fiber $q^{-1}(Q_6) = \{X \mid Q_6 \in X\}$ for $Q_6 \in \mathcal{Q}_6$. $q$ is a projective morphism, since it is the composition of the closed embedding $i \colon \mathcal{N} \to \mathbb{P}^N \times \mathcal{M}$, and the projective map $\pi \colon \mathbb{P}^N \times \mathcal{M} \to \mathcal{M}$. A projective morphism is proper by \cite{Ha77} Theorem II.4.9. Then taking the dimension of the fiber of $q$ is upper semi-continuous. 
 
-    From (refer to result in Macaulay2 saying that the surface is unique!?), we have an example where the fiber is a single point. Call the relevant 6-chain $Z$. Though this computation was done over $\mathbb{Q}$, the result extends to $\mathbb{C}$. To see why, first note that when we find that there is only one unique surface including $Z$, it is equivalent to saying that the kernel of the map $\phi \colon H^0(\mathbb{P}^3, \mathcal{O}(3)) \rightarrow H^0(Z, \mathcal{O}(3)|_{Z}$ is 1-dimensional(0-dimensional!?). Note also that the fiber of $q(Z)$ is the set $\{f \in \mathbb{C}[x_0,x_1,x_2,x_3]_3 \mid f|_{Z} = 0\}$, which are the polynomials which are zero on $Z$. The equations requiring $f|_{Z} = 0$ have rational coefficients, since our $Z$ is defined over the rationals. Therefore, the kernel of $\phi$ is also 1-dimensional over $\mathbb{C}$. Because of this, there exists at least one 6-chain with a single point as fiber, and so the fiber over this point is 0-dimensional.
+    From (refer to result in Macaulay2 saying that the surface is unique!?), we have an example where the fiber is a single point. Call the relevant 6-chain $Z$. Though this computation was done over $\mathbb{Q}$, the result extends to $\mathbb{C}$. To see why, first note that when we find that there is only one unique surface including $Z$, it is equivalent to saying that the kernel of the map $\phi \colon H^0(\mathbb{P}^3, \mathcal{O}(3)) \rightarrow H^0(Z, \mathcal{O}(3)|_{Z}$ is 1-dimensional. Note also that the fiber of $q(Z)$ is the set $\{f \in \mathbb{C}[x_0,x_1,x_2,x_3]_3 \mid f|_{Z} = 0\}$, which are the polynomials which are zero on $Z$. The equations requiring $f|_{Z} = 0$ have rational coefficients, since our $Z$ is defined over the rationals. Therefore, the kernel of $\phi$ is also 1-dimensional over $\mathbb{C}$. Because of this, there exists at least one 6-chain with a single point as fiber, and so the fiber over this point is 0-dimensional.
 
     % For any surface $S$, we know that there exists $Q_6 \in \mathcal{Q}_6$ such that $q^{-1}(Q_6) = \{(S,Q_6)\}$, since all smooth surfaces includes 6-chains by \cref{lem:12}. Thus, the fiber of $q$ is non-empty. 
-    By \cref{lem:3planes}, we know that any 6-chain is included in at least one cubic surface, so the fiber of $q$ is non-empty for all points in $\mathcal{Q}_6$. Then, by upper semi-continuity of fiber dimension (add to basic results, and cite!?), we have that since we know one fiber, $q^{-1}(Z)$ is 0-dimensional, there exists an open neighborhood $U$ of $Z$, such that $\dim q^{-1}(Z') \leq 0$ for all $Z' \in U$. Since every fiber is non-empty, all of these fibers are 0-dimensional, and so there are a finite number of surfaces including a regular $Q_6$. Then we note that the fiber of $q$ is the set of solutions of linear equations, and so it defines a projective space. Since the fiber is 0-dimensional, it must be the point $\mathbb{P}^0$, and so there is only one surface. 
+    By \cref{lem:3planes}, we know that any 6-chain is included in at least one cubic surface, so the fiber of $q$ is non-empty for all points in $\mathcal{Q}_6$. Then, by upper semi-continuity of fiber dimension, \cref{thm:uppersemicont}, we have that since we know one fiber, $q^{-1}(Z)$ is 0-dimensional, there exists an open neighborhood $U$ of $Z$, such that $\dim q^{-1}(Z') \leq 0$ for all $Z' \in U$. Since every fiber is non-empty, all of these fibers are 0-dimensional, and so there are a finite number of surfaces including a regular $Q_6$. Then we note that the fiber of $q$ is the set of solutions of linear equations, and so it defines a projective space. Since the fiber is 0-dimensional, it must be the point $\mathbb{P}^0$, and so there is only one surface. 
 \end{proof}
