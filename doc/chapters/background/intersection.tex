@@ -12,7 +12,7 @@ Let $X$ be a smooth variety.  Recall that the Picard group $\mathrm{Pic}(X)$ is 
 
 Let $Y$ be another smooth variety, and consider a morphism $f\colon X \to Y$. Then we can define the pullback of an invertible sheaf with respect to $f$ (\cite[Section 16.5]{EO25}) to get a homomorphism $f^* \colon \mathrm{Pic}(Y) \to \mathrm{Pic}(X)$. If $f$ is a dominant morphism, we can also define the pullback $f^*D$ of a Cartier divisor $D$ on $Y$ as a Cartier divisor on $X$ such that $f^*(\mathcal{O}_Y(D)) = \mathcal{O}_X(f^*D)$. See \cite[Section 20.7]{EO25} for details
 
-Let $X, Y$ be surfaces(Se kommentar!?). If $f$ is generically finite of degree $d$, then we define the direct image $f_*C$ of an irreducible curve on $X$ by setting 
+Let $X$, $Y$ be surfaces. If $f$ is generically finite of degree $d$, then we define the direct image $f_*C$ of an irreducible curve on $X$ by setting 
 \[
 f_*C :=
 \begin{cases}
@@ -35,11 +35,17 @@ We now define intersection multiplicity.
     \[C.C' = \sum_{x \in C \cap C'} m_x(C \cap C').\]
 \end{definition}
 
+Now we want to show how to compute intersection numbers using line bundles. First, for any sheaf $\mathcal{L}$ on $S$, let $\chi(\mathcal{L}) = \sum_i (-1)^i \dim H^i(\mathcal{L})$ be the Euler-Poincaré characteristic of $\mathcal{L}$. Then we define the intersection product of two line bundles as follows.
+
+\begin{definition}
+    Let $\mathcal{L}, \mathcal{M}$ be two line bundles on a surface $S$. Then we define their \emph{intersection product} as
+    \[\mathcal{L}.\mathcal{M} = \chi(\mathcal{O}_S) - \chi(\mathcal{L}^{-1}) - \chi(\mathcal{M}^{-1}) + \chi(\mathcal{L}^{-1} \otimes \mathcal{M}^{-1}).\]
+\end{definition}
+
 \begin{theorem}
     Let $C, C'$ be two distinct irreducible curves on a surface $S$. Then 
     \[\mathcal{O}_S(C).\mathcal{O}_S(C') = C.C'.\]
 \end{theorem}
-\todo[inline]{Definer (eller påstå) produkt av linjebunter først.}
 \begin{proof}
     See \cite[Theorem I.4]{BEA96} 
 \end{proof}
@@ -48,9 +54,12 @@ In other words, we can compute the intersection number of two curves by computin
 
 \begin{example}[Example I.9 (a) in \cite{BEA96}]
     Let $S = \mathbb{P}^2$. We know that $\mathrm{Pic}(S) \cong \mathbb{Z}$. Let $C, C'$ be curves of degree $d$ and $d'$ respectively. Since $C \equiv dL$ and $C' \equiv d'L'$ for distinct lines $L, L'$, we get Bezout's theorem:
-    \[C.C' = dL.d'L' = dd' (L.L) = dd'.\]
-    \todo[inline]{Skriv hvorfor $L.L = 1$?}
+    \[C.C' = dL.d'L' = dd' (L.L') = dd'.\]
+    Here $L$ and $L'$ are lines, so $\mathcal{O}(L)\cong\mathcal{O}(L')\cong\mathcal{O}_{\mathbb{P}^2}(1)$. Using the intersection product of line bundles,
+    \[L.L' = \mathcal{O}_{\mathbb{P}^2}(1).\mathcal{O}_{\mathbb{P}^2}(1) = \chi(\mathcal{O}_{\mathbb{P}^2}) - 2\chi(\mathcal{O}_{\mathbb{P}^2}(-1)) + \chi(\mathcal{O}_{\mathbb{P}^2}(-2)) = 1,\]
+    since $\chi(\mathcal{O}_{\mathbb{P}^2})=1$ and $\chi(\mathcal{O}_{\mathbb{P}^2}(-1))=\chi(\mathcal{O}_{\mathbb{P}^2}(-2))=0$ (all cohomology groups vanish for these negative twists). Thus, $L.L'=1$.
 \end{example}
+\todo[inline]{Se over.}
 
 \begin{example}[Proposition I.8 (a) in \cite{BEA96}]
     Let $C$ be a smooth curve, and let $f\colon S \to C$ be a surjective morphism from a smooth and projective surface $S$ to $C$, with $F$ a fiber of $f$. Then $F^2 = 0$.

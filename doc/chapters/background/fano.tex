@@ -8,7 +8,7 @@
 %     \item State \ref{cor:Fano}, which tells us when to expect lines on a general surface in $\mathbb{P}^3$.
 % \end{itemize}
 
-We aim to introduce the concept of incidence correspondences (or an incidence variety), which will be a tool we will use several times later in this thesis. We do this by introducing the universal Fano scheme, which is an example of an incidence variety. Generally, an incidence correspondence is a set of pairs $(x,y)$ such that $x$ lies in $y$, where $x$ and $y$ are elements of $X$ and $Y$ respectively, for some varieties $X$ and $Y$ parametrizing geometric objects. This can be visualized in the following diagram, with projection maps $\pi_1$ and $\pi_2$:
+In this section, we aim to introduce the concept of incidence correspondences (or an incidence variety), which will be a tool we will use several times later in this thesis. We follow the exposition in \cite[Section 6.1]{EH16}. We introduce the universal Fano scheme, which is an example of an incidence variety. Generally, an incidence correspondence is a set of pairs $(x,y)$ such that $x$ lies in $y$, where $x$ and $y$ are elements of $X$ and $Y$ respectively, for some varieties $X$ and $Y$ parametrizing geometric objects. This can be visualized in the following diagram, with projection maps $\pi_1$ and $\pi_2$:
 
 \begin{equation} 
     \begin{tikzcd}
@@ -20,7 +20,7 @@ We aim to introduce the concept of incidence correspondences (or an incidence va
 Now we define an incidence correspondence of $k$-planes $L\in \mathbb{G}(k,n)$ contained in degree $d$ surfaces in $\mathbb{P}^n$. 
 
 \begin{definition}
-    (\cite{EH16} Section 6.1). Let N = $\binom{n+d}{d}-1$, so that $\mathbb{P}^N$ parametrizes all degree $d$ hypersurfaces in $\mathbb{P}^n$. The \emph{universal Fano scheme} is defined as
+    Let N = $\binom{n+d}{d}-1$, so that $\mathbb{P}^N$ parametrizes all degree $d$ hypersurfaces in $\mathbb{P}^n$. The \emph{universal Fano scheme} is defined as
 
     \[\Phi(n,d,k) = \{(X, L) \in \mathbb{P}^N \times \mathbb{G}(k,n) \mid L \subseteq X\}\]
 \end{definition}
@@ -32,15 +32,17 @@ Now we define an incidence correspondence of $k$-planes $L\in \mathbb{G}(k,n)$ c
 \begin{lemma}
     $\Phi \subset \mathbb{P}^N \times \mathbb{G}(k,n)$ is a closed subset of $\mathbb{P}^N \times \mathbb{G}(k,n)$.
 \end{lemma}
+This is shown in \cite[Chapter 6]{Har92}.
+\todo[inline]{Dobbeltsjekk referanse.}
 
-\todo[inline]{Decide if we want to prove, or refer to proof. Can refer to Harris 1995 chapter 6, or perhaps proof of 24.31 in EO}
+% \todo[inline]{Decide if we want to prove, or refer to proof. Can refer to Harris chapter 6, or perhaps proof of 24.31 in EO}
 
 \begin{proposition}[\cite{EH16}, Proposition 6.1]\label{prop:universalFano}
     Let $N = \binom{n+d}{d}-1$. The universal Fano scheme $\Phi = \Phi(n,d,k) \subseteq \mathbb{P}^N \times \mathbb{G}(k,n)$ is a smooth irreducible variety of dimension
     \[\dim \Phi(n,d,k) = N + (k+1)(n-k) - \binom{k+d}{k}.\]
 \end{proposition}
 
-We ask when we expect a general smooth surface $X$ of degree $d$ to contain lines, and remember that this question is answered by looking at the geometry of the Fano scheme $F_k(X)$ for a general smooth surface $X$. More precisely one asks what dimension the Fano scheme has, therefore deciding what dimension the set of lines in our general surface is. As noted in \cref{remark:universal Fano}, $F_k(X)$ can be obtained by taking the fiber over a point $[X]\in \mathbb{P}^N$. We therefore ask what dimension this fiber will have. From \cref{thm:fiber} we get that for a general point $[X]$, $\dim \pi^{-1}([X]) = \dim \Phi - \dim \mathbb{P}^N$ (unless $\pi^{-1}([X])$ is empty)(Skriv om!?). We define this as $\phi(n,d,k) := \dim \Phi - N$. Now we can answer the question of when we expect lines to be contained in our surface by looking at $\phi(n,d,k)$:
+We ask when we expect a general smooth surface $X$ of degree $d$ to contain lines, and remember that this question is answered by looking at the geometry of the Fano scheme $F_k(X)$ for a general smooth surface $X$. More precisely one asks what dimension the Fano scheme has, therefore deciding what dimension the set of lines in our general surface is. As noted in \cref{remark:universal Fano}, $F_k(X)$ can be obtained by taking the fiber over a point $[X]\in \mathbb{P}^N$. We therefore ask what dimension this fiber will have. From \cref{thm:fiber} we get that for a general point $[X]$ with non-empty fiber $\pi^{-1}([X])$, $\dim \pi^{-1}([X]) = \dim \Phi - \dim \mathbb{P}^N$. We define this as $\phi(n,d,k) := \dim \Phi - N$. Now we can answer the question of when we expect lines to be contained in our surface by looking at $\phi(n,d,k)$:
 
 \begin{corollary}[\cite{EH16}, corollary 6.2]
 
@@ -61,7 +63,7 @@ To bring this back to a familiar context of lines on surfaces in $\mathbb{P}^3$,
 \begin{corollary} \label{cor:Fano}
     For a hypersurface $X \subseteq \mathbb{P}^3$ of degree $d$, we expect to find no lines on $X$ when $d \geq 4$, finitely many lines when $d=3$, and positive-dimensional families of lines when $d \leq 2$.
 \end{corollary}
-The proof of this can be found in \cite{EO25}, 22.31.
+The proof of this can be found in \cite[Theorem A.45]{EO25}.
 \todo[inline]{Decide if we want to prove, or refer to proof.}
 % \begin{remark}
 %     Note that being smooth is an open condition on $X$, meaning this applies to general smooth hypersurfaces as well. \todo[inline]{Include or not? Need to cite it being an open condition.}

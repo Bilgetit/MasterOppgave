@@ -1,6 +1,6 @@
 \chapter{Grassmannians and the space of lines in \texorpdfstring{$\mathbb{P}^3$}{P3}}\label{grassmannians}
 
-In this chapter we will introduce Grassmann varieties, or Grassmannians, and focus on the space of lines in $\mathbb{P}^3$, which is denoted $\mathbb{G}(1, 3)$. We will also describe the Grassmannians as projective varieties by introducing its affine cover, and a way to embed the Grassmannian into a projective space, giving it the structure of a variety(gjentakelse!?). For a more detailed introduction to Grassmannians, we refer to Chapter 3 and 4 in \cite{EH16}, or \cite[Section 24.6]{EO25}. We closely follow the exposition in \cite{EO25}.
+In this chapter we will introduce Grassmann varieties, or Grassmannians, and focus on the space of lines in $\mathbb{P}^3$, which is denoted $\mathbb{G}(1, 3)$. We will also describe the Grassmannians as projective varieties by introducing its affine cover, and a way to embed the Grassmannian into a projective space. For a more detailed introduction to Grassmannians, we refer to Chapter 3 and 4 in \cite{EH16}, or \cite[Section A.8]{EO25}. We closely follow the exposition in \cite{EO25}.
 
 
 %-----------------------------------------------------------------------------
@@ -29,7 +29,7 @@ The Grassmannian is an important and very useful structure in algebraic geometry
 %-----------------------------------------------------------------------------
 \section{Covering by affine spaces}
 
-To describe the Grassmannian as a projective variety, we will describe an affine cover of the Grassmannian. Section 24.6 of \cite{EO25} goes into detail about this construction, and shows that the cover glues to a scheme. We will go over the overall idea, but exclude the finer details. 
+To describe the Grassmannian as a projective variety, we will describe an affine cover of the Grassmannian. \cite[Section A.8]{EO25} goes into detail about this construction, and shows that the cover glues to a scheme. We will go over the overall idea, but exclude the finer details. 
 
 We represent a linear subspace $L \subseteq \mathbb{C}^n$ as the kernel of a surjective linear map $\mathbb{C}^n \to \mathbb{C}^{n-k}$. This map can be represented by an $(n-k) \times n$ matrix $A$ of rank $(n-k)$. We have $L = \text{Ker}(A) \subseteq \mathbb{C}^n$, where
 \[A = \begin{pmatrix}
@@ -47,11 +47,9 @@ Note that the matrix $A$ is not unique for a given linear subspace $L$, since mu
     \[\begin{pmatrix}1 & 0 & 1 & 1 \\0 & 1 & -1 & 0\end{pmatrix}\]
 \end{example}
 
-\todo[inline]{Dette avsnittet kan komme før jeg snakker om echelon form.}
 For these reasons, we consider the set
 \[(\mathbb{A}^{(n-k)n}(\mathbb{C}) - Z)/\mathrm{GL}_{n-k}(\mathbb{C})\]
 where $\mathbb{A}^{(n-k)n}(\mathbb{C})$ parametrizes the set of all $(n-k) \times n$ matrices with entries in $\mathbb{C}$, and $Z$ is the closed subset of $(n-k) \times n$ matrices of rank less than $(n-k)$. The $\mathbb{C}$-points of $\mathrm{Gr}(k,n)$ is bijective to the classes in this set. We now define an open cover of $\mathrm{Gr}(k,n)$.
-% \todo[inline]{Is this correct? How best to describe this?}
 
 Let $I \subseteq \{1,\ldots,n\}$ be a subset of size $(n-k)$. For each $I$ let $U_I \subseteq \mathbb{A}^{(n-k)n}(\mathbb{C})$ denote the closed subscheme such that the columns given by $I$ form a $(n-k)\times(n-k)$ submatrix which is the identity matrix. Each $U_I$ is isomorphic to the affine space $\mathbb{A}^{(n-k)k}$. The collection of all such $U_I$ for all subsets $I$ of size $(n-k)$ gives an open cover of $\mathrm{Gr}(k,n)$. Note that there are $\binom{n}{n-k} = \binom{n}{k}$ such subsets, one for each $I$, which glues together to the Grassmannian the structure of a projective scheme.
 
@@ -63,7 +61,7 @@ Let $I \subseteq \{1,\ldots,n\}$ be a subset of size $(n-k)$. For each $I$ let $
         U_{24} &=\begin{pmatrix}a_{1,1} & 1 & a_{1,3} & 0 \\a_{2,1} & 0 & a_{2,3} & 1\end{pmatrix} & U_{34} &=\begin{pmatrix}a_{1,1} & a_{1,2} & 1 & 0 \\a_{2,1} & a_{2,2} & 0 & 1\end{pmatrix}\\
     \end{align*}
 \end{example}
-One can also show that this construction is possible over all rings by working over the base ring $\mathbb{Z}$. We will not go into details here, but refer to \cite{EO25} section 24.6.
+One can also show that this construction is possible over all rings by working over the base ring $\mathbb{Z}$. We will not go into details here, but refer again to \cite[Section A.8]{EO25}.
 
 \begin{proposition}%[\cite{EO25}, Theorem 24.26]
     For a field $\mathbb{C}$, the Grassmannian $\mathrm{Gr}_\mathbb{C}(k,n)$ is a regular projective variety of dimension $k(n-k)$.
@@ -109,7 +107,7 @@ One can also show that this construction is possible over all rings by working o
 % \end{example}
 
 
-% One can show that the Grassmannian is a scheme when working over any field by working over the base ring $\mathbb{Z}$. We will not go into details here, but refer to \cite{EO25} section 24.6 for more information.(!?)
+% One can show that the Grassmannian is a scheme when working over any field by working over the base ring $\mathbb{Z}$. We will not go into details here, but refer to \cite{EO25} section A.8 for more information.(!?)
 
 %-----------------------------------------------------------------------------
 \section{The Plücker embedding} \label{sec:Plucker}
@@ -125,13 +123,13 @@ That is, $\rho_I$ sends a matrix to all of its $(n-k)\times(n-k)$ minors. These 
 \begin{lemma}%[\cite{EO25}, Lemma 24.24]
     For each $I$, the morphism $\rho_I$ is a locally closed embedding.
 \end{lemma}
-The proof of this lemma can be found in \cite{EO25}, Lemma 24.24. This means that $\mathrm{Gr}(k,n)$ embeds as a closed subscheme of $\mathbb{P}^{\binom{n}{k}-1}$. The image of this embedding is described by the vanishing of certain homogeneous polynomials called the Plücker relations. 
+The proof of this lemma can be found in \cite[Lemma A.24]{EO25}. This means that $\mathrm{Gr}(k,n)$ embeds as a closed subscheme of $\mathbb{P}^{\binom{n}{k}-1}$. The image of this embedding is described by the vanishing of certain homogeneous polynomials called the Plücker relations. 
 \todo[inline]{Legg til plucker relations?}
 
 %-----------------------------------------------------------------------------
 \section{Universal sub and quotient bundles}
 
-Later, we will need the notion of the universal subbundle over the Grassmannian. Here we follow the exposition in \cite{EH16} Section 3.2.3. Let $V$ be an $n$-dimensional vector space over a field $\mathbb{C}$. Consider the Grassmannian $\mathrm{Gr}(k, V)$ of $k$-dimensional linear subspaces of $V$. Let $\mathcal{V} = \mathrm{Gr}(k, V) \times V$ be the trivial vector bundle over $\mathrm{Gr}(k, V)$ with fiber $V$. 
+Later, we will need the notion of the universal subbundle over the Grassmannian. Here we follow the exposition in \cite[Section 3.2.3]{EH16}. Let $V$ be an $n$-dimensional vector space over a field $\mathbb{C}$. Consider the Grassmannian $\mathrm{Gr}(k, V)$ of $k$-dimensional linear subspaces of $V$. Let $\mathcal{V} = \mathrm{Gr}(k, V) \times V$ be the trivial vector bundle over $\mathrm{Gr}(k, V)$ with fiber $V$. 
 
 \begin{definition}
     The \emph{universal subbundle} $\mathcal{S}$ over $\mathrm{Gr}(k, V)$ is the vector bundle whose fiber over a point $[L] \in \mathrm{Gr}(k, V)$ is the subspace $L \subseteq V$. That is, 
@@ -153,9 +151,9 @@ Later we will use the universal subbundle to prove that a smooth cubic surface c
 % \end{proposition}
 
 %-----------------------------------------------------------------------------
-\section{Short on Schubert cycles (!?)}
-\todo[inline]{Bestem om vi skal inkludere. Er litt relevant for 27 linjer, og vi bruker teknisk sett Schubert varieteter senere.}
+% \section{Short on Schubert cycles (!?)}
+% \todo[inline]{Bestem om vi skal inkludere. Er litt relevant for 27 linjer, og vi bruker teknisk sett Schubert varieteter senere.}
 
-\begin{itemize}
-    \item Consider adding examples from EH16 to illustrate the kinds of questions one can answer after this chapter.
-\end{itemize}
+% \begin{itemize}
+%     \item Consider adding examples from EH16 to illustrate the kinds of questions one can answer after this chapter.
+% \end{itemize}
