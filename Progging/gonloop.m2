@@ -39,6 +39,7 @@ while currentTime() - time0 < 2 do(  -- wait for 2 seconds
         f = random(d, Iz);
 
         hf = hilbertFunction(d, RingP3/Iz);
+        print("hf = " | toString hf | ", expected = " | toString (noPoints*d) );
         -- Total number of degree-d monomials in 4 variables over kk is binomial(d+3,3)
         totalForms = binomial(d+3,3);
         numInIz = totalForms - hf; -- number of independent degree-d forms vanishing on Z

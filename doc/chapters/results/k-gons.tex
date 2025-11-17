@@ -98,7 +98,7 @@ We will need the following lemma:
     % \[h^0(\mathcal{I}_{C_m}(d)) = \binom{d+3}{3} - md + h^1(\mathcal{I}_{C_m}(d)).\]
 \end{proof}
 
-We will add a corollary to this lemma, \cref{cor:h0Oq}, in the next section about $m$-chains. So be warned to check back here when reading that section.
+We will add a corollary to this lemma, \cref{cor:h0Oq}, in the next section about $m$-chains. So be warned that one may need to go back to the lemma above when reading that section. But now we are ready to prove the main proposition of this section.
 % We will need the following corollary in the next section. We give a more informal definition here. An $m$-chains, is a configuration of lines much like $m$-gons, only without the requirement that $l_m$ shall intersect $l_1$. 
 % \begin{definition}
 %     We define $\mathcal{Q}_m \subseteq \mathbb{G}(1,3)^m$ to be the subset of m-tuples of lines $(l_1, \dots, l_m)$ such that they form an $m$-chain.
@@ -188,9 +188,11 @@ We summarize the steps taken in the code for checking if an $m$-gon is included 
     \item Build an $m$-gon by connecting the points in a cycle.
     \item Connect pairs of points to generate the ideal of the line defined by them.
     \item Intersect the ideals of the lines to get the ideal of the $m$-gon.
-    \item Pick a random element of degree $d$ in the ideal of the $m$-gon.
+    \item Pick a random element of degree $d$ in the ideal of the $m$-gon, i.e. pick a random element of $I_Z(d)$. This defines a surface of degree $d$ containing the $m$-gon.
     \item Check if this element is smooth, singular, or equal to 0.
 \end{enumerate}
+
+In the table, we also include the number of elements found in $I_Z(d)$, the degree-$d$ part of the ideal of the $m$-gon. This is to give an idea of how big the space of degree-$d$ forms vanishing on the $m$-gon is. If this number is 0, then there are no surfaces of degree $d$ containing the $m$-gon. We calculate this number by first calculating the number of degree-$d$ forms in the polynomial ring, which is the familiar binomial coefficient $\binom{d+3}{3}$. 
 
 \begin{table}
     \centering
