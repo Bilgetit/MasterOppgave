@@ -9,7 +9,6 @@ First, a $\emph{linear system}$ on a scheme $X$ is a pair $\mathcal{D} = (\mathc
     If $\mathcal{D}$ is a finite dimensional linear system on a variety $X$ in characteristic $0$, then the general member of $\mathcal{D}$ is smooth away from the base locus of $\mathcal{D}$ and the singular locus of $X$.
 \end{theorem}
 We refer to \cite[Corollary III.10.9]{Ha77} for a proof. 
-\todo[inline]{Sjekk om vi skal referere til remark også.}
 
 % \begin{theorem}[Bezout]\label{thm:bezout}
 %     Let $C_1, C_2 \subseteq \mathbb{P}^2$ be two projective plane curves of degree $d_1$ and $d_2$ respectively, with no common components. Then $C_1$ and $C_2$ intersect in exactly $d_1 d_2$ points, counted with multiplicity.
@@ -17,7 +16,7 @@ We refer to \cite[Corollary III.10.9]{Ha77} for a proof.
 \begin{theorem}[Bézout's theorem]\label{thm:bezout}
     Let $X, Y \subseteq \mathbb{P}^n$ be two closed subvarieties having complementary dimension, i.e. $\dim(X) + \dim(Y) = n$. If $X$ and $Y$ intersect transversely, then they will intersect in exactly $\deg(X) \cdot \deg(Y)$ points. Furthermore, if the intersection is finite, then the number of intersection points (counted with multiplicity) is at most $\deg(X) \cdot \deg(Y)$.
 \end{theorem}
-We refer to \cite[Corollary 2.4]{EH16} (!?) for a proof. 
+We refer to \cite[Corollary 2.4]{EH16} for a proof. 
 \todo[inline]{Find a good reference for this theorem. Don't require transverse intersections.}
 \todo[inline]{If X and Y intersect in finitely many points, then the number of intersection points is at most deg(x)deg(Y).}
 
@@ -31,9 +30,19 @@ We refer to \cite[Corollary 2.4]{EH16} (!?) for a proof.
 %     Let $k$ be a field, and let $f \colon X \to Y$ be a morphism of projective schemes over $k$ Then $f$ is proper. In particular, the image $f(X) \subseteq Y$ is closed in $Y$.
 % \end{lemma}
 
-\begin{theorem}[\cite{Vak25} 11.4.1]
+\begin{theorem}[\cite{Vak25} Corollary 12.4.2]
     Suppose $\pi \colon X \to Y$ is a morphism of irreducible $k$-varieties, with $\dim X = m$ and $\dim Y = n$. Then there exists a nonempty open subset $U \subseteq Y$ such that for all $q \in U$, the fiber over $q$ has pure dimension $m-n$, or is empty.
 \end{theorem}
+\begin{theorem}[\cite{Vak25} Corollary 12.2.1]
+    If $X$ is an irreducible $k$-variety, then $\dim X = \mathrm{trdeg} K(X)/k$.  
+\end{theorem}
+\begin{theorem}[Dimension formula for general fibers] \label{thm:fiber}
+    Let $k$ be a field and let $f\colon X \to Y$ be a dominant morphism of irreducible varieties over $k$. Let $\eta$ denote the generic point of $Y$ and write $X_\eta = X \times_Y \mathrm{Spec}\,k(Y)$ for the generic fiber. Then
+    \[
+        \dim X \;=\; \dim Y \;+\; \dim X_\eta.
+    \]
+\end{theorem}
+The proof comes from applying the two theorems above.
 
 \begin{lemma}\label{lem:irred_fiber}
     Let $\pi \colon X \to Y$ be a proper morphism to an irreducible variety, and all the fibers are nonempty and irreducible of the same dimension. Then $X$ is irreducible.
@@ -47,15 +56,8 @@ This can be found in \cite[Exercise 14.4.21]{EO25}.
     \]
     is closed in $Y$.
 \end{theorem}
-This can be found in \cite[Theorem 11.4.2]{Vak25}.
+This can be found in \cite[Theorem 12.4.3]{Vak25}.
 
-\begin{theorem}[Dimension formula for fibers] \label{thm:fiber}
-    Let $k$ be a field and let $f\colon X \to Y$ be a dominant morphism of irreducible projective varieties over $k$. Let $\eta$ denote the generic point of $Y$ and write $X_\eta = X \times_Y \mathrm{Spec}\,k(Y)$ for the generic fiber. Then
-    \[
-        \dim X \;=\; \dim Y \;+\; \dim X_\eta.
-    \]
-\end{theorem}
-\todo[inline]{Write the proof, and/or find reference. Maybe use \cite{Vak25} 11.4.2.}
 % \begin{proof}
 %     For irreducible varieties over a field, the Krull dimension equals the transcendence degree of the function field over $k$. Dominance of $f$ gives an inclusion of function fields $k(Y)\hookrightarrow k(X)$ and $k(X)$ is a finitely generated field extension of $k(Y)$. Hence
 %     \[

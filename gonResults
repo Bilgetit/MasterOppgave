@@ -20,3 +20,23 @@ d = 7, noPoints = 18, isSingular = false, isZero = true, numInIz = 0, time = 1
 20.625
 d = 8, noPoints = 20, isSingular = false, isZero = false, numInIz = 5, time = 1
 d = 8, noPoints = 21, isSingular = false, isZero = true, numInIz = 0, time = 2
+
+New Run, over kk:
+5
+d = 2, noPoints = 4, isSingular = false, isZero = false, numInIz = 2, time = 0
+d = 2, noPoints = 5, isSingular = false, isZero = true, numInIz = 0, time = 0
+6.66667
+d = 3, noPoints = 6, isSingular = false, isZero = false, numInIz = 2, time = 1
+d = 3, noPoints = 7, isSingular = false, isZero = true, numInIz = 0, time = 1
+8.75
+d = 4, noPoints = 8, isSingular = false, isZero = false, numInIz = 3, time = 1
+d = 4, noPoints = 9, isSingular = false, isZero = true, numInIz = 0, time = 1
+11.2
+d = 5, noPoints = 11, isSingular = false, isZero = false, numInIz = 1, time = 1
+d = 5, noPoints = 12, isSingular = false, isZero = true, numInIz = 0, time = 1
+14
+d = 6, noPoints = 13, isSingular = false, isZero = false, numInIz = 6, time = 1
+d = 6, noPoints = 14, isSingular = false, isZero = true, numInIz = 0, time = 1
+17.1429
+d = 7, noPoints = 17, isSingular = false, isZero = false, numInIz = 1, time = 1
+d = 7, noPoints = 18, isSingular = false, isZero = true, numInIz = 0, time = 2

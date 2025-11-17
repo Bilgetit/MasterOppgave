@@ -48,29 +48,45 @@ $\mathbb{P}^2$ blown up in 6 points is represented in \cref{fig:blowup6}.
 
 \subsection{Proof by degree of Chern classes}
 Recall from Example \ref{ex:G13} that $\mathbb{G}(1,3)$ has dimension 4.
-\begin{proof}[Proof of \cref{thm:27}.]
-    Given a smooth cubic surface $X \subset \mathbb{P}^3$ determined by the vanishing of a general section $g \in \mathcal{O}_{\mathbb{P}^3}(3)$, we wish to determine the degree of the locus in $\mathbb{G}(1,3)$ of lines contained in $X$.
 
-    Observe that if we fix a line $L$ in $\mathbb{P}^3$, then the condition that $L$ lies in $X$ is equivalent to the condition that the restriction of $g$ to $L$ is identically zero, i.e. that $g$ is sent to 0 by the restriction map $H^0(\mathcal{O}_{\mathbb{P}^3}(3)) \to H^0(\mathcal{O}_L(3))$. Note that the restriction map from the 20-dimensional vector space of cubic forms on $\mathbb{P}^3$ to the 4-dimensional vector space of cubic forms on $L$, $V_L = H^0(L, \mathcal{O}_L(3))$ is a linear surjection, and the condition $L \subseteq X$ is that $F$ maps to 0 in $V_L$. This imposes four linear conditions on the coefficients of $F$. 
+\begin{proposition}[\cite{EH16}, Corollary 6.17]
+    Let $X \subseteq \mathbb{P}^3$ be a smooth cubic surface of degree $d \geq 3$. If $F_1(X) \neq \emptyset$, then $F_1(X)$ is smooth and zero-dimensional. In particular, $X$ contains at most finitely many lines.  
+\end{proposition}
 
-    As the line varies over $\mathbb{G}(1,3)$, the vector spaces $V_L$ fit together to form a vector bundle of rank 4, $\mathcal{V}$ on $\mathbb{G}(1,3)$, with fiber over the point $[L]$ being $V_L$. A cubic form $F$ on $\mathbb{P}^3$, through its restriction to each $V_L$, defines a global section $\sigma_F$ of this vector bundle. Thus, the locus of lines contained in the cubic surface $X$ is the zero locus of the section $\sigma_F$. Assuming that this zero locus is zero-dimensional(!?), its class in $A(\mathbb{G}(1,3))$ is given by the top Chern class $c_4(\mathcal{V})$ of the vector bundle $\mathcal{V}$. The number of lines contained in $X$ is therefore the degree of this class(!?).
+\begin{proof}[Sketch of proof of \cref{thm:27}.]
 
-    To compute this degree, we first express $\mathcal{V}$ in terms of the universal subbundle $\mathcal{S}$ on $\mathbb{G}(1,3)$. Recall that the fiber of $\mathcal{S}$ over a point $[L]$ is the 2-dimensional vector space corresponding to the line $L \subseteq \mathbb{P}^3$. The restriction of cubic forms on $\mathbb{P}^3$ to $L$ factors through the symmetric third power of this vector space, so we have an isomorphism of vector bundles
-    \[\mathcal{V} \cong \mathrm{Sym}^3(\mathcal{S}^\vee).\]
-    Using the splitting principle, we can compute the Chern classes of $\mathcal{V}$ in terms of the Chern classes of $\mathcal{S}^\vee$. Let the Chern roots of $\mathcal{S}^\vee$ be $\alpha_1$ and $\alpha_2$. Then the Chern roots of $\mathcal{V}$ are given by
-    \[3\alpha_1, 2\alpha_1 + \alpha_2, \alpha_1 + 2\alpha_2, 3\alpha_2.\]
-    Thus, the top Chern class of $\mathcal{V}$ is
-    \begin{align*}
-        c_4(\mathcal{V}) &= (3\alpha_1)(2\alpha_1 + \alpha_2)(\alpha_1 + 2\alpha_2)(3\alpha_2) \\
-        &= 9 \alpha_1 \alpha_2 (2\alpha_1^2 + 5\alpha_1 \alpha_2 + 2\alpha_2^2) \\
-        &= 9 c_2(\mathcal{S}^\vee) (2 c_1(\mathcal{S}^\vee)^2 + 5 c_2(\mathcal{S}^\vee)).
-    \end{align*}
-    To compute the degree of this class, we express it in terms of the Schubert classes $\sigma_1 = c_1(\mathcal{S}^\vee)$ and $\sigma_{1,1} = c_2(\mathcal{S}^\vee)$, and use the intersection numbers computed in (!?).
-    Therefore, a smooth cubic surface in $\mathbb{P}^3$ contains exactly 27 distinct lines.
+    By \cref{prop:degF}, the class of $F_1(X)$ of lines on a cubic surface $X$ is given by the class of the Chern class of $c_4(\mathrm{Sym}^3(\mathcal{S}^\vee))$ on $\mathbb{G}(1,3)$. \cite{EH16} shows that 
+    \[\mathrm{Sym}^3(\mathcal{S}^\vee) = \mathcal{L}^3 \oplus (\mathcal{L}^2 \otimes \mathcal{M}) \oplus (\mathcal{M}^3)\]
+    this equals $27\sigma_{2,2}$, where $\sigma_{2,2}$ is the class of a point in $A(\mathbb{G}(1,3))$. The points in $A(\mathbb{G}(1,3))$ represents a line in $\mathbb{P}^3$. Thus, this gives us that there are 27 lines in a smooth cubic surface.
+
+    Given a smooth cubic surface $X \subset \mathbb{P}^3$ determined by the vanishing of a cubic form $F$ in four variables, we wish to determine the degree of the locus in $\mathbb{G}(1,3)$ of lines contained in $X$.
+
+    % Observe that if we fix a line $L$ in $\mathbb{P}^3$, then the condition that $L$ lies in $X$ is equivalent to the condition that the restriction of $F$ to $L$ is identically zero. Note that the restriction map from the 20-dimensional vector space of cubic forms on $\mathbb{P}^3$ to the 4-dimensional vector space of cubic forms on $L$, $V_L = H^0(L, \mathcal{O}_L(3))$ is a linear surjection, and the condition $L \subseteq X$ is that $F$ maps to 0 in $V_L$. This imposes four linear conditions on the coefficients of $F$. 
+
+    % As the line varies over $\mathbb{G}(1,3)$, the vector spaces $V_L$ fit together to form a vector bundle of rank 4, $\mathcal{V}$ on $\mathbb{G}(1,3)$, with fiber over the point $[L]$ being $V_L$. A cubic form $F$ on $\mathbb{P}^3$, through its restriction to each $V_L$, defines a global section $\sigma_F$ of this vector bundle. Thus, the locus of lines contained in the cubic surface $X$ is the zero locus of the section $\sigma_F$. Assuming that this zero locus is zero-dimensional(!?), its class in $A(\mathbb{G}(1,3))$ is given by the top Chern class $c_4(\mathcal{V})$ of the vector bundle $\mathcal{V}$. The number of lines contained in $X$ is therefore the degree of this class(!?).
+
+    % To compute this degree, we first express $\mathcal{V}$ in terms of the universal subbundle $\mathcal{S}$ on $\mathbb{G}(1,3)$. Recall that the fiber of $\mathcal{S}$ over a point $[L]$ is the 2-dimensional vector space corresponding to the line $L \subseteq \mathbb{P}^3$. The restriction of cubic forms on $\mathbb{P}^3$ to $L$ factors through the symmetric third power of this vector space, so we have an isomorphism of vector bundles
+    % \[\mathcal{V} \cong \mathrm{Sym}^3(\mathcal{S}^\vee).\]
+    % Using the splitting principle, we can compute the Chern classes of $\mathcal{V}$ in terms of the Chern classes of $\mathcal{S}^\vee$. Let the Chern roots of $\mathcal{S}^\vee$ be $\alpha_1$ and $\alpha_2$. Then the Chern roots of $\mathcal{V}$ are given by
+    % \[3\alpha_1, 2\alpha_1 + \alpha_2, \alpha_1 + 2\alpha_2, 3\alpha_2.\]
+    % Thus, the top Chern class of $\mathcal{V}$ is
+    % \begin{align*}
+    %     c_4(\mathcal{V}) &= (3\alpha_1)(2\alpha_1 + \alpha_2)(\alpha_1 + 2\alpha_2)(3\alpha_2) \\
+    %     &= 9 \alpha_1 \alpha_2 (2\alpha_1^2 + 5\alpha_1 \alpha_2 + 2\alpha_2^2) \\
+    %     &= 9 c_2(\mathcal{S}^\vee) (2 c_1(\mathcal{S}^\vee)^2 + 5 c_2(\mathcal{S}^\vee)).
+    % \end{align*}
+    % To compute the degree of this class, we express it in terms of the Schubert classes $\sigma_1 = c_1(\mathcal{S}^\vee)$ and $\sigma_{1,1} = c_2(\mathcal{S}^\vee)$, and use the intersection numbers computed in (!?).
+    % Therefore, a smooth cubic surface in $\mathbb{P}^3$ contains exactly 27 distinct lines.
+
+    % We have not explicitly given the tensor product of line bundles. 
+
+
 \end{proof}
-\todo[inline]{Finish proof properly.}
 \todo[inline]{Legg til figur av Clebsch.}
 
+% By \cref{prop:degF}, the degree of $F_1(X)$ of lines on a cubic surface $X$ is given by the degree of the Chern class of $c_4(\mathrm{Sym}^3(\mathcal{S}^\vee))$ on $\mathbb{G}(1,3)$. We have computed this Chern class above.
+
+% In case $m = 3$, $d = 1$, $[F] = c_4(\mathrm{Sym}^3)(\mathcal{S}^\vee) = 18 s_1^2s_2 + 9s_2^2$, where $s_i = c_i(\mathcal{S}^\vee)$.
 
 % Let $\mathcal{E}$ have rank 2. Then $\mathcal{E} = \mathcal{L} \oplus \mathcal{M}$. Let $\mathcal{F} = \mathrm{Sym}^3(\mathcal{E})$. 
 
@@ -97,6 +113,6 @@ Recall from Example \ref{ex:G13} that $\mathbb{G}(1,3)$ has dimension 4.
 % \end{align*}
 
 
-\begin{example}
-    The Fermat cubic surface $X \subset \mathbb{P}^3$ defined by the vanishing of the form $F = x_0^3 + x_1^3 + x_2^3 + x_3^3$ contains exactly 27 distinct lines.
-\end{example}
+% \begin{example}
+%     The Fermat cubic surface $X \subset \mathbb{P}^3$ defined by the vanishing of the form $F = x_0^3 + x_1^3 + x_2^3 + x_3^3$ contains exactly 27 distinct lines.
+% \end{example}

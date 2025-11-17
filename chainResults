@@ -54,3 +54,11 @@ d = 3, noLines = 7, isSingular = false, isZero = true, numInIz = 0, maxNoLines =
 d = 4, noLines = 8, isSingular = false, isZero = false, numInIz = 2, maxNoLines = 8.5, time = 1
 d = 4, noLines = 9, isSingular = false, isZero = true, numInIz = 0, maxNoLines = 8.5, time = 1
 11
+d = 5, noLines = 10, isSingular = false, isZero = false, numInIz = 2, maxNoLines = 11, time = 
+d = 5, noLines = 11, isSingular = false, isZero = true, numInIz = 0, maxNoLines = 11, time = 
+13.8333
+d = 6, noLines = 13, isSingular = false, isZero = false, numInIz = 5, maxNoLines = 13.8333, time = 
+d = 6, noLines = 14, isSingular = false, isZero = true, numInIz = 0, maxNoLines = 13.8333, time = 
+17
+d = 7, noLines = 16, isSingular = false, isZero = false, numInIz = 7, maxNoLines = 17, time = 
+d = 7, noLines = 17, isSingular = false, isZero = true, numInIz = 0, maxNoLines = 17, time = 

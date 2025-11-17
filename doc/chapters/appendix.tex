@@ -47,18 +47,18 @@ We show values just below and at/above the theoretical bound. "Zero" indicates $
     \small
     \begin{tabular}{r r c c r}
         	oprule
-        $d$ & $m$ & Singular & Zero & numInIz \\
+        $d$ & $m$ & Singular & Zero \\
         \midrule
-        2 & 4  & false & false & 2 \\
-        2 & 5  & false & true  & 0 \\
-        3 & 6  & false & false & 2 \\
-        3 & 7  & false & true  & 0 \\
-        4 & 8  & false & false & 3 \\
-        4 & 9  & false & true  & 0 \\
-        5 & 11 & false & false & 1 \\
-        5 & 12 & false & true  & 0 \\
-        6 & 13 & false & false & 6 \\
-        6 & 14 & false & true  & 0 \\
+        2 & 4  & false & false \\
+        2 & 5  & false & true  \\
+        3 & 6  & false & false \\
+        3 & 7  & false & true  \\
+        4 & 8  & false & false \\
+        4 & 9  & false & true  \\
+        5 & 11 & false & false \\
+        5 & 12 & false & true  \\
+        6 & 13 & false & false \\
+        6 & 14 & false & true  \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -68,38 +68,38 @@ We show values just below and at/above the theoretical bound. "Zero" indicates $
     \caption{Results over $\mathbb{Z}_{32749}$ for $m$-gons (same columns).}
     \label{tab:mgon-results_Z32749}
     \small
-    \begin{tabular}{r r c c r}
+    \begin{tabular}{r r c c}
         	oprule
-        $d$ & $m$ & Singular & Zero & numInIz \\
+        $d$ & $m$ & Singular & Zero \\
         \midrule
-        2  & 4  & false & false & 2  \\
-        2  & 5  & false & true  & 0  \\
-        3  & 6  & false & false & 2  \\
-        3  & 7  & false & true  & 0  \\
-        4  & 8  & false & false & 3  \\
-        4  & 9  & false & true  & 0  \\
-        5  & 11 & false & false & 1  \\
-        5  & 12 & false & true  & 0  \\
-        6  & 13 & false & false & 6  \\
-        6  & 14 & false & true  & 0  \\
-        7  & 17 & false & false & 1  \\
-        7  & 18 & false & true  & 0  \\
-        8  & 20 & false & false & 5  \\
-        8  & 21 & false & true  & 0  \\
-        9  & 24 & false & false & 4  \\
-        9  & 25 & false & true  & 0  \\
-        10 & 28 & false & false & 6  \\
-        10 & 29 & false & true  & 0  \\
-        11 & 33 & false & false & 1  \\
-        11 & 34 & false & true  & 0  \\
-        12 & 37 & false & false & 11 \\
-        12 & 38 & false & true  & 0  \\
-        13 & 43 & false & false & 1  \\
-        13 & 44 & false & true  & 0  \\
-        14 & 48 & false & false & 8  \\
-        14 & 49 & false & true  & 0  \\
-        15 & 54 & false & false & 6  \\
-        15 & 55 & false & true  & 0  \\
+        2  & 4  & false & false \\
+        2  & 5  & false & true  \\
+        3  & 6  & false & false \\
+        3  & 7  & false & true  \\
+        4  & 8  & false & false \\
+        4  & 9  & false & true  \\
+        5  & 11 & false & false \\
+        5  & 12 & false & true  \\
+        6  & 13 & false & false \\
+        6  & 14 & false & true  \\
+        7  & 17 & false & false \\
+        7  & 18 & false & true  \\
+        8  & 20 & false & false \\
+        8  & 21 & false & true  \\
+        9  & 24 & false & false \\
+        9  & 25 & false & true  \\
+        10 & 28 & false & false \\
+        10 & 29 & false & true  \\
+        11 & 33 & false & false \\
+        11 & 34 & false & true  \\
+        12 & 37 & false & false \\
+        12 & 38 & false & true  \\
+        13 & 43 & false & false \\
+        13 & 44 & false & true  \\
+        14 & 48 & false & false \\
+        14 & 49 & false & true  \\
+        15 & 54 & false & false \\
+        15 & 55 & false & true  \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -131,3 +131,19 @@ To scan many $(d,m)$ pairs automatically a while-loop script iterates degrees un
 %     \item \textbf{Layout} Floating, line-breaking, and grouping tables mitigate page splits; further manual tweaks (\verb+\clearpage+) can be added if needed.
 % \end{itemize}
 
+
+\subsection{Output from testing 4-chains and 6-chains}
+\label{app:4-6-chains}
+
+4-chain in degree 2:
+i27 : factor(f)
+
+o27 = (161875x  - 75178x  + 78480x  - 122265x )(875140x  - 238623x  - 307540x  + 20592x )(5)
+              0         1         2          3         0          1          2         3
+
+o27 : Expression of class Product
+
+6-chain in degree 3:
+i27 : factor(f)
+
+o27 = (93398x  - 21195x  - 68102x  + 86130x )(368370x  + 19509x  - 143518x  - 26354x )(492360x  - 577065x  + 202174x  - 59470x )(7)
