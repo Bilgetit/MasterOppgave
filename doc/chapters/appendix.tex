@@ -1,44 +1,44 @@
 \chapter{Computational methods and results}
 \label{appendix}
 
-This appendix documents the Macaulay2 scripts used for the computational experiments. We describe how the line configurations are built, what the scripts test, and how to interpret the tables. We also note limitations of the approach (randomness, characteristic, layout).
+This appendix documents the Macaulay2 scripts used for the computational experiments, along with a selection of results. One can find the full code repository at \url{https://github.com/bilgetit/MasterOppgave/Progging}.
 
 % -----------------------------------------------------------------------------
 \section{The m-gon script}
 \label{app:mgon}
 
-An $m$-gon is produced by choosing $m$ random points of $\mathbb{P}^3$ and declaring lines through consecutive pairs, plus the final pair $(p_m,p_1)$. The points thus model the pairwise intersections required in the cycle.
+% An $m$-gon is produced by choosing $m$ random points of $\mathbb{P}^3$ and declaring lines through consecutive pairs, plus the final pair $(p_m,p_1)$. The points thus model the pairwise intersections required in the cycle.
 
 \lstinputlisting[caption={Script generating an $m$-gon and testing degree-$d$ forms}, label={lst:m-gon},numbers=left,breaklines=true]{../Progging/ngon.m2}
 
-Workflow (enumerated):
-\begin{enumerate}
-    \item \textbf{Setup} Choose a field $k$ ($\mathbb{Q}$ or $\mathbb{Z}_{32749}$) and work in $R=k[x_0,x_1,x_2,x_3]$.
-    \item \textbf{Random points} Pick $m$ nonzero vectors in $k^4$; interpret them as homogeneous points $p_1,\dots,p_m$.
-    \item \textbf{Pairs} Form $(p_i,p_{i+1})$ for $1\le i < m$ and add $(p_m,p_1)$.
-    \item \textbf{Matrix to line} Each ordered pair yields a $3\times4$ matrix
-    \[
-        ((a,b,c,d),(e,f,g,h)) \mapsto
-        \begin{pmatrix}
-            x_0 & x_1 & x_2 & x_3 \\
-            a & b & c & d \\
-            e & f & g & h
-        \end{pmatrix}
-    \]
-    whose $3\times3$ minors generate the ideal of the line through the points.
-    \item \textbf{Union ideal} Intersect the $m$ line ideals to get $I_Z$ for $Z=\bigcup l_i$.
-    \item \textbf{Degree-$d$ test} Inspect $I_Z(d)$. If nonzero, pick a random element and test smoothness via the Jacobian criterion; if the element returned is $0$ retry until nonzero (a safeguard easily added).
-\end{enumerate}
+% Workflow (enumerated):
+% \begin{enumerate}
+%     \item \textbf{Setup} Choose a field $k$ ($\mathbb{Q}$ or $\mathbb{Z}_{32749}$) and work in $R=k[x_0,x_1,x_2,x_3]$.
+%     \item \textbf{Random points} Pick $m$ nonzero vectors in $k^4$; interpret them as homogeneous points $p_1,\dots,p_m$.
+%     \item \textbf{Pairs} Form $(p_i,p_{i+1})$ for $1\le i < m$ and add $(p_m,p_1)$.
+%     \item \textbf{Matrix to line} Each ordered pair yields a $3\times4$ matrix
+%     \[
+%         ((a,b,c,d),(e,f,g,h)) \mapsto
+%         \begin{pmatrix}
+%             x_0 & x_1 & x_2 & x_3 \\
+%             a & b & c & d \\
+%             e & f & g & h
+%         \end{pmatrix}
+%     \]
+%     whose $3\times3$ minors generate the ideal of the line through the points.
+%     \item \textbf{Union ideal} Intersect the $m$ line ideals to get $I_Z$ for $Z=\bigcup l_i$.
+%     \item \textbf{Degree-$d$ test} Inspect $I_Z(d)$. If nonzero, pick a random element and test smoothness via the Jacobian criterion; if the element returned is $0$ retry until nonzero (a safeguard easily added).
+% \end{enumerate}
 
-\begin{remark}[Zero element safeguard]
-Random selection almost never returns $0$ when $I_Z(d)\ne 0$, but to be rigorous one can loop until a nonzero form is obtained or a retry limit is hit.
-\end{remark}
+% \begin{remark}[Zero element safeguard]
+% Random selection almost never returns $0$ when $I_Z(d)\ne 0$, but to be rigorous one can loop until a nonzero form is obtained or a retry limit is hit.
+% \end{remark}
 
-The computational goal: determine largest $m$ for which $I_Z(d)\ne 0$ and a generic form is smooth, comparing with the theoretical bound in Proposition~\ref{prop:m-gon}.
+% The computational goal: determine largest $m$ for which $I_Z(d)\ne 0$ and a generic form is smooth, comparing with the theoretical bound in Proposition~\ref{prop:m-gon}.
 
 % -----------------------------------------------------------------------------
 \subsection{Tables of results}
-We show values just below and at/above the theoretical bound. "Zero" indicates $I_Z(d)=0$. We used \verb+\FloatBarrier+ in the main document to encourage tables to appear together.
+% We show values just below and at/above the theoretical bound. "Zero" indicates $I_Z(d)=0$. We used \verb+\FloatBarrier+ in the main document to encourage tables to appear together.
 
 \begin{table}[htbp]
     \centering
@@ -108,17 +108,17 @@ We show values just below and at/above the theoretical bound. "Zero" indicates $
 \section{The m-chain script}
 \label{app:mchain}
 
-An $m$-chain omits the closing line: with points $p_1,\dots,p_m$ we form lines only between $p_i$ and $p_{i+1}$ for $1\le i < m$. Thus there are $m-1$ lines. All other steps mirror the $m$-gon case; when comparing bounds replace $m$ (lines) by $m-1$.
+% An $m$-chain omits the closing line: with points $p_1,\dots,p_m$ we form lines only between $p_i$ and $p_{i+1}$ for $1\le i < m$. Thus there are $m-1$ lines. All other steps mirror the $m$-gon case; when comparing bounds replace $m$ (lines) by $m-1$.
 
 \lstinputlisting[caption={Script for an $m$-chain (number of lines $= m-1$)}, label={lst:m-chain},numbers=left,breaklines=true]{../Progging/nchain.m2}
 
 % -----------------------------------------------------------------------------
-\section{Code for the extra interested}
-\label{app:loop}
+% \section{Code for the extra interested}
+% \label{app:loop}
 
-To scan many $(d,m)$ pairs automatically a while-loop script iterates degrees until a time budget is exhausted.
+% To scan many $(d,m)$ pairs automatically a while-loop script iterates degrees until a time budget is exhausted.
 
-\lstinputlisting[caption={Script for looping of different degrees of  $m$-chain (number of lines $= m-1$)}, label={lst:m-chain},numbers=left,breaklines=true]{../Progging/gonloop.m2}
+% \lstinputlisting[caption={Script for looping of different degrees of  $m$-chain (number of lines $= m-1$)}, label={lst:m-chain},numbers=left,breaklines=true]{../Progging/gonloop.m2}
 
 
 % % -----------------------------------------------------------------------------
@@ -132,18 +132,42 @@ To scan many $(d,m)$ pairs automatically a while-loop script iterates degrees un
 % \end{itemize}
 
 
-\subsection{Output from testing 4-chains and 6-chains}
-\label{app:4-6-chains}
+% \subsection{Output from testing 4-chains and 6-chains}
+% \label{app:4-6-chains}
 
-4-chain in degree 2:
-i27 : factor(f)
+% 4-chain in degree 2:
+% i27 : factor(f)
 
-o27 = (161875x  - 75178x  + 78480x  - 122265x )(875140x  - 238623x  - 307540x  + 20592x )(5)
-              0         1         2          3         0          1          2         3
+% o27 = (161875x  - 75178x  + 78480x  - 122265x )(875140x  - 238623x  - 307540x  + 20592x )(5)
+%               0         1         2          3         0          1          2         3
 
-o27 : Expression of class Product
+% o27 : Expression of class Product
 
-6-chain in degree 3:
-i27 : factor(f)
 
-o27 = (93398x  - 21195x  - 68102x  + 86130x )(368370x  + 19509x  - 143518x  - 26354x )(492360x  - 577065x  + 202174x  - 59470x )(7)
+% i27 : mingens Iz
+
+% o27 = | 84342022650x_0^2-791292810435x_0x_1+876096204875x_1^2+49231618740x_0x_2-216861540114x_1x_2+7133696352x_2^2+21405364710x_0x_3+349915861481x_1x_3+3011228832x_2x_3-50382126760x_3^2
+%       ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%       832949241834837692340x_0x_1x_2-1075251800151901757250x_1^2x_2-677722597179681116160x_0x_2^2+1434054742189924386816x_1x_2^2-21112538197769445888x_2^3-537816718270015055910x_0x_1x_3+691466557118703697125x_1^2x_3+
+%       ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%       497518524052080941940x_0x_2x_3-1623507534844452108898x_1x_2x_3-100876098369721819296x_2^2x_3-39023284734902383650x_0x_3^2+454926830744970319161x_1x_3^2+164662937177709382432x_2x_3^2-59159397687918485160x_3^3
+%       ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%       157078208354943352552953186375x_1^3-7659829660813412230400492073960x_1^2x_2+1427959148675777551167483784320x_0x_2^2-5818449656762148126916071186768x_1x_2^2+194750540580332922319667038464x_2^3+
+%       ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%       18459689991961886907045950250x_0x_1x_3+4658998440943824855125465167065x_1^2x_3-2760864412336686761736969682680x_0x_2x_3+19991433594098658046323016359572x_1x_2x_3-51740819353118091801721037376x_2^2x_3+
+%       ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%       1183422685022965651750115143500x_0x_3^2-10396390312229608894036163432910x_1x_3^2-1774819809627714913740039184640x_2x_3^2+1108267711296418564407251055600x_3^3
+%       ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%       18849385002593202306354382365x_0x_1^2-1173912096138654160168448815404x_1^2x_2+208723259279359572422501315520x_0x_2^2-875395686463938443157669663768x_1x_2^2+29779616074589725750429749120x_2^3-
+%       ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%       9659087512770307139986269420x_0x_1x_3+720698787022770460685781227241x_1^2x_3-414710580799582698551198913060x_0x_2x_3+3055156543497092682941869350694x_1x_2x_3-9693197782235825069611791456x_2^2x_3+
+%       ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%       181575287474704127922152601450x_0x_3^2-1590176697346446588618841853373x_1x_3^2-271325402666914539410483734336x_2x_3^2+169460672489608801708023806280x_3^3 |
+
+%                    1           4
+% o27 : Matrix RingP3  <-- RingP3
+
+% 6-chain in degree 3:
+% i27 : factor(f)
+
+% o27 = (93398x  - 21195x  - 68102x  + 86130x )(368370x  + 19509x  - 143518x  - 26354x )(492360x  - 577065x  + 202174x  - 59470x )(7)

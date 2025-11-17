@@ -2,8 +2,8 @@
 kk = QQ;
 -- kk = ZZ/32749; 
 RingP3 = kk[x_0..x_3];
-d = 2;  -- Degree of the hypersurface
-nrLines = 4;
+d = 3;  -- Degree of the hypersurface
+nrLines = 6;
 nrPoints = nrLines+1;
 maxNoPoints = (binomial(d+3, 3) - 1)/d;
 
