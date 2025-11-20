@@ -1,0 +1,337 @@
+\documentclass[UKenglish,aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{babel, fancyvrb, textcomp}
+
+\usetheme[toc, sectionsep=uioyellow, summary, uiostandard]{UiO}
+
+\newcommand{\Dots}{\ensuremath{\ldots}}
+\newcommand{\p}[1]{\texttt{#1}}
+\newcommand{\pb}[1]{\textbf{\p{#1}}}
+\newcommand{\pcmd}[1]{\p{\textbackslash #1}}
+\newcommand{\penv}[1]{\pcmd{begin}\ppar{#1} \Dots{} \pcmd{end}\ppar{#1}}
+\newcommand{\ppar}[1]{\p{\{#1\}}}
+\newcommand{\zip}{\textsc{zip}}
+
+\author{Dag Langmyhr}
+\uioemail{dag@ifi.uio.no}
+\title{A Beamer theme for UiO}
+\subtitle{according to the UiO graphics standard of~2022}
+
+\begin{document}
+\uiofrontpage[dept={Department of Informatics},
+  info={Combined user guide and doc},
+  image={Villa_Eika}, inverted, smaller]
+
+\section{Introduction}
+\subsection{Background}
+
+\begin{frame}{Background}
+  \textbf{Beamer} is a \LaTeX{} document class for making presentations.
+
+  \medskip
+  This presentation describes a Beamer theme called \textbf{UiO}
+  designed according to the Oslo University
+  specifications (see
+    {\small\url{https://www.uio.no/om/designmanual/}})
+  and is itself an example of the UiO theme.
+
+  \medskip
+  This Beamer theme was implemented by \emph{Dag Langmyhr} at the
+  Department of Informatics and \emph{Karoline Moe} from the Oslo
+  University Library.
+
+  \bigskip
+  \scriptsize
+  All photos are from the University of Oslo image archive.
+\end{frame}
+
+\subsection{Installation}
+\begin{frame}{Installation}
+If you are processing your \LaTeX{} document on a stationary Linux
+computer at the University of Oslo, you need not worry about
+installing the UiO Beamer theme; it is already there.
+
+\medskip
+\textbf{On your personal computer}\\
+To use this package on your own computer you must do the following:
+\begin{enumerate}
+\item Download
+  {\footnotesize\url{https://www.mn.uio.no/ifi/tjenester/it/hjelp/latex/uiobeamer.zip}}.
+
+\item Unpack the \zip{} file.
+
+\item You may then place all the
+  unzipped files in the same folder
+  as your \LaTeX{} source files. (If you know where \LaTeX{}
+    packages are kept on your computer, you 
+    can save them there to make them generally available. Remember to
+    refresh your file name database afterwards.)
+\end{enumerate}
+And that should be all.
+\end{frame}
+
+\subsection{Using Overleaf}
+
+\begin{frame}
+  \frametitle{Using Overleaf}
+
+  If you are using Overleaf, you must do the
+  following:
+
+\begin{enumerate}
+\item Select ``New Project''.
+
+\item Under ``Institution Templates'', select ``Univeristy of Oslo''.
+
+\item Select ``UiO Beamer theme''.
+
+\item Select ``Open as Template''.
+\end{enumerate}
+Then, you can start writing your presentation.
+\end{frame}
+
+\section{User guide}
+\subsection{Starting a Beamer file}
+
+\begin{frame}{Starting a Beamer file}
+  All \LaTeX{} Beamer files should start like this:
+
+  \medskip
+  ~~~~\pcmd{documentclass}\p{[aspectratio=169,}\textit{class
+        options}\p{]}\ppar{beamer}
+
+  \bigskip
+  \begin{alert}{\textbf{Important!} }
+    We recommend always using the 16:9 aspect ratio since most
+    projectors at UiO use that format.
+  \end{alert}
+\end{frame}
+
+\begin{frame}[fragile,label=author+title]{Author and title}
+  You specify
+  \begin{itemize}
+  \item your name, 
+  \item the title and 
+  \item the subtitle (if any)
+  \end{itemize}
+  of your presentation using the standard \LaTeX{} commands
+
+  \medskip
+  \begin{Verbatim}[fontsize=\footnotesize]
+\title{Title of my talk}
+\subtitle{My chosen subtitle}    
+\author{My name}
+  \end{Verbatim}
+
+  \bigskip
+  Additionally, you can specify your e-mail address with a command
+  provided by the UiO theme:
+
+  \medskip
+  \begin{Verbatim}[fontsize=\footnotesize]
+\uioemail{me@uio.no}
+  \end{Verbatim}
+\end{frame}
+
+\subsection{Loading the UiO Beamer theme}
+
+\newcommand{\falseTRUE}{=false|\underline{true}}
+\newcommand{\FALSEtrue}{=\underline{false}|true}
+
+\begin{frame}{Loading the UiO Beamer theme}
+  You load the UiO theme like this:
+
+  \medskip
+  ~~~~\pcmd{usetheme}\p{[}\textit{theme options}\p{]}\ppar{UiO}
+
+  \medskip
+  The main theme options are:
+  \begin{description}[\pb{toc}]
+  \item[\pb{sectionheaders\falseTRUE} ] lists the section and
+    subsection names in the upper right-hand corner, as shown in this
+    user guide.
+  \item[\pb{summary\FALSEtrue} ] adds a summary page at the end, as shown in this
+    user guide.
+  \item[\pb{toc\FALSEtrue} ] automatically inserts a table of content for every
+    section; you can see two examples in this guide.
+  \item[\pb{uiostandard\FALSEtrue} ] follows the UiO standard more
+    strictly, for instance using square bullets in the
+    \penv{itemize} environment, as shown in frame~\ref{author+title}.
+  \end{description}
+  \medskip
+  \footnotesize (The default choice is underlined.)
+\end{frame}
+
+\newcommand{\colordemo}[1]{\small \p{#1}& \color{#1}\rule{2em}{1ex}}
+
+\begin{frame}{Section separation frames}
+  You may ask Beamer to add very distinct separation frames between
+  the sections, as has been done in this document. This is achieved by
+  using this theme option:
+  \begin{description}[\pb{toc}]
+  \item[\pb{sectionsep=\emph{colour}}] adds section separation sheets
+    in the specified colour. 
+  \end{description}
+  
+  \smallskip
+  You may choose any of the official UiO colours:
+  
+  \begin{tabular}{@{}lclclclc@{}}
+    \colordemo{uioblue1}& \colordemo{uiogreen1}&
+    \colordemo{uioorange1}& \colordemo{uiopink1}\\
+    \colordemo{uioblue2}& \colordemo{uiogreen2}&
+    \colordemo{uioorange2}& \colordemo{uiopink2}\\
+    \colordemo{uioblue3}& \colordemo{uiogreen3}&
+    \colordemo{uioorange3}& \colordemo{uiopink3}\\
+    \colordemo{uioyellow}& \colordemo{uiogrey}\\
+  \end{tabular}
+
+  \medskip
+  or any colour you have defined yourself (using \pcmd{definecolor}).
+\end{frame}
+
+\begin{frame}[label=fonts]{UiO Beamer theme fonts}
+  You may specify which font to use by giving one of the following
+  theme options:
+
+  \begin{description}[\pb{font=arial}]
+  \item[\pb{font=arial}] selects Arial which the University recommends
+    as the standard font.
+
+  \item[\pb{font=noto}] selects Noto. Use this font if you need
+    Unicode characters other than the basic ones. This font is the
+    default choice.
+
+  \item[\pb{font=arev}] selects Arev. Use this font if you need advanced
+    mathematics in your presentation.
+
+  \item[\pb{font=none}] does not select any particular font. Use this
+    option only if you intend to specify the font selection yourself.
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile,label=ex]{An example}
+  A \LaTeX{} file using the UiO Beamer theme typically starts like
+  this:
+
+  \medskip
+  \begin{Verbatim}[fontsize=\scriptsize]
+\documentclass[norsk,aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{babel, textcomp}
+\usetheme[toc, summary]{UiO}
+
+\title{Title of my talk}
+\subtitle{A suitable subtitle}
+\author{My name}   \uioemail{me@uio.no}
+
+\begin{document}
+\uiofrontpage[...]
+
+\section{...}
+\subsection{...}
+\begin{frame}
+  \frametitle{...}
+    :
+  \end{Verbatim}
+\end{frame}
+
+\subsection{The front page}
+
+\begin{frame}{The front page}
+  A front page is created using the \pcmd{uiofrontpage} command:
+
+  \medskip
+  ~~~~\pcmd{uiofrontpage}\p{[}\emph{front page options}\p{]}
+
+  \bigskip
+  \begin{alert}{\textbf{Important!} }
+    This command should \textbf{\emph{not}} be used inside a
+    \penv{frame} environment! 
+  \end{alert}
+
+  \medskip
+  See the \LaTeX{} code on frame~\ref{ex} for an example of proper
+  use.
+\end{frame}
+  
+\begin{frame}[label=fp-options]
+  The front page options are:
+
+  \medskip
+  \begin{description}[\pb{academictitle=\ppar{\Dots}}]
+  \item[\pb{academictitle=\ppar{\Dots}}] gives your academic title.
+  %% \item[\pb{author=\ppar{\Dots}}] provides your name (if other than in
+  %%   \pcmd{author}).
+  \item[\pb{date=\ppar{\Dots}}] supplies the date (if other than
+    today).
+  \item[\pb{dept=\ppar{\Dots}}] names your department.
+  %% \item[\pb{email=\ppar{\Dots}}] gives your e-mail address
+  %% (if no \pcmd{uioemail} used).
+  \item[\pb{image=\ppar{\Dots}}] is the file name of the image to
+    use. (Ideally, this image should be almost quadratic, or 8:9 to be
+    precise.)
+  \item[\pb{info=\ppar{\Dots}}] provides an additional info line for
+    the supervisor's name, grant support or whatever.
+  \item[\pb{inverted}] will use a white seal rather than the black
+    one. (This choice depends, of course, on the image.)
+  \item[\pb{smaller}] will use a smaller font than the standard one.
+  %% \item[\pb{subtitle=\ppar{\Dots}}] gives the subtitle.
+  %% \item[\pb{title=\ppar{\Dots}}] gives the title of your presentation.
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]{An example}
+  The front page of this user guide was made using the following commands:
+
+  \medskip
+  \VerbatimInput[fontsize=\footnotesize, firstline=15, lastline=18]{uiobeamer-guide.tex}
+  ~~~~$\vdots$
+  \VerbatimInput[fontsize=\footnotesize, firstline=20, lastline=23]{uiobeamer-guide.tex}
+\end{frame}
+
+\subsection{Text and image frames}
+
+\begin{frame}{Making frames with both text and image}
+  If you want a frame with half-and-half of text and image, you can use the
+  \p{uioimageframe} environment as demonstrated below. The image
+  (\emph{SRs\_hus} in this example) should have an aspect ratio close
+  to~8:9. The result is shown in the next frame.
+
+  \medspace
+  \VerbatimInput[fontsize=\footnotesize]{rosselands-hus.tex}
+\end{frame}
+
+\input{rosselands-hus}
+
+\subsection{Full-page images}
+
+\begin{frame}{Full-page image}
+  If you want a full-page image, you can use either the
+  \pcmd{uiobigimage} (which has a thin frame for title and copyright
+  information)
+  or the \pcmd{uiofullpageimage} command:
+
+  \medskip
+  ~~~~\pcmd{uiobigimage}\p{\{}\emph{title}\p{\}\{}\emph{file
+        name}\p{\}\{}\emph{copyright info}\p{\}}\\
+  ~~~~\pcmd{uiofullpageimage}\p{\{}\emph{file name}{\}}
+
+  \medskip
+  Full page images should have an aspect ratio close to~16:9.
+
+  \bigskip
+  \begin{alert}{\textbf{Important!} }
+    These commands should \textbf{\emph{not}} be used inside a
+    \penv{frame} environment! 
+  \end{alert}
+
+  \medskip
+  \textbf{Examples}\\
+  See the next two frames.
+\end{frame}
+
+\uiobigimage{Ole-Johan Dahl building}{OJDs_hus}{Foto: Francesco Saggio/UiO} 
+\uiofullpageimage{UiO_sentrum}
+
+\end{document}
