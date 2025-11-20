@@ -26,6 +26,7 @@
   \ifthenelse{\equal{#1}{arial}}{\def \uio@font {1}}{}
   \ifthenelse{\equal{#1}{arev}}{\def \uio@font {2}}{}
   \ifthenelse{\equal{#1}{noto}}{\def \uio@font {3}}{}
+  \ifthenelse{\equal{#1}{arevtext}}{\def \uio@font {4}}{} % Add this line
 }
 
 % UiO standard:
@@ -59,7 +60,10 @@
   \IfFileExists{t1ua1.fd}{\renewcommand{\sfdefault}{ua1}}{}\or  % 1: Arial (if available)
   \RequirePackage{arevtext, arevmath}%
     \renewcommand{\ttdefault}{ul9}\or  % 2: Arev with Luxi as tt
-  \RequirePackage[scale=1.111]{notomath}\fi  % 3: Noto
+  \RequirePackage[scale=1.111]{notomath}\or  % 3: Noto
+  \RequirePackage{arevtext}%
+    \renewcommand{\ttdefault}{ul9}% 4: Arev text only
+\fi
 
 %% Colours
 % Most structure information is black:
@@ -136,6 +140,7 @@
 \newcommand{\uiofrontpage}[1][]{%
   \def \uio@beamer@academic {}%
   \def \uio@beamer@author {\insertauthor}%
+  \def \uio@beamer@supervisor {\insertsupervisor}%
   \def \uio@beamer@date {\insertdate}%
   \def \uio@beamer@dept {}%
   \def \uio@beamer@email {\uio@email}%
@@ -268,7 +273,7 @@
   \rule{0cm}{1.2cm}\insertframetitle}
 
 % The footline:
-\setbeamertemplate{page number in head/foot}[framenumber]
+\setbeamertemplate{page number in head/foot}[totalframenumber]
 \setbeamertemplate{footline}{%
   \raisebox{0.3cm}{%
     \makebox[\textwidth]{%
