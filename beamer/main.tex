@@ -39,13 +39,61 @@
 \uiofrontpage[
     % info={A minimal user guide},
     % image={uio-beamer-segl-pos},
-    supervisor={Jørgen Vold Rennemo},
     date={12th December, 2025},
 ]
 
 \section{Introduction}
 \begin{frame}{Notation}
-    Notation.
+    \begin{itemize}
+        % \item $\Bbbk$ denotes an algebraically closed field of characteristic $0$.
+        \item We work over the field of complex numbers $\mathbb{C}$.
+        % \item $K(X)$ denotes the function field of a variety $X$.
+        % \item $K(X)^\times$ denotes the multiplicative group of non-zero elements in $K(X)$.
+        \item We denote $\dim_\mathbb{C} H^i(-,-)$ by $h^i(-,-)$.
+    \end{itemize}
 \end{frame}
+
+\begin{frame}{$m$-cross}
+    \begin{definition}
+        An $m$-cross is a union of $m$ distinct lines $l_1, l_2, \dots, l_m$ in $\mathbb{P}^3$ which intersect at a common point $p$ and lying in a common plane $H$. We will write $Z_m = \bigcup_{i=1}^m l_i$.
+    \end{definition}
+    \begin{theorem}
+        Given an $m$-cross, we can find a smooth hypersurface of degree $d$ including it if and only if $d = 1$ or $d \geq m$.
+    \end{theorem}
+    \begin{figure}
+        \centering
+        \input{../doc/figures/6cross.tex}
+    \caption{A 6-cross in $\mathbb{P}^3$.}
+    \label{fig:Z_6}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    An $m$-cross can always be included in a surface of degree 1, i.e. the plane $H$.
+
+    Consider a surface $X \subset \mathbb{P}^3$ of degree $d$ containing an $m$-cross $Z_m$, and a line in $H$ not passing through $p$. We use Bezout's theorem to see that this line must intersect $X$ in at least $d$ points, and since it intersects each line, we must have $d \geq m$ when $X$ is not equal to $H$.
+
+    Next we find a surface of degree $m$ containing $Z_m$. We consider a linear system with base locus $Z_m$, and find a surface which is smooth on $Z_m$. Then we apply Bertini's theorem to see that a general member of the linear system is smooth away from $Z_m$. Thus, we can find a surface of degree $m$ containing $Z_m$.
+\end{frame}
+
+\begin{frame}{$m$-gon}
+    \begin{definition}
+        An $m$-gon is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$, and $l_m$ intersects $l_1$. We will write $C_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$, and $p_m = l_m \cap l_1$.
+    \end{definition}
+    % \begin{figure}
+    %     \centering
+    %     \input{../doc/figures/7gon.tex}
+    %     \caption{7-gon drawn in a plane.}
+    %     \label{fig:m-gon}
+    % \end{figure}
+\end{frame}
+
+\begin{frame}{$m$-chain}
+    \begin{definition}
+        An $m$-chain is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$. We will write $Q_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$. 
+    \end{definition}
+\end{frame}
+
+
 
 \end{document}
