@@ -7,10 +7,9 @@
 \usepackage{graphicx}
 
 \usepackage{tikz}
+\usepackage{tikz-cd}
 
 \usepackage{amsmath, amssymb}
-\usepackage{simpler-wick}
-% \usepackage{caption}
 
 \usepackage{hyperref}
 \usepackage{xcolor}
@@ -80,6 +79,10 @@
     \begin{definition}
         An $m$-gon is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$, and $l_m$ intersects $l_1$. We will write $C_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$, and $p_m = l_m \cap l_1$.
     \end{definition}
+    Regularity.
+    \begin{theorem}
+        Given a regular $m$-gon, we can find a smooth surface $S_d$ of degree $d$ including it when $m < \binom{d+3}{3}\cdot \frac{1}{d}$.
+    \end{theorem}
     % \begin{figure}
     %     \centering
     %     \input{../doc/figures/7gon.tex}
@@ -88,10 +91,56 @@
     % \end{figure}
 \end{frame}
 
+\begin{frame}[fragile]
+    Observe this with the sequence:
+    \[0 \to \mathcal{I}_{C_m}(d) \to \mathcal{O}_{\mathbb{P}^3}(d) \to \mathcal{O}_{C_m}(d) \to 0.\]
+    Taking cohomology gives the long exact sequence:
+    \[
+        \begin{tikzcd}[sep=small]
+        0 \ar[r]
+        & H^0(\mathcal{I}_{C_m}(d)) \ar[r]
+        & H^0(\mathcal{O}_{\mathbb{P}^3}(d)) \ar[r]
+        & H^0(\mathcal{O}_{C_m}(d)) \ar[controls={+(3,-1.5) and +(-3,1.5)}]{dll} \\
+        {}
+        & H^1(\mathcal{I}_{C_m}(d)) \ar[r]
+        & H^1(\mathcal{O}_{\mathbb{P}^3}(d)) \ar[r]
+        & H^1(\mathcal{O}_{C_m}(d)) \ar[controls={+(3,-1.5) and +(-3,1.5)}]{dll} \\
+        {}
+        & H^2(\mathcal{I}_{C_m}(d)) \ar[r]
+        & H^2(\mathcal{O}_{\mathbb{P}^3}(d)) \ar[r]
+        & \dots
+        \end{tikzcd}
+    \]
+\end{frame}
+
+\begin{frame}[fragile]
+    Note that 
+    \[
+        \begin{tikzcd}[sep=small]
+        0 \ar[r]
+        & H^0(\mathcal{I}_{C_m}(d)) \ar[r]
+        & H^0(\mathcal{O}_{\mathbb{P}^3}(d)) \ar[r]
+        & H^0(\mathcal{O}_{C_m}(d)) \ar[controls={+(3,-1.5) and +(-3,1.5)}]{dll} \\
+        {}
+        & H^1(\mathcal{I}_{C_m}(d)) \ar[r]
+        & \alert<1>{H^1(\mathcal{O}_{\mathbb{P}^3}(d))} \ar[r]
+        & H^1(\mathcal{O}_{C_m}(d)) \ar[controls={+(3,-1.5) and +(-3,1.5)}]{dll} \\
+        {}
+        & H^2(\mathcal{I}_{C_m}(d)) \ar[r]
+        & \alert<1>{H^2(\mathcal{O}_{\mathbb{P}^3}(d))} \ar[r]
+        & \dots
+        \end{tikzcd}
+    \]
+\end{frame}
+
 \begin{frame}{$m$-chain}
     \begin{definition}
         An $m$-chain is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$. We will write $Q_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$. 
     \end{definition}
+    Regularity.
+    \begin{theorem}
+        A regular 6-chain is included in a unique cubic surface, which is singular.
+    \end{theorem}
 \end{frame}
 
 
