@@ -52,27 +52,53 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}{Motivation}
+    \begin{itemize}
+        \item Eckardt points on cubic surfaces.
+        \item Which configurations do we `expect' to find in surfaces of degree $d$?
+        \item When can we find a surface of degree $d$ including a given configuration of lines? And is it smooth?
+        % \item Lines in surfaces is a classical topic in algebraic geometry.
+        % \item The famous result that a smooth cubic surface contains exactly 27 lines.
+        % \item What configurations of lines can we find in surfaces of degree $d$?
+        % \item When can we find smooth surfaces including given configurations of lines?
+    \end{itemize}
+\end{frame}
+
+
+\section{Results}
 \begin{frame}{$m$-cross}
-    \begin{definition}
-        An $m$-cross is a union of $m$ distinct lines $l_1, l_2, \dots, l_m$ in $\mathbb{P}^3$ which intersect at a common point $p$ and lying in a common plane $H$. We will write $Z_m = \bigcup_{i=1}^m l_i$.
-    \end{definition}
-    \begin{theorem}
-        Given an $m$-cross, we can find a smooth hypersurface of degree $d$ including it if and only if $d = 1$ or $d \geq m$.
-    \end{theorem}
     \begin{figure}
         \centering
         \input{../doc/figures/6cross.tex}
     \caption{A 6-cross in $\mathbb{P}^3$.}
     \label{fig:Z_6}
     \end{figure}
+    \begin{definition}
+        An $m$-cross is a union of $m$ distinct lines $l_1, l_2, \dots, l_m$ in $\mathbb{P}^3$ which intersect at a common point $p$ and lying in a common plane $H$. We will write $Z_m = \bigcup_{i=1}^m l_i$.
+    \end{definition}
 \end{frame}
 
 \begin{frame}
-    An $m$-cross can always be included in a surface of degree 1, i.e. the plane $H$.
+        \begin{theorem}
+        Given an $m$-cross, we can find a smooth hypersurface of degree $d$ including it if and only if $d = 1$ or $d \geq m$.
+    \end{theorem}
 
-    Consider a surface $X \subset \mathbb{P}^3$ of degree $d$ containing an $m$-cross $Z_m$, and a line in $H$ not passing through $p$. We use Bezout's theorem to see that this line must intersect $X$ in at least $d$ points, and since it intersects each line, we must have $d \geq m$ when $X$ is not equal to $H$.
+    Key idea: An automorphism of $\mathbb{P}^3$ can be used to move an $m$-cross into a position where we can explicitly construct such a surface. Explicitly, we move the lines to 
+    \[l_1 = (\alpha : \beta : 0 : 0), \ l_2 = (\alpha : 0 : \gamma : 0), \ l_3=(\alpha: \lambda_3 \delta : \delta: 0), \dots, l_m = (\alpha :\lambda_m  \delta : \delta : 0)\]
+\end{frame}
 
-    Next we find a surface of degree $m$ containing $Z_m$. We consider a linear system with base locus $Z_m$, and find a surface which is smooth on $Z_m$. Then we apply Bertini's theorem to see that a general member of the linear system is smooth away from $Z_m$. Thus, we can find a surface of degree $m$ containing $Z_m$.
+\begin{frame}
+    \begin{itemize}
+        \item If $d=1$, we can take $X = H$.
+        \item If $1 < d < m$, no such surface exists. Consider a surface $X \subset \mathbb{P}^3$ of degree $d$ containing an $m$-cross $Z_m$, and a line in $H$ not passing through $p$. We use Bezout's theorem to see that this line must intersect $X$ in at least $d$ points, and since it intersects each line, we must have $d \geq m$ when $X$ is not equal to $H$.
+        \item If $d \geq m$, we can construct such a surface. We consider a linear system with base locus $Z_m$, and find a surface which is smooth on $Z_m$. Then we apply Bertini's theorem to see that a general member of the linear system is smooth away from $Z_m$. Then we can find a surface of degree $m$ containing $Z_m$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{theorem}
+        Let $A_m = \{S_d \subseteq \mathbb{P}^3 \mid Z_m \subset S_d\} \subseteq \{S_d \subseteq \mathbb{P}^3\}$ be the set of degree $d$ surfaces containing a general $Z_m$. Then $\dim{A_m} = \binom{d-m+2}{2} + \binom{d+2}{3} - 1$.
+    \end{theorem}
 \end{frame}
 
 \begin{frame}{$m$-gon}
@@ -133,6 +159,12 @@
     \]
 \end{frame}
 
+\begin{frame}[fragile]
+    \begin{example}
+        Cohomology of a 4-gon.
+    \end{example}
+\end{frame}
+
 \begin{frame}{$m$-chain}
     \begin{definition}
         An $m$-chain is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$. We will write $Q_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$. 
@@ -143,6 +175,16 @@
     \end{theorem}
 \end{frame}
 
+\begin{frame}{4-chain}
+    4-chains.
+\end{frame}
 
+\begin{frame}{6-chain}
+    6-chains.
+\end{frame}
+
+\begin{frame}{Computational results}
+    Computations.
+\end{frame}
 
 \end{document}
