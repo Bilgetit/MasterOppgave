@@ -39,7 +39,7 @@ First we need the following lemma.
     Let $m \geq 2$, and consider the projection map $\pi_m \colon \mathcal{Q}_m \to \mathcal{Q}_{m-1}$ given by $\pi(l_1, \dots, l_m) = (l_1, \dots, l_{m-1})$. The fiber over a point is given by $\pi^{-1}(l_1, \dots, l_{m-1}) = \{(l_1, \dots, l_{m-1}, l_m) \in \mathcal{Q}_m \mid l_m \cap l_{m-1} \neq \emptyset\}$ which is isomorphic to $\Sigma_{l_{m-1}} = \{l \in \mathbb{G}(1,3) \mid l \cap l_{m-1} \neq \emptyset\}$. From \cref{lem:Schubert} we know that $\Sigma_{l_{m-1}}$ is irreducible of dimension 3, and by the induction hypothesis that $\mathcal{Q}_{m-1}$ is irreducible of dimension $M$. Then, since $\pi_m$ is proper, with irreducible fiber of dimension 3, we again have that $\mathcal{Q}_m$ is irreducible of dimension $M + 3$ by \cref{lem:irred_fiber}. $M=4$ for $m=1$, and so we get that $\dim \mathcal{Q}_m = 4 + 3(m-1) = 3m + 1$. 
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{cor:chain-open}
     The set of regular $m$-chains in $\mathcal{Q}_m$ is a dense open subset of $\mathcal{Q}_m$.
 \end{corollary}
 \begin{proof}
@@ -317,7 +317,7 @@ Note that one could continue building the chain further, but we stop at 12 for s
     We use the set of $m$-chains, not regular $m$-chains, so that the fiber of $p$ is non-empty. 
 \end{remark}
 
-Note that this means that the 6-chains which \emph{are} included in smooth cubic surfaces, are not general. To see why this might be, note that as we saw in the proof of \cref{lem:chain-open}, requiring that pairs of lines in $\mathbb{P}^3$ do not meet is a Zariski-open condition. This is exactly the separating factor of the 6-chains included in smooth cubic surfaces. The requirement of non-intersection is also included in the definition of a regular $m$-chain.
+Note that this means that the 6-chains which \emph{are} included in smooth cubic surfaces, are not general. To see why this might be, note that as we saw in the proof of \cref{cor:chain-open}, requiring that pairs of lines in $\mathbb{P}^3$ do not meet is a Zariski-open condition. This is exactly the separating factor of the 6-chains included in smooth cubic surfaces. The requirement of non-intersection is also included in the definition of a regular $m$-chain.
 
 The fact that we cannot find a surface including a general 6-chain may not be very intuitive, but the following lemma gives a good reason.
 

@@ -9,6 +9,8 @@
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usetikzlibrary{calc}
+\usetikzlibrary{intersections}
+\usetikzlibrary{decorations.markings}
 
 \usepackage{amsmath, amssymb}
 
@@ -49,7 +51,7 @@
         % \item $K(X)$ denotes the function field of a variety $X$.
         % \item $K(X)^\times$ denotes the multiplicative group of non-zero elements in $K(X)$.
         \item We denote $\dim_\mathbb{C} H^i(-,-)$ by $h^i(-,-)$.
-        \item We work in $\mathbb{P}^3$ with homogeneous coordinates.
+        \item We work in $\mathbb{P}^3$ with homogeneous coordinates $(x_0 : x_1 : x_2 : x_3)$.
     \end{itemize}
 \end{frame}
 
@@ -64,6 +66,18 @@
         % \item What configurations of lines can we find in surfaces of degree $d$?
         % \item When can we find smooth surfaces including given configurations of lines?
     \end{itemize}
+\end{frame}
+
+\begin{frame}{Cayley-Salmon theorem}
+    \begin{theorem}
+        A smooth cubic surface $S_3 \subseteq \mathbb{P}^3$ contains exactly 27 lines.
+    \end{theorem}
+    % \begin{figure}
+    %     \centering
+    %     \input{../doc/figures/27lines.tex}
+    % \caption{Clebsch surface.}
+    % \end{figure}
+    
 \end{frame}
 
 \begin{frame}[fragile]{Blow-up of $\mathbb{P}^2$ in six points}
@@ -88,24 +102,23 @@
 \end{frame}
 
 \begin{frame}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.8\textwidth]{../doc/figures/plane.png}
-    % \caption{A 6-cross in $\mathbb{P}^3$.}
-    \end{figure}
-\end{frame}
-
-\begin{frame}
         \begin{theorem}
-        Given an $m$-cross, we can find a smooth hypersurface of degree $d$ including it if and only if $d = 1$ or $d \geq m$.
+        Given an $m$-cross, we can find a smooth surface $S_d$ of degree $d$ including it if and only if $d = 1$ or $d \geq m$.
     \end{theorem}
 
     Key idea: Automorphism of $\mathbb{P}^3$ gives
     % can be used to move an $m$-cross into a position where we can construct such a surface. Explicitly, we move the lines to 
     \[l_1 = (\alpha : \beta : 0 : 0), \ l_2 = (\alpha : 0 : \gamma : 0), \ l_3=(\alpha: \lambda_3 \delta : \delta: 0), \dots, l_m = (\alpha :\lambda_m  \delta : \delta : 0)\]
 
-    This is contained in the plane $H = V(x_3)$, and the lines are described by 
-    \[l_1 = V(x_3, x_2), \ l_2 = V(x_3, x_1), \ l_3 = V(x_3, x_1 - \lambda_3 x_2), \ \dots, \ l_m = V(x_3, x_1 - \lambda_m x_2).\]
+    These lines all intersect at the point $p = (1 : 0 : 0 : 0)$ and lie in the plane $H = V(x_3)$.
+\end{frame}
+
+\begin{frame}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{../doc/figures/plane.png}
+    \caption{A 5-cross in a plane $H$ in the affine patch $x_0 = 1$.}
+    \end{figure}
 \end{frame}
 
 \begin{frame}
@@ -116,9 +129,11 @@
         \item If $d \geq m$, we can construct such a surface. 
         % We consider a linear system with base locus $Z_m$, and find a surface which is smooth on $Z_m$. Then we apply Bertini's theorem to see that a general member of the linear system is smooth away from $Z_m$. Then we can find a surface of degree $m$ containing $Z_m$.
     \end{itemize}
-    \[
-        f(x_0, x_1, x_2, x_3) = x_1x_2 \prod_{i=3}^m (x_1 - \lambda_i x_2) + x_0^{m-1}x_3.
-    \]
+
+    The lines are described by 
+    \[l_1 = V(x_3, x_2), \ l_2 = V(x_3, x_1), \ l_3 = V(x_3, x_1 - \lambda_3 x_2), \ \dots, \ l_m = V(x_3, x_1 - \lambda_m x_2).\]
+    Define the function
+    \[f(x_0, x_1, x_2, x_3) = x_1x_2 \prod_{i=3}^m (x_1 - \lambda_i x_2) + x_0^{m-1}x_3.\]
 
     \[\mathfrak{L} = \{X \mid Z_m \subseteq X\}\]
 \end{frame}
@@ -126,8 +141,8 @@
 \begin{frame}
     \begin{figure}
         \centering
-        \includegraphics[width=1\textwidth]{../doc/figures/5cross.png}
-    % \caption{A 6-cross in $\mathbb{P}^3$.}
+        \includegraphics[width=0.9\textwidth]{../doc/figures/5cross.png}
+    \caption{A 5-cross with $f$ in affine patch $x_0 = 1$.}
     \end{figure}
 \end{frame}
 
@@ -137,14 +152,13 @@
     \end{theorem}
 \end{frame}
 
-\begin{frame}{$m$-gon}
+\begin{frame}[fragile]{$m$-gon}
     \begin{definition}
         An $m$-gon is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$, and $l_m$ intersects $l_1$. We will write $C_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$, and $p_m = l_m \cap l_1$.
     \end{definition}
     We say that an $m$-gon is \emph{regular} if it only intersects at the points $p_1, p_2, \dots, p_m$, and there are no double lines. 
-    \begin{theorem}
-        Given a regular $m$-gon, we can find a smooth surface $S_d$ of degree $d$ including it when $m < \binom{d+3}{3}\cdot \frac{1}{d}$.
-    \end{theorem}
+
+    Include figure.
     % \begin{figure}
     %     \centering
     %     \input{../doc/figures/7gon.tex}
@@ -153,7 +167,12 @@
     % \end{figure}
 \end{frame}
 
+
 \begin{frame}[fragile]
+        \begin{theorem}
+        Given a regular $m$-gon, we can find a smooth surface $S_d$ of degree $d$ including it when $m < \binom{d+3}{3}\cdot \frac{1}{d}$.
+    \end{theorem}
+    
     Observe this with the sequence:
     \[0 \to \mathcal{I}_{C_m}(d) \to \mathcal{O}_{\mathbb{P}^3}(d) \to \mathcal{O}_{C_m}(d) \to 0.\]
     Taking cohomology gives the long exact sequence:
@@ -202,9 +221,9 @@
 
 \begin{frame}
     % $h^0(\mathcal{I}_{C_m}(d))$ tells us the dimension of the space of degree $d$ surfaces including the $m$-gon $C_m$. 
-    Since $h^1(\mathcal{I}_{C_m}(d)) > 0$, 
+    Since $h^1(\mathcal{I}_{C_m}(d)) \geq 0$, 
     \[h^0(\mathcal{I}_{C_m}(d)) \geq \binom{d+3}{3} - md,\]
-    and we can guarantee a surface when $\binom{d+3}{3} - md > 0$.
+    and we can guarantee a surface when $\binom{d+3}{3} - md > 0$, i.e. $m < \binom{d+3}{3} \cdot \frac{1}{d}$.
 \end{frame}
 
 \begin{frame}
@@ -213,10 +232,12 @@
         \[h^0(\mathcal{I}_{C_4}(d)) = \binom{d+3}{3} - 4d.\] 
         % In particular, we have $h^0(\mathcal{I}_{C_4}(3)) = 4$, so there is a 3-dimensional linear system of cubics including a regular 4-gon.
     \end{example}
+
+    Include proof.
 \end{frame}
 
 \begin{frame}{Computational results}
-    Computations.
+    Include concrete limits, and tables from m2.
 \end{frame}
 
 \begin{frame}{$m$-chain}
@@ -233,12 +254,15 @@
 \end{frame}
 
 \begin{frame}{Computational results}
-    Computations.
+    Include concrete limits, and tables from m2.
 \end{frame}
 
 \begin{frame}{4-chain}
+    % \begin{theorem}
+    %     A general 4-chain is included in a singular quadric surface, but not in a smooth one.
+    % \end{theorem}
     \begin{theorem}
-        For a regular 4-chain, we cannot find a smooth quadric surface including it.
+        For a regular 4-chain, we cannot find a smooth quadric surface $S_d$ including it.
     \end{theorem}
     % A smooth quadric surface is isomorphic to $\mathbb{P}^1 \times \mathbb{P}^1$, with two rulings by lines.
 
@@ -250,20 +274,45 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{4-chain}
     \begin{theorem}
-        A 4-chain can be included in a singular quadric surface.
+        A 4-chain can be included in a singular quadric surface $X$.
     \end{theorem}
 
-    $X = H_1 \cup H_2$ for two planes $H_1$ and $H_2$.
+    \begin{itemize}
+        \item Pair the lines as $(l_1, l_2)$ and $(l_3, l_4)$.
+        \item $(l_1, l_2)$ can be included in a plane $H_1$.
+        \item $(l_3, l_4)$ can be included in a plane $H_2$.
+        \item Then $X = H_1 \cup H_2$ is a singular quadric surface including $Q_4$.
+    \end{itemize}
 
     Include a figure of two planes including a 4-chain.
 \end{frame}
 
 \begin{frame}{6-chain}
     \begin{theorem}
-        A regular 6-chain is included in a unique cubic surface, which is singular.
+        A regular 6-chain is included in a unique cubic surface
+        $X$, which is singular.
     \end{theorem}
+\end{frame}
+
+\begin{frame}
+    Singular surface as in 4-chain.
+    Include figure.
+\end{frame}
+
+\begin{frame}
+    \begin{theorem}
+        In a smooth cubic surface, one can find at most a regular 5-chain.
+    \end{theorem}
+\end{frame}
+
+\begin{frame}
+    If one smooth surface, then many.
+\end{frame}
+
+\begin{frame}
+    Uniqueness.
 \end{frame}
 
 \end{document}
