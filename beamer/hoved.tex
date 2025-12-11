@@ -37,8 +37,9 @@
 
 \newtheorem{teorem}{Teorem}
 \newtheorem{definisjon}{Definisjon}
+\newtheorem{eksempel}{Eksempel}
 
-\title{Configurations of lines in surfaces}
+\title{Konfigurasjoner av linjer i flater}
 \author{Mikkel Gjestrud}
 
 \begin{document}
@@ -73,11 +74,11 @@
     \begin{teorem}
         En glatt kubisk flate $S_3 \subseteq \mathbb{P}^3$ inneholder nøyaktig 27 linjer.
     \end{teorem}
-    % \begin{figure}
-    %     \centering
-    %     \input{../doc/figures/27lines.tex}
-    % \caption{Clebsch surface.}
-    % \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.3\textwidth]{../doc/figures/Clebsch.jpg}
+    \caption{Clebsch flate.}
+    \end{figure}
     
 \end{frame}
 
@@ -166,24 +167,21 @@
     
 \end{frame}
 
-% \begin{frame}[fragile]{Eksempler på 5-sykler}
-%     \begin{columns}[T]
-%         \begin{column}{0.48\textwidth}
-%             \begin{figure}
-%                 \centering
-%                 \input{../doc/figures/5gon_planar.tex}
-%                 \caption{En regulær 5-sykel som ligger i et plan $H$.}
-%             \end{figure}
-%         \end{column}
-%         \begin{column}{0.48\textwidth}
-%             \begin{figure}
-%                 \centering
-%                 \input{../doc/figures/5gon_space.tex}
-%                 \caption{En 5-sykel i $\mathbb{P}^3$ som ikke ligger i et plan.}
-%             \end{figure}
-%         \end{column}
-%     \end{columns}
-% \end{frame}
+\begin{frame}[fragile]{Eksemplel på 5-sykel}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\textwidth]{../doc/figures/5gon.png}
+    % \caption{A 4-chain in $\mathbb{P}^3$.}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Eksemplel på 5-sykel}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\textwidth]{../doc/figures/5gon-color.png}
+    % \caption{A 4-chain in $\mathbb{P}^3$.}
+    \end{figure}
+\end{frame}
 
 
 \begin{frame}[fragile]{$m$-sykel}
@@ -237,7 +235,7 @@
     Når vi tar dimensjoner, så får vi
     \[h^0(\mathcal{I}_{C_m}(d)) = h^0(\mathcal{O}_{\mathbb{P}^3}(d)) + h^1(\mathcal{I}_{C_m}(d)) - h^0(\mathcal{O}_{C_m}(d)).\]
     Vi vet at
-    \[h^0(\mathcal{O}_{C_m}(d)) = md \text{ and } h^0(\mathcal{O}_{\mathbb{P}^3}(d)) = \binom{d+3}{3}.\]
+    \[h^0(\mathcal{O}_{\mathbb{P}^3}(d)) = \binom{d+3}{3} \text{ og } h^0(\mathcal{O}_{C_m}(d)) = md.\]
     Så
     \[h^0(\mathcal{I}_{C_m}(d)) = \binom{d+3}{3} - md + h^1(\mathcal{I}_{C_m}(d)).\]
 \end{frame}
@@ -250,38 +248,36 @@
 \end{frame}
 
 \begin{frame}[fragile]{Beregninger for $m$-sykel}
-    Include concrete limits.
-
     \begin{table}
         \centering
         % \caption{Results from Macaulay2 over $\mathbb{Q}$ testing existence and smoothness of surfaces containing an $m$-gon. Each row corresponds to one experiment: degree $d$, number of points used, whether the chosen form was singular, whether the space of degree-$d$ forms in the ideal was zero.}
         % \label{tab:mgon-results-small}
         \small
-        \begin{tabular}{r r c c }
+        \begin{tabular}{r r c c c }
             \toprule
-            $d$ & $m$ & Singulær & Null  \\
+            $d$ & $m$ & Singulær & Null & $\binom{d+3}{3} - md$\\
             \midrule
-            2 & 4  & usant & usant \\
-            2 & 5  & usant & sant  \\
-            3 & 6  & usant & usant \\
-            3 & 7  & usant & sant  \\
-            4 & 8  & usant & usant \\
-            4 & 9  & usant & sant  \\
-            5 & 11 & usant & usant \\
-            5 & 12 & usant & sant  \\
-            6 & 13 & usant & usant \\
-            6 & 14 & usant & sant  \\
+            2 & 4  & usant & usant & 2 \\
+            2 & 5  & usant & sant & 0  \\
+            3 & 6  & usant & usant & 2 \\
+            3 & 7  & usant & sant & -1  \\
+            4 & 8  & usant & usant & 3 \\
+            4 & 9  & usant & sant & -1  \\
+            5 & 11 & usant & usant & 1 \\
+            5 & 12 & usant & sant & -4  \\
+            6 & 13 & usant & usant & 6 \\
+            6 & 14 & usant & sant & 0  \\
             \bottomrule
         \end{tabular}
     \end{table}
 \end{frame}
 
 \begin{frame}{$m$-sykel}
-    \begin{example}
-        For en regulær 4-sykelså har vi at $h^1(\mathcal{I}_{C_4}(d)) = 0$ for $d \geq 1$, så 
+    \begin{eksempel}
+        For en regulær 4-sykel så har vi at $h^1(\mathcal{I}_{C_4}(d)) = 0$ for $d \geq 1$, så 
         \[h^0(\mathcal{I}_{C_4}(d)) = \binom{d+3}{3} - 4d.\] 
         % In particular, we have $h^0(\mathcal{I}_{C_4}(3)) = 4$, so there is a 3-dimensional linear system of cubics including a regular 4-gon.
-    \end{example}
+    \end{eksempel}
 \end{frame}
 
 \begin{frame}{$m$-kjede}
@@ -292,33 +288,39 @@
 \end{frame}
 
 \begin{frame}{$m$-kjede}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\textwidth]{../doc/figures/4chain.png}
+    % \caption{A 4-chain in $\mathbb{P}^3$.}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{$m$-kjede}
     \begin{teorem}
-        Gitt en regulær $m$-kjede så kan vi finne en flate $X$ av grad $d$ som inkluderer den når $m < (\binom{d+3}{3}-1) \cdot \frac{1}{d}$.
+        Gitt en regulær $m$-kjede så kan vi finne en flate $X$ av grad $d$ som inkluderer den når $m < (\binom{d+3}{3} - 1) \cdot \frac{1}{d}$.
     \end{teorem}
 \end{frame}
 
-\begin{frame}[fragile]{Beregninger for $m$-kjede}
-    Include concrete limits.
-
+\begin{frame}[fragile]{Beregninger for $m$-kjeder}
     \begin{table}
         \centering
         % \caption{Results from Macaulay2 over $\mathbb{Q}$ testing existence and smoothness of surfaces containing an $m$-gon. Each row corresponds to one experiment: degree $d$, number of points used, whether the chosen form was singular, whether the space of degree-$d$ forms in the ideal was zero.}
         % \label{tab:nchain-results-small}
         \small
-        \begin{tabular}{r r c c }
+        \begin{tabular}{r r c c c}
             \toprule
-            $d$ & $m$ & Singulær & Null  \\
+            $d$ & $m$ & Singulær & Null & $\binom{d+3}{3} - 1 - md$ \\
             \midrule
-            2 & 4  & \alert<1>{sant} & usant \\
-            2 & 5  & usant & sant  \\
-            3 & 6  & \alert<1>{sant} & usant \\
-            3 & 7  & usant & sant  \\
-            4 & 8  & usant & usant \\
-            4 & 9  & usant & sant  \\
-            5 & 11 & usant & usant \\
-            5 & 12 & usant & sant  \\
-            6 & 13 & usant & usant \\
-            6 & 14 & usant & sant  \\
+            2 & 4  & \alert<1>{sant} & usant & 1 \\
+            2 & 5  & usant & sant & -1  \\
+            3 & 6  & \alert<1>{sant} & usant & 1 \\
+            3 & 7  & usant & sant & -2  \\
+            4 & 8  & usant & usant & 2 \\
+            4 & 9  & usant & sant & -2  \\
+            5 & 11 & usant & usant & 0 \\
+            5 & 12 & usant & sant & -5  \\
+            6 & 13 & usant & usant & 5 \\
+            6 & 14 & usant & sant & -1  \\
             \bottomrule
         \end{tabular}
     \end{table}
@@ -354,6 +356,14 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}{4-kjede}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\textwidth]{../doc/figures/4chain-plane.png}
+    % \caption{A 4-chain in $\mathbb{P}^3$.}
+    \end{figure}
+\end{frame}
+
 \begin{frame}{6-kjede}
     \begin{teorem}
         En regulær 6-kjede kan inkluderes i en unik kubisk flate
@@ -362,8 +372,11 @@
 \end{frame}
 
 \begin{frame}{6-kjede}
-    Singulær flate som i 4-kjede.
-    Inkluder figur.
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\textwidth]{../doc/figures/6chain-plane.png}
+    % \caption{A 4-chain in $\mathbb{P}^3$.}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{6-kjede}
@@ -384,21 +397,42 @@
 \end{frame}
 
 \begin{frame}[fragile]{6-kjede}
-    Hvis en 6-kjede $Q_6$ ligger i en glatt kubisk flate $X$, så er den inkludert i minst en 1-dimensjoinal familie av glatte flater. 
+    Hvis $Q_6 \subset X$ for glatt flate $X$, så kan vi lage det lineære systemet $\mathcal{D} = \{aX + bY\}$ med $Y = H_1 \cup H_2 \cup H_3$.
     \begin{figure}[ht]
         \centering
         \begin{tikzcd}
             & \mathcal{N}= \{(X, Q_6) \in \mathbb{P}^{19} \times \mathcal{Q}_6 \mid Q_6 \subset X\} \arrow[dl, "p"'] \arrow[dr, "q"] & \\
+            \alert<1>{X \in} \mathbb{P}^{19}  & & \mathcal{Q}_6
+        \end{tikzcd}
+        % \caption{Incidence diagram with the morphisms $p:\mathcal{N} \to \mathbb{P}^{19}$ and $q:\mathcal{N}\to\mathcal{Q}_6$.}
+        % \label{fig:incidence}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{6-kjede}
+    \begin{figure}[ht]
+        \centering
+        \begin{tikzcd}
+            & \mathcal{N} \arrow[dl, "p"'] \arrow[dr, "q"] & \\
             \mathbb{P}^{19}  & & \mathcal{Q}_6
         \end{tikzcd}
         % \caption{Incidence diagram with the morphisms $p:\mathcal{N} \to \mathbb{P}^{19}$ and $q:\mathcal{N}\to\mathcal{Q}_6$.}
         % \label{fig:incidence}
     \end{figure}
-    $\mathcal{D} = \{aX + bY\}$.
+
+    \begin{itemize}
+        \item $q$ er proper. Å ta dimensjonen til fibre av $q$ gir en øvre semi-kontinuerlig funksjon.
+        \item Har eksempel på $Q_6'$ som ligger i én singulær kubisk flate, så 
+        $\dim q^{-1}(Q_6') = 0$.
+        \item Kan finne åpen $Q_6' \in U$ slik at $\dim q^{-1}(Q_6) = 0$ for alle $Q_6 \in U$.
+        \item Alle er inkludert i unionen av tre plan, så $\dim q^{-1}(Q_6) = 0$ for $Q_6 \in U$.
+        \item Fiberet til $q$ er mengden av løsninger til lineære likninger, så det definerer et projektivt rom.
+        \item Dette rommet er $\mathbb{P}^0$, så flaten er unik.
+    \end{itemize}
 \end{frame}
 
-\begin{frame}{6-kjede}
-    Unikhet.
+\begin{frame}
+    
 \end{frame}
 
 \end{document}
