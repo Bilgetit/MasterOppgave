@@ -11,6 +11,7 @@
 \usetikzlibrary{calc}
 \usetikzlibrary{intersections}
 \usetikzlibrary{decorations.markings}
+\usepackage{booktabs}
 
 \usepackage{amsmath, amssymb}
 
@@ -34,6 +35,9 @@
 \usefonttheme[onlymath]{serif}
 \urlstyle{sf}
 
+\newtheorem{teorem}{Teorem}
+\newtheorem{definisjon}{Definisjon}
+
 \title{Configurations of lines in surfaces}
 \author{Mikkel Gjestrud}
 
@@ -44,34 +48,31 @@
     date={12th December, 2025},
 ]
 
-\begin{frame}{Conventions}
+\begin{frame}{Konvensjoner}
     \begin{itemize}
         % \item $\Bbbk$ denotes an algebraically closed field of characteristic $0$.
-        \item We work over the field of complex numbers $\mathbb{C}$.
+        \item Vi jobber over de komplekse tallene $\mathbb{C}$.
         % \item $K(X)$ denotes the function field of a variety $X$.
         % \item $K(X)^\times$ denotes the multiplicative group of non-zero elements in $K(X)$.
-        \item We denote $\dim_\mathbb{C} H^i(-,-)$ by $h^i(-,-)$.
-        \item We work in $\mathbb{P}^3$ with homogeneous coordinates $(x_0 : x_1 : x_2 : x_3)$.
+        \item Vi betegner $\dim_\mathbb{C} H^i(-,-)$ med $h^i(-,-)$.
+        \item Vi jobber i $\mathbb{P}^3$ med homogene koordinater $(x_0 : x_1 : x_2 : x_3)$.
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Motivation}
+\begin{frame}{Motivasjon}
     \begin{itemize}
-        \item 27 lines on a smooth cubic surface.
-        \item Eckardt points on cubic surfaces.
-        \item Which configurations do we `expect' to find in surfaces of degree $d$?
-        \item When can we find a surface of degree $d$ including a given configuration of lines? And is it smooth?
-        % \item Lines in surfaces is a classical topic in algebraic geometry.
-        % \item The famous result that a smooth cubic surface contains exactly 27 lines.
-        % \item What configurations of lines can we find in surfaces of degree $d$?
-        % \item When can we find smooth surfaces including given configurations of lines?
+        \item 27 linjer på en glatt kubisk flate.
+        \item Eckardt-punkter på kubiske flater.
+        \item Hvilke konfigurasjoner forventer vi å finne i flater av grad $d$?
+        \item Når kan vi finne en flate av grad $d$ som inkluderer en gitt konfigurasjon av linjer? 
+        \item Er flatene glatte?
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Cayley-Salmon theorem}
-    \begin{theorem}
-        A smooth cubic surface $S_3 \subseteq \mathbb{P}^3$ contains exactly 27 lines.
-    \end{theorem}
+\begin{frame}{Cayley-Salmon teoremet}
+    \begin{teorem}
+        En glatt kubisk flate $S_3 \subseteq \mathbb{P}^3$ inneholder nøyaktig 27 linjer.
+    \end{teorem}
     % \begin{figure}
     %     \centering
     %     \input{../doc/figures/27lines.tex}
@@ -80,7 +81,7 @@
     
 \end{frame}
 
-\begin{frame}[fragile]{Blow-up of $\mathbb{P}^2$ in six points}
+\begin{frame}[fragile]{Blow-up av $\mathbb{P}^2$ i seks punkter}
     \begin{figure}
         \centering
         \input{../doc/figures/blowup6.tex}
@@ -89,97 +90,110 @@
 \end{frame}
 
 
-\begin{frame}{$m$-cross}
+\begin{frame}{$m$-kryss}
     \begin{figure}
         \centering
         \input{../doc/figures/6cross.tex}
-    \caption{A 6-cross in $\mathbb{P}^3$.}
+    \caption{Et 6-kryss i $\mathbb{P}^3$.}
     \label{fig:Z_6}
     \end{figure}
-    \begin{definition}
-        An $m$-cross is a union of $m$ distinct lines $l_1, l_2, \dots, l_m$ in $\mathbb{P}^3$ which intersect at a common point $p$ and lying in a common plane $H$. We will write $Z_m = \bigcup_{i=1}^m l_i$.
-    \end{definition}
+    \begin{definisjon}
+        Et $m$-kryss er en union av $m$ distinkte linjer $l_1, l_2, \dots, l_m$ i $\mathbb{P}^3$ som skjærer hverandre i et felles punkt $p$ og ligger i et felles plan $H$. Vi skriver $Z_m = \bigcup_{i=1}^m l_i$.
+    \end{definisjon}
 \end{frame}
 
-\begin{frame}
-        \begin{theorem}
-        Given an $m$-cross, we can find a smooth surface $S_d$ of degree $d$ including it if and only if $d = 1$ or $d \geq m$.
-    \end{theorem}
+\begin{frame}{$m$-kryss}
+    \begin{teorem}
+        Gitt et $m$-kryss, kan vi finne en glatt flate $S_d$ av grad $d$ som inneholder det hvis og bare hvis $d = 1$ eller $d \geq m$.
+    \end{teorem}
 
-    Key idea: Automorphism of $\mathbb{P}^3$ gives
+    Nøkkelidé: Automorfi av $\mathbb{P}^3$ gir
     % can be used to move an $m$-cross into a position where we can construct such a surface. Explicitly, we move the lines to 
     \[l_1 = (\alpha : \beta : 0 : 0), \ l_2 = (\alpha : 0 : \gamma : 0), \ l_3=(\alpha: \lambda_3 \delta : \delta: 0), \dots, l_m = (\alpha :\lambda_m  \delta : \delta : 0)\]
 
-    These lines all intersect at the point $p = (1 : 0 : 0 : 0)$ and lie in the plane $H = V(x_3)$.
+    Disse linjene skjærer alle i punktet $p = (1 : 0 : 0 : 0)$ og ligger i planet $H = V(x_3)$.
 \end{frame}
 
-\begin{frame}
+\begin{frame}{$m$-kryss}
     \begin{figure}
         \centering
         \includegraphics[width=0.8\textwidth]{../doc/figures/plane.png}
-    \caption{A 5-cross in a plane $H$ in the affine patch $x_0 = 1$.}
+    \caption{Et 5-kryss i et plan $H$ i det affine kartet $x_0 = 1$.}
     \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{$m$-kryss}
     \begin{itemize}
-        \item If $d=1$, we can take $X = H$.
-        \item If $1 < d < m$, no such surface exists by Bezout's theorem. 
+        \item For $d=1$ så kan vi ta $X = H$.
+        \item For $1 < d < m$ finnes det ingen slik flate ifølge Bezouts teorem. 
         % Consider a surface $X \subset \mathbb{P}^3$ of degree $d$ containing an $m$-cross $Z_m$, and a line in $H$ not passing through $p$. We use Bezout's theorem to see that this line must intersect $X$ in at least $d$ points, and since it intersects each line, we must have $d \geq m$ when $X$ is not equal to $H$.
-        \item If $d \geq m$, we can prove that there exists such a surface. 
+        \item For $d \geq m$ kan vi bevise at det finnes en slik flate. 
         % We consider a linear system with base locus $Z_m$, and find a surface which is smooth on $Z_m$. Then we apply Bertini's theorem to see that a general member of the linear system is smooth away from $Z_m$. Then we can find a surface of degree $m$ containing $Z_m$.
     \end{itemize}
 
-    The linear system
+    Det lineære systemet
     \[\mathfrak{L} = \{X \mid Z_m \subseteq X\}\]
-    has base locus $Z_m$. We look for a surface in $\mathfrak{L}$ which is smooth on $Z_m$.
+    har baselokus $Z_m$. Vi leter etter en flate i $\mathfrak{L}$ som er glatt på $Z_m$.
 
-    The lines are described by 
+    Linjene beskrives av $l_i = V(x_3, g_i)$, vi får
     \[l_1 = V(x_3, x_2), \ l_2 = V(x_3, x_1), \ l_3 = V(x_3, x_1 - \lambda_3 x_2), \ \dots, \ l_m = V(x_3, x_1 - \lambda_m x_2).\]
-    Define the function
+
+    Definer funksjonen $f = \prod g_i + x_0^{m-1}x_3$.
     \[f(x_0, x_1, x_2, x_3) = x_1x_2 \prod_{i=3}^m (x_1 - \lambda_i x_2) + x_0^{m-1}x_3.\]
 
-    Can show that $f$ is smooth on $Z_m$, and apply Bertini's theorem to get a smooth surface in $\mathfrak{L}$.
+    Kan vise at $f$ er glatt på $Z_m$, og anvende Bertinis teorem for å få en glatt flate i $\mathfrak{L}$.
 \end{frame}
 
-\begin{frame}
+\begin{frame}{$m$-kryss}
     \begin{figure}
         \centering
         \includegraphics[width=0.9\textwidth]{../doc/figures/5cross.png}
-    \caption{A 5-cross with $f$ in affine patch $x_0 = 1$.}
+    \caption{Funksjonen $f$ med 5-krysset på det affine kartet $x_0 = 1$.}
     \end{figure}
 \end{frame}
 
-\begin{frame}
-    \begin{theorem}
-        Let $A_m = \{S_d \subseteq \mathbb{P}^3 \mid Z_m \subset S_d\}$ be the set of degree $d$ surfaces containing a general $Z_m$. Then $\dim{A_m} = \binom{d-m+2}{2} + \binom{d+2}{3} - 1$ when $d \geq m$.
-    \end{theorem}
+\begin{frame}{$m$-kryss}
+    \begin{teorem}
+        La $A_m = \{X \subseteq \mathbb{P}^3 \mid Z_m \subset X\}$ være mengden av grad $d$ flater som inneholder et generelt $Z_m$. Da er $\dim{A_m} = \binom{d-m+2}{2} + \binom{d+2}{3} - 1$.
+    \end{teorem}
 \end{frame}
 
-\begin{frame}[fragile]{$m$-gon}
-    \begin{definition}
-        An $m$-gon is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$, and $l_m$ intersects $l_1$. We will write $C_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$, and $p_m = l_m \cap l_1$.
-    \end{definition}
-    We say that an $m$-gon is \emph{regular} if it only intersects at the points $p_1, p_2, \dots, p_m$, and there are no double lines. 
-
-    Include figure.
-    % \begin{figure}
-    %     \centering
-    %     \input{../doc/figures/7gon.tex}
-    %     \caption{7-gon drawn in a plane.}
-    %     \label{fig:m-gon}
-    % \end{figure}
-\end{frame}
-
-
-\begin{frame}[fragile]
-        \begin{theorem}
-        Given a regular $m$-gon, we can find a smooth surface $S_d$ of degree $d$ including it when $m < \binom{d+3}{3}\cdot \frac{1}{d}$.
-    \end{theorem}
+\begin{frame}[fragile]{$m$-sykel}
+    \begin{definisjon}
+        En $m$-sykel er en union av $m$ linjer $l_1, l_2, \dots, l_m$ slik at $l_i$ skjærer $l_{i+1}$ for $1 \leq i < m$, og $l_m$ skjærer $l_1$. Vi skriver $C_m = \bigcup_{i=1}^m l_i$ og betegner skjæringspunktene som $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$, og $p_m = l_m \cap l_1$.
+    \end{definisjon}
+    Vi sier at en $m$-sykel er \emph{regulær} hvis ingen linjer utenom de krevde skjærer, og det ikke finnes doble linjer. 
     
-    Observe this with the sequence:
+\end{frame}
+
+% \begin{frame}[fragile]{Eksempler på 5-sykler}
+%     \begin{columns}[T]
+%         \begin{column}{0.48\textwidth}
+%             \begin{figure}
+%                 \centering
+%                 \input{../doc/figures/5gon_planar.tex}
+%                 \caption{En regulær 5-sykel som ligger i et plan $H$.}
+%             \end{figure}
+%         \end{column}
+%         \begin{column}{0.48\textwidth}
+%             \begin{figure}
+%                 \centering
+%                 \input{../doc/figures/5gon_space.tex}
+%                 \caption{En 5-sykel i $\mathbb{P}^3$ som ikke ligger i et plan.}
+%             \end{figure}
+%         \end{column}
+%     \end{columns}
+% \end{frame}
+
+
+\begin{frame}[fragile]{$m$-sykel}
+        \begin{teorem}
+        Gitt en regulær $m$-sykel, kan vi finne en flate $X$ av grad $d$ som inneholder den når $m < \binom{d+3}{3}\cdot \frac{1}{d}$.
+    \end{teorem}
+    
+    Vi ser på den eksakte sekvensen
     \[0 \to \mathcal{I}_{C_m}(d) \to \mathcal{O}_{\mathbb{P}^3}(d) \to \mathcal{O}_{C_m}(d) \to 0.\]
-    Taking cohomology gives the long exact sequence:
+    Tar vi kohomologi, får vi den lange eksakte sekvensen
     \[
         \begin{tikzcd}[sep=small]
         0 \ar[r]
@@ -196,11 +210,11 @@
         & \dots
         \end{tikzcd}
     \]
-    Aim to find $h^0(\mathcal{I}_{C_m}(d)) > 0$.
+    Vil se når $h^0(\mathcal{I}_{C_m}(d)) > 0$.
 \end{frame}
 
-\begin{frame}[fragile]
-    $H^i(\mathcal{O}_{\mathbb{P}^3}(d)) = 0$ for $i > 0$ and $d \geq -3$.
+\begin{frame}[fragile]{$m$-sykel}
+    $H^i(\mathcal{O}_{\mathbb{P}^3}(d)) = 0$ for $i > 0$ og $d \geq -3$.
     \[
         \begin{tikzcd}[sep=small]
         0 \ar[r]
@@ -219,60 +233,104 @@
     \]
 \end{frame}
 
-\begin{frame}
-    Taking dimensions, we have
+\begin{frame}{$m$-sykel}
+    Når vi tar dimensjoner, så får vi
     \[h^0(\mathcal{I}_{C_m}(d)) = h^0(\mathcal{O}_{\mathbb{P}^3}(d)) + h^1(\mathcal{I}_{C_m}(d)) - h^0(\mathcal{O}_{C_m}(d)).\]
-    We know that
+    Vi vet at
     \[h^0(\mathcal{O}_{C_m}(d)) = md \text{ and } h^0(\mathcal{O}_{\mathbb{P}^3}(d)) = \binom{d+3}{3}.\]
-    So
+    Så
     \[h^0(\mathcal{I}_{C_m}(d)) = \binom{d+3}{3} - md + h^1(\mathcal{I}_{C_m}(d)).\]
 \end{frame}
 
-\begin{frame}
+\begin{frame}{$m$-sykel}
     % $h^0(\mathcal{I}_{C_m}(d))$ tells us the dimension of the space of degree $d$ surfaces including the $m$-gon $C_m$. 
-    Since $h^1(\mathcal{I}_{C_m}(d)) \geq 0$, 
+    Siden $h^1(\mathcal{I}_{C_m}(d)) \geq 0$, så har vi at
     \[h^0(\mathcal{I}_{C_m}(d)) \geq \binom{d+3}{3} - md,\]
-    and we can guarantee a surface when $\binom{d+3}{3} - md > 0$, i.e. $m < \binom{d+3}{3} \cdot \frac{1}{d}$.
+    og vi kan derfor garantere en flate når $\binom{d+3}{3} - md > 0$, altså $m < \binom{d+3}{3} \cdot \frac{1}{d}$.
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]{Beregninger for $m$-sykel}
+    Include concrete limits.
+
+    \begin{table}
+        \centering
+        % \caption{Results from Macaulay2 over $\mathbb{Q}$ testing existence and smoothness of surfaces containing an $m$-gon. Each row corresponds to one experiment: degree $d$, number of points used, whether the chosen form was singular, whether the space of degree-$d$ forms in the ideal was zero.}
+        % \label{tab:mgon-results-small}
+        \small
+        \begin{tabular}{r r c c }
+            \toprule
+            $d$ & $m$ & Singulær & Null  \\
+            \midrule
+            2 & 4  & usant & usant \\
+            2 & 5  & usant & sant  \\
+            3 & 6  & usant & usant \\
+            3 & 7  & usant & sant  \\
+            4 & 8  & usant & usant \\
+            4 & 9  & usant & sant  \\
+            5 & 11 & usant & usant \\
+            5 & 12 & usant & sant  \\
+            6 & 13 & usant & usant \\
+            6 & 14 & usant & sant  \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{$m$-sykel}
     \begin{example}
-        For a regular 4-gon, we have $h^1(\mathcal{I}_{C_4}(d)) = 0$ for $d \geq 1$, so 
+        For en regulær 4-sykelså har vi at $h^1(\mathcal{I}_{C_4}(d)) = 0$ for $d \geq 1$, så 
         \[h^0(\mathcal{I}_{C_4}(d)) = \binom{d+3}{3} - 4d.\] 
         % In particular, we have $h^0(\mathcal{I}_{C_4}(3)) = 4$, so there is a 3-dimensional linear system of cubics including a regular 4-gon.
     \end{example}
-
-    Include proof.
 \end{frame}
 
-\begin{frame}{Computational results}
-    Include concrete limits, and tables from m2.
+\begin{frame}{$m$-kjede}
+    \begin{definisjon}
+        En $m$-kjede er en union av $m$ linjer $l_1, l_2, \dots, l_m$ slik at $l_i$ skjærer $l_{i+1}$ for $1 \leq i < m$. Vi skriver $Q_m = \bigcup_{i=1}^m l_i$ og betegner skjæringspunktene som $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$. 
+    \end{definisjon}
+    En $m$-kjede er \emph{regulær} hvis den kun skjærer de forventede linjene, og det ikke finnes doble linjer.
 \end{frame}
 
-\begin{frame}{$m$-chain}
-    \begin{definition}
-        An $m$-chain is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$. We will write $Q_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$. 
-    \end{definition}
-    An $m$-chain is \emph{regular} if it only intersects at the points $p_1, p_2, \dots, p_{m-1}$, and there are no double lines.
+\begin{frame}{$m$-kjede}
+    \begin{teorem}
+        Gitt en regulær $m$-kjede så kan vi finne en flate $X$ av grad $d$ som inkluderer den når $m < (\binom{d+3}{3}-1) \cdot \frac{1}{d}$.
+    \end{teorem}
 \end{frame}
 
-\begin{frame}
-    \begin{theorem}
-        Given a regular $m$-chain, we can find a smooth surface $S_d$ of degree $d$ including it when $m < (\binom{d+3}{3}-1) \cdot \frac{1}{d}$.
-    \end{theorem}
+\begin{frame}[fragile]{Beregninger for $m$-kjede}
+    Include concrete limits.
+
+    \begin{table}
+        \centering
+        % \caption{Results from Macaulay2 over $\mathbb{Q}$ testing existence and smoothness of surfaces containing an $m$-gon. Each row corresponds to one experiment: degree $d$, number of points used, whether the chosen form was singular, whether the space of degree-$d$ forms in the ideal was zero.}
+        % \label{tab:nchain-results-small}
+        \small
+        \begin{tabular}{r r c c }
+            \toprule
+            $d$ & $m$ & Singulær & Null  \\
+            \midrule
+            2 & 4  & \alert<1>{sant} & usant \\
+            2 & 5  & usant & sant  \\
+            3 & 6  & \alert<1>{sant} & usant \\
+            3 & 7  & usant & sant  \\
+            4 & 8  & usant & usant \\
+            4 & 9  & usant & sant  \\
+            5 & 11 & usant & usant \\
+            5 & 12 & usant & sant  \\
+            6 & 13 & usant & usant \\
+            6 & 14 & usant & sant  \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
 \end{frame}
 
-\begin{frame}{Computational results}
-    Include concrete limits, and tables from m2.
-\end{frame}
-
-\begin{frame}{4-chain}
+\begin{frame}{4-kjede}
     % \begin{theorem}
     %     A general 4-chain is included in a singular quadric surface, but not in a smooth one.
     % \end{theorem}
-    \begin{theorem}
-        For a regular 4-chain, we cannot find a smooth quadric surface $S_d$ including it.
-    \end{theorem}
+    \begin{teorem}
+        For en regulær 4-kjede kan vi ikke finne en glatt kvadratisk flate $S_d$ som inkluderer den.
+    \end{teorem}
     % A smooth quadric surface is isomorphic to $\mathbb{P}^1 \times \mathbb{P}^1$, with two rulings by lines.
 
     \begin{figure}
@@ -283,45 +341,64 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{4-chain}
-    \begin{theorem}
-        A 4-chain can be included in a singular quadric surface $X$.
-    \end{theorem}
+\begin{frame}{4-kjede}
+    \begin{teorem}
+        En 4-kjede kan inkluderes i en singulær kvadratisk flate $X$.
+    \end{teorem}
 
     \begin{itemize}
-        \item Pair the lines as $(l_1, l_2)$ and $(l_3, l_4)$.
-        \item $(l_1, l_2)$ can be included in a plane $H_1$.
-        \item $(l_3, l_4)$ can be included in a plane $H_2$.
-        \item Then $X = H_1 \cup H_2$ is a singular quadric surface including $Q_4$.
+        \item Par linjene $(l_1, l_2)$ og $(l_3, l_4)$.
+        \item $(l_1, l_2)$ kan inkluderes i et plan $H_1$.
+        \item $(l_3, l_4)$ kan inkluderes i et plan $H_2$.
+        \item Da er $X = H_1 \cup H_2$ en singulær kvadratisk flate som inkluderer $Q_4$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{6-kjede}
+    \begin{teorem}
+        En regulær 6-kjede kan inkluderes i en unik kubisk flate
+        $X$, som er singulær.
+    \end{teorem}
+\end{frame}
+
+\begin{frame}{6-kjede}
+    Singulær flate som i 4-kjede.
+    Inkluder figur.
+\end{frame}
+
+\begin{frame}{6-kjede}
+    \begin{teorem}
+       I en glatt kubisk flate kan man finne høyst en regulær 5-kjede.
+    \end{teorem}
+    \begin{itemize}
+        \item Kan finne en regulær 5-kjede.
+        \item Betrakt divisoren $D = C_1 + C_2 - C_4 - C_5$.
+        \item $D^2 = 0$.
+        \item $H = f^*(\mathcal{O}_{\mathbb{P}^3}(1))$ er ampel, og $HD = 0$.
+        \item Ved Hodge-indeksteoremet så får vi at $D = 0$.
+        \item Så $C_1 + C_2 = C_4 + C_5$.
+        \item $C_1C_6 + C_2C_6 = C_4C_6 + 1$
     \end{itemize}
 
-    Include a figure of two planes including a 4-chain.
+    % Let $C_i \neq C_4$ be another line which intersects $C_5$. Then it must also intersect either $C_1$ or $C_2$ by the equality, and thus cannot be used to make a regular 6-chain.
 \end{frame}
 
-\begin{frame}{6-chain}
-    \begin{theorem}
-        A regular 6-chain is included in a unique cubic surface
-        $X$, which is singular.
-    \end{theorem}
+\begin{frame}[fragile]{6-kjede}
+    Hvis en 6-kjede $Q_6$ ligger i en glatt kubisk flate $X$, så er den inkludert i minst en 1-dimensjoinal familie av glatte flater. 
+    \begin{figure}[ht]
+        \centering
+        \begin{tikzcd}
+            & \mathcal{N}= \{(X, Q_6) \in \mathbb{P}^{19} \times \mathcal{Q}_6 \mid Q_6 \subset X\} \arrow[dl, "p"'] \arrow[dr, "q"] & \\
+            \mathbb{P}^{19}  & & \mathcal{Q}_6
+        \end{tikzcd}
+        % \caption{Incidence diagram with the morphisms $p:\mathcal{N} \to \mathbb{P}^{19}$ and $q:\mathcal{N}\to\mathcal{Q}_6$.}
+        % \label{fig:incidence}
+    \end{figure}
+    $\mathcal{D} = \{aX + bY\}$.
 \end{frame}
 
-\begin{frame}
-    Singular surface as in 4-chain.
-    Include figure.
-\end{frame}
-
-\begin{frame}
-    \begin{theorem}
-        In a smooth cubic surface, one can find at most a regular 5-chain.
-    \end{theorem}
-\end{frame}
-
-\begin{frame}
-    If one smooth surface, then many.
-\end{frame}
-
-\begin{frame}
-    Uniqueness.
+\begin{frame}{6-kjede}
+    Unikhet.
 \end{frame}
 
 \end{document}
