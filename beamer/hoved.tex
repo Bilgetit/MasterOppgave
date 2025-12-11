@@ -11,7 +11,6 @@
 \usetikzlibrary{calc}
 \usetikzlibrary{intersections}
 \usetikzlibrary{decorations.markings}
-\usepackage{booktabs}
 
 \usepackage{amsmath, amssymb}
 
@@ -135,9 +134,9 @@
     \[\mathfrak{L} = \{X \mid Z_m \subseteq X\}\]
     has base locus $Z_m$. We look for a surface in $\mathfrak{L}$ which is smooth on $Z_m$.
 
-    The lines are described by $l_i = V(x_3, g_i)$, explicitly
+    The lines are described by 
     \[l_1 = V(x_3, x_2), \ l_2 = V(x_3, x_1), \ l_3 = V(x_3, x_1 - \lambda_3 x_2), \ \dots, \ l_m = V(x_3, x_1 - \lambda_m x_2).\]
-    Define the function $f = \prod g_i + x_0^{m-1}x_3$.
+    Define the function
     \[f(x_0, x_1, x_2, x_3) = x_1x_2 \prod_{i=3}^m (x_1 - \lambda_i x_2) + x_0^{m-1}x_3.\]
 
     Can show that $f$ is smooth on $Z_m$, and apply Bertini's theorem to get a smooth surface in $\mathfrak{L}$.
@@ -153,7 +152,7 @@
 
 \begin{frame}
     \begin{theorem}
-        Let $A_m = \{X \subseteq \mathbb{P}^3 \mid Z_m \subset X\}$ be the set of degree $d$ surfaces containing a general $Z_m$. Then $\dim{A_m} = \binom{d-m+2}{2} + \binom{d+2}{3} - 1$ when $d \geq m$.
+        Let $A_m = \{S_d \subseteq \mathbb{P}^3 \mid Z_m \subset S_d\}$ be the set of degree $d$ surfaces containing a general $Z_m$. Then $\dim{A_m} = \binom{d-m+2}{2} + \binom{d+2}{3} - 1$ when $d \geq m$.
     \end{theorem}
 \end{frame}
 
@@ -161,7 +160,7 @@
     \begin{definition}
         An $m$-gon is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$, and $l_m$ intersects $l_1$. We will write $C_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$, and $p_m = l_m \cap l_1$.
     \end{definition}
-    We say that an $m$-gon is \emph{regular} if no lines other than the adjacent ones intersect, and there are no double lines. 
+    We say that an $m$-gon is \emph{regular} if it only intersects at the points $p_1, p_2, \dots, p_m$, and there are no double lines. 
 
     Include figure.
     % \begin{figure}
@@ -175,7 +174,7 @@
 
 \begin{frame}[fragile]
         \begin{theorem}
-        Given a regular $m$-gon, we can find a surface $X$ of degree $d$ including it when $m < \binom{d+3}{3}\cdot \frac{1}{d}$.
+        Given a regular $m$-gon, we can find a smooth surface $S_d$ of degree $d$ including it when $m < \binom{d+3}{3}\cdot \frac{1}{d}$.
     \end{theorem}
     
     Observe this with the sequence:
@@ -236,33 +235,6 @@
     and we can guarantee a surface when $\binom{d+3}{3} - md > 0$, i.e. $m < \binom{d+3}{3} \cdot \frac{1}{d}$.
 \end{frame}
 
-\begin{frame}[fragile]{Computational results}
-    Include concrete limits, and tables from m2.
-
-    \begin{table}
-        \centering
-        % \caption{Results from Macaulay2 over $\mathbb{Q}$ testing existence and smoothness of surfaces containing an $m$-gon. Each row corresponds to one experiment: degree $d$, number of points used, whether the chosen form was singular, whether the space of degree-$d$ forms in the ideal was zero.}
-        % \label{tab:mgon-results-small}
-        \small
-        \begin{tabular}{r r c c }
-            \toprule
-            $d$ & $m$ & Singular & Zero  \\
-            \midrule
-            2 & 4  & false & false \\
-            2 & 5  & false & true  \\
-            3 & 6  & false & false \\
-            3 & 7  & false & true  \\
-            4 & 8  & false & false \\
-            4 & 9  & false & true  \\
-            5 & 11 & false & false \\
-            5 & 12 & false & true  \\
-            6 & 13 & false & false \\
-            6 & 14 & false & true  \\
-            \bottomrule
-        \end{tabular}
-    \end{table}
-\end{frame}
-
 \begin{frame}
     \begin{example}
         For a regular 4-gon, we have $h^1(\mathcal{I}_{C_4}(d)) = 0$ for $d \geq 1$, so 
@@ -273,44 +245,25 @@
     Include proof.
 \end{frame}
 
+\begin{frame}{Computational results}
+    Include concrete limits, and tables from m2.
+\end{frame}
+
 \begin{frame}{$m$-chain}
     \begin{definition}
         An $m$-chain is a union of $m$ lines $l_1, l_2, \dots, l_m$ such that $l_i$ intersects $l_{i+1}$ for $1 \leq i < m$. We will write $Q_m = \bigcup_{i=1}^m l_i$ and denote the intersection points as $p_i = l_i \cap l_{i+1}$ for $1 \leq i < m$. 
     \end{definition}
-    An $m$-chain is \emph{regular} if it only intersects the expected lines, and there are no double lines.
+    An $m$-chain is \emph{regular} if it only intersects at the points $p_1, p_2, \dots, p_{m-1}$, and there are no double lines.
 \end{frame}
 
 \begin{frame}
     \begin{theorem}
-        Given a regular $m$-chain, we can find a surface $X$ of degree $d$ including it when $m < (\binom{d+3}{3}-1) \cdot \frac{1}{d}$.
+        Given a regular $m$-chain, we can find a smooth surface $S_d$ of degree $d$ including it when $m < (\binom{d+3}{3}-1) \cdot \frac{1}{d}$.
     \end{theorem}
 \end{frame}
 
-\begin{frame}[fragile]{Computational results}
+\begin{frame}{Computational results}
     Include concrete limits, and tables from m2.
-
-    \begin{table}
-        \centering
-        % \caption{Results from Macaulay2 over $\mathbb{Q}$ testing existence and smoothness of surfaces containing an $m$-gon. Each row corresponds to one experiment: degree $d$, number of points used, whether the chosen form was singular, whether the space of degree-$d$ forms in the ideal was zero.}
-        \label{tab:nchain-results-small}
-        \small
-        \begin{tabular}{r r c c }
-            \toprule
-            $d$ & $m$ & Singular & Zero  \\
-            \midrule
-            2 & 4  & \alert<1>{true} & false \\
-            2 & 5  & false & true  \\
-            3 & 6  & \alert<1>{true} & false \\
-            3 & 7  & false & true  \\
-            4 & 8  & false & false \\
-            4 & 9  & false & true  \\
-            5 & 11 & false & false \\
-            5 & 12 & false & true  \\
-            6 & 13 & false & false \\
-            6 & 14 & false & true  \\
-            \bottomrule
-        \end{tabular}
-    \end{table}
 \end{frame}
 
 \begin{frame}{4-chain}
@@ -352,43 +305,22 @@
     \end{theorem}
 \end{frame}
 
-\begin{frame}{6-chain}
+\begin{frame}
     Singular surface as in 4-chain.
     Include figure.
 \end{frame}
 
-\begin{frame}{6-chain}
+\begin{frame}
     \begin{theorem}
         In a smooth cubic surface, one can find at most a regular 5-chain.
     \end{theorem}
-    \begin{itemize}
-        \item Can find a regular 5-chain.
-        \item Consider the divisor $D = C_1 + C_2 - C_4 - C_5$.
-        \item $D^2 = 0$.
-        \item $H = f^*(\mathcal{O}_{\mathbb{P}^3}(1))$ is ample, and $HD = 0$.
-        \item By Hodge index theorem, $D = 0$.
-        \item So $C_1 + C_2 = C_4 + C_5$.
-        \item $C_1C_6 + C_2C_6 = C_4C_6 + 1$
-    \end{itemize}
-
-    % Let $C_i \neq C_4$ be another line which intersects $C_5$. Then it must also intersect either $C_1$ or $C_2$ by the equality, and thus cannot be used to make a regular 6-chain.
 \end{frame}
 
-\begin{frame}[fragile]{6-chain}
+\begin{frame}
     If one smooth surface, then many.
-    \begin{figure}[ht]
-        \centering
-        \begin{tikzcd}
-            & \mathcal{N}= \{(X, Q_6) \in \mathbb{P}^{19} \times \mathcal{Q}_6 \mid Q_6 \subset X\} \arrow[dl, "p"'] \arrow[dr, "q"] & \\
-            \mathbb{P}^{19}  & & \mathcal{Q}_6
-        \end{tikzcd}
-        % \caption{Incidence diagram with the morphisms $p:\mathcal{N} \to \mathbb{P}^{19}$ and $q:\mathcal{N}\to\mathcal{Q}_6$.}
-        % \label{fig:incidence}
-    \end{figure}
-    $\mathcal{D} = \{aX + bY\}$.
 \end{frame}
 
-\begin{frame}{6-chain}
+\begin{frame}
     Uniqueness.
 \end{frame}
 
