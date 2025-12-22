@@ -167,7 +167,15 @@
     
 \end{frame}
 
-\begin{frame}[fragile]{Eksemplel på 5-sykel}
+\begin{frame}[fragile]{Eksempel på 4-sykel}
+    \begin{figure}
+        \centering
+        \input{../doc/figures/4gon.tex}
+    % \caption{A 4-chain in $\mathbb{P}^3$.}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Eksempel på 5-sykel}
     \begin{figure}
         \centering
         \includegraphics[width=1\textwidth]{../doc/figures/5gon.png}
@@ -175,7 +183,7 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}[fragile]{Eksemplel på 5-sykel}
+\begin{frame}[fragile]{Eksempel på 5-sykel}
     \begin{figure}
         \centering
         \includegraphics[width=1\textwidth]{../doc/figures/5gon-color.png}
@@ -287,7 +295,7 @@
     En $m$-kjede er \emph{regulær} hvis den kun skjærer de forventede linjene, og det ikke finnes doble linjer.
 \end{frame}
 
-\begin{frame}{$m$-kjede}
+\begin{frame}{Eksempel på 4-kjede}
     \begin{figure}
         \centering
         \includegraphics[width=1\textwidth]{../doc/figures/4chain.png}
@@ -380,6 +388,13 @@
 \end{frame}
 
 \begin{frame}{6-kjede}
+    % Recall that a divisor $D$ on a variety $S$ is \emph{ample} if some positive multiple of $D$ defines an embedding of $S$ into projective space. We now state the Hodge Index Theorem for surfaces.
+    \begin{teorem}[Hodge Index]
+        La $H$ være en ampel divisor på en glatt flate $S$, og anta at $D$ er en divisor, $D \not\equiv 0$, og $D.H = 0$. Da har vi at $D^2 < 0$.
+    \end{teorem}
+\end{frame}
+
+\begin{frame}{6-kjede}
     \begin{teorem}
        I en glatt kubisk flate kan man finne høyst en regulær 5-kjede.
     \end{teorem}
@@ -387,10 +402,10 @@
         \item Kan finne en regulær 5-kjede.
         \item Betrakt divisoren $D = C_1 + C_2 - C_4 - C_5$.
         \item $D^2 = 0$.
-        \item $H = f^*(\mathcal{O}_{\mathbb{P}^3}(1))$ er ampel, og $HD = 0$.
+        \item $H = f^*(\mathcal{O}_{\mathbb{P}^3}(1))$ er ampel, og $H.D = 0$.
         \item Ved Hodge-indeksteoremet så får vi at $D = 0$.
         \item Så $C_1 + C_2 = C_4 + C_5$.
-        \item $C_1C_6 + C_2C_6 = C_4C_6 + 1$
+        \item $C_1.C_6 + C_2.C_6 = C_4.C_6 + 1$
     \end{itemize}
 
     % Let $C_i \neq C_4$ be another line which intersects $C_5$. Then it must also intersect either $C_1$ or $C_2$ by the equality, and thus cannot be used to make a regular 6-chain.
